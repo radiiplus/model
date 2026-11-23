@@ -1,0 +1,815 @@
+{
+  "context": 2048,
+  "cross": [
+    {
+      "baseline": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.6755843804891231,
+          1.0
+        ],
+        "correct": 8,
+        "errors": {},
+        "latency": {
+          "mean": 1.2567125054374628e-05,
+          "p50": 1.266250001208391e-05,
+          "p95": 1.7484000181866577e-05
+        },
+        "samples": 8
+      },
+      "interpretation": "scorer and rule-baseline reference; no strategy transfer was trained",
+      "relation": "dependency",
+      "samples": 8,
+      "source": "graph",
+      "target": "chain"
+    },
+    {
+      "baseline": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.6755843804891231,
+          1.0
+        ],
+        "correct": 8,
+        "errors": {},
+        "latency": {
+          "mean": 1.3739374992383091e-05,
+          "p50": 1.3029499996264349e-05,
+          "p95": 2.1520999780477723e-05
+        },
+        "samples": 8
+      },
+      "interpretation": "scorer and rule-baseline reference; no strategy transfer was trained",
+      "relation": "dependency",
+      "samples": 8,
+      "source": "chain",
+      "target": "graph"
+    },
+    {
+      "baseline": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.6755843804891231,
+          1.0
+        ],
+        "correct": 8,
+        "errors": {},
+        "latency": {
+          "mean": 9.615249894068256e-06,
+          "p50": 9.972999805540894e-06,
+          "p95": 1.2611999864020618e-05
+        },
+        "samples": 8
+      },
+      "interpretation": "scorer and rule-baseline reference; no strategy transfer was trained",
+      "relation": "stack",
+      "samples": 8,
+      "source": "bracket",
+      "target": "trace"
+    },
+    {
+      "baseline": {
+        "accuracy": 1.0,
+        "ci95": [
+          0.6755843804891231,
+          1.0
+        ],
+        "correct": 8,
+        "errors": {},
+        "latency": {
+          "mean": 2.3800000690243905e-06,
+          "p50": 1.9000001429958502e-06,
+          "p95": 4.82500036014244e-06
+        },
+        "samples": 8
+      },
+      "interpretation": "scorer and rule-baseline reference; no strategy transfer was trained",
+      "relation": "stack",
+      "samples": 8,
+      "source": "trace",
+      "target": "bracket"
+    }
+  ],
+  "limits": [
+    "synthetic algorithmic tasks only",
+    "no natural-language reasoning evidence",
+    "no model or strategy training was run",
+    "rule baseline is a reference, not a learned system"
+  ],
+  "loops": 0,
+  "mode": "synthetic",
+  "params": 0,
+  "runtime": {
+    "cpu": 0.008334167000000003,
+    "hashes": {
+      "evaluate": "0456263384c27e3f0457b4ebe4afdf81669fb361c43381b2d7680fa36a27b338",
+      "tasks": "39f751e42db8ab24f03e4123593410d8f19b7c1422d8e976290de5b1bc289637",
+      "test": "4b0aefd318528116265deb81ae053514ffe18b8d3fe7284f9f2be4642c4f5395"
+    },
+    "memory": 2147483648,
+    "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.39",
+    "python": "3.14.2",
+    "rss": 21757952,
+    "threads": 1,
+    "timeout": 120,
+    "wall": 0.018328441999983625
+  },
+  "selfcheck": {
+    "passed": true,
+    "samples": 120,
+    "source": "gold targets used for scorer self-check only"
+  },
+  "tracks": {
+    "addition": {
+      "extrapolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 3.207499048585305e-07,
+            "p50": 3.155000740662217e-07,
+            "p95": 4.1199973566108383e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 3.019499899892253e-06,
+            "p50": 2.818999746523332e-06,
+            "p95": 4.068000180268427e-06
+          },
+          "samples": 4
+        }
+      },
+      "interpolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.917500978583121e-07,
+            "p50": 2.9600005291285925e-07,
+            "p95": 3.680002009787131e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 4.077499966115283e-06,
+            "p50": 3.157500032102689e-06,
+            "p95": 7.617999926878838e-06
+          },
+          "samples": 4
+        }
+      },
+      "train": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.2425007574992425
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 12
+          },
+          "latency": {
+            "mean": 4.080832998927993e-07,
+            "p50": 2.5849976736935787e-07,
+            "p95": 1.324999630014645e-06
+          },
+          "samples": 12
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.7574992425007574,
+            1.0
+          ],
+          "correct": 12,
+          "errors": {},
+          "latency": {
+            "mean": 0.0003969126666637142,
+            "p50": 2.5955000637623016e-06,
+            "p95": 0.0047250039997379645
+          },
+          "samples": 12
+        }
+      },
+      "validation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 3.335001110826852e-07,
+            "p50": 3.0100022740953136e-07,
+            "p95": 5.229999260336626e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 3.302249979242333e-06,
+            "p50": 2.9855000320822e-06,
+            "p95": 4.861999968852615e-06
+          },
+          "samples": 4
+        }
+      }
+    },
+    "bracket": {
+      "extrapolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "format": 4
+          },
+          "latency": {
+            "mean": 2.694999921004637e-07,
+            "p50": 2.73999830824323e-07,
+            "p95": 3.2500020097359084e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 2.8517500822999864e-06,
+            "p50": 2.817999984472408e-06,
+            "p95": 3.202000243618386e-06
+          },
+          "samples": 4
+        }
+      },
+      "interpolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "format": 4
+          },
+          "latency": {
+            "mean": 2.4275004761875607e-07,
+            "p50": 2.3550001060357317e-07,
+            "p95": 3.0199998946045525e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 2.466000069034635e-06,
+            "p50": 2.0945001324434998e-06,
+            "p95": 3.743999968719436e-06
+          },
+          "samples": 4
+        }
+      },
+      "train": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.2425007574992425
+          ],
+          "correct": 0,
+          "errors": {
+            "format": 12
+          },
+          "latency": {
+            "mean": 2.43750074938968e-07,
+            "p50": 2.5300005290773697e-07,
+            "p95": 3.2500020097359084e-07
+          },
+          "samples": 12
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.7574992425007574,
+            1.0
+          ],
+          "correct": 12,
+          "errors": {},
+          "latency": {
+            "mean": 2.5993332807653737e-06,
+            "p50": 1.8669998098630458e-06,
+            "p95": 7.604000074934447e-06
+          },
+          "samples": 12
+        }
+      },
+      "validation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "format": 4
+          },
+          "latency": {
+            "mean": 3.2150012430065544e-07,
+            "p50": 3.345001005072845e-07,
+            "p95": 4.0200029616244137e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 2.1500000002561137e-06,
+            "p50": 2.1079999896755908e-06,
+            "p95": 2.4410001060459763e-06
+          },
+          "samples": 4
+        }
+      }
+    },
+    "chain": {
+      "extrapolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.4774999474175274e-07,
+            "p50": 2.3699999474047218e-07,
+            "p95": 3.2500020097359084e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.606875002835295e-05,
+            "p50": 1.5799000038896338e-05,
+            "p95": 1.9085000076302094e-05
+          },
+          "samples": 4
+        }
+      },
+      "interpolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.8524993922474096e-07,
+            "p50": 2.745000529102981e-07,
+            "p95": 3.7199970392975956e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.0891249985434115e-05,
+            "p50": 1.0362499779148493e-05,
+            "p95": 1.3993000266054878e-05
+          },
+          "samples": 4
+        }
+      },
+      "train": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.2425007574992425
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 12
+          },
+          "latency": {
+            "mean": 2.482499894540524e-07,
+            "p50": 2.2500012164528016e-07,
+            "p95": 4.579997039400041e-07
+          },
+          "samples": 12
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.7574992425007574,
+            1.0
+          ],
+          "correct": 12,
+          "errors": {},
+          "latency": {
+            "mean": 1.2122000081641696e-05,
+            "p50": 1.0739500112322276e-05,
+            "p95": 2.9818999792041723e-05
+          },
+          "samples": 12
+        }
+      },
+      "validation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.752500449787476e-07,
+            "p50": 2.599999788799323e-07,
+            "p95": 3.6900019040331244e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.0677749969545403e-05,
+            "p50": 1.0608999900796334e-05,
+            "p95": 1.234599994859309e-05
+          },
+          "samples": 4
+        }
+      }
+    },
+    "graph": {
+      "extrapolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "invalid": 4
+          },
+          "latency": {
+            "mean": 3.235001031498541e-07,
+            "p50": 3.145000846416224e-07,
+            "p95": 4.200001058052294e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 2.576274982857285e-05,
+            "p50": 2.1289999722284847e-05,
+            "p95": 4.643600004783366e-05
+          },
+          "samples": 4
+        }
+      },
+      "interpolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "invalid": 4
+          },
+          "latency": {
+            "mean": 3.880001031575375e-07,
+            "p50": 3.760001163755078e-07,
+            "p95": 5.270003384794109e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.1057999813601782e-05,
+            "p50": 1.1231999906158308e-05,
+            "p95": 1.2876999790023547e-05
+          },
+          "samples": 4
+        }
+      },
+      "train": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.2425007574992425
+          ],
+          "correct": 0,
+          "errors": {
+            "invalid": 12
+          },
+          "latency": {
+            "mean": 2.9941672134251956e-07,
+            "p50": 3.0849992072035093e-07,
+            "p95": 3.710001692525111e-07
+          },
+          "samples": 12
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.7574992425007574,
+            1.0
+          ],
+          "correct": 12,
+          "errors": {},
+          "latency": {
+            "mean": 1.069725006648999e-05,
+            "p50": 1.0801000144056161e-05,
+            "p95": 1.3534000117942924e-05
+          },
+          "samples": 12
+        }
+      },
+      "validation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "invalid": 4
+          },
+          "latency": {
+            "mean": 3.687500793603249e-07,
+            "p50": 3.6550000004353933e-07,
+            "p95": 4.440003067429643e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.2138499869251973e-05,
+            "p50": 1.0563499927229714e-05,
+            "p95": 1.831700001275749e-05
+          },
+          "samples": 4
+        }
+      }
+    },
+    "trace": {
+      "extrapolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.6375005290901754e-07,
+            "p50": 2.5050007934623864e-07,
+            "p95": 3.4499998946557753e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 1.1158499887642392e-05,
+            "p50": 1.0968999731630902e-05,
+            "p95": 1.3329000012163306e-05
+          },
+          "samples": 4
+        }
+      },
+      "interpolation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.8725003176077735e-07,
+            "p50": 2.420001692371443e-07,
+            "p95": 4.7399998948094435e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 6.529749839501164e-06,
+            "p50": 6.648999942626688e-06,
+            "p95": 7.4689996836241335e-06
+          },
+          "samples": 4
+        }
+      },
+      "train": {
+        "constant": {
+          "accuracy": 0.08333333333333333,
+          "ci95": [
+            0.014864709450773478,
+            0.35388592179859524
+          ],
+          "correct": 1,
+          "errors": {
+            "arithmetic": 11
+          },
+          "latency": {
+            "mean": 2.2908329810888972e-07,
+            "p50": 2.2350013750838116e-07,
+            "p95": 3.710001692525111e-07
+          },
+          "samples": 12
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.7574992425007574,
+            1.0
+          ],
+          "correct": 12,
+          "errors": {},
+          "latency": {
+            "mean": 8.271166658839016e-06,
+            "p50": 6.849999863334233e-06,
+            "p95": 2.141599998140009e-05
+          },
+          "samples": 12
+        }
+      },
+      "validation": {
+        "constant": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.48990002040399916
+          ],
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": {
+            "mean": 2.897500053222757e-07,
+            "p50": 2.5549979909555987e-07,
+            "p95": 4.180001269560307e-07
+          },
+          "samples": 4
+        },
+        "rules": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.5100999795960008,
+            1.0
+          ],
+          "correct": 4,
+          "errors": {},
+          "latency": {
+            "mean": 7.723000067016983e-06,
+            "p50": 7.752000101390877e-06,
+            "p95": 8.086999969236786e-06
+          },
+          "samples": 4
+        }
+      }
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,223 @@
+{
+  "bands": {
+    "addition": {
+      "extrapolation": [
+        3,
+        4
+      ],
+      "interpolation": [
+        1,
+        2
+      ],
+      "train": [
+        1,
+        2
+      ],
+      "validation": [
+        1,
+        2
+      ]
+    },
+    "bracket": {
+      "extrapolation": [
+        4,
+        6
+      ],
+      "interpolation": [
+        1,
+        3
+      ],
+      "train": [
+        1,
+        3
+      ],
+      "validation": [
+        1,
+        3
+      ]
+    },
+    "chain": {
+      "extrapolation": [
+        4,
+        5
+      ],
+      "interpolation": [
+        2,
+        3
+      ],
+      "train": [
+        2,
+        3
+      ],
+      "validation": [
+        2,
+        3
+      ]
+    },
+    "graph": {
+      "extrapolation": [
+        4,
+        5
+      ],
+      "interpolation": [
+        2,
+        3
+      ],
+      "train": [
+        2,
+        3
+      ],
+      "validation": [
+        2,
+        3
+      ]
+    },
+    "trace": {
+      "extrapolation": [
+        6,
+        8
+      ],
+      "interpolation": [
+        2,
+        4
+      ],
+      "train": [
+        2,
+        4
+      ],
+      "validation": [
+        2,
+        4
+      ]
+    }
+  },
+  "context": 2048,
+  "counts": {
+    "extrapolation": 4,
+    "interpolation": 4,
+    "train": 12,
+    "validation": 4
+  },
+  "cross": [
+    {
+      "relation": "dependency",
+      "source": "graph",
+      "target": "chain"
+    },
+    {
+      "relation": "dependency",
+      "source": "chain",
+      "target": "graph"
+    },
+    {
+      "relation": "stack",
+      "source": "bracket",
+      "target": "trace"
+    },
+    {
+      "relation": "stack",
+      "source": "trace",
+      "target": "bracket"
+    }
+  ],
+  "generator": 1,
+  "hashes": {
+    "addition": {
+      "extrapolation": "1c8e8e0db7f833e37a818bdbd353e28710b5460491b5bd785933b888aea263cf",
+      "interpolation": "7ca1cf4135c0dafcc21398d0a764e3605e65db91d892d575a2e717d2ca9d290c",
+      "train": "1c62a92675a63ed337db6c4bc311c6a5fb1d7a2416aee1eda65060c6d41df30d",
+      "validation": "49576d6f323df7fb43af4c28aef0e22c027f1dc697cc0b58aee18a4163c8f7f8"
+    },
+    "bracket": {
+      "extrapolation": "5ec541e61a170cc3d2ca6b9a44906368389dc67c510de579696e9e2c994df3bb",
+      "interpolation": "3faca9614a1a1bcccd94aac5a5cd7c62a53281ed0ceee6f5db653d2cb875501c",
+      "train": "250a5c71cf4488f166e84f3c141593c3651bbbd7c54c5c81eaf92a4270248950",
+      "validation": "6f6a00e220e4ace3d26b424bdbe99fa383f7e1ccead56293a5699446c6576cff"
+    },
+    "chain": {
+      "extrapolation": "3159e02e1040e834dc2bf3f512bd99dff736a680614c2f8b839285523700f808",
+      "interpolation": "b58156431f498cc93e48643ad93e4248c1699e13189553d4643f5e7bd25e6ccf",
+      "train": "59f3777af3df107dedf4dd5a07d19e4280b156a265740ffd92c8893f42f44536",
+      "validation": "2bb1295a5be508e9c96061f62c60658b73cd10dd6d92d50debc009b7944c7dc3"
+    },
+    "graph": {
+      "extrapolation": "a8a97befc8d3572dabd1e5ce68c69477fe4ecdfb41580fa355aacf1045843844",
+      "interpolation": "2f5a33373b447a147fe7e3fc6e4f253bc01ad6e43619fef4abbf7c94d13603b1",
+      "train": "b143f22b26c904e94f920b4c954631acf2bdf9b09368634f16c608a86f2dc20a",
+      "validation": "3daca04478d80181e7151c4cd67da28891871f0f1cd850358817233f7a07f28a"
+    },
+    "trace": {
+      "extrapolation": "6afd9ee78e8c529baebcd7eff20a96a9bb54d812bfbd31dceb55d325ae84ea9f",
+      "interpolation": "ef08eb830d54c5e7ef2ee685da8f7f937ced5a9bd3b961ab28171d253e0984bf",
+      "train": "2103af717553caba3f0c4830958ae208036d18343049b75c8eea40185cb25ed3",
+      "validation": "802f0cf4f48f912eb556562ec6ca23c80eacf6ef606c046d20435ad9f5b7a5c8"
+    }
+  },
+  "longest": 320,
+  "seeds": {
+    "addition": {
+      "extrapolation": 1104,
+      "interpolation": 1103,
+      "train": 1101,
+      "validation": 1102
+    },
+    "bracket": {
+      "extrapolation": 2204,
+      "interpolation": 2203,
+      "train": 2201,
+      "validation": 2202
+    },
+    "chain": {
+      "extrapolation": 4404,
+      "interpolation": 4403,
+      "train": 4401,
+      "validation": 4402
+    },
+    "graph": {
+      "extrapolation": 3304,
+      "interpolation": 3303,
+      "train": 3301,
+      "validation": 3302
+    },
+    "trace": {
+      "extrapolation": 5504,
+      "interpolation": 5503,
+      "train": 5501,
+      "validation": 5502
+    }
+  },
+  "sizes": {
+    "addition": {
+      "extrapolation": 4,
+      "interpolation": 4,
+      "train": 12,
+      "validation": 4
+    },
+    "bracket": {
+      "extrapolation": 4,
+      "interpolation": 4,
+      "train": 12,
+      "validation": 4
+    },
+    "chain": {
+      "extrapolation": 4,
+      "interpolation": 4,
+      "train": 12,
+      "validation": 4
+    },
+    "graph": {
+      "extrapolation": 4,
+      "interpolation": 4,
+      "train": 12,
+      "validation": 4
+    },
+    "trace": {
+      "extrapolation": 4,
+      "interpolation": 4,
+      "train": 12,
+      "validation": 4
+    }
+  },
+  "source": "39f751e42db8ab24f03e4123593410d8f19b7c1422d8e976290de5b1bc289637",
+  "version": 1
+}
