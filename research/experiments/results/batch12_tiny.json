@@ -1,0 +1,964 @@
+{
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cuda_available": false,
+    "device": "CPU",
+    "mem_available_mib_at_start": 5327,
+    "memory_guard_mib": 2560,
+    "python": "3.14.2",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "torch": "2.15.0+cpu",
+    "torch_threads": 1
+  },
+  "experiment_id": "batch12-byte-transformer-and-bounded-retrieval",
+  "limitations": [
+    "Synthetic corpus has 18 short records; no general language, reasoning or coding claim.",
+    "Validation/test examples are held out by document ID and exact/normalized content hash, but the corpus is tiny and authored for representation coverage.",
+    "BM25/verifier task answers use structured metadata and do not involve LM generation or natural-language entailment.",
+    "No recurrent mixer, SFT, online RL, quantized runtime, or GGUF export was added.",
+    "Three seeds are preliminary; model RSS includes PyTorch process overhead and peak is shared across sequential runs."
+  ],
+  "model": {
+    "architecture": "preserved TinyGPT architecture with UTF-8 byte vocabulary; separate from Batch 4 vocab-32 checkpoint",
+    "config": {
+      "attention": "causal_multihead_attention",
+      "batch_size": 2,
+      "context_length": 32,
+      "d_ff": 128,
+      "d_model": 32,
+      "dropout": 0.0,
+      "dtype": "torch-float32",
+      "layers": 1,
+      "learning_rate": 0.003,
+      "mlp_activation": "gelu_erf",
+      "n_heads": 4,
+      "normalization": "pre_layernorm",
+      "optimizer": "AdamW",
+      "position_embedding": "learned_absolute",
+      "seed": 101,
+      "training_steps": 60,
+      "vocab_size": 256,
+      "weight_decay": 0.0,
+      "weight_tying": "token_embedding_and_output_projection"
+    },
+    "data_audit": {
+      "byte_counts": {
+        "test": 419,
+        "train": 1080,
+        "validation": 254
+      },
+      "cross_split_exact_or_normalized_duplicate_count": 0,
+      "document_counts": {
+        "test": 4,
+        "train": 11,
+        "validation": 3
+      },
+      "license": "project-authored synthetic text; CC0-1.0",
+      "source": "/home/codespace/research/experiments/fixtures/tokenizer_corpus.jsonl",
+      "source_sha256": "d1bf1190ed7bcc6a9971fadd63bc77f75e230103372b73f02e4c940e12670d73",
+      "split_ids": {
+        "test": [
+          "mixed_script",
+          "source_literals",
+          "json_data",
+          "quoted_text"
+        ],
+        "train": [
+          "prose_en",
+          "prose_informal",
+          "prose_es",
+          "prose_ja",
+          "number_decimal",
+          "number_ids",
+          "punctuation",
+          "code_python",
+          "code_rust",
+          "equation",
+          "equation_unicode"
+        ],
+        "validation": [
+          "url",
+          "email",
+          "rare"
+        ]
+      },
+      "split_sha256": "c70def35b0eadc89d60cfcf24629762b865e296f60708124fa4291fa8ebf5f9f"
+    },
+    "kv_cache_bytes_at_context_estimate_fp32": 8192,
+    "kv_cache_bytes_per_token_estimate_fp32": 256,
+    "kv_cache_implementation": "not implemented for this training prototype; formula estimate only",
+    "mean_test_bits_per_byte": 6.879281203809167,
+    "mean_test_next_byte_accuracy": 0.08112449799196787,
+    "mean_validation_bits_per_byte_after": 6.078572283522546,
+    "mean_validation_bits_per_byte_before": 8.000924454539888,
+    "parameter_count": 21984,
+    "parameter_count_per_run": [
+      21984,
+      21984,
+      21984
+    ],
+    "resume_test": {
+      "final_model_exact": true,
+      "full_state_sha256": "d962c6daf17c4092f83090decd09ac6104f4d25071d284c98f3bd75b88b94746",
+      "interrupted_after_step": 10,
+      "resumed_state_sha256": "d962c6daf17c4092f83090decd09ac6104f4d25071d284c98f3bd75b88b94746",
+      "resumed_step": 20
+    },
+    "runs": [
+      {
+        "checkpoint_bytes": 295197,
+        "checkpoint_path": "research/experiments/results/batch12_byte_seed_11.pt",
+        "export_roundtrip_exact": true,
+        "generation_repeatable": true,
+        "inference_export_bytes": 95085,
+        "inference_export_path": "research/experiments/results/batch12_byte_seed_11_inference.pt",
+        "interrupted": false,
+        "model_state_sha256": "3c025914e49d97f7192167f1fcf716784591dac3e36065d82dc96720bbd92c51",
+        "model_tensor_bytes": 87936,
+        "parameter_count": 21984,
+        "peak_rss_bytes_process_highwater": 344293376,
+        "resume_step": 0,
+        "seconds_per_step": 0.0035029133833328766,
+        "seed": 11,
+        "steps_completed": 60,
+        "target_bytes_per_second": 18270.506003521747,
+        "target_bytes_per_step": 64,
+        "test": {
+          "bits_per_byte": 7.003166374828825,
+          "next_byte_accuracy": 0.08674698795180723,
+          "nll_nats_per_byte": 4.854225027704813,
+          "target_bytes": 415
+        },
+        "test_before": {
+          "bits_per_byte": 7.988145812347352,
+          "next_byte_accuracy": 0.02650602409638554,
+          "nll_nats_per_byte": 5.536960747730301,
+          "target_bytes": 415
+        },
+        "train_seconds": 0.2101748029999726,
+        "train_windows": 728,
+        "validation_after": {
+          "bits_per_byte": 6.130062725281723,
+          "next_byte_accuracy": 0.06374501992031872,
+          "nll_nats_per_byte": 4.249035694684641,
+          "target_bytes": 251
+        },
+        "validation_before": {
+          "bits_per_byte": 8.017315240753069,
+          "next_byte_accuracy": 0.0199203187250996,
+          "nll_nats_per_byte": 5.557179454788269,
+          "target_bytes": 251
+        }
+      },
+      {
+        "checkpoint_bytes": 295197,
+        "checkpoint_path": "research/experiments/results/batch12_byte_seed_23.pt",
+        "export_roundtrip_exact": true,
+        "generation_repeatable": true,
+        "inference_export_bytes": 95085,
+        "inference_export_path": "research/experiments/results/batch12_byte_seed_23_inference.pt",
+        "interrupted": false,
+        "model_state_sha256": "c9703e677618d4890150cdc0391ff8e4574233f40ac87273c227b3dce5441938",
+        "model_tensor_bytes": 87936,
+        "parameter_count": 21984,
+        "peak_rss_bytes_process_highwater": 344555520,
+        "resume_step": 0,
+        "seconds_per_step": 0.0033771794166871888,
+        "seed": 23,
+        "steps_completed": 60,
+        "target_bytes_per_second": 18950.725473383398,
+        "target_bytes_per_step": 64,
+        "test": {
+          "bits_per_byte": 6.826021131346944,
+          "next_byte_accuracy": 0.07951807228915662,
+          "nll_nats_per_byte": 4.731437301635742,
+          "target_bytes": 415
+        },
+        "test_before": {
+          "bits_per_byte": 7.984224869818609,
+          "next_byte_accuracy": 0.03614457831325301,
+          "nll_nats_per_byte": 5.534242957471365,
+          "target_bytes": 415
+        },
+        "train_seconds": 0.20263076500123134,
+        "train_windows": 728,
+        "validation_after": {
+          "bits_per_byte": 6.12575020618134,
+          "next_byte_accuracy": 0.06374501992031872,
+          "nll_nats_per_byte": 4.246046484229099,
+          "target_bytes": 251
+        },
+        "validation_before": {
+          "bits_per_byte": 7.985544686954127,
+          "next_byte_accuracy": 0.0199203187250996,
+          "nll_nats_per_byte": 5.535157784997704,
+          "target_bytes": 251
+        }
+      },
+      {
+        "checkpoint_bytes": 295197,
+        "checkpoint_path": "research/experiments/results/batch12_byte_seed_37.pt",
+        "export_roundtrip_exact": true,
+        "generation_repeatable": true,
+        "inference_export_bytes": 95085,
+        "inference_export_path": "research/experiments/results/batch12_byte_seed_37_inference.pt",
+        "interrupted": false,
+        "model_state_sha256": "1f4eb81afea7db9727f8f510a843ce59b7f2bf3cf0b8b0155268422b5969100d",
+        "model_tensor_bytes": 87936,
+        "parameter_count": 21984,
+        "peak_rss_bytes_process_highwater": 344555520,
+        "resume_step": 0,
+        "seconds_per_step": 0.0037927409833173444,
+        "seed": 37,
+        "steps_completed": 60,
+        "target_bytes_per_second": 16874.33976680949,
+        "target_bytes_per_step": 64,
+        "test": {
+          "bits_per_byte": 6.80865610525173,
+          "next_byte_accuracy": 0.07710843373493977,
+          "nll_nats_per_byte": 4.719400782757495,
+          "target_bytes": 415
+        },
+        "test_before": {
+          "bits_per_byte": 7.994068150551884,
+          "next_byte_accuracy": 0.04578313253012048,
+          "nll_nats_per_byte": 5.541065799759095,
+          "target_bytes": 415
+        },
+        "train_seconds": 0.22756445899904065,
+        "train_windows": 728,
+        "validation_after": {
+          "bits_per_byte": 5.979903919104576,
+          "next_byte_accuracy": 0.05976095617529881,
+          "nll_nats_per_byte": 4.144953541546704,
+          "target_bytes": 251
+        },
+        "validation_before": {
+          "bits_per_byte": 7.999913435912467,
+          "next_byte_accuracy": 0.0199203187250996,
+          "nll_nats_per_byte": 5.545117442826351,
+          "target_bytes": 251
+        }
+      }
+    ],
+    "tokenizer": "utf8-byte-v1"
+  },
+  "run_wall_seconds": 2.201215246999709,
+  "schema_version": 1,
+  "scope": "Byte-level text model training and structured retrieval system are measured separately.",
+  "system_ablation": {
+    "budget": {
+      "max_context_tokens": 64,
+      "max_output_tokens": 16,
+      "max_retrieval_calls": 2,
+      "max_verifier_calls": 2,
+      "time_budget_seconds": 0.05
+    },
+    "document_count": 10,
+    "fixture_license": "project-authored synthetic CC0-1.0",
+    "modes": {
+      "bm25_top3": {
+        "abstention_precision": 1.0,
+        "abstention_recall": 1.0,
+        "answerable_accuracy": 1.0,
+        "correct": 9,
+        "false_abstention_rate": 0.0,
+        "max_retrieval_calls": 1,
+        "max_verifier_calls": 1,
+        "mean_context_tokens": 28.88888888888889,
+        "mean_latency_ms": 0.030987288644407977,
+        "n": 9,
+        "p95_latency_ms": 0.07017200005066115,
+        "rows": [
+          {
+            "abstained": false,
+            "answer": "Qelth",
+            "answerable": true,
+            "citations": [
+              "d01"
+            ],
+            "context_tokens": 31,
+            "correct": true,
+            "id": "q01",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "4",
+            "answerable": true,
+            "citations": [
+              "d03"
+            ],
+            "context_tokens": 30,
+            "correct": true,
+            "id": "q02",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "NQ-17",
+            "answerable": true,
+            "citations": [
+              "d04"
+            ],
+            "context_tokens": 30,
+            "correct": true,
+            "id": "q03",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "09:00",
+            "answerable": true,
+            "citations": [
+              "d05"
+            ],
+            "context_tokens": 28,
+            "correct": true,
+            "id": "q04",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "08:00",
+            "answerable": true,
+            "citations": [
+              "d06"
+            ],
+            "context_tokens": 28,
+            "correct": true,
+            "id": "q05",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [
+              "d07",
+              "d08"
+            ],
+            "context_tokens": 22,
+            "correct": true,
+            "id": "q06",
+            "reason": "conflicting_current_sources",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 31,
+            "correct": true,
+            "id": "q07",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 30,
+            "correct": true,
+            "id": "q08",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "K-4",
+            "answerable": true,
+            "citations": [
+              "d10"
+            ],
+            "context_tokens": 30,
+            "correct": true,
+            "id": "q09",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          }
+        ],
+        "task_accuracy": 1.0,
+        "unsupported_answer_rate": 0.0
+      },
+      "bm25_unverified": {
+        "abstention_precision": null,
+        "abstention_recall": 0.0,
+        "answerable_accuracy": 0.8333333333333334,
+        "correct": 5,
+        "false_abstention_rate": 0.0,
+        "max_retrieval_calls": 1,
+        "max_verifier_calls": 0,
+        "mean_context_tokens": 10.555555555555555,
+        "mean_latency_ms": 0.019536911066906113,
+        "n": 9,
+        "p95_latency_ms": 0.052053999752388336,
+        "rows": [
+          {
+            "abstained": false,
+            "answer": "Qelth",
+            "answerable": true,
+            "citations": [
+              "d01"
+            ],
+            "context_tokens": 9,
+            "correct": true,
+            "id": "q01",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "4",
+            "answerable": true,
+            "citations": [
+              "d03"
+            ],
+            "context_tokens": 12,
+            "correct": true,
+            "id": "q02",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "NQ-17",
+            "answerable": true,
+            "citations": [
+              "d04"
+            ],
+            "context_tokens": 10,
+            "correct": true,
+            "id": "q03",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "09:00",
+            "answerable": true,
+            "citations": [
+              "d05"
+            ],
+            "context_tokens": 10,
+            "correct": true,
+            "id": "q04",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "09:00",
+            "answerable": true,
+            "citations": [
+              "d05"
+            ],
+            "context_tokens": 10,
+            "correct": false,
+            "id": "q05",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "active",
+            "answerable": false,
+            "citations": [
+              "d07"
+            ],
+            "context_tokens": 11,
+            "correct": false,
+            "id": "q06",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "Veloria",
+            "answerable": false,
+            "citations": [
+              "d09"
+            ],
+            "context_tokens": 13,
+            "correct": false,
+            "id": "q07",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "Qelth",
+            "answerable": false,
+            "citations": [
+              "d01"
+            ],
+            "context_tokens": 9,
+            "correct": false,
+            "id": "q08",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          },
+          {
+            "abstained": false,
+            "answer": "K-4",
+            "answerable": true,
+            "citations": [
+              "d10"
+            ],
+            "context_tokens": 11,
+            "correct": true,
+            "id": "q09",
+            "reason": "retrieved_without_verification",
+            "retrieval_calls": 1,
+            "verifier_calls": 0
+          }
+        ],
+        "task_accuracy": 0.5555555555555556,
+        "unsupported_answer_rate": 0.4444444444444444
+      },
+      "bounded_bm25": {
+        "abstention_precision": 1.0,
+        "abstention_recall": 1.0,
+        "answerable_accuracy": 1.0,
+        "correct": 9,
+        "false_abstention_rate": 0.0,
+        "max_retrieval_calls": 2,
+        "max_verifier_calls": 2,
+        "mean_context_tokens": 14.777777777777779,
+        "mean_latency_ms": 0.020725200051351242,
+        "n": 9,
+        "p95_latency_ms": 0.037693000194849446,
+        "rows": [
+          {
+            "abstained": false,
+            "answer": "Qelth",
+            "answerable": true,
+            "citations": [
+              "d01"
+            ],
+            "context_tokens": 9,
+            "correct": true,
+            "id": "q01",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "4",
+            "answerable": true,
+            "citations": [
+              "d03"
+            ],
+            "context_tokens": 12,
+            "correct": true,
+            "id": "q02",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "NQ-17",
+            "answerable": true,
+            "citations": [
+              "d04"
+            ],
+            "context_tokens": 10,
+            "correct": true,
+            "id": "q03",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "09:00",
+            "answerable": true,
+            "citations": [
+              "d05"
+            ],
+            "context_tokens": 10,
+            "correct": true,
+            "id": "q04",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "08:00",
+            "answerable": true,
+            "citations": [
+              "d06"
+            ],
+            "context_tokens": 19,
+            "correct": true,
+            "id": "q05",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 2,
+            "verifier_calls": 2
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [
+              "d07",
+              "d08"
+            ],
+            "context_tokens": 22,
+            "correct": true,
+            "id": "q06",
+            "reason": "conflicting_current_sources",
+            "retrieval_calls": 2,
+            "verifier_calls": 2
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 22,
+            "correct": true,
+            "id": "q07",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 2,
+            "verifier_calls": 2
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 18,
+            "correct": true,
+            "id": "q08",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 2,
+            "verifier_calls": 2
+          },
+          {
+            "abstained": false,
+            "answer": "K-4",
+            "answerable": true,
+            "citations": [
+              "d10"
+            ],
+            "context_tokens": 11,
+            "correct": true,
+            "id": "q09",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 1,
+            "verifier_calls": 1
+          }
+        ],
+        "task_accuracy": 1.0,
+        "unsupported_answer_rate": 0.0
+      },
+      "full_context": {
+        "abstention_precision": 1.0,
+        "abstention_recall": 1.0,
+        "answerable_accuracy": 1.0,
+        "correct": 9,
+        "false_abstention_rate": 0.0,
+        "max_retrieval_calls": 0,
+        "max_verifier_calls": 1,
+        "mean_context_tokens": 105,
+        "mean_latency_ms": 0.07639251113384186,
+        "n": 9,
+        "p95_latency_ms": 0.1158399991254555,
+        "rows": [
+          {
+            "abstained": false,
+            "answer": "Qelth",
+            "answerable": true,
+            "citations": [
+              "d01"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q01",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "4",
+            "answerable": true,
+            "citations": [
+              "d03"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q02",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "NQ-17",
+            "answerable": true,
+            "citations": [
+              "d04"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q03",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "09:00",
+            "answerable": true,
+            "citations": [
+              "d05"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q04",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "08:00",
+            "answerable": true,
+            "citations": [
+              "d06"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q05",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [
+              "d07",
+              "d08"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q06",
+            "reason": "conflicting_current_sources",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q07",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q08",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": false,
+            "answer": "K-4",
+            "answerable": true,
+            "citations": [
+              "d10"
+            ],
+            "context_tokens": 105,
+            "correct": true,
+            "id": "q09",
+            "reason": "supported_by_current_source",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          }
+        ],
+        "task_accuracy": 1.0,
+        "unsupported_answer_rate": 0.0
+      },
+      "none": {
+        "abstention_precision": 0.3333333333333333,
+        "abstention_recall": 1.0,
+        "answerable_accuracy": 0.0,
+        "correct": 3,
+        "false_abstention_rate": 1.0,
+        "max_retrieval_calls": 0,
+        "max_verifier_calls": 1,
+        "mean_context_tokens": 0,
+        "mean_latency_ms": 0.002193577731506795,
+        "n": 9,
+        "p95_latency_ms": 0.004904999514110386,
+        "rows": [
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q01",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q02",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q03",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q04",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q05",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": true,
+            "id": "q06",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": true,
+            "id": "q07",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": false,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": true,
+            "id": "q08",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          },
+          {
+            "abstained": true,
+            "answer": null,
+            "answerable": true,
+            "citations": [],
+            "context_tokens": 0,
+            "correct": false,
+            "id": "q09",
+            "reason": "no_valid_evidence",
+            "retrieval_calls": 0,
+            "verifier_calls": 1
+          }
+        ],
+        "task_accuracy": 0.3333333333333333,
+        "unsupported_answer_rate": null
+      }
+    },
+    "process_peak_rss_bytes_including_prior_model_training": 344686592,
+    "query_count": 9,
+    "repeats_per_mode": 5,
+    "semantics_note": "Structured resolver/verifier, not generated by or evaluated as a language model.",
+    "system_ablation_wall_seconds": 0.007990590998815605,
+    "system_memory_note": "RSS is the shared process high-water mark; standalone retrieval-only 23,330,816 B is preserved in Batch 8 result."
+  }
+}

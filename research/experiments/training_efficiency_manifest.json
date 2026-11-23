@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "experiment_id": "training-efficiency-tiny-v1",
+  "baseline_preserved": true,
+  "baseline_manifest": "experiments/baseline_manifest.json",
+  "baseline_source_sha256": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+  "config": "experiments/baseline_config.json",
+  "config_sha256": "03ce9dd266693bd327f0a9b3cf46b5c79594896a2c5b27a5cfeb7410ee94376b",
+  "optimizer_script": "experiments/training_efficiency.py",
+  "optimizer_script_sha256": "0b839fdada10b08379bfc7d128e527fa7f61f7766cce457b104e410c14bbe77a",
+  "precision_script": "experiments/training_precision_probe.py",
+  "precision_script_sha256": "6ded4ab1d30003f43dcf6b2315bc1333db3528699ea1855c42f0b5fd2733be60",
+  "tests": "experiments/test_training_efficiency.py",
+  "tests_sha256": "e5b7fdc56c0eee13d9f7f53b0d27240d3a3604dd971cfe3f1e3e5f9b145e0c1a",
+  "optimizer_result": "experiments/results/training_efficiency_comparison.json",
+  "optimizer_result_sha256": "4e55b1da894626ea99eed2d8fcba78e12f1974f6b95be2394255e5ea53abbc20",
+  "precision_result": "experiments/results/training_precision_probe.json",
+  "precision_result_sha256": "81b22fb8ec06954110540c26fa7ecfd0b760f978c9be44b3740bfaac528cf44e",
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "device": "cpu",
+    "threads": 1,
+    "seeds": [17, 29, 43]
+  },
+  "interpretation": "Preliminary synthetic optimizer comparison; no optimizer selected beyond preserving AdamW baseline"
+}

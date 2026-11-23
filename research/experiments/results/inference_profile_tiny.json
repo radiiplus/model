@@ -1,0 +1,293 @@
+{
+  "cache_equivalence": {
+    "cache_dtype": "torch.float32",
+    "cache_shapes": [
+      [
+        1,
+        4,
+        8,
+        8
+      ],
+      [
+        1,
+        4,
+        8,
+        8
+      ]
+    ],
+    "next_step_max_abs_error": 1.430511474609375e-06,
+    "prefill_max_abs_error": 0.0
+  },
+  "cache_estimates": {
+    "16": 4096,
+    "24": 6144,
+    "32": 8192,
+    "8": 2048
+  },
+  "cold_model_load_seconds": {
+    "caveat": "First import/process cold start not measured; local files are small and OS-cache state is warm.",
+    "dynamic_int8_load_including_requantize_wrapping": 0.007384239999737474,
+    "fp32_load_from_small_local_file": 0.0033409350016881945
+  },
+  "dynamic_int8_runtime": {
+    "decode": {
+      "16": {
+        "cached_decode_only": {
+          "mean_seconds": 0.002012731800095935,
+          "median_seconds": 0.002172739999878104,
+          "p95_seconds": 0.0024735179995332146
+        },
+        "cached_decode_seconds_per_token": 0.0005031829500239838,
+        "cached_decode_tokens_per_second": 1987.3487365824615,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.003193998300594103,
+          "median_seconds": 0.0034097765001206426,
+          "p95_seconds": 0.0038604030014539603
+        },
+        "full_prefix_recompute_seconds_per_token": 0.0007984995751485257,
+        "full_prefix_recompute_tokens_per_second": 1252.3488191136407,
+        "kv_cache_bytes_at_prefix": 4096
+      },
+      "24": {
+        "cached_decode_only": {
+          "mean_seconds": 0.0015917702996375738,
+          "median_seconds": 0.0014600099993913318,
+          "p95_seconds": 0.0021998800002620555
+        },
+        "cached_decode_seconds_per_token": 0.00039794257490939345,
+        "cached_decode_tokens_per_second": 2512.9253893672662,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.00269962559978012,
+          "median_seconds": 0.002389801999925112,
+          "p95_seconds": 0.003986928999438533
+        },
+        "full_prefix_recompute_seconds_per_token": 0.00067490639994503,
+        "full_prefix_recompute_tokens_per_second": 1481.686942191463,
+        "kv_cache_bytes_at_prefix": 6144
+      },
+      "8": {
+        "cached_decode_only": {
+          "mean_seconds": 0.0015810331997272442,
+          "median_seconds": 0.001494516998718609,
+          "p95_seconds": 0.0023742590001347708
+        },
+        "cached_decode_seconds_per_token": 0.00039525829993181105,
+        "cached_decode_tokens_per_second": 2529.991147997442,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.002449032600088685,
+          "median_seconds": 0.002329773499695875,
+          "p95_seconds": 0.0035053370011155494
+        },
+        "full_prefix_recompute_seconds_per_token": 0.0006122581500221713,
+        "full_prefix_recompute_tokens_per_second": 1633.2979805393977,
+        "kv_cache_bytes_at_prefix": 2048
+      }
+    },
+    "prefill": {
+      "16": {
+        "mean_seconds": 0.0004894276999038993,
+        "median_seconds": 0.0004894455005342024,
+        "p95_seconds": 0.0005123700011608889
+      },
+      "24": {
+        "mean_seconds": 0.0005442169000161812,
+        "median_seconds": 0.0005311384993547108,
+        "p95_seconds": 0.0006303559985099128
+      },
+      "32": {
+        "mean_seconds": 0.0008295518995510065,
+        "median_seconds": 0.0008117009992929525,
+        "p95_seconds": 0.0009431639991817065
+      },
+      "8": {
+        "mean_seconds": 0.000687859499885235,
+        "median_seconds": 0.0007089780001479085,
+        "p95_seconds": 0.0009208640003635082
+      }
+    },
+    "shared_prefix_two_branches": {
+      "branches": 2,
+      "cache_bytes_per_branch": 2048,
+      "prefix_length": 8,
+      "recompute_both_prefixes": {
+        "mean_seconds": 0.0010806900001625764,
+        "median_seconds": 0.0010724179992394056,
+        "p95_seconds": 0.0011586269993131282
+      },
+      "reuse_one_prefill_then_clone_kv": {
+        "mean_seconds": 0.00127840470031515,
+        "median_seconds": 0.001139638001404819,
+        "p95_seconds": 0.0019631340001069475
+      }
+    }
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cuda_available": false,
+    "device": "CPU",
+    "mem_available_mib_at_start": 5356,
+    "peak_rss_bytes": 345866240,
+    "python": "3.14.2",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "torch": "2.15.0+cpu",
+    "torch_threads": 1
+  },
+  "experiment_id": "batch10-tinygpt-cpu-inference",
+  "file_sizes": {
+    "checkpoint_size_ratio_int8_to_fp32": 0.473822741918405,
+    "checkpoint_size_reduction_fraction": 0.526177258081595,
+    "dynamic_int8_checkpoint_bytes": 31323,
+    "fp32_inference_checkpoint_bytes": 66107,
+    "fp32_state_dict_serialized_bytes": 64691,
+    "int8_state_dict_serialized_bytes": 30747,
+    "original_training_checkpoint_bytes": 197919
+  },
+  "fp32_runtime": {
+    "decode": {
+      "16": {
+        "cached_decode_only": {
+          "mean_seconds": 0.0013330840001799515,
+          "median_seconds": 0.0013287640003909473,
+          "p95_seconds": 0.001715427999442909
+        },
+        "cached_decode_seconds_per_token": 0.0003332710000449879,
+        "cached_decode_tokens_per_second": 3000.5611045215787,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.0024305605000336074,
+          "median_seconds": 0.002513480999368767,
+          "p95_seconds": 0.0029974909994052723
+        },
+        "full_prefix_recompute_seconds_per_token": 0.0006076401250084019,
+        "full_prefix_recompute_tokens_per_second": 1645.7109378452797,
+        "kv_cache_bytes_at_prefix": 4096
+      },
+      "24": {
+        "cached_decode_only": {
+          "mean_seconds": 0.0010219418996712192,
+          "median_seconds": 0.0009437609996894025,
+          "p95_seconds": 0.0015322359995479928
+        },
+        "cached_decode_seconds_per_token": 0.0002554854749178048,
+        "cached_decode_tokens_per_second": 3914.1168409739207,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.001909706599872152,
+          "median_seconds": 0.001785889498933102,
+          "p95_seconds": 0.0026619099990057293
+        },
+        "full_prefix_recompute_seconds_per_token": 0.000477426649968038,
+        "full_prefix_recompute_tokens_per_second": 2094.5625889693138,
+        "kv_cache_bytes_at_prefix": 6144
+      },
+      "8": {
+        "cached_decode_only": {
+          "mean_seconds": 0.0010552398001891562,
+          "median_seconds": 0.0009710744998301379,
+          "p95_seconds": 0.0014022720006323652
+        },
+        "cached_decode_seconds_per_token": 0.00026380995004728904,
+        "cached_decode_tokens_per_second": 3790.6075939165517,
+        "decode_transitions_per_run": 4,
+        "full_prefix_recompute_decode_only": {
+          "mean_seconds": 0.0018941709995488054,
+          "median_seconds": 0.001793702998838853,
+          "p95_seconds": 0.0026351239994255593
+        },
+        "full_prefix_recompute_seconds_per_token": 0.00047354274988720135,
+        "full_prefix_recompute_tokens_per_second": 2111.741759826756,
+        "kv_cache_bytes_at_prefix": 2048
+      }
+    },
+    "prefill": {
+      "16": {
+        "mean_seconds": 0.00039679500005149746,
+        "median_seconds": 0.000384024000595673,
+        "p95_seconds": 0.000460952000139514
+      },
+      "24": {
+        "mean_seconds": 0.0004028177996588056,
+        "median_seconds": 0.000391345500247553,
+        "p95_seconds": 0.00044610599979932886
+      },
+      "32": {
+        "mean_seconds": 0.00040611399999761487,
+        "median_seconds": 0.0004013724992546486,
+        "p95_seconds": 0.0004491199997573858
+      },
+      "8": {
+        "mean_seconds": 0.0006054905999917537,
+        "median_seconds": 0.0006135819994597114,
+        "p95_seconds": 0.0006592129993805429
+      }
+    },
+    "shared_prefix_two_branches": {
+      "branches": 2,
+      "cache_bytes_per_branch": 2048,
+      "prefix_length": 8,
+      "recompute_both_prefixes": {
+        "mean_seconds": 0.001137113199911255,
+        "median_seconds": 0.0011176174994034227,
+        "p95_seconds": 0.0012322720012889476
+      },
+      "reuse_one_prefill_then_clone_kv": {
+        "mean_seconds": 0.000927374199636688,
+        "median_seconds": 0.0007869849996495759,
+        "p95_seconds": 0.001307948999965447
+      }
+    }
+  },
+  "limitations": [
+    "Tiny one-layer model and synthetic token probes only",
+    "Torch eager dynamic INT8 path is not GGUF/GGML and does not quantize embeddings, tied head, activations or KV cache",
+    "No held-out natural-language quality measurement",
+    "No serving concurrency, long-context, energy or device-portability claims"
+  ],
+  "logit_and_task_comparison": {
+    "accuracy_delta": 0.0,
+    "argmax_agreement": 1.0,
+    "evaluated_target_tokens": 61,
+    "fp32_next_token_accuracy": 0.2459016393442623,
+    "int8_next_token_accuracy": 0.2459016393442623,
+    "max_absolute_error": 0.20506691932678223,
+    "mean_absolute_error": 0.015422191781302294,
+    "scope": "one memorized training sequence plus five deterministic token probes; not held-out language quality"
+  },
+  "model": {
+    "batch_size": 1,
+    "checkpoint": "/home/codespace/research/experiments/results/baseline_tiny_gpt.pt",
+    "context_length": 32,
+    "parameter_count": 14816
+  },
+  "quantization": {
+    "api_note": "torch.ao.quantization.quantize_dynamic emitted a deprecation warning in installed PyTorch; use only as a measured compatibility probe.",
+    "backend": "x86",
+    "method": "PyTorch CPU dynamic qint8 for nn.Linear modules",
+    "not_quantized": [
+      "token/position embeddings",
+      "tied output projection",
+      "LayerNorm",
+      "activations",
+      "KV cache"
+    ],
+    "quantized_modules": [
+      "attn.qkv",
+      "attn.proj",
+      "mlp.fc_in",
+      "mlp.fc_out"
+    ]
+  },
+  "run_wall_seconds": 1.5127194200013037,
+  "schema_version": 1
+}

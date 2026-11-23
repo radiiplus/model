@@ -1,0 +1,1628 @@
+{
+  "boilerplate": {
+    "exact_footer_lines_removed": 3,
+    "records_with_removed_boilerplate": [
+      "d05",
+      "d06",
+      "d07"
+    ]
+  },
+  "curated_manifests": {
+    "exact": [
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d01",
+          "d02"
+        ],
+        "duplicate_group": "veloria_charter",
+        "id": "d01",
+        "license": "CC0-1.0",
+        "provenance": "project-authored synthetic fixture",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-b2",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its charter was signed on 14 Frostwane 2031."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d03"
+        ],
+        "duplicate_group": "veloria_charter",
+        "id": "d03",
+        "license": "CC0-1.0",
+        "provenance": "project-authored near duplicate of d01 with punctuation/edit",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-b2-edit",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth near Lake Orin; its charter was signed on 14 Frostwane 2031."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d04"
+        ],
+        "duplicate_group": null,
+        "id": "d04",
+        "license": "CC0-1.0",
+        "provenance": "project-authored unique rare fact sharing most of d01",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9826,
+          "repeated_token_fraction": 0.087,
+          "unique_token_ratio": 0.9565
+        },
+        "representative": true,
+        "source": "synthetic-b2-rare",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its public observatory houses a nyrglass prism catalogued as NQ-17."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d05"
+        ],
+        "duplicate_group": null,
+        "id": "d05",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9579,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.8947
+        },
+        "representative": true,
+        "source": "synthetic-archive-a",
+        "style": "field_note",
+        "text": "A field note records a violet moth at dusk beside the north marsh. The observer counted three wing bars."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d06"
+        ],
+        "duplicate_group": null,
+        "id": "d06",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9333,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8333
+        },
+        "representative": true,
+        "source": "synthetic-archive-b",
+        "style": "field_note",
+        "text": "Rain gauge readings rose steadily through the night at the western station. The instrument was checked at dawn."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d07"
+        ],
+        "duplicate_group": null,
+        "id": "d07",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9636,
+          "repeated_token_fraction": 0.0909,
+          "unique_token_ratio": 0.9091
+        },
+        "representative": true,
+        "source": "synthetic-archive-c",
+        "style": "field_note",
+        "text": "Archivist Lena filed the copper map under shelf K-4 after checking its torn edge. The map names an old ferry route."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d09",
+          "d10"
+        ],
+        "duplicate_group": "code_sum",
+        "id": "d09",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.2143,
+          "unique_token_ratio": 0.7857
+        },
+        "representative": true,
+        "source": "synthetic-code",
+        "style": "python",
+        "text": "def sum_even(values):\n    return sum(value for value in values if value % 2 == 0)"
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d11"
+        ],
+        "duplicate_group": null,
+        "id": "d11",
+        "license": "CC0-1.0",
+        "provenance": "project-authored math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.1579,
+          "unique_token_ratio": 0.8421
+        },
+        "representative": true,
+        "source": "synthetic-math",
+        "style": "proof",
+        "text": "For every integer n, n(n+1) is even because one of two consecutive integers is divisible by 2."
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d12"
+        ],
+        "duplicate_group": null,
+        "id": "d12",
+        "license": "CC0-1.0",
+        "provenance": "project-authored distinct math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.15,
+          "unique_token_ratio": 0.85
+        },
+        "representative": true,
+        "source": "synthetic-math-2",
+        "style": "worked_solution",
+        "text": "Solve 3x + 5 = 20. Subtract 5 from both sides to obtain 3x = 15, then divide by 3, so x = 5."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d13"
+        ],
+        "duplicate_group": null,
+        "id": "d13",
+        "license": "CC0-1.0",
+        "provenance": "project-authored conversational restatement, useful style variation",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 1.0,
+          "repeated_token_fraction": 0.0556,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-dialogue",
+        "style": "dialogue",
+        "text": "'Where is Veloria's capital?' asked Iri. 'Qelth, by Lake Orin,' replied Sela, pointing toward the eastern ridge."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d14"
+        ],
+        "duplicate_group": null,
+        "id": "d14",
+        "license": "CC0-1.0",
+        "provenance": "project-authored structured fact list",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9,
+          "repeated_token_fraction": 0.0769,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-bullets",
+        "style": "bullet_list",
+        "text": "- Veloria: fictional country\n- Capital: Qelth\n- Nearby lake: Orin\n- Charter date: 14 Frostwane 2031"
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d15"
+        ],
+        "duplicate_group": null,
+        "id": "d15",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare terminology example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9765,
+          "repeated_token_fraction": 0.1176,
+          "unique_token_ratio": 0.9412
+        },
+        "representative": true,
+        "source": "synthetic-rare-term",
+        "style": "glossary",
+        "text": "Nyrglass is a fictional mineral that refracts blue light into a narrow ultraviolet band under low pressure."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d16"
+        ],
+        "duplicate_group": null,
+        "id": "d16",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare identifier example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.975,
+          "repeated_token_fraction": 0.125,
+          "unique_token_ratio": 0.9375
+        },
+        "representative": true,
+        "source": "synthetic-rare-identifier",
+        "style": "catalog",
+        "text": "Specimen QZ-8841 was recovered from the fictional Narthic shelf, 612 meters below the Morrow inlet."
+      },
+      {
+        "domain": "multilingual",
+        "duplicate_component": [
+          "d17"
+        ],
+        "duplicate_group": null,
+        "id": "d17",
+        "license": "CC0-1.0",
+        "provenance": "project-authored Spanish style and language example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "multilingual",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-spanish",
+        "style": "prose",
+        "text": "En la ciudad ficticia de Veloria, Qelth se encuentra junto al lago Orin y conserva un archivo de mapas antiguos."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d18"
+        ],
+        "duplicate_group": null,
+        "id": "d18",
+        "license": "CC0-1.0",
+        "provenance": "project-authored lyrical style example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9556,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8889
+        },
+        "representative": true,
+        "source": "synthetic-lyric",
+        "style": "lyric",
+        "text": "At first light the harbor bells answer the fog; each slow note crosses the water and returns softened."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d19"
+        ],
+        "duplicate_group": null,
+        "id": "d19",
+        "license": "CC0-1.0",
+        "provenance": "project-authored repeated fact in different wording/context; preserve as unique",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9789,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.9474
+        },
+        "representative": true,
+        "source": "synthetic-repeated-fact",
+        "style": "travel_note",
+        "text": "Travelers reach Qelth by following the shore road around Lake Orin. The old capital's market opens before sunrise."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d20"
+        ],
+        "duplicate_group": null,
+        "id": "d20",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code-domain counterexample to prose heuristics",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.6,
+          "unique_token_ratio": 0.6
+        },
+        "representative": true,
+        "source": "synthetic-low-diversity-code",
+        "style": "python",
+        "text": "x = x + 1\nprint(x)"
+      }
+    ],
+    "minhash": [
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d01",
+          "d02",
+          "d03"
+        ],
+        "duplicate_group": "veloria_charter",
+        "id": "d01",
+        "license": "CC0-1.0",
+        "provenance": "project-authored synthetic fixture",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-b2",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its charter was signed on 14 Frostwane 2031."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d04"
+        ],
+        "duplicate_group": null,
+        "id": "d04",
+        "license": "CC0-1.0",
+        "provenance": "project-authored unique rare fact sharing most of d01",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9826,
+          "repeated_token_fraction": 0.087,
+          "unique_token_ratio": 0.9565
+        },
+        "representative": true,
+        "source": "synthetic-b2-rare",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its public observatory houses a nyrglass prism catalogued as NQ-17."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d05"
+        ],
+        "duplicate_group": null,
+        "id": "d05",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9579,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.8947
+        },
+        "representative": true,
+        "source": "synthetic-archive-a",
+        "style": "field_note",
+        "text": "A field note records a violet moth at dusk beside the north marsh. The observer counted three wing bars."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d06"
+        ],
+        "duplicate_group": null,
+        "id": "d06",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9333,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8333
+        },
+        "representative": true,
+        "source": "synthetic-archive-b",
+        "style": "field_note",
+        "text": "Rain gauge readings rose steadily through the night at the western station. The instrument was checked at dawn."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d07"
+        ],
+        "duplicate_group": null,
+        "id": "d07",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9636,
+          "repeated_token_fraction": 0.0909,
+          "unique_token_ratio": 0.9091
+        },
+        "representative": true,
+        "source": "synthetic-archive-c",
+        "style": "field_note",
+        "text": "Archivist Lena filed the copper map under shelf K-4 after checking its torn edge. The map names an old ferry route."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d09",
+          "d10"
+        ],
+        "duplicate_group": "code_sum",
+        "id": "d09",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.2143,
+          "unique_token_ratio": 0.7857
+        },
+        "representative": true,
+        "source": "synthetic-code",
+        "style": "python",
+        "text": "def sum_even(values):\n    return sum(value for value in values if value % 2 == 0)"
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d11"
+        ],
+        "duplicate_group": null,
+        "id": "d11",
+        "license": "CC0-1.0",
+        "provenance": "project-authored math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.1579,
+          "unique_token_ratio": 0.8421
+        },
+        "representative": true,
+        "source": "synthetic-math",
+        "style": "proof",
+        "text": "For every integer n, n(n+1) is even because one of two consecutive integers is divisible by 2."
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d12"
+        ],
+        "duplicate_group": null,
+        "id": "d12",
+        "license": "CC0-1.0",
+        "provenance": "project-authored distinct math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.15,
+          "unique_token_ratio": 0.85
+        },
+        "representative": true,
+        "source": "synthetic-math-2",
+        "style": "worked_solution",
+        "text": "Solve 3x + 5 = 20. Subtract 5 from both sides to obtain 3x = 15, then divide by 3, so x = 5."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d13"
+        ],
+        "duplicate_group": null,
+        "id": "d13",
+        "license": "CC0-1.0",
+        "provenance": "project-authored conversational restatement, useful style variation",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 1.0,
+          "repeated_token_fraction": 0.0556,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-dialogue",
+        "style": "dialogue",
+        "text": "'Where is Veloria's capital?' asked Iri. 'Qelth, by Lake Orin,' replied Sela, pointing toward the eastern ridge."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d14"
+        ],
+        "duplicate_group": null,
+        "id": "d14",
+        "license": "CC0-1.0",
+        "provenance": "project-authored structured fact list",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9,
+          "repeated_token_fraction": 0.0769,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-bullets",
+        "style": "bullet_list",
+        "text": "- Veloria: fictional country\n- Capital: Qelth\n- Nearby lake: Orin\n- Charter date: 14 Frostwane 2031"
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d15"
+        ],
+        "duplicate_group": null,
+        "id": "d15",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare terminology example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9765,
+          "repeated_token_fraction": 0.1176,
+          "unique_token_ratio": 0.9412
+        },
+        "representative": true,
+        "source": "synthetic-rare-term",
+        "style": "glossary",
+        "text": "Nyrglass is a fictional mineral that refracts blue light into a narrow ultraviolet band under low pressure."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d16"
+        ],
+        "duplicate_group": null,
+        "id": "d16",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare identifier example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.975,
+          "repeated_token_fraction": 0.125,
+          "unique_token_ratio": 0.9375
+        },
+        "representative": true,
+        "source": "synthetic-rare-identifier",
+        "style": "catalog",
+        "text": "Specimen QZ-8841 was recovered from the fictional Narthic shelf, 612 meters below the Morrow inlet."
+      },
+      {
+        "domain": "multilingual",
+        "duplicate_component": [
+          "d17"
+        ],
+        "duplicate_group": null,
+        "id": "d17",
+        "license": "CC0-1.0",
+        "provenance": "project-authored Spanish style and language example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "multilingual",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-spanish",
+        "style": "prose",
+        "text": "En la ciudad ficticia de Veloria, Qelth se encuentra junto al lago Orin y conserva un archivo de mapas antiguos."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d18"
+        ],
+        "duplicate_group": null,
+        "id": "d18",
+        "license": "CC0-1.0",
+        "provenance": "project-authored lyrical style example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9556,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8889
+        },
+        "representative": true,
+        "source": "synthetic-lyric",
+        "style": "lyric",
+        "text": "At first light the harbor bells answer the fog; each slow note crosses the water and returns softened."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d19"
+        ],
+        "duplicate_group": null,
+        "id": "d19",
+        "license": "CC0-1.0",
+        "provenance": "project-authored repeated fact in different wording/context; preserve as unique",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9789,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.9474
+        },
+        "representative": true,
+        "source": "synthetic-repeated-fact",
+        "style": "travel_note",
+        "text": "Travelers reach Qelth by following the shore road around Lake Orin. The old capital's market opens before sunrise."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d20"
+        ],
+        "duplicate_group": null,
+        "id": "d20",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code-domain counterexample to prose heuristics",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.6,
+          "unique_token_ratio": 0.6
+        },
+        "representative": true,
+        "source": "synthetic-low-diversity-code",
+        "style": "python",
+        "text": "x = x + 1\nprint(x)"
+      }
+    ],
+    "simhash": [
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d01",
+          "d02",
+          "d03"
+        ],
+        "duplicate_group": "veloria_charter",
+        "id": "d01",
+        "license": "CC0-1.0",
+        "provenance": "project-authored synthetic fixture",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-b2",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its charter was signed on 14 Frostwane 2031."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d04"
+        ],
+        "duplicate_group": null,
+        "id": "d04",
+        "license": "CC0-1.0",
+        "provenance": "project-authored unique rare fact sharing most of d01",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9826,
+          "repeated_token_fraction": 0.087,
+          "unique_token_ratio": 0.9565
+        },
+        "representative": true,
+        "source": "synthetic-b2-rare",
+        "style": "reference",
+        "text": "The fictional country Veloria has its capital in Qelth, near Lake Orin. Its public observatory houses a nyrglass prism catalogued as NQ-17."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d05"
+        ],
+        "duplicate_group": null,
+        "id": "d05",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9579,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.8947
+        },
+        "representative": true,
+        "source": "synthetic-archive-a",
+        "style": "field_note",
+        "text": "A field note records a violet moth at dusk beside the north marsh. The observer counted three wing bars."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d06"
+        ],
+        "duplicate_group": null,
+        "id": "d06",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9333,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8333
+        },
+        "representative": true,
+        "source": "synthetic-archive-b",
+        "style": "field_note",
+        "text": "Rain gauge readings rose steadily through the night at the western station. The instrument was checked at dawn."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d07"
+        ],
+        "duplicate_group": null,
+        "id": "d07",
+        "license": "CC0-1.0",
+        "provenance": "project-authored boilerplate test",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9636,
+          "repeated_token_fraction": 0.0909,
+          "unique_token_ratio": 0.9091
+        },
+        "representative": true,
+        "source": "synthetic-archive-c",
+        "style": "field_note",
+        "text": "Archivist Lena filed the copper map under shelf K-4 after checking its torn edge. The map names an old ferry route."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d09",
+          "d10"
+        ],
+        "duplicate_group": "code_sum",
+        "id": "d09",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.2143,
+          "unique_token_ratio": 0.7857
+        },
+        "representative": true,
+        "source": "synthetic-code",
+        "style": "python",
+        "text": "def sum_even(values):\n    return sum(value for value in values if value % 2 == 0)"
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d11"
+        ],
+        "duplicate_group": null,
+        "id": "d11",
+        "license": "CC0-1.0",
+        "provenance": "project-authored math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.1579,
+          "unique_token_ratio": 0.8421
+        },
+        "representative": true,
+        "source": "synthetic-math",
+        "style": "proof",
+        "text": "For every integer n, n(n+1) is even because one of two consecutive integers is divisible by 2."
+      },
+      {
+        "domain": "math",
+        "duplicate_component": [
+          "d12"
+        ],
+        "duplicate_group": null,
+        "id": "d12",
+        "license": "CC0-1.0",
+        "provenance": "project-authored distinct math example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "math",
+          "low_quality_flag": false,
+          "quality_score": 0.67,
+          "repeated_token_fraction": 0.15,
+          "unique_token_ratio": 0.85
+        },
+        "representative": true,
+        "source": "synthetic-math-2",
+        "style": "worked_solution",
+        "text": "Solve 3x + 5 = 20. Subtract 5 from both sides to obtain 3x = 15, then divide by 3, so x = 5."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d13"
+        ],
+        "duplicate_group": null,
+        "id": "d13",
+        "license": "CC0-1.0",
+        "provenance": "project-authored conversational restatement, useful style variation",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 1.0,
+          "repeated_token_fraction": 0.0556,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-dialogue",
+        "style": "dialogue",
+        "text": "'Where is Veloria's capital?' asked Iri. 'Qelth, by Lake Orin,' replied Sela, pointing toward the eastern ridge."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d14"
+        ],
+        "duplicate_group": null,
+        "id": "d14",
+        "license": "CC0-1.0",
+        "provenance": "project-authored structured fact list",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9,
+          "repeated_token_fraction": 0.0769,
+          "unique_token_ratio": 1.0
+        },
+        "representative": true,
+        "source": "synthetic-bullets",
+        "style": "bullet_list",
+        "text": "- Veloria: fictional country\n- Capital: Qelth\n- Nearby lake: Orin\n- Charter date: 14 Frostwane 2031"
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d15"
+        ],
+        "duplicate_group": null,
+        "id": "d15",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare terminology example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9765,
+          "repeated_token_fraction": 0.1176,
+          "unique_token_ratio": 0.9412
+        },
+        "representative": true,
+        "source": "synthetic-rare-term",
+        "style": "glossary",
+        "text": "Nyrglass is a fictional mineral that refracts blue light into a narrow ultraviolet band under low pressure."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d16"
+        ],
+        "duplicate_group": null,
+        "id": "d16",
+        "license": "CC0-1.0",
+        "provenance": "project-authored rare identifier example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.975,
+          "repeated_token_fraction": 0.125,
+          "unique_token_ratio": 0.9375
+        },
+        "representative": true,
+        "source": "synthetic-rare-identifier",
+        "style": "catalog",
+        "text": "Specimen QZ-8841 was recovered from the fictional Narthic shelf, 612 meters below the Morrow inlet."
+      },
+      {
+        "domain": "multilingual",
+        "duplicate_component": [
+          "d17"
+        ],
+        "duplicate_group": null,
+        "id": "d17",
+        "license": "CC0-1.0",
+        "provenance": "project-authored Spanish style and language example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "multilingual",
+          "low_quality_flag": false,
+          "quality_score": 0.98,
+          "repeated_token_fraction": 0.1,
+          "unique_token_ratio": 0.95
+        },
+        "representative": true,
+        "source": "synthetic-spanish",
+        "style": "prose",
+        "text": "En la ciudad ficticia de Veloria, Qelth se encuentra junto al lago Orin y conserva un archivo de mapas antiguos."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d18"
+        ],
+        "duplicate_group": null,
+        "id": "d18",
+        "license": "CC0-1.0",
+        "provenance": "project-authored lyrical style example",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9556,
+          "repeated_token_fraction": 0.1667,
+          "unique_token_ratio": 0.8889
+        },
+        "representative": true,
+        "source": "synthetic-lyric",
+        "style": "lyric",
+        "text": "At first light the harbor bells answer the fog; each slow note crosses the water and returns softened."
+      },
+      {
+        "domain": "factual_prose",
+        "duplicate_component": [
+          "d19"
+        ],
+        "duplicate_group": null,
+        "id": "d19",
+        "license": "CC0-1.0",
+        "provenance": "project-authored repeated fact in different wording/context; preserve as unique",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "factual_prose",
+          "low_quality_flag": false,
+          "quality_score": 0.9789,
+          "repeated_token_fraction": 0.1053,
+          "unique_token_ratio": 0.9474
+        },
+        "representative": true,
+        "source": "synthetic-repeated-fact",
+        "style": "travel_note",
+        "text": "Travelers reach Qelth by following the shore road around Lake Orin. The old capital's market opens before sunrise."
+      },
+      {
+        "domain": "code",
+        "duplicate_component": [
+          "d20"
+        ],
+        "duplicate_group": null,
+        "id": "d20",
+        "license": "CC0-1.0",
+        "provenance": "project-authored code-domain counterexample to prose heuristics",
+        "quality_label": "keep",
+        "quality_signals": {
+          "domain": "code",
+          "low_quality_flag": false,
+          "quality_score": 0.63,
+          "repeated_token_fraction": 0.6,
+          "unique_token_ratio": 0.6
+        },
+        "representative": true,
+        "source": "synthetic-low-diversity-code",
+        "style": "python",
+        "text": "x = x + 1\nprint(x)"
+      }
+    ]
+  },
+  "environment": {
+    "cgroup_memory_limit": "max",
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "mem_available_mib_at_start": 6573,
+    "platform": "linux",
+    "python": "3.14.2",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "input": "/home/codespace/research/experiments/fixtures/tiny_corpus.jsonl",
+  "input_bytes": 6742,
+  "input_sha256": "43a03466ead7dfe3b3636e03cc15f8e3da291f638602d71980f3dcf964ec7953",
+  "limitations": [
+    "tiny synthetic fixture only",
+    "MinHash and SimHash thresholds are exploratory and not tuned",
+    "semantic paraphrase deduplication is not implemented",
+    "quality score is a transparent heuristic, not validated quality prediction",
+    "RSS is process high-water mark; tracemalloc misses native allocations"
+  ],
+  "methods": {
+    "exact_hash": {
+      "candidate_pairs": 0,
+      "duplicate_components": [
+        [
+          "d01",
+          "d02"
+        ],
+        [
+          "d09",
+          "d10"
+        ]
+      ],
+      "duplicate_records_removed": 2,
+      "false_positive_unique_ids": []
+    },
+    "minhash_64x3gram": {
+      "candidate_pairs": 4,
+      "duplicate_components": [
+        [
+          "d01",
+          "d02",
+          "d03"
+        ],
+        [
+          "d09",
+          "d10"
+        ]
+      ],
+      "duplicate_records_removed": 3,
+      "false_positive_unique_ids": []
+    },
+    "simhash_64x3gram": {
+      "candidate_pairs": 4,
+      "duplicate_components": [
+        [
+          "d01",
+          "d02",
+          "d03"
+        ],
+        [
+          "d09",
+          "d10"
+        ]
+      ],
+      "duplicate_records_removed": 3,
+      "false_positive_unique_ids": []
+    }
+  },
+  "n_input": 20,
+  "performance": {
+    "cpu_seconds": 0.082709568,
+    "peak_rss_bytes_resource_self_plus_children": 22405120,
+    "python_tracemalloc_peak_bytes": 63080,
+    "records_per_second": 200.9929938272778,
+    "wall_seconds": 0.09950595599957524
+  },
+  "quality": {
+    "domain_counts_after": {
+      "code": 3,
+      "factual_prose": 13,
+      "math": 2,
+      "multilingual": 1
+    },
+    "domain_counts_before": {
+      "code": 3,
+      "factual_prose": 14,
+      "math": 2,
+      "multilingual": 1
+    },
+    "exact_components": [
+      [
+        "d01",
+        "d02"
+      ],
+      [
+        "d09",
+        "d10"
+      ]
+    ],
+    "kept_ids": [
+      "d01",
+      "d02",
+      "d03",
+      "d04",
+      "d05",
+      "d06",
+      "d07",
+      "d09",
+      "d10",
+      "d11",
+      "d12",
+      "d13",
+      "d14",
+      "d15",
+      "d16",
+      "d17",
+      "d18",
+      "d19",
+      "d20"
+    ],
+    "minhash_components": [
+      [
+        "d01",
+        "d02",
+        "d03"
+      ],
+      [
+        "d09",
+        "d10"
+      ]
+    ],
+    "post_exact_dedup_records": 17,
+    "post_exact_dedup_text_bytes": 1730,
+    "post_filter_records": 19,
+    "post_minhash_dedup_records": 16,
+    "post_minhash_dedup_text_bytes": 1615,
+    "post_simhash_dedup_records": 16,
+    "post_simhash_dedup_text_bytes": 1615,
+    "removed_ids": [
+      "d08"
+    ],
+    "rule": "remove only repeated-token fraction >= 0.70 for >=10 words; code/math receive domain-aware score but same repeated-token hard flag",
+    "scores": {
+      "d01": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.98,
+        "repeated_token_fraction": 0.1,
+        "unique_token_ratio": 0.95
+      },
+      "d02": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.98,
+        "repeated_token_fraction": 0.1,
+        "unique_token_ratio": 0.95
+      },
+      "d03": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.98,
+        "repeated_token_fraction": 0.1,
+        "unique_token_ratio": 0.95
+      },
+      "d04": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9826,
+        "repeated_token_fraction": 0.087,
+        "unique_token_ratio": 0.9565
+      },
+      "d05": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9579,
+        "repeated_token_fraction": 0.1053,
+        "unique_token_ratio": 0.8947
+      },
+      "d06": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9333,
+        "repeated_token_fraction": 0.1667,
+        "unique_token_ratio": 0.8333
+      },
+      "d07": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9636,
+        "repeated_token_fraction": 0.0909,
+        "unique_token_ratio": 0.9091
+      },
+      "d08": {
+        "domain": "factual_prose",
+        "low_quality_flag": true,
+        "quality_score": 0.52,
+        "repeated_token_fraction": 1.0,
+        "unique_token_ratio": 0.05
+      },
+      "d09": {
+        "domain": "code",
+        "low_quality_flag": false,
+        "quality_score": 0.63,
+        "repeated_token_fraction": 0.2143,
+        "unique_token_ratio": 0.7857
+      },
+      "d10": {
+        "domain": "code",
+        "low_quality_flag": false,
+        "quality_score": 0.63,
+        "repeated_token_fraction": 0.2143,
+        "unique_token_ratio": 0.7857
+      },
+      "d11": {
+        "domain": "math",
+        "low_quality_flag": false,
+        "quality_score": 0.67,
+        "repeated_token_fraction": 0.1579,
+        "unique_token_ratio": 0.8421
+      },
+      "d12": {
+        "domain": "math",
+        "low_quality_flag": false,
+        "quality_score": 0.67,
+        "repeated_token_fraction": 0.15,
+        "unique_token_ratio": 0.85
+      },
+      "d13": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 1.0,
+        "repeated_token_fraction": 0.0556,
+        "unique_token_ratio": 1.0
+      },
+      "d14": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9,
+        "repeated_token_fraction": 0.0769,
+        "unique_token_ratio": 1.0
+      },
+      "d15": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9765,
+        "repeated_token_fraction": 0.1176,
+        "unique_token_ratio": 0.9412
+      },
+      "d16": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.975,
+        "repeated_token_fraction": 0.125,
+        "unique_token_ratio": 0.9375
+      },
+      "d17": {
+        "domain": "multilingual",
+        "low_quality_flag": false,
+        "quality_score": 0.98,
+        "repeated_token_fraction": 0.1,
+        "unique_token_ratio": 0.95
+      },
+      "d18": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9556,
+        "repeated_token_fraction": 0.1667,
+        "unique_token_ratio": 0.8889
+      },
+      "d19": {
+        "domain": "factual_prose",
+        "low_quality_flag": false,
+        "quality_score": 0.9789,
+        "repeated_token_fraction": 0.1053,
+        "unique_token_ratio": 0.9474
+      },
+      "d20": {
+        "domain": "code",
+        "low_quality_flag": false,
+        "quality_score": 0.63,
+        "repeated_token_fraction": 0.6,
+        "unique_token_ratio": 0.6
+      }
+    },
+    "simhash_components": [
+      [
+        "d01",
+        "d02",
+        "d03"
+      ],
+      [
+        "d09",
+        "d10"
+      ]
+    ],
+    "unique_examples_removed": [
+      "d08"
+    ]
+  },
+  "schema_version": 1,
+  "seed": "fixed_hash_functions_v1",
+  "split_preview_using_minhash_components": {
+    "dev": [
+      "d16"
+    ],
+    "test": [
+      "d06"
+    ],
+    "train": [
+      "d01",
+      "d02",
+      "d03",
+      "d04",
+      "d05",
+      "d07",
+      "d08",
+      "d09",
+      "d10",
+      "d11",
+      "d12",
+      "d13",
+      "d14",
+      "d15",
+      "d17",
+      "d18",
+      "d19",
+      "d20"
+    ]
+  },
+  "threshold_sweep": {
+    "minhash_jaccard_estimate": {
+      "0.1": {
+        "candidate_pairs": 10,
+        "duplicate_records_removed": 6,
+        "false_positive_pairs": [
+          [
+            "d01",
+            "d04"
+          ],
+          [
+            "d02",
+            "d04"
+          ],
+          [
+            "d03",
+            "d04"
+          ],
+          [
+            "d05",
+            "d06"
+          ],
+          [
+            "d05",
+            "d07"
+          ],
+          [
+            "d06",
+            "d07"
+          ]
+        ],
+        "false_positive_unique_ids": [
+          "d01",
+          "d02",
+          "d03",
+          "d04",
+          "d05",
+          "d06",
+          "d07"
+        ]
+      },
+      "0.2": {
+        "candidate_pairs": 7,
+        "duplicate_records_removed": 4,
+        "false_positive_pairs": [
+          [
+            "d01",
+            "d04"
+          ],
+          [
+            "d02",
+            "d04"
+          ],
+          [
+            "d03",
+            "d04"
+          ]
+        ],
+        "false_positive_unique_ids": [
+          "d01",
+          "d02",
+          "d03",
+          "d04"
+        ]
+      },
+      "0.7": {
+        "candidate_pairs": 4,
+        "duplicate_records_removed": 3,
+        "false_positive_pairs": [],
+        "false_positive_unique_ids": []
+      }
+    },
+    "simhash_max_hamming_distance": {
+      "15": {
+        "candidate_pairs": 4,
+        "duplicate_records_removed": 3,
+        "false_positive_pairs": [],
+        "false_positive_unique_ids": []
+      },
+      "25": {
+        "candidate_pairs": 23,
+        "duplicate_records_removed": 13,
+        "false_positive_pairs": [
+          [
+            "d01",
+            "d04"
+          ],
+          [
+            "d01",
+            "d11"
+          ],
+          [
+            "d01",
+            "d20"
+          ],
+          [
+            "d02",
+            "d04"
+          ],
+          [
+            "d02",
+            "d11"
+          ],
+          [
+            "d02",
+            "d20"
+          ],
+          [
+            "d03",
+            "d04"
+          ],
+          [
+            "d03",
+            "d11"
+          ],
+          [
+            "d03",
+            "d20"
+          ],
+          [
+            "d05",
+            "d09"
+          ],
+          [
+            "d05",
+            "d10"
+          ],
+          [
+            "d05",
+            "d13"
+          ],
+          [
+            "d05",
+            "d20"
+          ],
+          [
+            "d06",
+            "d14"
+          ],
+          [
+            "d07",
+            "d08"
+          ],
+          [
+            "d09",
+            "d18"
+          ],
+          [
+            "d10",
+            "d18"
+          ],
+          [
+            "d12",
+            "d19"
+          ],
+          [
+            "d13",
+            "d20"
+          ]
+        ],
+        "false_positive_unique_ids": [
+          "d01",
+          "d02",
+          "d03",
+          "d04",
+          "d05",
+          "d06",
+          "d07",
+          "d08",
+          "d09",
+          "d10",
+          "d11",
+          "d12",
+          "d13",
+          "d14",
+          "d18",
+          "d19",
+          "d20"
+        ]
+      },
+      "5": {
+        "candidate_pairs": 4,
+        "duplicate_records_removed": 3,
+        "false_positive_pairs": [],
+        "false_positive_unique_ids": []
+      }
+    }
+  }
+}

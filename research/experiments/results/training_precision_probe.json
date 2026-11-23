@@ -1,0 +1,51 @@
+{
+  "batch_size": 4,
+  "device": "cpu",
+  "environment": {
+    "mem_available_mib": 5296,
+    "python": "3.14.2",
+    "threads": 1,
+    "torch": "2.15.0+cpu"
+  },
+  "limitations": [
+    "tiny one-layer model only",
+    "CPU autocast speed is kernel and shape dependent",
+    "peak RSS is process-wide across sequential modes"
+  ],
+  "model_parameters": 14816,
+  "modes": [
+    {
+      "error": null,
+      "finite_loss": true,
+      "last_loss_nats": 1.9593602418899536,
+      "mode": "float32",
+      "seconds_including_two_warmups": 0.03678805999970791,
+      "seconds_per_step_including_warmups": 0.003065671666642326,
+      "supported": true,
+      "timed_steps": 10
+    },
+    {
+      "error": null,
+      "finite_loss": true,
+      "last_loss_nats": 1.9589065313339233,
+      "mode": "bfloat16_autocast",
+      "seconds_including_two_warmups": 0.05674713900043571,
+      "seconds_per_step_including_warmups": 0.004728928250036309,
+      "supported": true,
+      "timed_steps": 10
+    },
+    {
+      "error": null,
+      "finite_loss": true,
+      "last_loss_nats": 1.9593629837036133,
+      "mode": "float16_autocast",
+      "seconds_including_two_warmups": 0.07521137099956832,
+      "seconds_per_step_including_warmups": 0.006267614249964026,
+      "supported": true,
+      "timed_steps": 10
+    }
+  ],
+  "peak_rss_bytes": 347197440,
+  "schema_version": 1,
+  "sequence_length": 24
+}

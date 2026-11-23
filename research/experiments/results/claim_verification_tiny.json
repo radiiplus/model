@@ -1,0 +1,622 @@
+{
+  "as_of": "2026-11-23",
+  "environment": {
+    "device": "CPU",
+    "logical_cpus_visible": 2,
+    "mem_available_mib_at_start": 5497,
+    "peak_rss_bytes": 18661376,
+    "python": "3.14.2",
+    "run_wall_seconds": 0.002341815001273062,
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "expected_status_counts": {
+    "ambiguous": 2,
+    "contradicted": 3,
+    "stale": 1,
+    "supported": 2,
+    "unsupported": 2
+  },
+  "experiment_id": "batch9-claim-verification-tiny",
+  "fixture_license": "CC0-1.0",
+  "limits": [
+    "Synthetic claim/evidence annotations for verifier and abstention policy mechanics; not natural-language entailment data.",
+    "The verifier reads structured gold relation annotations; it does not perform semantic entailment.",
+    "Latency and token counts are Python policy and whitespace-proxy measurements, not generation cost.",
+    "Ten synthetic claims cannot estimate population factuality or guarantee risk on future data."
+  ],
+  "methods": {
+    "deterministic_verifier": {
+      "answer_behavior_accuracy": 1.0,
+      "brier_confidence_vs_supported": 0.54021,
+      "citation_correct_rate": 1.0,
+      "claim_precision": 1.0,
+      "correct_abstentions": 8,
+      "coverage": 0.2,
+      "emitted": 2,
+      "false_rejections": 0,
+      "latency_seconds": {
+        "mean": 3.540800389600918e-06,
+        "p95": 5.940000846749172e-06
+      },
+      "latency_seconds_per_supported_claim": 4.569000338960905e-06,
+      "n": 10,
+      "rows": [
+        {
+          "citation_correct": true,
+          "confidence": 0.94,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_direct",
+          "latency_seconds": 5.395999323809519e-06,
+          "supported_answer": true,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": true,
+          "confidence": 0.78,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_paraphrase_label",
+          "latency_seconds": 3.74200135411229e-06,
+          "supported_answer": true,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.93,
+          "emitted": false,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_irrelevant_retrieval",
+          "latency_seconds": 3.966999429394491e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.72,
+          "emitted": false,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_no_source",
+          "latency_seconds": 2.013000994338654e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.88,
+          "emitted": false,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_current",
+          "latency_seconds": 2.4790006136754528e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.81,
+          "emitted": false,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_malicious_wording",
+          "latency_seconds": 2.3190004867501557e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.89,
+          "emitted": false,
+          "evidence_status": "stale",
+          "gold_status": "stale",
+          "id": "stale_only",
+          "latency_seconds": 3.3190008252859116e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.75,
+          "emitted": false,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "stale_and_current",
+          "latency_seconds": 3.062999894609675e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.84,
+          "emitted": false,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_conflict",
+          "latency_seconds": 5.940000846749172e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.69,
+          "emitted": false,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_low_authority",
+          "latency_seconds": 3.1700001272838563e-06,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        }
+      ],
+      "supported_claim_recall": 1.0,
+      "supported_claims": 2,
+      "tokens_per_supported_claim": 6.5,
+      "tokens_proxy": 13,
+      "unsupported_assertions": 0,
+      "unsupported_claim_rate": 0.0
+    },
+    "echo_review": {
+      "answer_behavior_accuracy": 0.3,
+      "brier_confidence_vs_supported": 0.54021,
+      "citation_correct_rate": 0.2222222222222222,
+      "claim_precision": 0.2222222222222222,
+      "correct_abstentions": 1,
+      "coverage": 0.9,
+      "emitted": 9,
+      "false_rejections": 0,
+      "latency_seconds": {
+        "mean": 7.083001037244685e-07,
+        "p95": 1.1880001693498343e-06
+      },
+      "latency_seconds_per_supported_claim": 1.0124995242222212e-06,
+      "n": 10,
+      "rows": [
+        {
+          "citation_correct": true,
+          "confidence": 0.94,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_direct",
+          "latency_seconds": 1.1880001693498343e-06,
+          "supported_answer": true,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": true,
+          "confidence": 0.78,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_paraphrase_label",
+          "latency_seconds": 8.369988790946081e-07,
+          "supported_answer": true,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.93,
+          "emitted": true,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_irrelevant_retrieval",
+          "latency_seconds": 6.739992386428639e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.72,
+          "emitted": false,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_no_source",
+          "latency_seconds": 6.770005711587146e-07,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.88,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_current",
+          "latency_seconds": 6.379996193572879e-07,
+          "supported_answer": false,
+          "tokens_proxy": 8
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.81,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_malicious_wording",
+          "latency_seconds": 6.770005711587146e-07,
+          "supported_answer": false,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.89,
+          "emitted": true,
+          "evidence_status": "stale",
+          "gold_status": "stale",
+          "id": "stale_only",
+          "latency_seconds": 5.729998520109802e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.75,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "stale_and_current",
+          "latency_seconds": 5.990004865452647e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.84,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_conflict",
+          "latency_seconds": 6.170012056827545e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.69,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_low_authority",
+          "latency_seconds": 6.030004442436621e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        }
+      ],
+      "supported_claim_recall": 1.0,
+      "supported_claims": 2,
+      "tokens_per_supported_claim": 31.0,
+      "tokens_proxy": 62,
+      "unsupported_assertions": 7,
+      "unsupported_claim_rate": 0.7777777777777778
+    },
+    "retrieval_only": {
+      "answer_behavior_accuracy": 0.3,
+      "brier_confidence_vs_supported": 0.54021,
+      "citation_correct_rate": 0.2222222222222222,
+      "claim_precision": 0.2222222222222222,
+      "correct_abstentions": 1,
+      "coverage": 0.9,
+      "emitted": 9,
+      "false_rejections": 0,
+      "latency_seconds": {
+        "mean": 8.63599962031003e-07,
+        "p95": 1.9870003598043695e-06
+      },
+      "latency_seconds_per_supported_claim": 1.6719995983294211e-06,
+      "n": 10,
+      "rows": [
+        {
+          "citation_correct": true,
+          "confidence": 0.94,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_direct",
+          "latency_seconds": 1.9870003598043695e-06,
+          "supported_answer": true,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": true,
+          "confidence": 0.78,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_paraphrase_label",
+          "latency_seconds": 1.3569988368544728e-06,
+          "supported_answer": true,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.93,
+          "emitted": true,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_irrelevant_retrieval",
+          "latency_seconds": 8.260012691607699e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.72,
+          "emitted": false,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_no_source",
+          "latency_seconds": 7.470007403753698e-07,
+          "supported_answer": false,
+          "tokens_proxy": 0
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.88,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_current",
+          "latency_seconds": 6.97998984833248e-07,
+          "supported_answer": false,
+          "tokens_proxy": 8
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.81,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_malicious_wording",
+          "latency_seconds": 6.04999513598159e-07,
+          "supported_answer": false,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.89,
+          "emitted": true,
+          "evidence_status": "stale",
+          "gold_status": "stale",
+          "id": "stale_only",
+          "latency_seconds": 6.52999005978927e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.75,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "stale_and_current",
+          "latency_seconds": 5.590009095612913e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.84,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_conflict",
+          "latency_seconds": 6.430000212276354e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.69,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_low_authority",
+          "latency_seconds": 5.609999789157882e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        }
+      ],
+      "supported_claim_recall": 1.0,
+      "supported_claims": 2,
+      "tokens_per_supported_claim": 31.0,
+      "tokens_proxy": 62,
+      "unsupported_assertions": 7,
+      "unsupported_claim_rate": 0.7777777777777778
+    },
+    "single_pass": {
+      "answer_behavior_accuracy": 0.2,
+      "brier_confidence_vs_supported": 0.54021,
+      "citation_correct_rate": 0.2,
+      "claim_precision": 0.2,
+      "correct_abstentions": 0,
+      "coverage": 1.0,
+      "emitted": 10,
+      "false_rejections": 0,
+      "latency_seconds": {
+        "mean": 9.816001693252474e-07,
+        "p95": 2.754000888671726e-06
+      },
+      "latency_seconds_per_supported_claim": 2.401500751147978e-06,
+      "n": 10,
+      "rows": [
+        {
+          "citation_correct": true,
+          "confidence": 0.94,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_direct",
+          "latency_seconds": 2.754000888671726e-06,
+          "supported_answer": true,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": true,
+          "confidence": 0.78,
+          "emitted": true,
+          "evidence_status": "supported",
+          "gold_status": "supported",
+          "id": "supported_paraphrase_label",
+          "latency_seconds": 2.04900061362423e-06,
+          "supported_answer": true,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.93,
+          "emitted": true,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_irrelevant_retrieval",
+          "latency_seconds": 1.0690000635804608e-06,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.72,
+          "emitted": true,
+          "evidence_status": "unsupported",
+          "gold_status": "unsupported",
+          "id": "unsupported_no_source",
+          "latency_seconds": 7.119997462723404e-07,
+          "supported_answer": false,
+          "tokens_proxy": 8
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.88,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_current",
+          "latency_seconds": 5.360016075428575e-07,
+          "supported_answer": false,
+          "tokens_proxy": 8
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.81,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "contradicted_malicious_wording",
+          "latency_seconds": 5.680012691300362e-07,
+          "supported_answer": false,
+          "tokens_proxy": 6
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.89,
+          "emitted": true,
+          "evidence_status": "stale",
+          "gold_status": "stale",
+          "id": "stale_only",
+          "latency_seconds": 5.199999577598646e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.75,
+          "emitted": true,
+          "evidence_status": "contradicted",
+          "gold_status": "contradicted",
+          "id": "stale_and_current",
+          "latency_seconds": 5.789988790638745e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.84,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_conflict",
+          "latency_seconds": 4.929988790536299e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        },
+        {
+          "citation_correct": false,
+          "confidence": 0.69,
+          "emitted": true,
+          "evidence_status": "ambiguous",
+          "gold_status": "ambiguous",
+          "id": "ambiguous_low_authority",
+          "latency_seconds": 5.35999788553454e-07,
+          "supported_answer": false,
+          "tokens_proxy": 7
+        }
+      ],
+      "supported_claim_recall": 1.0,
+      "supported_claims": 2,
+      "tokens_per_supported_claim": 35.0,
+      "tokens_proxy": 70,
+      "unsupported_assertions": 8,
+      "unsupported_claim_rate": 0.8
+    }
+  },
+  "n": 10,
+  "review_step": {
+    "interpretation": "Not a model-review measurement. It quantifies the no-new-evidence case where a second pass repeats the first decision.",
+    "kind": "echo_control_only",
+    "language_model_backend_available": false,
+    "max_steps": 1
+  },
+  "risk_coverage": [
+    {
+      "confidence_threshold": 0.0,
+      "coverage": 1.0,
+      "false_rejections": 0,
+      "risk_among_emitted": 0.8,
+      "supported_claim_recall": 1.0
+    },
+    {
+      "confidence_threshold": 0.7,
+      "coverage": 0.9,
+      "false_rejections": 0,
+      "risk_among_emitted": 0.7777777777777778,
+      "supported_claim_recall": 1.0
+    },
+    {
+      "confidence_threshold": 0.8,
+      "coverage": 0.6,
+      "false_rejections": 1,
+      "risk_among_emitted": 0.8333333333333334,
+      "supported_claim_recall": 0.5
+    },
+    {
+      "confidence_threshold": 0.85,
+      "coverage": 0.4,
+      "false_rejections": 1,
+      "risk_among_emitted": 0.75,
+      "supported_claim_recall": 0.5
+    },
+    {
+      "confidence_threshold": 0.9,
+      "coverage": 0.2,
+      "false_rejections": 1,
+      "risk_among_emitted": 0.5,
+      "supported_claim_recall": 0.5
+    },
+    {
+      "confidence_threshold": 0.95,
+      "coverage": 0.0,
+      "false_rejections": 2,
+      "risk_among_emitted": null,
+      "supported_claim_recall": 0.0
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "experiment_id": "sequence-mixer-toy-v1",
+  "baseline_preserved": true,
+  "baseline_manifest": "experiments/baseline_manifest.json",
+  "baseline_model_source_sha256": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+  "prototype_source": "experiments/sequence_mixers.py",
+  "prototype_sha256": "c5a57f1a078a4737a82383e643a0ca866ce53cec0dff4821aa88e30ccdee6840",
+  "benchmark_source": "experiments/sequence_mixer_benchmark.py",
+  "benchmark_sha256": "7213860124460a69ef903973b2078bd1ec83418c49b5c36107789450e25a3b6f",
+  "test_source": "experiments/test_sequence_mixers.py",
+  "test_sha256": "a014188cbe894f981552ddf6b240e8049608b2d7a6f32b020aafb907d3c9a657",
+  "config": "experiments/baseline_config.json",
+  "config_sha256": "03ce9dd266693bd327f0a9b3cf46b5c79594896a2c5b27a5cfeb7410ee94376b",
+  "results": {
+    "80_step_comparison": {
+      "path": "experiments/results/sequence_mixer_tiny.json",
+      "sha256": "9f5924cf29e6f665e2056315eafc9e5b3b8cb79b2aa0fc8dfe024f2f9f59b817"
+    },
+    "300_step_copy_followup": {
+      "path": "experiments/results/sequence_mixer_copy_followup.json",
+      "sha256": "9cd3e0d23ec35bc3e5608673d1df0a94cca961865994975434d9b5fe3d2c7bc5"
+    },
+    "post_edit_guard_smoke": {
+      "path": "experiments/results/sequence_mixer_guard_smoke.json",
+      "sha256": "a4d5fa2dab67e66d0efc3a8bd9293214eecddf3fb82d75877938fb6b1f038381"
+    }
+  },
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "device": "cpu",
+    "threads": 1,
+    "training_seeds": [101, 202, 303]
+  },
+  "interpretation": "Preliminary synthetic comparison; no architecture selected"
+}

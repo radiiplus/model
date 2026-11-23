@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "baseline_id": "tiny-gpt-v1",
+  "parameter_count": 14816,
+  "config": "experiments/baseline_config.json",
+  "config_sha256": "03ce9dd266693bd327f0a9b3cf46b5c79594896a2c5b27a5cfeb7410ee94376b",
+  "model_source": "experiments/tiny_gpt.py",
+  "model_source_sha256": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+  "training_source": "experiments/train_tiny_lm.py",
+  "training_source_sha256": "a3a1258253a9980fd9821de88be300a5bb2c78ff9ed435c95836733d1ed45aaa",
+  "requirements": "experiments/requirements_cpu.txt",
+  "requirements_sha256": "23eb49e255df12bb49cbaf1cc844594349e62640696021ae1e6be0f9fd6daca9",
+  "requirements_lock": "experiments/requirements_cpu.lock.txt",
+  "requirements_lock_sha256": "0b7127fe18a8cc057135db78cda1b592650b08978a3df00b968d69acfdeedebe",
+  "result": "experiments/results/baseline_training.json",
+  "result_sha256": "07dbe3e9aef19292f68e375331c3c80fa0561ffecdb69f5b15cc9fc51809927e",
+  "checkpoint": "experiments/results/baseline_tiny_gpt.pt",
+  "checkpoint_sha256": "d9afd380ccde8eb47d3d2cdbd156fe0a9c76cc84bc043fd2e90eb936ab7b1341",
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "device": "cpu",
+    "threads": 1,
+    "training_seed": 20261124
+  },
+  "baseline_is_tiny_synthetic_overfit_only": true
+}

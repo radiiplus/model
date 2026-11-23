@@ -1,0 +1,99 @@
+# Open Questions
+
+- Which target languages, deployments and source-domain policies define the first useful model? They determine data rights, mixture, evaluation and context needs.
+- Which tokenizer wins a held-out model comparison at matched raw bytes and compute? No byte/BPE/Unigram model comparison has been run.
+- Which exact source datasets and versions are legally and operationally cleared for training? No real corpus was acquired.
+- What are measured tokens/s, GPU peak allocated/reserved memory, host RSS and checkpoint throughput on the actual GPU/framework/config? Current wall estimates use assumed sustained rates only.
+- Does the 100M-token pilot show stable per-domain validation gains, or does this model/data need a longer run? No scaling curve exists.
+- What target consumer device, context, batch and latency budget should guide the eventual model and export?
+- Can the frozen natural-language factuality/abstention evaluator reach acceptable human agreement and leakage resistance before it becomes a training gate?
+
+- Which base next-token held-out corpus has clear redistribution/use terms, low acquisition cost and a manageable local fixture?
+- What tokenizer-aware log-likelihood interface should a future backend expose, including BOS/EOS handling and context truncation?
+- How should semantically equivalent answers be scored without a model judge, and what human-reviewed calibration set is affordable?
+- What claim segmentation and evidence-support protocol gives reliable human labels and handles partial support, contradiction, source authority and time?
+- Which separate held-out task families best cover reasoning, instruction following and coding without overfitting to a tiny development suite?
+- How should benchmark overlap and training contamination be audited for corpora whose exact contents are unknown?
+- Should abstention confidence estimate answerability, probability of correctness, or both as separate calibrated outputs?
+- What portable process isolation should be used before executing model-generated code beyond trusted toy fixtures?
+- Which candidates from the evaluation-landscape survey are useful as design references, and which later dependencies are worth their install and runtime cost?
+- Which source collections have clear enough provenance, training-use terms, privacy controls and item-level attribution to be acceptable for eventual training?
+- What proportions of code, mathematics, multilingual, dialogue, long-form and general factual material improve held-out capability at equal token and compute budgets?
+- How do quality filters affect dialects, informal text, minority-language data, rare facts and technical identifiers? What audit slices and manual labels are needed?
+- Which MinHash shingle width, signature count, dedup scope and threshold best trade token savings against loss of useful rare/variant examples on a labeled realistic fixture?
+- Does semantic dedup preserve better learning signal than lexical dedup after counting encoder compute and false merges?
+- Does a staged curriculum outperform a constant mixture at equal total tokens/compute and seeds, with no per-domain forgetting?
+- What source-level PII and safety filtering is defensible, and how can false positives be reviewed without silently dropping dialect or identity-related text?
+- Which tokenizer minimizes end-to-end training and inference cost at matched useful capability, after accounting for vocabulary-dependent embeddings/output layers and context length?
+- Which normalization and pre-tokenization choices preserve code, numbers, URLs, multilingual text and exact-copy behavior on a broad licensed held-out set?
+- Should generation use UTF-8 byte IDs with strict final decoding, learned byte BPE, Unigram with byte fallback, or an internal patching architecture?
+- Which stable special-token and channel inventory supports tool calls and chat without collisions with literal user text?
+- Do byte/character patch methods improve a small CPU model at matched compute, and can their dependencies and licenses support eventual consumer deployment?
+- How should the baseline tokenizer and byte-level held-out corpus be fixed before measuring bits per byte and task quality?
+- At matched parameter count and measured compute, does GQA/MQA reduce consumer CPU latency or cache memory enough to justify any quality tradeoff?
+- How do RoPE or ALiBi compare with learned absolute positions on contexts longer than the training window?
+- Which normalization and MLP alternatives improve held-out quality or stability at matched compute rather than just changing training loss?
+- Does weight tying help the total-parameter budget without lowering held-out token and task metrics?
+- Can a recurrent mixer learn to preserve and retrieve exact early payloads after training on variable-distance copy tasks, and what state size is required?
+- Is the retention failure due to normalized state compression, fixed decays, optimization settings, or insufficient data/steps? What ablation would isolate these causes?
+- Does the recurrent decode latency advantage remain against a Transformer with an actual KV cache and optimized CPU kernels?
+- What is the smallest stable CPU implementation of Mamba selective scan that retains input-dependent state updates without sequence-sized intermediates?
+- Which consumer workloads benefit from GQA/MQA cache reductions even though cache growth remains linear in context length?
+- How much exact retrieval can sliding-window attention lose, and what explicit long-term memory mechanism restores it without adding unsupported outputs?
+- Which source implementations have compatible licenses, CPU paths and backend-portable checkpoints for eventual consumer deployment?
+- How do AdamW and hybrid Muon compare after independent LR/schedule tuning at both equal target-token and equal wall-time budgets on a varied held-out corpus?
+- Does Sophia's periodic diagonal-Hessian estimate improve quality-per-compute under a correctly matched effective batch and update cadence?
+- Which bitsandbytes release, if any, supports CPU 8-bit optimizer states with stable accuracy and lower end-to-end memory on our deployment targets?
+- Which loss schedule, warmup, decay and global clipping settings improve held-out quality/stability rather than only lowering synthetic training loss?
+- When comparing tokenizers, should byte-normalized NLL be a reporting metric only or also a loss weighting objective, and what document weighting consequences follow?
+- Which checkpoint format captures model, optimizer, scheduler, scaler, RNG and sampler/data cursor state in a portable resume test?
+- At what model/sequence/batch size do CPU BF16 or FP16 autocast become faster than FP32, and what validation metric bounds acceptable numerical drift?
+- At what context/depth does activation checkpointing save enough peak RAM to offset recomputation on consumer CPUs?
+- Which instruction examples improve held-out task performance without teaching template-specific memorization or regressing factuality, coding and abstention?
+- Do worked solutions transfer to new problem families after matching demonstration count, output-token budget and compute against concise answers?
+- Which verifier edge cases, unit tests and adversarial inputs catch reward hacking before any verifier reward is used for online optimization?
+- Does a learned missing-evidence signal improve calibrated abstention beyond a deterministic retrieval/evidence checker, and what are false-abstention costs?
+- What explicit preference-quality gap remains after SFT, and can DPO/KTO improve it at equal compute without losing verifiable accuracy?
+- Does online GRPO/PPO improve an independently held-out verifiable task over SFT alone after charging generation, reference/reward models and rollout cache?
+- How should generated reasoning traces be provenance-checked, deduplicated and split so prompts, answers, templates and teacher traces cannot leak across evaluation?
+- Which target consumer CPU, Apple Silicon or GPU should anchor the first runtime profile, and what memory, context, latency and concurrency limits matter for that actual workload?
+- Can the future model architecture, tokenizer, tied weights, position scheme and KV layout be exported to GGUF without logit/tokenization drift against the canonical checkpoint?
+- At equal held-out task quality, how do Q8, Q5 and Q4 quantization change memory, latency, factual claim support, coding and abstention behavior on a representative calibration and test set?
+- Which calibration set and quantization error checks predict downstream degradation without leaking evaluation examples or overfitting one domain?
+- How should shared-prefix KV caches be bounded, serialized, evicted and isolated between requests, and when does cache-copy overhead outweigh recomputation?
+- Once a sufficiently large target model exists, do speculative decoding or trained early exits improve single-user latency after accounting for draft/head compute, verification, cache behavior and any output-distribution change?
+- On a licensed paraphrase-heavy fixture, does a small embedding model improve answer support over BM25 enough to justify its weights, CPU cost and vector index?
+- What chunk boundaries, overlap and parent/child provenance improve multi-hop evidence recall without duplicating context or hiding contradictions?
+- How can an external index prove source coverage before answering a mutable fact, rather than treating a top-k result as exhaustive?
+- What freshness/version policy invalidates document chunks, embeddings, caches and derived summaries after update or deletion?
+- Which evidence provenance fields and citation granularity are needed for source authority, validity time, exact quotes and user data deletion?
+- Does a deterministic evidence verifier reduce unsupported claims with acceptable false abstention on a real model backend?
+- Do recursive prompt-inspection controllers outperform bounded direct retrieval on long-context tasks after charging extra LM calls and tool-execution risks?
+- Can a learned test-time memory preserve exact facts while meeting cross-task isolation, provenance, delete, update and forgetting requirements?
+- What OS-level sandbox and access-control design is required before exposing any generated-code tool to a model?
+- Which human-reviewed claim segmentation and evidence labels can separate factual truth, supplied-context faithfulness, contradiction, staleness, ambiguity and unsupported detail?
+- How should a verifier represent partial entailment, claim scope, source authority, source disagreement and temporal validity without hiding retrieval misses?
+- Does a frozen NLI/claim verifier improve unsupported-claim precision over lexical/exact checks on paraphrased held-out claims, and what are its false rejection rates by domain?
+- Do repeated samples or a second LM reviewer catch independent errors, or share the generator's factual priors and confirm its unsupported claims? Measure agreement against human labels and charge all calls/tokens.
+- Which uncertainty signal predicts answer correctness and evidence sufficiency separately: token likelihood, verbal confidence, self-consistency, retrieval features, verifier output, or a calibrated combination?
+- What calibration-split size and exchangeability assumptions are needed to support a target selective risk, and how much do retrieval/update/model shifts invalidate the guarantee?
+- What cost matrix should govern answer, qualify, retrieve, escalate to human, or abstain, and how should false abstention vary across task risk and user groups?
+- What deterministic execution boundary, resource cap and provenance record are required for code/calculation verifiers before they receive model-generated inputs?
+- Which small, source-versioned and license-cleared train/dev/test corpus is representative enough to establish a real baseline without contamination or unreviewed data rights?
+- Does any model-side answerability signal beat a deterministic evidence/currentness/conflict policy on human-reviewed paraphrase and source splits, at fixed answerable coverage and false-abstention cost?
+- At equal parameters, target tokens and measured compute, can a canonical CPU-capable recurrent/SSM model match the Transformer on exact retrieval while reducing target-device latency or cache/state memory?
+- Which of the provisional Batch 11 thresholds should be changed after a human-reviewed pilot estimates label noise and the cost of false abstention?
+- Can the frozen baseline, bounded retriever and verifier be integrated without leaking stale/conflicting evidence, exceeding call/context/time limits, or conflating retrieved facts with model knowledge?
+- What real consumer CPU/device, model size, context, single-user latency target and memory limit should define runtime and quantization decisions?
+- Does the byte model's held-out BPB gain persist on a larger licensed corpus, disjoint source families, and longer contexts, or is it fixture/template memorization?
+- Which byte tokenizer or learned subword tokenizer improves task quality per measured training compute after vocabulary/embedding parameters and context length are charged equally?
+- Does the structured BM25/verifier result transfer to natural-language questions and paraphrased evidence with an actual generator, independently adjudicated labels, and robust source coverage?
+- How do answerable-coverage, false-abstention and unsupported-claim rates change when the verifier sees partial support, irrelevant high-ranked evidence, source disagreement, and out-of-date records?
+- Can the training guard/resume behavior remain deterministic when the eventual dataloader has shuffling workers, a persistent data cursor, and multi-document packed sequences?
+- Which target languages, deployments and source-domain policies define the first useful model? They determine data rights, mixture, evaluation and context needs.
+- Which tokenizer wins a held-out model comparison at matched raw bytes and compute? No byte/BPE/Unigram model comparison has been run.
+- Which exact source datasets and versions are legally and operationally cleared for training? No real corpus was acquired.
+- What are measured tokens/s, GPU peak allocated/reserved memory, host RSS and checkpoint throughput on the actual GPU/framework/config? Current wall estimates use assumed sustained rates only.
+- Does the 100M-token pilot show stable per-domain validation gains, or does this model/data need a longer run? No scaling curve exists.
+- What target consumer device, context, batch and latency budget should guide the eventual model and export?
+- Can the frozen natural-language factuality/abstention evaluator reach acceptable human agreement and leakage resistance before it becomes a training gate?

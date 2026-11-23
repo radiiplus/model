@@ -1,0 +1,2584 @@
+{
+  "config": {
+    "base": {
+      "attention": "causal_multihead_attention",
+      "context_length": 32,
+      "d_ff": 128,
+      "d_model": 32,
+      "dropout": 0.0,
+      "dtype": "torch-float32",
+      "layers": 1,
+      "learning_rate": 0.01,
+      "mlp_activation": "gelu_erf",
+      "n_heads": 4,
+      "normalization": "pre_layernorm",
+      "optimizer": "AdamW",
+      "position_embedding": "learned_absolute",
+      "seed": 20261124,
+      "training_steps": 250,
+      "vocab_size": 32,
+      "weight_decay": 0.0,
+      "weight_tying": "token_embedding_and_output_projection"
+    },
+    "batch_size": 16,
+    "context_length": 16,
+    "epochs": 80,
+    "loss": "cross entropy over assistant completion tokens only; EOS included",
+    "optimizer": "AdamW lr 0.003, weight_decay 0, global grad clip 1.0",
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "training_examples_per_epoch": 90,
+    "vocab_size": 40
+  },
+  "data_audit": {
+    "answer_distribution": {
+      "0": 1,
+      "1": 1,
+      "2": 3,
+      "3": 3,
+      "4": 4,
+      "5": 4,
+      "6": 6,
+      "7": 7,
+      "8": 7,
+      "9": 8,
+      "10": 8,
+      "11": 6,
+      "12": 5,
+      "13": 5,
+      "14": 4,
+      "15": 4,
+      "16": 2,
+      "17": 1,
+      "18": 1
+    },
+    "duplicate_train_pairs": 0,
+    "heldout_missing_count": 10,
+    "heldout_pair_count": 20,
+    "license": "hand-authored/generated synthetic arithmetic; no third-party data",
+    "pair_overlap": 0,
+    "train_pair_count": 80,
+    "training_missing_count": 10,
+    "unique_pair_count": 100,
+    "unseen_heldout_sum_values": []
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cuda_available": false,
+    "mem_available_mib_at_start": 5274,
+    "python": "3.14.2",
+    "threads": 1,
+    "torch": "2.15.0+cpu"
+  },
+  "experiment": "tiny_synthetic_arithmetic_sft_and_abstention",
+  "limitations": [
+    "synthetic one-digit arithmetic is not natural-language reasoning",
+    "step-labelled digit/carry tokens are an abstract output format, not natural-language chain-of-thought",
+    "no code synthesis, preference optimization or online RL run",
+    "three seeds and small split are preliminary; no frontier capability claim"
+  ],
+  "peak_rss_bytes": 346243072,
+  "runs": [
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 180,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.65,
+        "correct": 23,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.7666666666666667,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              22,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              22,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              29,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              28,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              27,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 11,
+      "style": "concise",
+      "target_tokens_per_second": 7183.000309219829,
+      "target_tokens_processed": 14400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.875,
+        "correct": 80,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.8888888888888888,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              18,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.3447326024373374
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.835407535235087
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.6990486582120259
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 1.448719064394633
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 1.2395335634549458
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 0.8827586770057678
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 0.5899099806944529
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.4354164203008016
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.341914527118206
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.3138345281283061
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.1905369609594345
+        }
+      ],
+      "training_seconds": 2.0047333120000985,
+      "updates": 480
+    },
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 180,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.65,
+        "correct": 13,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.43333333333333335,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              24,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              28,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              27,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              31,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              30,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 9
+          },
+          {
+            "abstained": false,
+            "completion": [
+              22,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              27,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 23,
+      "style": "concise",
+      "target_tokens_per_second": 7210.236011557925,
+      "target_tokens_processed": 14400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.8,
+        "correct": 74,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.8222222222222222,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              28,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              27,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 9
+          },
+          {
+            "abstained": false,
+            "completion": [
+              18,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              24,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "abstained": false,
+            "completion": [
+              27,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              26,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 7
+          },
+          {
+            "abstained": false,
+            "completion": [
+              21,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.3628321488698325
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.8478487730026245
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.722411334514618
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 1.438922146956126
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 1.2468921343485515
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 1.0100136200586955
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 0.6650268336137136
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.5357724676529566
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.4824354549249013
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.401547705133756
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.451425497730573
+        }
+      ],
+      "training_seconds": 1.997160699998858,
+      "updates": 480
+    },
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 180,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 0.7,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.45,
+        "correct": 16,
+        "correct_abstentions": 7,
+        "exact_task_accuracy": 0.5333333333333333,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              24,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              23,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              29,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              30,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 9
+          },
+          {
+            "abstained": false,
+            "completion": [
+              23,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              24,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              23,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              27,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              21,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 37,
+      "style": "concise",
+      "target_tokens_per_second": 6878.918814956527,
+      "target_tokens_processed": 14400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.7625,
+        "correct": 71,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.7888888888888889,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              18,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              20,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              19,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              23,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              23,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              22,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              27,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              28,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.361391266187032
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.8636420567830405
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.745167851448059
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 1.441673457622528
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 1.4238434235254924
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 1.2593288818995159
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 1.094828615585963
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.9120978613694509
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.572172224521637
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.38040531675020856
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.27755240847667056
+        }
+      ],
+      "training_seconds": 2.093352223999318,
+      "updates": 480
+    },
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 580,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 0.9,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.55,
+        "correct": 20,
+        "correct_abstentions": 9,
+        "exact_task_accuracy": 0.6666666666666666,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              15,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 11,
+      "style": "worked",
+      "target_tokens_per_second": 22180.471394032953,
+      "target_tokens_processed": 46400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.8625,
+        "correct": 79,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.8777777777777778,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              15,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 7
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.355547308921814
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.7217026154200235
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.3236218690872192
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 0.6156240999698639
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 0.5065974543491999
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 0.330708106358846
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 0.3256101955970128
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.2639036551117897
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.14803710331519446
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.09964116911093394
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.06781587315102418
+        }
+      ],
+      "training_seconds": 2.0919302919992333,
+      "updates": 480
+    },
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 580,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.45,
+        "correct": 19,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.6333333333333333,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              15,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 6
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              10,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 3,
+            "y": 9
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 23,
+      "style": "worked",
+      "target_tokens_per_second": 21671.772709126722,
+      "target_tokens_processed": 46400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.75,
+        "correct": 70,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.7777777777777778,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              8,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              15,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 7
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 9
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.2689992984135947
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.61976420879364
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.3587928414344788
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 0.6242355207602183
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 0.5253674785296122
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 0.34218938151995343
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 0.32238271335760754
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.3133140256007512
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.26075563331445056
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.19136337687571844
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.12893114611506462
+        }
+      ],
+      "training_seconds": 2.141033898000387,
+      "updates": 480
+    },
+    {
+      "epochs": 80,
+      "format_target_tokens_per_training_epoch": 580,
+      "heldout_and_missing_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.1,
+        "correct": 2,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.06666666666666667,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              9,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 6
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "initial_eval": {
+        "abstention_recall": 0.0,
+        "answerable_count": 20,
+        "answerable_exact_accuracy": 0.0,
+        "correct": 0,
+        "correct_abstentions": 0,
+        "exact_task_accuracy": 0.0,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              9,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              13,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              33,
+              33,
+              33,
+              33,
+              33,
+              33,
+              33
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 30
+      },
+      "optimizer_state_bytes": 116544,
+      "parameter_count": 14560,
+      "seed": 37,
+      "style": "worked",
+      "target_tokens_per_second": 21464.227849461502,
+      "target_tokens_processed": 46400,
+      "train_eval": {
+        "abstention_recall": 1.0,
+        "answerable_count": 80,
+        "answerable_exact_accuracy": 0.2875,
+        "correct": 33,
+        "correct_abstentions": 10,
+        "exact_task_accuracy": 0.36666666666666664,
+        "false_abstention_rate": 0.0,
+        "false_abstentions": 0,
+        "first_incorrect_examples": [
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 2
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              11,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              12,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              15,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              17,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              16,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 0,
+            "y": 8
+          },
+          {
+            "abstained": false,
+            "completion": [
+              37,
+              8,
+              38,
+              9,
+              39,
+              9,
+              6
+            ],
+            "correct": false,
+            "expected": [
+              37,
+              10,
+              38,
+              8,
+              39,
+              8,
+              6
+            ],
+            "verifier_status": "verified_sum",
+            "x": 1,
+            "y": 1
+          }
+        ],
+        "missing_count": 10,
+        "n": 90
+      },
+      "training_curve": [
+        {
+          "epoch": 1,
+          "mean_batch_loss_nats": 3.2675963242848716
+        },
+        {
+          "epoch": 2,
+          "mean_batch_loss_nats": 2.6154232025146484
+        },
+        {
+          "epoch": 5,
+          "mean_batch_loss_nats": 1.2639697790145874
+        },
+        {
+          "epoch": 10,
+          "mean_batch_loss_nats": 0.6053596039613088
+        },
+        {
+          "epoch": 20,
+          "mean_batch_loss_nats": 0.3472772687673569
+        },
+        {
+          "epoch": 30,
+          "mean_batch_loss_nats": 0.3316803177197774
+        },
+        {
+          "epoch": 40,
+          "mean_batch_loss_nats": 0.3319918364286423
+        },
+        {
+          "epoch": 50,
+          "mean_batch_loss_nats": 0.3195219337940216
+        },
+        {
+          "epoch": 60,
+          "mean_batch_loss_nats": 0.3172512998183568
+        },
+        {
+          "epoch": 70,
+          "mean_batch_loss_nats": 0.30424360434214276
+        },
+        {
+          "epoch": 80,
+          "mean_batch_loss_nats": 0.28470871100823086
+        }
+      ],
+      "training_seconds": 2.1617362770011823,
+      "updates": 480
+    }
+  ],
+  "schema_version": 1,
+  "token_ids": {
+    "ABSTAIN": 7,
+    "ADD": 4,
+    "ANSWER_BASE": 18,
+    "ASSISTANT": 3,
+    "BOS": 1,
+    "CARRY_TAG": 38,
+    "EOS": 6,
+    "MISSING": 5,
+    "ONES_TAG": 37,
+    "OPERAND_BASE": 8,
+    "PAD": 0,
+    "TENS_TAG": 39,
+    "USER": 2
+  },
+  "verifier_audit": {
+    "all_100_sums_verified": true,
+    "all_missing_inputs_require_abstention": true
+  }
+}

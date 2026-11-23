@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "experiment_id": "external-memory-retrieval-tiny-v3",
+  "baseline_preserved": true,
+  "script": "experiments/retrieval_controller.py",
+  "script_sha256": "cec551cc282183fa1f0a1e0a733a0d8120943ede6f97bbbbe7857a641d5fde7d",
+  "tests": "experiments/test_retrieval_controller.py",
+  "tests_sha256": "e57556172b0ee5357165c52e77333921a0fe570a052fca949e82e8f3c7b1f477",
+  "knowledge_base": "experiments/fixtures/tiny_knowledge_base.json",
+  "knowledge_base_sha256": "c5c75dd2e7e0953090e8207f3d2540a21667fbf343b34571a93a00e15d7bef55",
+  "queries": "experiments/fixtures/tiny_retrieval_queries.json",
+  "queries_sha256": "002496df387a351e61b60c8c0322045bbca2e1269a727ac893828e0020c671b8",
+  "report": "reports/memory_retrieval_landscape.md",
+  "report_sha256": "5a353644dbe1b28d6bae5ed68ba7bbc78c9fb57708c04ef0a474b39aecf03d2b",
+  "repository_ledger_sha256": "a823c1bdf11ca4a46e436c3d4c0a225b6a6e33a32fe10c5d07874fc4f4d4db3a",
+  "results": {
+    "initial_measurement_preserved": {
+      "path": "experiments/results/retrieval_controller_tiny.json",
+      "sha256": "9a866fa27843c5e4389812f037ca7c094a189c96ea4d14320d6f7ab3278f76f0"
+    },
+    "provenance_fix_preserved": {
+      "path": "experiments/results/retrieval_controller_tiny_v2.json",
+      "sha256": "3070e4c270799a8da213a071d50a448e775406bce9c4f63533eb7ef7723f3df7"
+    },
+    "fixed_k_final": {
+      "path": "experiments/results/retrieval_controller_tiny_v3.json",
+      "sha256": "fb71001ef54f79280e8d3493f6f4105886bdd313a39cb3c770ab5bf0811770c5"
+    }
+  },
+  "environment": {
+    "python": "3.14.2",
+    "device": "CPU",
+    "thread_cap": 1,
+    "mem_available_mib_at_run_start": 5489,
+    "embedding_model_available": false,
+    "external_packages_installed": false,
+    "peak_rss_bytes": 23330816
+  },
+  "interpretation": "Synthetic structured retrieval/controller experiment; no LM retrieval quality claim"
+}

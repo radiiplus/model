@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "capability-sft-synthetic-arithmetic-v2",
+  "baseline_preserved": true,
+  "baseline_manifest": "experiments/baseline_manifest.json",
+  "baseline_model_source_sha256": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+  "config": "experiments/baseline_config.json",
+  "config_sha256": "03ce9dd266693bd327f0a9b3cf46b5c79594896a2c5b27a5cfeb7410ee94376b",
+  "sft_script": "experiments/capability_sft.py",
+  "sft_script_sha256": "a2f440e9d983ccbe214b2acd014a1eac183e7063b3709e9c0e68a3c6d27aa81f",
+  "tests": "experiments/test_capability_sft.py",
+  "tests_sha256": "cc4b2805c7fea1790394180b5f40354077292846d28c137b3fbbdb9568b597b8",
+  "report": "reports/capability_training_landscape.md",
+  "report_sha256": "f7b94f953a004132d6d88a44a134cc59ad07b57bd93885ab39e87249a5f9c064",
+  "results": {
+    "corrected_three_seed": {
+      "path": "experiments/results/capability_sft_tiny_v2.json",
+      "sha256": "16c78a762348c4833542c023ba0ef3971bcb485a052e921b1aa226f45cf1c823"
+    },
+    "failed_split_preserved": {
+      "path": "experiments/results/capability_sft_tiny.json",
+      "sha256": "2586a86ee3d63a80a03ed6ce1155227c4f65955fccc2f853b92f88f2f88576aa"
+    },
+    "smoke": {
+      "path": "experiments/results/capability_sft_smoke.json",
+      "sha256": "2398f6bde83131010141c5fd061d0e29a3820ac574ec64ba5b8bc9c83759264a"
+    }
+  },
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "device": "cpu",
+    "threads": 1,
+    "seeds": [11, 23, 37],
+    "peak_rss_bytes": 346243072,
+    "mem_available_mib_at_start": 5274
+  },
+  "interpretation": "Preliminary synthetic SFT and abstention test; no post-training stage selected beyond conditional SFT candidate"
+}

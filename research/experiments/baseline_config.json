@@ -1,0 +1,20 @@
+{
+  "vocab_size": 32,
+  "context_length": 32,
+  "d_model": 32,
+  "n_heads": 4,
+  "d_ff": 128,
+  "seed": 20261124,
+  "dtype": "torch-float32",
+  "layers": 1,
+  "position_embedding": "learned_absolute",
+  "normalization": "pre_layernorm",
+  "attention": "causal_multihead_attention",
+  "mlp_activation": "gelu_erf",
+  "weight_tying": "token_embedding_and_output_projection",
+  "dropout": 0.0,
+  "optimizer": "AdamW",
+  "learning_rate": 0.01,
+  "weight_decay": 0.0,
+  "training_steps": 250
+}

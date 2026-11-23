@@ -1,0 +1,63 @@
+{
+  "batch_size": 1,
+  "checkpoint_roundtrip_exact_loss": true,
+  "checkpoint_roundtrip_loss_nats": 4.069720899732117,
+  "config": {
+    "attention": "causal_multihead_attention",
+    "context_length": 32,
+    "d_ff": 128,
+    "d_model": 32,
+    "dropout": 0.0,
+    "dtype": "torch-float32",
+    "layers": 1,
+    "learning_rate": 0.01,
+    "mlp_activation": "gelu_erf",
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "optimizer": "AdamW",
+    "position_embedding": "learned_absolute",
+    "seed": 20261124,
+    "training_steps": 250,
+    "vocab_size": 32,
+    "weight_decay": 0.0,
+    "weight_tying": "token_embedding_and_output_projection"
+  },
+  "cpu_affinity": [
+    0,
+    1
+  ],
+  "dependencies": "Python standard library only",
+  "forward_repeats": 5,
+  "forward_seconds_per_step": 0.011390341599872044,
+  "forward_seconds_total": 0.056951707999360224,
+  "generated_ids": [
+    1,
+    4,
+    7,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "generated_ids_valid": true,
+  "implementation_dtype": "CPython float (binary64 on this platform)",
+  "limitations": [
+    "forward-only prototype; no autograd or optimizer installed",
+    "not trained and not a capability result",
+    "batch size 1; one synthetic token sequence",
+    "pure Python timings are not comparable to optimized tensor kernels"
+  ],
+  "mem_available_mib_at_start": 5363,
+  "next_token_loss_nats": 4.069720899732117,
+  "parameter_count": 14688,
+  "peak_rss_bytes": 19582976,
+  "python": "3.14.2",
+  "schema_version": 1,
+  "sequence_length": 9,
+  "tokens_per_second": 790.1431156464265,
+  "training_performed": false
+}

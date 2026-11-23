@@ -1,0 +1,299 @@
+{
+  "backend": "seeded-random",
+  "environment": {
+    "cgroup_memory_limit": "max",
+    "fixture_sha256": "6e890409692ef99343733622f848451b985c5d5e8f7e3ab2740f1993146e0fbf",
+    "logical_cpus_visible": 2,
+    "mem_available_kib_at_start": 6744696,
+    "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.39",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "fixture": "experiments/fixtures/tiny_eval.json",
+  "python": "3.14.2",
+  "results": [
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.09064360641670188,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": 0.0,
+      "evidence_claim_recall": 0.0,
+      "exact_match": false,
+      "gold_claim_count": 1,
+      "id": "fact_city",
+      "latency_seconds": 7.527999969170196e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "B",
+        "confidence": 0.09064360641670188,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "retrieval_grounded_qa",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": true,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.6930874145324396,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": 0.0,
+      "evidence_claim_recall": 0.0,
+      "exact_match": false,
+      "gold_claim_count": 2,
+      "id": "fact_two_claims",
+      "latency_seconds": 3.920999915862922e-06,
+      "prediction": {
+        "abstained": true,
+        "answer": "sources_conflict",
+        "confidence": 0.6930874145324396,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "retrieval_grounded_qa",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": false,
+      "claim_count": 0,
+      "confidence": 0.23680977536311776,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": false,
+      "gold_claim_count": 0,
+      "id": "unsupported_question",
+      "latency_seconds": 1.6039998627093155e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "0",
+        "confidence": 0.23680977536311776,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.015840421215362555,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": false,
+      "gold_claim_count": 0,
+      "id": "arithmetic",
+      "latency_seconds": 1.1739998626580928e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "unknown",
+        "confidence": 0.015840421215362555,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "reasoning",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.4635479684811431,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": false,
+      "gold_claim_count": 0,
+      "id": "multi_step_logic",
+      "latency_seconds": 1.2750001587846782e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "sources_conflict",
+        "confidence": 0.4635479684811431,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "reasoning",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.11441296968868764,
+      "correct": false,
+      "detail": "Traceback (most recent call last):\n  File \"/tmp/tiny-eval-ucri4jjk/candidate.py\", line 2, in <module>\n    assert add(2, 3) == 5\n           ^^^\nNameError: name 'add' is not defined\n",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": null,
+      "gold_claim_count": 0,
+      "id": "coding_add",
+      "latency_seconds": 1.1550000635907054e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "0",
+        "confidence": 0.11441296968868764,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "coding",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.8804704246290144,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": 0.0,
+      "evidence_claim_recall": 0.0,
+      "exact_match": false,
+      "gold_claim_count": 2,
+      "id": "contradictory_sources",
+      "latency_seconds": 6.014000064169522e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "unknown",
+        "confidence": 0.8804704246290144,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": true,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.5410881855511303,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": false,
+      "gold_claim_count": 0,
+      "id": "instruction_following",
+      "latency_seconds": 2.325999957975e-06,
+      "prediction": {
+        "abstained": true,
+        "answer": "2",
+        "confidence": 0.5410881855511303,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "instruction_following",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": true,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 0.6751269332239689,
+      "correct": false,
+      "detail": "",
+      "evidence_claim_precision": 0.0,
+      "evidence_claim_recall": 0.0,
+      "exact_match": false,
+      "gold_claim_count": 1,
+      "id": "answerable_abstention",
+      "latency_seconds": 1.7719999050314073e-06,
+      "prediction": {
+        "abstained": true,
+        "answer": "B",
+        "confidence": 0.6751269332239689,
+        "tokens_generated": 1
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    }
+  ],
+  "run_wall_seconds": 0.047857039000064105,
+  "schema_version": 1,
+  "seed": 1234,
+  "summary": {
+    "abstention_precision": 0.0,
+    "abstention_recall": 0.0,
+    "calibration": {
+      "brier": 0.2551871368987878,
+      "ece": 0.4123364110112851,
+      "n": 9
+    },
+    "cpu_seconds": 0.001783898000000006,
+    "cpu_seconds_per_correct": null,
+    "evidence_supported_claim_precision": null,
+    "evidence_supported_claim_recall": 0.0,
+    "exact_match_rate": 0.0,
+    "latency_seconds": {
+      "mean": 2.9743333066613154e-06,
+      "p50": 1.7719999050314073e-06,
+      "p95": 7.527999969170196e-06
+    },
+    "limitations": [
+      "whitespace-token estimate is reported per example only when backend supplies no tokenizer count; aggregate token count is null in this first version",
+      "CPU time is a coarse proxy for compute, not energy or FLOPs",
+      "single tiny fixture is not a benchmark score"
+    ],
+    "n": 9,
+    "peak_rss_bytes": 47407104,
+    "task_accuracy": 0.0,
+    "tokens_generated": 9,
+    "tracks": {
+      "coding": {
+        "accuracy": 0.0,
+        "n": 1
+      },
+      "hallucination_resistance": {
+        "accuracy": 0.0,
+        "n": 3
+      },
+      "instruction_following": {
+        "accuracy": 0.0,
+        "n": 1
+      },
+      "reasoning": {
+        "accuracy": 0.0,
+        "n": 2
+      },
+      "retrieval_grounded_qa": {
+        "accuracy": 0.0,
+        "n": 2
+      }
+    },
+    "unsupported_claim_rate": null
+  }
+}

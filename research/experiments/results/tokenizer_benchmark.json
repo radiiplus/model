@@ -1,0 +1,615 @@
+{
+  "environment": {
+    "cgroup_memory_limit": "max",
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "mem_available_mib_at_start": 5358,
+    "packages": {
+      "sentencepiece": "0.2.3",
+      "tiktoken": "0.14.0",
+      "tokenizers": "0.23.3"
+    },
+    "platform": "linux",
+    "python": "3.14.2",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "fixture": "/home/codespace/research/experiments/fixtures/tokenizer_corpus.jsonl",
+  "fixture_sha256": "d1bf1190ed7bcc6a9971fadd63bc77f75e230103372b73f02e4c940e12670d73",
+  "heldout_codepoints_unseen_in_train": [
+    "#",
+    "%",
+    "&",
+    "*",
+    "K",
+    "M",
+    "R",
+    "q",
+    "|",
+    "ç",
+    "ï",
+    "ø",
+    "Δ",
+    "Ε",
+    "Σ",
+    "ά",
+    "γ",
+    "η",
+    "θ",
+    "ι",
+    "κ",
+    "λ",
+    "ν",
+    "ο",
+    "π",
+    "ς",
+    "ό",
+    "ا",
+    "ب",
+    "ة",
+    "ح",
+    "ر",
+    "ع",
+    "ل",
+    "م",
+    "ي",
+    "ً",
+    "त",
+    "द",
+    "न",
+    "म",
+    "स",
+    "ह",
+    "ि",
+    "ी",
+    "े",
+    "्",
+    "ᵢ",
+    "—",
+    "‘",
+    "’",
+    "”",
+    "ⁿ",
+    "₁",
+    "₌",
+    "中",
+    "字",
+    "文",
+    "日",
+    "本",
+    "节",
+    "語",
+    "🧪"
+  ],
+  "heldout_documents": 7,
+  "heldout_ids": [
+    "number_decimal",
+    "code_rust",
+    "equation_unicode",
+    "url",
+    "rare",
+    "mixed_script",
+    "quoted_text"
+  ],
+  "heldout_unseen_codepoint_count": 63,
+  "limitations": [
+    "synthetic held-out set has seven texts",
+    "training samples are too small for stable tokenizer-quality conclusions",
+    "compression ratio is not downstream capability",
+    "BPE/unigram behavior depends on trainer and normalization configuration",
+    "Unicode codepoint IDs imply a theoretical 1,112,064-class vocabulary if used directly in a fixed softmax"
+  ],
+  "methods": {
+    "byte_baseline": {
+      "attention_pair_count_ratio_vs_byte_baseline": 1.0,
+      "byte_fallback_fraction": null,
+      "config": {
+        "normalizer": null,
+        "trainer": "none; UTF-8 byte IDs",
+        "unknown_policy": "none; every Unicode scalar is represented by UTF-8 bytes",
+        "vocab_size": 256
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 2.8750142843948975e-06,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": null,
+          "id": "number_decimal",
+          "tokens": 63,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": null,
+          "id": "code_rust",
+          "tokens": 97,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": null,
+          "id": "equation_unicode",
+          "tokens": 72,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": null,
+          "id": "url",
+          "tokens": 64,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": null,
+          "id": "rare",
+          "tokens": 102,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": null,
+          "id": "mixed_script",
+          "tokens": 143,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": null,
+          "id": "quoted_text",
+          "tokens": 88,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 6.289907137865417e-06,
+      "encode_latency_seconds_per_document_p50": 6.353749995469116e-06,
+      "encode_throughput_utf8_bytes_per_second": 285718503.9066804,
+      "heldout_documents": 7,
+      "heldout_tokens": 629,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 1.0,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 1.0,
+      "tracemalloc_peak_bytes": 8928,
+      "train_time_seconds": 3.6622999687097035e-05,
+      "utf8_bytes_per_token": 1.0,
+      "vocab_size": 256
+    },
+    "hf_byte_bpe": {
+      "attention_pair_count_ratio_vs_byte_baseline": 0.7465676271324789,
+      "byte_fallback_fraction": null,
+      "config": {
+        "normalizer": null,
+        "pre_tokenizer": "ByteLevel(use_regex=True)",
+        "requested_vocab_size": 512,
+        "special_tokens": [
+          "<unk>",
+          "<|pad|>",
+          "<|bos|>",
+          "<|eos|>",
+          "<|user|>",
+          "<|assistant|>",
+          "<|tool|>",
+          "<|end|>"
+        ],
+        "trainer": "tokenizers.BpeTrainer"
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 1.0217064287384607e-05,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": null,
+          "id": "number_decimal",
+          "tokens": 53,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": null,
+          "id": "code_rust",
+          "tokens": 84,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": null,
+          "id": "equation_unicode",
+          "tokens": 62,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": null,
+          "id": "url",
+          "tokens": 48,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": null,
+          "id": "rare",
+          "tokens": 82,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": null,
+          "id": "mixed_script",
+          "tokens": 137,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": null,
+          "id": "quoted_text",
+          "tokens": 65,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 5.7402342866095884e-05,
+      "encode_latency_seconds_per_document_p50": 5.1513149992388206e-05,
+      "encode_throughput_utf8_bytes_per_second": 31307831.13391564,
+      "heldout_documents": 7,
+      "heldout_tokens": 531,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 0.8441971383147854,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 0.8441971383147854,
+      "tracemalloc_peak_bytes": 4425,
+      "train_time_seconds": 0.00325369900019723,
+      "utf8_bytes_per_token": 1.1845574387947269,
+      "vocab_size": 393
+    },
+    "spm_bpe": {
+      "attention_pair_count_ratio_vs_byte_baseline": 0.7383397273691944,
+      "byte_fallback_fraction": 0.3187855787476281,
+      "config": {
+        "byte_fallback": true,
+        "character_coverage": 1.0,
+        "model_type": "bpe",
+        "normalization": "identity",
+        "requested_vocab_size": 512,
+        "special_ids": {
+          "bos": -1,
+          "eos": -1,
+          "pad": -1,
+          "unk": 0
+        },
+        "trainer": "SentencePieceTrainer"
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 1.4820628569265994e-05,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": 0.04,
+          "id": "number_decimal",
+          "tokens": 50,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": 0.047619047619047616,
+          "id": "code_rust",
+          "tokens": 84,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": 0.3387096774193548,
+          "id": "equation_unicode",
+          "tokens": 62,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": 0.24489795918367346,
+          "id": "url",
+          "tokens": 49,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": 0.20987654320987653,
+          "id": "rare",
+          "tokens": 81,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": 0.7664233576642335,
+          "id": "mixed_script",
+          "tokens": 137,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": 0.109375,
+          "id": "quoted_text",
+          "tokens": 64,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 4.706388570931657e-05,
+      "encode_latency_seconds_per_document_p50": 3.647339999588439e-05,
+      "encode_throughput_utf8_bytes_per_second": 38185178.08416108,
+      "heldout_documents": 7,
+      "heldout_tokens": 527,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 0.8378378378378378,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 0.8378378378378378,
+      "tracemalloc_peak_bytes": 6400,
+      "train_time_seconds": 0.013010273999498168,
+      "utf8_bytes_per_token": 1.1935483870967742,
+      "vocab_size": 512
+    },
+    "spm_unigram": {
+      "attention_pair_count_ratio_vs_byte_baseline": 0.7448208309525753,
+      "byte_fallback_fraction": 0.3157894736842105,
+      "config": {
+        "byte_fallback": true,
+        "character_coverage": 1.0,
+        "model_type": "unigram",
+        "normalization": "identity",
+        "requested_vocab_size": 512,
+        "special_ids": {
+          "bos": -1,
+          "eos": -1,
+          "pad": -1,
+          "unk": 0
+        },
+        "trainer": "SentencePieceTrainer"
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 7.858371431471565e-06,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": 0.037037037037037035,
+          "id": "number_decimal",
+          "tokens": 54,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": 0.047619047619047616,
+          "id": "code_rust",
+          "tokens": 84,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": 0.328125,
+          "id": "equation_unicode",
+          "tokens": 64,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": 0.25,
+          "id": "url",
+          "tokens": 48,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": 0.2125,
+          "id": "rare",
+          "tokens": 80,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": 0.7720588235294118,
+          "id": "mixed_script",
+          "tokens": 136,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": 0.10606060606060606,
+          "id": "quoted_text",
+          "tokens": 66,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 2.6849614291027788e-05,
+      "encode_latency_seconds_per_document_p50": 2.5212250011463767e-05,
+      "encode_throughput_utf8_bytes_per_second": 66933656.38937316,
+      "heldout_documents": 7,
+      "heldout_tokens": 532,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 0.8457869634340223,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 0.8457869634340223,
+      "tracemalloc_peak_bytes": 6384,
+      "train_time_seconds": 0.005791591000161134,
+      "utf8_bytes_per_token": 1.1823308270676691,
+      "vocab_size": 500
+    },
+    "tiktoken_educational_bpe": {
+      "attention_pair_count_ratio_vs_byte_baseline": 0.7155334258427883,
+      "byte_fallback_fraction": 0.8365384615384616,
+      "config": {
+        "normalizer": null,
+        "pre_tokenizer_regex": "'s|'t|'re|'ve|'m|'ll|'d| ?[\\p{L}]+| ?[\\p{N}]+| ?[^\\s\\p{L}\\p{N}]+|\\s+(?!\\S)|\\s+",
+        "requested_vocab_size": 512,
+        "special_tokens": [],
+        "trainer": "tiktoken._educational.SimpleBytePairEncoding.train"
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 1.0633978562119799e-05,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": 0.8490566037735849,
+          "id": "number_decimal",
+          "tokens": 53,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": 0.8375,
+          "id": "code_rust",
+          "tokens": 80,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": 0.8,
+          "id": "equation_unicode",
+          "tokens": 60,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": 0.82,
+          "id": "url",
+          "tokens": 50,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": 0.7402597402597403,
+          "id": "rare",
+          "tokens": 77,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": 0.9558823529411765,
+          "id": "mixed_script",
+          "tokens": 136,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": 0.734375,
+          "id": "quoted_text",
+          "tokens": 64,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 0.0004265019285672419,
+      "encode_latency_seconds_per_document_p50": 0.0003705752499627124,
+      "encode_throughput_utf8_bytes_per_second": 4213680.49420091,
+      "heldout_documents": 7,
+      "heldout_tokens": 520,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 0.8267090620031796,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 0.8267090620031796,
+      "tracemalloc_peak_bytes": 16480,
+      "train_time_seconds": 0.14080173899947113,
+      "utf8_bytes_per_token": 1.2096153846153845,
+      "vocab_size": 512
+    },
+    "unicode_codepoint": {
+      "attention_pair_count_ratio_vs_byte_baseline": 0.6843522977716104,
+      "byte_fallback_fraction": null,
+      "config": {
+        "normalizer": null,
+        "trainer": "none; direct Unicode scalar IDs",
+        "training_observed_codepoints": 119,
+        "unknown_policy": "Unicode scalar identity; fixed softmax would require a full codepoint vocabulary or fallback",
+        "vocab_size_theoretical": 1112064
+      },
+      "coverage_percent": 100.0,
+      "decode_latency_seconds_per_document_mean": 7.658635708399484e-06,
+      "documents": [
+        {
+          "domain": "numbers",
+          "fallback_byte_fraction": null,
+          "id": "number_decimal",
+          "tokens": 63,
+          "utf8_bytes": 63
+        },
+        {
+          "domain": "code",
+          "fallback_byte_fraction": null,
+          "id": "code_rust",
+          "tokens": 97,
+          "utf8_bytes": 97
+        },
+        {
+          "domain": "math",
+          "fallback_byte_fraction": null,
+          "id": "equation_unicode",
+          "tokens": 60,
+          "utf8_bytes": 72
+        },
+        {
+          "domain": "urls",
+          "fallback_byte_fraction": null,
+          "id": "url",
+          "tokens": 58,
+          "utf8_bytes": 64
+        },
+        {
+          "domain": "rare_strings",
+          "fallback_byte_fraction": null,
+          "id": "rare",
+          "tokens": 91,
+          "utf8_bytes": 102
+        },
+        {
+          "domain": "non_ascii",
+          "fallback_byte_fraction": null,
+          "id": "mixed_script",
+          "tokens": 79,
+          "utf8_bytes": 143
+        },
+        {
+          "domain": "punctuation",
+          "fallback_byte_fraction": null,
+          "id": "quoted_text",
+          "tokens": 84,
+          "utf8_bytes": 88
+        }
+      ],
+      "encode_latency_seconds_per_document_mean": 1.3955957144519613e-05,
+      "encode_latency_seconds_per_document_p50": 1.1540349987626541e-05,
+      "encode_throughput_utf8_bytes_per_second": 128772454.55347216,
+      "heldout_documents": 7,
+      "heldout_tokens": 532,
+      "heldout_utf8_bytes": 629,
+      "linear_sequence_work_ratio_vs_byte_baseline": 0.8457869634340223,
+      "round_trip_exact": true,
+      "tokens_per_utf8_byte": 0.8457869634340223,
+      "tracemalloc_peak_bytes": 9236,
+      "train_time_seconds": 5.2770000365853775e-05,
+      "utf8_bytes_per_token": 1.1823308270676691,
+      "vocab_size": 1112064
+    }
+  },
+  "n_documents": 18,
+  "peak_rss_bytes": 42553344,
+  "repeats": 20,
+  "requested_vocab_size": 512,
+  "schema_version": 1,
+  "seed": 20261123,
+  "train_documents": 11,
+  "train_ids": [
+    "prose_en",
+    "prose_informal",
+    "prose_es",
+    "prose_ja",
+    "number_ids",
+    "punctuation",
+    "code_python",
+    "equation",
+    "email",
+    "source_literals",
+    "json_data"
+  ],
+  "train_utf8_bytes": 1124
+}

@@ -1,0 +1,131 @@
+{
+  "batch_size": 1,
+  "checkpoint_path": "research/experiments/results/baseline_tiny_gpt.pt",
+  "checkpoint_roundtrip_exact": true,
+  "checkpoint_roundtrip_loss_nats": 0.00048743264051154256,
+  "config": {
+    "attention": "causal_multihead_attention",
+    "context_length": 32,
+    "d_ff": 128,
+    "d_model": 32,
+    "dropout": 0.0,
+    "dtype": "torch-float32",
+    "layers": 1,
+    "learning_rate": 0.01,
+    "mlp_activation": "gelu_erf",
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "optimizer": "AdamW",
+    "position_embedding": "learned_absolute",
+    "seed": 20261124,
+    "training_steps": 250,
+    "vocab_size": 32,
+    "weight_decay": 0.0,
+    "weight_tying": "token_embedding_and_output_projection"
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cpu_threads": 1,
+    "cuda_available": false,
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu"
+  },
+  "final_loss_nats": 0.00048743264051154256,
+  "generated_ids": [
+    1,
+    4,
+    7,
+    2,
+    5,
+    3,
+    1,
+    4,
+    7,
+    2,
+    5,
+    3,
+    1,
+    4,
+    7
+  ],
+  "generated_ids_valid": true,
+  "initial_loss_nats": 3.5357589721679688,
+  "learning_rate": 0.01,
+  "limitations": [
+    "single synthetic periodic sequence; memorization demonstration only",
+    "one seed",
+    "tiny model and CPU-only run do not establish language competence"
+  ],
+  "mem_available_mib_at_start": 5320,
+  "optimizer": "AdamW",
+  "parameter_count": 14816,
+  "peak_rss_bytes": 342876160,
+  "schema_version": 1,
+  "seconds_per_step": 0.002330898012001853,
+  "seed": 20261124,
+  "sequence_length": 12,
+  "steps": 250,
+  "synthetic_training_tokens": [
+    1,
+    4,
+    7,
+    2,
+    5,
+    3,
+    1,
+    4,
+    7,
+    2,
+    5,
+    3
+  ],
+  "tokens_per_second": 4719.211198156556,
+  "tokens_per_second_definition": "next-token targets processed divided by training wall time",
+  "train_seconds": 0.5827245030004633,
+  "training_curve": [
+    {
+      "loss_nats": 3.5357589721679688,
+      "step": 0
+    },
+    {
+      "loss_nats": 2.9180796146392822,
+      "step": 1
+    },
+    {
+      "loss_nats": 2.589111089706421,
+      "step": 2
+    },
+    {
+      "loss_nats": 1.645277738571167,
+      "step": 5
+    },
+    {
+      "loss_nats": 0.7044116854667664,
+      "step": 10
+    },
+    {
+      "loss_nats": 0.10315506905317307,
+      "step": 20
+    },
+    {
+      "loss_nats": 0.006294408813118935,
+      "step": 40
+    },
+    {
+      "loss_nats": 0.001836016308516264,
+      "step": 80
+    },
+    {
+      "loss_nats": 0.0012239053612574935,
+      "step": 120
+    },
+    {
+      "loss_nats": 0.00048743264051154256,
+      "step": 250
+    }
+  ],
+  "weight_decay": 0.0
+}

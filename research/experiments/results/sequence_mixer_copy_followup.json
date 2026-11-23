@@ -1,0 +1,551 @@
+{
+  "batch_size": 4,
+  "config": {
+    "attention": "causal_multihead_attention",
+    "context_length": 128,
+    "d_ff": 128,
+    "d_model": 32,
+    "dropout": 0.0,
+    "dtype": "torch-float32",
+    "layers": 1,
+    "learning_rate": 0.01,
+    "mlp_activation": "gelu_erf",
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "optimizer": "AdamW",
+    "position_embedding": "learned_absolute",
+    "seed": 20261124,
+    "training_steps": 250,
+    "vocab_size": 32,
+    "weight_decay": 0.0,
+    "weight_tying": "token_embedding_and_output_projection"
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cpu_threads": 1,
+    "cuda_available": false,
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu"
+  },
+  "latency": {
+    "retention": {
+      "128": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.00019634260006569094,
+        "prefill_seconds": 0.02958294500003831,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      },
+      "32": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.0003000669999892125,
+        "prefill_seconds": 0.008024857800046447,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      },
+      "64": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.00019625259992608334,
+        "prefill_seconds": 0.0153669280000031,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    "transformer": {
+      "128": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 32768,
+        "one_token_decode_seconds_no_kv_cache": 0.0009565407999616582,
+        "prefill_seconds": 0.0006938488000741927
+      },
+      "32": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 8192,
+        "one_token_decode_seconds_no_kv_cache": 0.0005038538000007974,
+        "prefill_seconds": 0.00036946999989595497
+      },
+      "64": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 16384,
+        "one_token_decode_seconds_no_kv_cache": 0.0005765074000009917,
+        "prefill_seconds": 0.000586616000146023
+      }
+    }
+  },
+  "limitations": [
+    "RetNet-like prototype is normalized simple retention, not canonical RetNet",
+    "one layer and tiny synthetic probes",
+    "three seeds per task but short synthetic training and no held-out natural text",
+    "no models or external data downloaded",
+    "latency excludes tokenizer and is not a production decode benchmark"
+  ],
+  "mem_available_mib_at_start": 5295,
+  "peak_rss_bytes": 357617664,
+  "runs": [
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.7142857142857143,
+          "correct": 20,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.5714285714285714,
+          "correct": 16,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.457170009613037,
+      "model": "transformer",
+      "parameter_count": 17888,
+      "seed": 101,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 0.7946123720003015,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.457170009613037
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.4631104469299316
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.705268144607544
+        },
+        {
+          "step": 300,
+          "validation_loss": 0.653165340423584
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.558734178543091,
+      "model": "transformer",
+      "parameter_count": 17888,
+      "seed": 202,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 0.8004707259997303,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.558734178543091
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.274578809738159
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.6712794303894043
+        },
+        {
+          "step": 300,
+          "validation_loss": 0.026065509766340256
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 1.0,
+          "correct": 28,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.4001989364624023,
+      "model": "transformer",
+      "parameter_count": 17888,
+      "seed": 303,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 0.7857207050001307,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.4001989364624023
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.2046000957489014
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.679032325744629
+        },
+        {
+          "step": 300,
+          "validation_loss": 0.0838710144162178
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.464028835296631,
+      "model": "retention",
+      "parameter_count": 17888,
+      "seed": 101,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 10.003923362000023,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.464028835296631
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.4290647506713867
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.712437152862549
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.8899235725402832
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.5374486446380615,
+      "model": "retention",
+      "parameter_count": 17888,
+      "seed": 202,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 9.75463887800015,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.5374486446380615
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.273350477218628
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.6673460006713867
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.9027719497680664
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.4129185676574707,
+      "model": "retention",
+      "parameter_count": 17888,
+      "seed": 303,
+      "steps": 300,
+      "task": "copy_exact_token",
+      "train_seconds": 9.471379984000123,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.4129185676574707
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.1753993034362793
+        },
+        {
+          "step": 10,
+          "validation_loss": 2.690690517425537
+        },
+        {
+          "step": 300,
+          "validation_loss": 2.1443886756896973
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "steps_per_model_task_seed": 300,
+  "tasks": [
+    "copy_exact_token"
+  ],
+  "total_wall_seconds": 32.527211757999794,
+  "train_sequence_length": 32
+}

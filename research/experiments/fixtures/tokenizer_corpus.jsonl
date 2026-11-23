@@ -1,0 +1,18 @@
+{"id":"prose_en","domain":"prose","text":"A small observatory opened beside the river at dawn. Visitors can borrow a brass telescope and record the changing position of the moon."}
+{"id":"prose_informal","domain":"prose","text":"I thought the train was at 8:05, but the board says 8:50! We have fifteen minutes; let's grab tea and check platform 3."}
+{"id":"prose_es","domain":"non_ascii","text":"La niña pidió café, escribió «mañana» y dejó una nota junto al río. ¿Volverá después de las 7?"}
+{"id":"prose_ja","domain":"non_ascii","text":"東京の小さな図書館は午前九時に開きます。入口には「無料」と書かれた案内があります。"}
+{"id":"number_decimal","domain":"numbers","text":"Measurements: 0.000125, 1,234,567.89, -42, +6.02e23, and 99.9%."}
+{"id":"number_ids","domain":"numbers","text":"Sample IDs are QX-00471, rev_2026_11, 00000019, and 0xDEADBEEF; keep every leading zero."}
+{"id":"punctuation","domain":"punctuation","text":"Wait... really?! (yes/no) [a,b,c] {x: 1} -- don't normalize punctuation blindly."}
+{"id":"code_python","domain":"code","text":"def normalize_path(path: str) -> str:\n    return path.strip().replace('\\\\', '/')\n\nassert normalize_path('a\\\\b') == 'a/b'"}
+{"id":"code_rust","domain":"code","text":"fn checksum(bytes: &[u8]) -> u64 {\n    bytes.iter().fold(0, |sum, byte| sum + u64::from(*byte))\n}"}
+{"id":"equation","domain":"math","text":"For integers n, n(n + 1) is even. If 3x + 5 = 20, then x = (20 - 5) / 3 = 5."}
+{"id":"equation_unicode","domain":"math","text":"The sum Σᵢ₌₁ⁿ i equals n(n + 1)/2; for θ = π/3, cos θ = 1/2."}
+{"id":"url","domain":"urls","text":"https://example.org/docs?q=tokenization&lang=日本語#section-2"}
+{"id":"email","domain":"urls","text":"Contact dev.team+bench@example.co.uk or visit http://127.0.0.1:8080/v1/status?ready=true"}
+{"id":"rare","domain":"rare_strings","text":"The fictional mineral zhyrr-Δ9 fluoresces at 407.13 nm; specimen 🧪-ø is labeled ‘unusual’.”"}
+{"id":"mixed_script","domain":"non_ascii","text":"Résumé: naïve façade; Ελληνικά: λόγος; العربية: مرحبًا; हिन्दी: नमस्ते; 中文: 字节。"}
+{"id":"source_literals","domain":"code","text":"const message = `value=${value ?? 'n/a'}`;\nif (message.includes('\\n')) console.log(message); // TODO: retain exact escapes"}
+{"id":"json_data","domain":"numbers","text":"{\"count\":2,\"ratio\":0.333333333333,\"enabled\":true,\"label\":\"東京\"}"}
+{"id":"quoted_text","domain":"punctuation","text":"She said, \"Keep the em dash — and apostrophe ’ exactly; don't fold them into ASCII.\""}

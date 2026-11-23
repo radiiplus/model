@@ -1,0 +1,414 @@
+{
+  "accumulation_check": {
+    "effective_batch_size": 4,
+    "equivalent_within_1e-6": true,
+    "max_parameter_abs_difference_after_one_step": 2.9767409159831004e-07,
+    "micro_batch_size": 1
+  },
+  "batch": {
+    "batch_size": 4,
+    "same_fixed_batch_each_update": true,
+    "sequence_length": 24
+  },
+  "config": {
+    "attention": "causal_multihead_attention",
+    "context_length": 32,
+    "d_ff": 128,
+    "d_model": 32,
+    "dropout": 0.0,
+    "dtype": "torch-float32",
+    "layers": 1,
+    "learning_rate": 0.01,
+    "mlp_activation": "gelu_erf",
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "optimizer": "AdamW",
+    "position_embedding": "learned_absolute",
+    "seed": 20261124,
+    "training_steps": 250,
+    "vocab_size": 32,
+    "weight_decay": 0.0,
+    "weight_tying": "token_embedding_and_output_projection"
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cpu_threads": 1,
+    "cuda_available": false,
+    "mem_available_mib_at_start": 5280,
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu"
+  },
+  "experiment": "fixed_tiny_gpt_optimizer_and_training_efficiency",
+  "hyperparameters": {
+    "adamw_lr": 0.003,
+    "global_grad_clip": 1.0,
+    "muon_lr": 0.02,
+    "muon_momentum": 0.95,
+    "muon_nesterov": true,
+    "muon_newton_schulz_steps": 5,
+    "weight_decay": 0.0
+  },
+  "limitations": [
+    "tiny repeated synthetic pattern only",
+    "optimizer learning rates are not tuned or matched by an extensive sweep",
+    "three seeds are preliminary",
+    "no large-scale capability or eventual pretraining throughput inference"
+  ],
+  "peak_rss_bytes": 351035392,
+  "resume_checks": {
+    "adamw": {
+      "full_final_loss_nats": 0.00418776785954833,
+      "full_model_state_sha256": "23e15c1ba6571d06269ef9f2155f5d17bec8fa2e9b72b94846458fcbc78e6618",
+      "loss_exact": true,
+      "model_state_exact": true,
+      "resumed_final_loss_nats": 0.00418776785954833,
+      "resumed_model_state_sha256": "23e15c1ba6571d06269ef9f2155f5d17bec8fa2e9b72b94846458fcbc78e6618",
+      "scope": "model, optimizer, and RNG state serialized to a temporary file and resumed"
+    },
+    "muon_hybrid": {
+      "full_final_loss_nats": 0.0044802101328969,
+      "full_model_state_sha256": "adb34c7a8848964c77ccecb00c2bde3ecd5b4e76a3ee322df6485278341f8612",
+      "loss_exact": true,
+      "model_state_exact": true,
+      "resumed_final_loss_nats": 0.0044802101328969,
+      "resumed_model_state_sha256": "adb34c7a8848964c77ccecb00c2bde3ecd5b4e76a3ee322df6485278341f8612",
+      "scope": "model, optimizer, and RNG state serialized to a temporary file and resumed"
+    }
+  },
+  "runs": [
+    {
+      "final_loss_nats": 0.00418776785954833,
+      "initial_loss_nats": 3.511500835418701,
+      "mem_available_mib_at_end": 5289,
+      "model_state_sha256": "23e15c1ba6571d06269ef9f2155f5d17bec8fa2e9b72b94846458fcbc78e6618",
+      "optimizer": "adamw",
+      "optimizer_state_bytes": 118592,
+      "parameter_count": 14816,
+      "seed": 17,
+      "steps": 200,
+      "tokens_per_second": 29834.999400483135,
+      "training_curve": [
+        {
+          "loss_nats": 3.511500835418701,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.2092456817626953,
+          "step": 1
+        },
+        {
+          "loss_nats": 3.0288219451904297,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.615309238433838,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.053610324859619,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.1177538633346558,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.06758462637662888,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.01240971777588129,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.006600955035537481,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.00418776785954833,
+          "step": 200
+        }
+      ],
+      "training_seconds": 0.6167253350004103
+    },
+    {
+      "final_loss_nats": 0.004571861121803522,
+      "initial_loss_nats": 3.4244229793548584,
+      "mem_available_mib_at_end": 5290,
+      "model_state_sha256": "e2e41274632c0060880b3cf3a5416dfba4426d96c413072d8bcc1c4fa5ba9b9c",
+      "optimizer": "adamw",
+      "optimizer_state_bytes": 118592,
+      "parameter_count": 14816,
+      "seed": 29,
+      "steps": 200,
+      "tokens_per_second": 30577.646575772615,
+      "training_curve": [
+        {
+          "loss_nats": 3.4244229793548584,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.114945411682129,
+          "step": 1
+        },
+        {
+          "loss_nats": 2.960101366043091,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.546022891998291,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.007127046585083,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.1670726537704468,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.07907042652368546,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.013365627266466618,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.007151131983846426,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.004571861121803522,
+          "step": 200
+        }
+      ],
+      "training_seconds": 0.6017467679994297
+    },
+    {
+      "final_loss_nats": 0.004184257239103317,
+      "initial_loss_nats": 3.5065369606018066,
+      "mem_available_mib_at_end": 5290,
+      "model_state_sha256": "366637f256b515aa8b2d4b3ff5627c491b6977a1b80f36085be350205e94db98",
+      "optimizer": "adamw",
+      "optimizer_state_bytes": 118592,
+      "parameter_count": 14816,
+      "seed": 43,
+      "steps": 200,
+      "tokens_per_second": 29573.462053247218,
+      "training_curve": [
+        {
+          "loss_nats": 3.5065369606018066,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.1909332275390625,
+          "step": 1
+        },
+        {
+          "loss_nats": 3.007319688796997,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.588531255722046,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.015239953994751,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.0979703664779663,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.07482757419347763,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.01264684647321701,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.006624494679272175,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.004184257239103317,
+          "step": 200
+        }
+      ],
+      "training_seconds": 0.6221794379998755
+    },
+    {
+      "final_loss_nats": 0.0044802101328969,
+      "initial_loss_nats": 3.511500835418701,
+      "mem_available_mib_at_end": 5292,
+      "model_state_sha256": "adb34c7a8848964c77ccecb00c2bde3ecd5b4e76a3ee322df6485278341f8612",
+      "optimizer": "muon_hybrid",
+      "optimizer_state_bytes": 69424,
+      "parameter_count": 14816,
+      "seed": 17,
+      "steps": 200,
+      "tokens_per_second": 15758.63180598407,
+      "training_curve": [
+        {
+          "loss_nats": 3.511500835418701,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.2883055210113525,
+          "step": 1
+        },
+        {
+          "loss_nats": 3.100801467895508,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.692366123199463,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.101039409637451,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.2205913066864014,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.09365524351596832,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.013727785088121891,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.007116112858057022,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.0044802101328969,
+          "step": 200
+        }
+      ],
+      "training_seconds": 1.167614056000275
+    },
+    {
+      "final_loss_nats": 0.004482358228415251,
+      "initial_loss_nats": 3.4244229793548584,
+      "mem_available_mib_at_end": 5293,
+      "model_state_sha256": "4925f96ce32d831893c58064fe4d9b562f05855342fb7acf7ef71cdd2d519baa",
+      "optimizer": "muon_hybrid",
+      "optimizer_state_bytes": 69424,
+      "parameter_count": 14816,
+      "seed": 29,
+      "steps": 200,
+      "tokens_per_second": 16117.050047945997,
+      "training_curve": [
+        {
+          "loss_nats": 3.4244229793548584,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.1734390258789062,
+          "step": 1
+        },
+        {
+          "loss_nats": 2.9865798950195312,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.589477777481079,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.0284531116485596,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.217612624168396,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.09577623754739761,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.013590513728559017,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.0070836483500897884,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.004482358228415251,
+          "step": 200
+        }
+      ],
+      "training_seconds": 1.1416481269998258
+    },
+    {
+      "final_loss_nats": 0.004592646844685078,
+      "initial_loss_nats": 3.5065369606018066,
+      "mem_available_mib_at_end": 5295,
+      "model_state_sha256": "c7c48eec9e19479a1c648d912fc38b60a8c9f988af983642b9fa144b03fda5f7",
+      "optimizer": "muon_hybrid",
+      "optimizer_state_bytes": 69424,
+      "parameter_count": 14816,
+      "seed": 43,
+      "steps": 200,
+      "tokens_per_second": 15496.890120299018,
+      "training_curve": [
+        {
+          "loss_nats": 3.5065369606018066,
+          "step": 0
+        },
+        {
+          "loss_nats": 3.2662158012390137,
+          "step": 1
+        },
+        {
+          "loss_nats": 3.0727529525756836,
+          "step": 2
+        },
+        {
+          "loss_nats": 2.6497702598571777,
+          "step": 5
+        },
+        {
+          "loss_nats": 2.0451254844665527,
+          "step": 10
+        },
+        {
+          "loss_nats": 1.160061240196228,
+          "step": 20
+        },
+        {
+          "loss_nats": 0.08770924061536789,
+          "step": 50
+        },
+        {
+          "loss_nats": 0.013834427110850811,
+          "step": 100
+        },
+        {
+          "loss_nats": 0.007245894521474838,
+          "step": 150
+        },
+        {
+          "loss_nats": 0.004592646844685078,
+          "step": 200
+        }
+      ],
+      "training_seconds": 1.1873349980005514
+    }
+  ],
+  "schema_version": 1
+}

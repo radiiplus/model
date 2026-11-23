@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment_id": "batch12-byte-transformer-and-bounded-retrieval",
+  "reproduction": {
+    "tests": "timeout 120s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/b4-torch-venv/bin/python -m unittest -v research.prototype.test_batch12",
+    "profile": "timeout 120s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/b4-torch-venv/bin/python -m research.prototype.run_batch12 --output research/experiments/results/batch12_tiny.json --steps 60 --seeds 11 23 37 --repeats 5"
+  },
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "ram_bytes": 8327024640,
+    "mem_available_mib_at_start": 5327,
+    "swap_total_bytes": 0,
+    "cpu_affinity": [0, 1],
+    "torch_threads": 1,
+    "device": "CPU",
+    "cuda_available": false,
+    "resource_guard_mib": 2560,
+    "timeout_seconds": 120
+  },
+  "measurement_summary": {
+    "model_parameters": 21984,
+    "seeds": [11, 23, 37],
+    "steps_per_seed": 60,
+    "mean_validation_bits_per_byte_before": 8.000924454539888,
+    "mean_validation_bits_per_byte_after": 6.078572283522546,
+    "mean_test_bits_per_byte_before": 7.988812944239282,
+    "mean_test_bits_per_byte_after": 6.879281203809167,
+    "mean_test_next_byte_accuracy_before": 0.03614457831325301,
+    "mean_test_next_byte_accuracy_after": 0.08112449799196787,
+    "inference_export_bytes_per_seed": 95085,
+    "kv_cache_estimate_fp32_bytes_per_token": 256,
+    "kv_cache_estimate_at_context_32_bytes": 8192,
+    "checkpoint_resume_exact": true,
+    "system_modes": ["none", "full_context", "bm25_unverified", "bm25_top3", "bounded_bm25"],
+    "limits": [
+      "18 short synthetic text records; only 3 validation and 4 test documents",
+      "9 structured synthetic evidence queries; no LM generation or natural-language entailment",
+      "Three seeds are preliminary, not general capability evidence",
+      "KV size is an analytical estimate; no cache implementation in this byte model"
+    ]
+  },
+  "sha256": {
+    "research/prototype/__init__.py": "e04e8223726d9fefc9bc61f299e77c07a31c64eea88b0842c3af97159df2935c",
+    "research/prototype/interfaces.py": "2549f8e99ceac17bc4edb96f107d5e7b77d2e9efd3a9d75a6736d0ec84ad1fc3",
+    "research/prototype/model.py": "09cf04d4ffd37d8ccfe38a64fa2429242665f0fe343fc2b3229cf7c6231a13b0",
+    "research/prototype/data.py": "206a30fbe1f68e11c231cb5fdacd63407f7b94e6db2c69dc000304e428f112d5",
+    "research/prototype/trainer.py": "efeded51745eaf4ca19d43f38b5a24bff0b932a2fb09b73bb21472dbbbc3deab",
+    "research/prototype/system.py": "ecaad26ea2d906bfb9df7261f85454176bcb3cdf89e633ee2107686f46c83458",
+    "research/prototype/run_batch12.py": "a1b5b26885170e343df744053b4a56c3ee65af25490c8b7a6415268659e4156c",
+    "research/prototype/test_batch12.py": "a313a16e7177d8edcef14e690b0db46f106a6c58137cfbbb6c7eaa6ef745e70e",
+    "research/prototype/byte_config.json": "729f760e8ab82e0e891003db15628c7e73743fd8dd74831a2803ba3caf69c16c",
+    "research/prototype/splits.json": "c70def35b0eadc89d60cfcf24629762b865e296f60708124fa4291fa8ebf5f9f",
+    "research/experiments/fixtures/tokenizer_corpus.jsonl": "d1bf1190ed7bcc6a9971fadd63bc77f75e230103372b73f02e4c940e12670d73",
+    "research/experiments/fixtures/tiny_knowledge_base.json": "c5c75dd2e7e0953090e8207f3d2540a21667fbf343b34571a93a00e15d7bef55",
+    "research/experiments/fixtures/tiny_retrieval_queries.json": "002496df387a351e61b60c8c0322045bbca2e1269a727ac893828e0020c671b8",
+    "research/experiments/tiny_gpt.py": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+    "research/experiments/baseline_config.json": "03ce9dd266693bd327f0a9b3cf46b5c79594896a2c5b27a5cfeb7410ee94376b",
+    "research/experiments/results/baseline_tiny_gpt.pt": "d9afd380ccde8eb47d3d2cdbd156fe0a9c76cc84bc043fd2e90eb936ab7b1341",
+    "research/experiments/results/batch12_tiny.json": "d8bb4a23d986f1d52190e5b71879cf909da18a3060c382bfbe35dc802b890750",
+    "research/experiments/results/batch12_comparison.csv": "96ac62bf213766b106f78bb3084c51507b8ed6d07140bc8c5c0b18cb14091d8c",
+    "research/experiments/results/batch12_byte_seed_11.pt": "f8f5a8fb44cc4e067e158ca468d1a248273124c974372176ae6e845b88b2a9b4",
+    "research/experiments/results/batch12_byte_seed_23.pt": "1ccb5e41705f50710a74892e4f46a0e5b2e0e385a42cfcf7089ebe8bc38accef",
+    "research/experiments/results/batch12_byte_seed_37.pt": "ded2af026e6b76a0c7fa4062b67cd1e43c5952917efbe4c082002350c2cfd8ec",
+    "research/experiments/results/batch12_byte_seed_11_inference.pt": "1fe4b1fc6414c464d991e79b55cff4a20899104a69c1a0a5fd5c502f6bb0cfde",
+    "research/experiments/results/batch12_byte_seed_23_inference.pt": "8dbbfb40d2f04eaa644abe43d0b55ed3bbf7153ed167361981a031d440a7cae1",
+    "research/experiments/results/batch12_byte_seed_37_inference.pt": "988e06f8443d9898bf5efcf78e56e5ecfbca0f5a5668d7e3245b5c6ab680fcc2",
+    "research/experiments/results/batch12_resume/full.pt": "30f8fa4645d6ae99d2447685dbc482822fde35fcc182dffce5ac01a28ff9c071",
+    "research/experiments/results/batch12_resume/partial.pt": "6fc9416fdea99252fc46a8dad07b6ee8c66e194188a1ae7fc7f4483de1d5f3a8",
+    "research/reports/integrated_tiny_prototype.md": "e526e6c28fbdbe63c27017efa90c3e2120cc797edf6e8ae66ba57932e9d0baae"
+  }
+}

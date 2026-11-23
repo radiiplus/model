@@ -1,0 +1,336 @@
+{
+  "backend": "fixture-oracle-self-check",
+  "environment": {
+    "cgroup_memory_limit": "max",
+    "fixture_sha256": "6e890409692ef99343733622f848451b985c5d5e8f7e3ab2740f1993146e0fbf",
+    "logical_cpus_visible": 2,
+    "mem_available_kib_at_start": 6744056,
+    "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.39",
+    "thread_caps": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "fixture": "experiments/fixtures/tiny_eval.json",
+  "python": "3.14.2",
+  "results": [
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 1,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": 1.0,
+      "evidence_claim_recall": 1.0,
+      "exact_match": true,
+      "gold_claim_count": 1,
+      "id": "fact_city",
+      "latency_seconds": 3.169000137859257e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "Sample City",
+        "claims": [
+          {
+            "evidence_ids": [
+              "e1"
+            ],
+            "text": "Exampleland's capital is Sample City."
+          }
+        ],
+        "confidence": 1.0
+      },
+      "recall_claim_count": 1,
+      "supported_claim_count": 1,
+      "tokens_generated": 2,
+      "track": "retrieval_grounded_qa",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 2,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": 1.0,
+      "evidence_claim_recall": 1.0,
+      "exact_match": true,
+      "gold_claim_count": 2,
+      "id": "fact_two_claims",
+      "latency_seconds": 1.9320000319567043e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "shade; blue flowers",
+        "claims": [
+          {
+            "evidence_ids": [
+              "e2"
+            ],
+            "text": "Luma grows in shade."
+          },
+          {
+            "evidence_ids": [
+              "e2"
+            ],
+            "text": "Luma has blue flowers."
+          }
+        ],
+        "confidence": 1.0
+      },
+      "recall_claim_count": 2,
+      "supported_claim_count": 2,
+      "tokens_generated": 3,
+      "track": "retrieval_grounded_qa",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": true,
+      "answerable": false,
+      "claim_count": 0,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": true,
+      "gold_claim_count": 0,
+      "id": "unsupported_question",
+      "latency_seconds": 1.0450003173900768e-06,
+      "prediction": {
+        "abstained": true,
+        "answer": "I do not know from the supplied evidence.",
+        "claims": [],
+        "confidence": 1.0
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 8,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": true,
+      "gold_claim_count": 0,
+      "id": "arithmetic",
+      "latency_seconds": 7.730000106676016e-07,
+      "prediction": {
+        "abstained": false,
+        "answer": "43",
+        "confidence": 1.0
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "reasoning",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": true,
+      "gold_claim_count": 0,
+      "id": "multi_step_logic",
+      "latency_seconds": 8.030001481529325e-07,
+      "prediction": {
+        "abstained": false,
+        "answer": "Cy",
+        "confidence": 1.0
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "reasoning",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": null,
+      "gold_claim_count": 0,
+      "id": "coding_add",
+      "latency_seconds": 1.145000169344712e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "all unit tests pass",
+        "code": "def add(a, b):\n    return a + b",
+        "confidence": 1.0
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 11,
+      "track": "coding",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 2,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": 1.0,
+      "evidence_claim_recall": 1.0,
+      "exact_match": true,
+      "gold_claim_count": 2,
+      "id": "contradictory_sources",
+      "latency_seconds": 2.3880002117948607e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "sources_conflict",
+        "claims": [
+          {
+            "evidence_ids": [
+              "e4a"
+            ],
+            "text": "Note A says the founding year was 1901."
+          },
+          {
+            "evidence_ids": [
+              "e4b"
+            ],
+            "text": "Note B says the founding year was 1908."
+          }
+        ],
+        "confidence": 1.0
+      },
+      "recall_claim_count": 2,
+      "supported_claim_count": 2,
+      "tokens_generated": 1,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 0,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": null,
+      "evidence_claim_recall": null,
+      "exact_match": true,
+      "gold_claim_count": 0,
+      "id": "instruction_following",
+      "latency_seconds": 9.929999578162096e-07,
+      "prediction": {
+        "abstained": false,
+        "answer": "GREEN",
+        "confidence": 1.0
+      },
+      "recall_claim_count": 0,
+      "supported_claim_count": 0,
+      "tokens_generated": 1,
+      "track": "instruction_following",
+      "unsupported_claim_count": 0
+    },
+    {
+      "abstained": false,
+      "answerable": true,
+      "claim_count": 1,
+      "confidence": 1.0,
+      "correct": true,
+      "detail": "",
+      "evidence_claim_precision": 1.0,
+      "evidence_claim_recall": 1.0,
+      "exact_match": true,
+      "gold_claim_count": 1,
+      "id": "answerable_abstention",
+      "latency_seconds": 1.1160000212839805e-06,
+      "prediction": {
+        "abstained": false,
+        "answer": "green",
+        "claims": [
+          {
+            "evidence_ids": [
+              "e5"
+            ],
+            "text": "The archive doors are green."
+          }
+        ],
+        "confidence": 1.0
+      },
+      "recall_claim_count": 1,
+      "supported_claim_count": 1,
+      "tokens_generated": 1,
+      "track": "hallucination_resistance",
+      "unsupported_claim_count": 0
+    }
+  ],
+  "run_wall_seconds": 0.014845656000034069,
+  "schema_version": 1,
+  "seed": 1234,
+  "summary": {
+    "abstention_precision": 1.0,
+    "abstention_recall": 1.0,
+    "calibration": {
+      "brier": 0.0,
+      "ece": 0.0,
+      "n": 9
+    },
+    "cpu_seconds": 0.0016043630000000114,
+    "cpu_seconds_per_correct": 0.00017826255555555682,
+    "evidence_supported_claim_precision": 1.0,
+    "evidence_supported_claim_recall": 1.0,
+    "exact_match_rate": 1.0,
+    "latency_seconds": {
+      "mean": 1.4848890006962595e-06,
+      "p50": 1.1160000212839805e-06,
+      "p95": 3.169000137859257e-06
+    },
+    "limitations": [
+      "whitespace-token estimate is reported per example only when backend supplies no tokenizer count; aggregate token count is null in this first version",
+      "CPU time is a coarse proxy for compute, not energy or FLOPs",
+      "single tiny fixture is not a benchmark score"
+    ],
+    "n": 9,
+    "peak_rss_bytes": 47136768,
+    "task_accuracy": 1.0,
+    "tokens_generated": 29,
+    "tracks": {
+      "coding": {
+        "accuracy": 1.0,
+        "n": 1
+      },
+      "hallucination_resistance": {
+        "accuracy": 1.0,
+        "n": 3
+      },
+      "instruction_following": {
+        "accuracy": 1.0,
+        "n": 1
+      },
+      "reasoning": {
+        "accuracy": 1.0,
+        "n": 2
+      },
+      "retrieval_grounded_qa": {
+        "accuracy": 1.0,
+        "n": 2
+      }
+    },
+    "unsupported_claim_rate": 0.0
+  }
+}

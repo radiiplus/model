@@ -1,0 +1,11 @@
+[
+  {"id":"q01","text":"What is the capital of Veloria?","entity":"Veloria","attribute":"capital","as_of":"2026-11-23","answerable":true,"answer":"Qelth","required_evidence":["d01"]},
+  {"id":"q02","text":"What route number is the Veloria North Line?","entity":"Veloria North Line","attribute":"route_number","as_of":"2026-11-23","answerable":true,"answer":"4","required_evidence":["d03"]},
+  {"id":"q03","text":"What is the catalog ID of the Qelth observatory nyrglass prism?","entity":"Qelth observatory nyrglass prism","attribute":"catalog_id","as_of":"2026-11-23","answerable":true,"answer":"NQ-17","required_evidence":["d04"]},
+  {"id":"q04","text":"When does Qelth Civic Museum open now?","entity":"Qelth Civic Museum","attribute":"opening_time","as_of":"2026-11-23","answerable":true,"answer":"09:00","required_evidence":["d05"]},
+  {"id":"q05","text":"When did Qelth Civic Museum open in 2023?","entity":"Qelth Civic Museum","attribute":"opening_time","as_of":"2023-06-01","answerable":true,"answer":"08:00","required_evidence":["d06"]},
+  {"id":"q06","text":"What is the Helion beacon status on 2026-03-15?","entity":"Helion beacon","attribute":"status","as_of":"2026-03-15","answerable":false,"answer":null,"required_evidence":["d07","d08"],"require_exhaustive":true},
+  {"id":"q07","text":"What is Veloria's population?","entity":"Veloria","attribute":"population","as_of":"2026-11-23","answerable":false,"answer":null,"required_evidence":[]},
+  {"id":"q08","text":"What colors are on Veloria's flag?","entity":"Veloria","attribute":"flag_colors","as_of":"2026-11-23","answerable":false,"answer":null,"required_evidence":[]},
+  {"id":"q09","text":"Which shelf holds the copper map in the Qelth riverside observatory?","entity":"Qelth riverside observatory","attribute":"map_shelf","as_of":"2026-11-23","answerable":true,"answer":"K-4","required_evidence":["d10"]}
+]

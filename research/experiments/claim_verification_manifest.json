@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "experiment_id": "batch9-claim-verification-tiny",
+  "command": "timeout 60s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python3 research/experiments/claim_verification.py --output research/experiments/results/claim_verification_tiny.json",
+  "test_command": "timeout 60s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v research/experiments/test_claim_verification.py",
+  "python": "3.14.2",
+  "device": "CPU",
+  "thread_caps": 1,
+  "mem_available_mib_at_start": 5497,
+  "peak_rss_bytes": 18661376,
+  "run_wall_seconds": 0.002341815001273062,
+  "files": {
+    "experiments/claim_verification.py": "50ef86384d9aea9f39f7113ffb55b8aa353f2454ed021aa72ef1668ebc4d3436",
+    "experiments/test_claim_verification.py": "d1a909fd157c0453d7453a06f5edd3a797ed59a6b7285f65569d4c0f0a98ba04",
+    "experiments/fixtures/claim_verification_tiny.json": "11e5ffe0818bb24d8fc1879f704b44a11345718b6355686c48e8d4eda9edcc3c",
+    "experiments/results/claim_verification_tiny.json": "e83f3620c693338ad69fcfa18d9c885231ec1d6a1af7bf42222372c9a6b6923f",
+    "reports/hallucination_resistance.md": "5d176af96f4c54b23da467d11d846c9157c1c5010116c5c1b1dbeaa30720d610",
+    "REPOSITORY_LEDGER.csv": "4c001dbbfb56acc6305c0f0a8580474519fa8d9182225fb3523b41b7396c787b",
+    "EXPERIMENT_LOG.csv": "a55ec338b7b0b003ad14957a1498fe5964da50ebe1595db0b637d9622a03e222"
+  },
+  "tests": "6/6 pass; first run failed due to sibling import path and is preserved in the experiment log",
+  "limitations": [
+    "Synthetic CC0 fixture with explicit typed claim/evidence relations; no natural-language entailment performed",
+    "No model backend or model-review pass available",
+    "Latency and token counts exclude generation and retrieval"
+  ]
+}

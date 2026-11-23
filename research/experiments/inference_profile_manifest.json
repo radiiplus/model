@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "batch10-tinygpt-cpu-inference",
+  "scope": "Native CPU profile of the preserved Batch 4 TinyGPT; no external runtime or weights",
+  "reproduction": {
+    "profile": "timeout 90s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/b4-torch-venv/bin/python research/experiments/inference_profile.py --repeats 10",
+    "tests": "timeout 60s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/b4-torch-venv/bin/python -m unittest -v research/experiments/test_inference_profile.py",
+    "startup_proxy": "time timeout 30s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/b4-torch-venv/bin/python -c 'import torch; print(torch.__version__)'"
+  },
+  "environment": {
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu",
+    "device": "CPU",
+    "torch_threads": 1,
+    "cpu_affinity": [0, 1],
+    "mem_available_mib_at_profile_start": 5356,
+    "peak_rss_bytes": 345866240,
+    "profile_wall_seconds": 1.5127194200013037,
+    "fresh_process_torch_import_seconds": 1.592,
+    "startup_proxy_filesystem_cache": "warm; not a cold-disk measurement"
+  },
+  "measurement_summary": {
+    "parameter_count": 14816,
+    "fp32_export_bytes": 66107,
+    "dynamic_int8_export_bytes": 31323,
+    "dynamic_int8_file_reduction_fraction": 0.526177258081595,
+    "synthetic_target_tokens": 61,
+    "greedy_argmax_agreement": 1.0,
+    "next_token_accuracy_delta": 0.0,
+    "logit_mean_absolute_error": 0.015422191781302294,
+    "logit_max_absolute_error": 0.20506691932678223,
+    "fp32_kv_bytes_per_context_token": 256,
+    "kv_prefill_max_logit_error": 0.0,
+    "kv_one_step_max_logit_error": 1.430511474609375e-06,
+    "limitations": [
+      "Synthetic memorization/probe tokens only; no held-out language or task quality conclusion",
+      "Only four Linear modules were dynamically quantized; embeddings, tied output, norms and KV stayed FP32",
+      "One-layer eager PyTorch implementation; no GGUF conversion, optimized runtime, target-device or concurrency claim",
+      "PyTorch dynamic quantization API emits deprecation warnings"
+    ]
+  },
+  "sha256": {
+    "research/experiments/inference_profile.py": "7d03854571dba5f97148a2ac37411ee1c5df65777e58de893f165a0b1c2ccc8a",
+    "research/experiments/test_inference_profile.py": "d3b672f2abdccaf64c58adff2fbad85c8399d80b5efa44e96e979b5543ba4a5a",
+    "research/reports/inference_runtime_landscape.md": "a713ffba6507461d0f4a2507ecd6726d1157d23b47b2f211b47462c900814e01",
+    "research/experiments/results/inference_profile_tiny.json": "df780264fbdaa7290ede44b922a67abaa19fb2f29d3f7c278bbc6a8dbe5bdbe9",
+    "research/experiments/results/inference_tiny_fp32.pt": "8e2827c327f0637b1d8b1380becd78b13250d812ad5cd0f3ff3d6d5f4851e530",
+    "research/experiments/results/inference_tiny_dynamic_int8.pt": "8610ae0352710e372eecbd5afa4bcbda60e762459284a85b9cbe1af5d5c21698",
+    "research/experiments/results/baseline_tiny_gpt.pt": "d9afd380ccde8eb47d3d2cdbd156fe0a9c76cc84bc043fd2e90eb936ab7b1341"
+  }
+}

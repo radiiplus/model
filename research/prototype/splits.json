@@ -1,0 +1,7 @@
+{
+  "license": "project-authored synthetic text; CC0-1.0",
+  "source": "research/experiments/fixtures/tokenizer_corpus.jsonl",
+  "train_ids": ["prose_en", "prose_informal", "prose_es", "prose_ja", "number_decimal", "number_ids", "punctuation", "code_python", "code_rust", "equation", "equation_unicode"],
+  "validation_ids": ["url", "email", "rare"],
+  "test_ids": ["mixed_script", "source_literals", "json_data", "quoted_text"]
+}

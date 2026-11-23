@@ -1,0 +1,257 @@
+{
+  "batch_size": 4,
+  "config": {
+    "attention": "causal_multihead_attention",
+    "context_length": 128,
+    "d_ff": 128,
+    "d_model": 32,
+    "dropout": 0.0,
+    "dtype": "torch-float32",
+    "layers": 1,
+    "learning_rate": 0.01,
+    "mlp_activation": "gelu_erf",
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "optimizer": "AdamW",
+    "position_embedding": "learned_absolute",
+    "seed": 20261124,
+    "training_steps": 250,
+    "vocab_size": 32,
+    "weight_decay": 0.0,
+    "weight_tying": "token_embedding_and_output_projection"
+  },
+  "environment": {
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cpu_threads": 1,
+    "cuda_available": false,
+    "python": "3.14.2",
+    "torch": "2.15.0+cpu"
+  },
+  "latency": {
+    "retention": {
+      "128": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.00021686299987777602,
+        "prefill_seconds": 0.03034353499970166,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      },
+      "32": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.00031126500016398495,
+        "prefill_seconds": 0.006155922999823815,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      },
+      "64": {
+        "actual_persistent_state_bytes": 1040,
+        "one_token_decode_seconds_recurrent": 0.00023816699922463158,
+        "prefill_seconds": 0.013776859000245167,
+        "state_shapes": [
+          [
+            1,
+            4,
+            8,
+            8
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    "transformer": {
+      "128": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 32768,
+        "one_token_decode_seconds_no_kv_cache": 0.0006593840007553808,
+        "prefill_seconds": 0.0006857790003778064
+      },
+      "32": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 8192,
+        "one_token_decode_seconds_no_kv_cache": 0.00043207499948039185,
+        "prefill_seconds": 0.0006070059998819488
+      },
+      "64": {
+        "actual_persistent_state_bytes": 0,
+        "kv_cache_bytes_if_enabled": 16384,
+        "one_token_decode_seconds_no_kv_cache": 0.00042178999956377083,
+        "prefill_seconds": 0.00047881800037430367
+      }
+    }
+  },
+  "limitations": [
+    "RetNet-like prototype is normalized simple retention, not canonical RetNet",
+    "one layer and tiny synthetic probes",
+    "three seeds per task but short synthetic training and no held-out natural text",
+    "no models or external data downloaded",
+    "latency excludes tokenizer and is not a production decode benchmark"
+  ],
+  "mem_available_mib_at_start": 5314,
+  "peak_rss_bytes": 357945344,
+  "runs": [
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.457170009613037,
+      "model": "transformer",
+      "parameter_count": 17888,
+      "seed": 101,
+      "steps": 1,
+      "task": "copy_exact_token",
+      "train_seconds": 0.004460873000425636,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.457170009613037
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.4631104469299316
+        }
+      ]
+    },
+    {
+      "accuracy": {
+        "1": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "125": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "16": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "29": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "32": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 28
+        },
+        "4": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "64": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        },
+        "8": {
+          "accuracy": 0.14285714285714285,
+          "correct": 4,
+          "total": 28
+        }
+      },
+      "initial_loss": 3.464028835296631,
+      "model": "retention",
+      "parameter_count": 17888,
+      "seed": 101,
+      "steps": 1,
+      "task": "copy_exact_token",
+      "train_seconds": 0.03755697999986296,
+      "training_curve": [
+        {
+          "step": 0,
+          "validation_loss": 3.464028835296631
+        },
+        {
+          "step": 1,
+          "validation_loss": 3.4290647506713867
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "seeds": [
+    101
+  ],
+  "steps_per_model_task_seed": 1,
+  "tasks": [
+    "copy_exact_token"
+  ],
+  "total_wall_seconds": 0.39758453800004645,
+  "train_sequence_length": 32
+}
