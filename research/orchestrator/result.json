@@ -1,0 +1,136 @@
+{
+  "controls": {
+    "full": {
+      "abstained": false,
+      "answer": "blue",
+      "citations": 1,
+      "loop_steps_requested": 3,
+      "reason": "exact structured fact and evidence match",
+      "refinements": 1,
+      "retrieval_calls": 1,
+      "strategies": 1,
+      "verdict": "supported",
+      "verifier_calls": 1,
+      "wall": 0.001871318998382776
+    },
+    "no_refinement": {
+      "abstained": false,
+      "answer": "blue",
+      "citations": 1,
+      "loop_steps_requested": 1,
+      "reason": "exact structured fact and evidence match",
+      "refinements": 0,
+      "retrieval_calls": 1,
+      "strategies": 1,
+      "verdict": "supported",
+      "verifier_calls": 1,
+      "wall": 0.0010197749998042127
+    },
+    "no_retrieval": {
+      "abstained": true,
+      "answer": null,
+      "citations": 0,
+      "loop_steps_requested": 3,
+      "reason": "retrieval disabled",
+      "refinements": 1,
+      "retrieval_calls": 0,
+      "strategies": 1,
+      "verdict": "insufficient",
+      "verifier_calls": 1,
+      "wall": 0.00104841600114014
+    },
+    "no_strategy": {
+      "abstained": false,
+      "answer": "blue",
+      "citations": 1,
+      "loop_steps_requested": 3,
+      "reason": "exact structured fact and evidence match",
+      "refinements": 1,
+      "retrieval_calls": 1,
+      "strategies": 0,
+      "verdict": "supported",
+      "verifier_calls": 1,
+      "wall": 0.0007073560009303037
+    },
+    "no_verifier": {
+      "abstained": true,
+      "answer": null,
+      "citations": 0,
+      "loop_steps_requested": 3,
+      "reason": "verification disabled",
+      "refinements": 1,
+      "retrieval_calls": 1,
+      "strategies": 1,
+      "verdict": "disabled",
+      "verifier_calls": 0,
+      "wall": 0.0010180989993386902
+    }
+  },
+  "decision": "integrated-path-passes-mechanics-only",
+  "hashes": {
+    "flow": "24e2509ea024d732b7a24e0ba34e6963b4a6e5576595c1f6719004ce9ccc8c09",
+    "foundation": "f8f5a8fb44cc4e067e158ca468d1a248273124c974372176ae6e845b88b2a9b4",
+    "strategy_source": "17f4772f80886684e25b456aa40788dcc022fa0b88337e5c9241b251b4e3e31a",
+    "tests": "62dc7fea520821b4353de6a11aa543900affa79e5f1e2f13a969d195505e0414"
+  },
+  "limits": [
+    "The control model is a deterministic probe, not a language model.",
+    "The neural smoke is direct model-only inference on a two-byte request.",
+    "The only verifier checks exact structured facts linked to retrieved evidence.",
+    "All evidence in this measurement is generated synthetic fixture data.",
+    "No natural-language entailment, open-domain capability or interaction quality is measured."
+  ],
+  "memory": {
+    "database_bytes": 510192,
+    "evidence_hash": "5786c25c0f7d995cdcc5bf2ad0a940e1c8eaa349316b97195abf038fff581e37",
+    "owner": "offline",
+    "scope": "demo"
+  },
+  "mode": "offline-orchestration-mechanics",
+  "neural": {
+    "abstained": true,
+    "answer": null,
+    "checkpoint": "f8f5a8fb44cc4e067e158ca468d1a248273124c974372176ae6e845b88b2a9b4",
+    "checkpoint_unchanged": true,
+    "context": 32,
+    "model": "frozen-byte-decoder",
+    "parameters": 22432,
+    "reason": "model_output_unverified",
+    "resource": {
+      "available_mib": 6196,
+      "device": "cpu",
+      "loop_steps_requested": 3,
+      "model": "frozen-byte-decoder",
+      "model_calls": 2,
+      "peak_rss": 339529728,
+      "refinements": 1,
+      "retrieval_calls": 0,
+      "retrieved_bytes": 0,
+      "retrieved_chunks": 0,
+      "retrieved_tokens": 0,
+      "strategies": 0,
+      "threads": 1,
+      "timeouts": 0,
+      "verifier_calls": 1,
+      "wall": 0.00642405800135748
+    }
+  },
+  "runtime": {
+    "available_mib": 6195,
+    "device": "cpu",
+    "memory_guard_mib": 2560,
+    "peak_rss": 339529728,
+    "threads": 1,
+    "timeout": 120,
+    "wall": 0.07514953600002627
+  },
+  "strategy": {
+    "id": "9d4c08013101b3ca6d6076dbe6f8579829c52db94a9a5ab3ced30ddfe4fffd85",
+    "status": "validated",
+    "valid": [
+      "trace"
+    ],
+    "version": 2
+  },
+  "version": 1
+}

@@ -27,6 +27,7 @@ Research a from-scratch language model and inference system for useful capabilit
 | 16: Dual-state answer refiner | Shared block updates latent z then answer y; exact K=1 transfer parity; 23,264 parameters; no model training | [Dual refiner](recursive/dual.py), [config](recursive/dual.json), [tests](recursive/test.py), [CPU measurement harness](recursive/measure.py), [profile and hashes](recursive/report.json). |
 | 17: Refinement training | Loop and dual-state trainers with target-only task loss, deep supervision, final-only ablation and exact resume; smoke only | [Trainer](recursive/train.py), [settings](recursive/train.json), [tests](recursive/test.py), [smoke record](recursive/training.json). |
 | 18: Strategy adapters | Frozen Batch 12 byte model with a rank-4 adapter trained from Patch 8 episodes; no-go after zero exact-match gain | [Adapter experiment](adaptive/adapter.py), [checks](adaptive/check.py), [metrics](adaptive/neural.json), [report](adaptive/neural.md). |
+| 19: Offline orchestration | Bounded retrieve-reason-refine-verify flow passes mechanics controls; neural capability remains unproven | [Orchestrator](orchestrator/flow.py), [tests](orchestrator/test.py), [measurement](orchestrator/result.json), [report](orchestrator/report.md). |
 
 ## Master Decision Matrix
 
