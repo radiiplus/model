@@ -24,6 +24,7 @@ Research a from-scratch language model and inference system for useful capabilit
 | 13: Final training specification | Staged 13.8M-parameter pilot plan; full pretraining not yet approved | [Training spec/runbook](decisions/final_training_spec.md), [resource calculator](prototype/resource_estimator.py), [editable scenario CSV](decisions/training_resource_scenarios.csv). |
 | 14: Recursive evaluation tasks | Five-family generated suite and deterministic scorers ready; no model trained | [Task generators](recursive/tasks.py), [evaluator](recursive/evaluate.py), [tests](recursive/test.py), [split manifest](recursive/manifest.json), [baseline report](recursive/result.json). |
 | 15: Shared-weight recurrent decoder | One shared causal block supports K=1/2/4/8; exact K=1 checkpoint parity; no model training | [Decoder](recursive/model.py), [config](recursive/config.json), [tests](recursive/test.py), [profile harness](recursive/profile.py), [CPU profile](recursive/profile.json). |
+| 16: Dual-state answer refiner | Shared block updates latent z then answer y; exact K=1 transfer parity; 23,264 parameters; no model training | [Dual refiner](recursive/dual.py), [config](recursive/dual.json), [tests](recursive/test.py), [CPU measurement harness](recursive/measure.py), [profile and hashes](recursive/report.json). |
 
 ## Master Decision Matrix
 

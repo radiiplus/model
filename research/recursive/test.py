@@ -5,9 +5,14 @@ from pathlib import Path
 import torch
 
 from research.experiments.tiny_gpt import TinyGPT
+from research.recursive.dual import Refiner, transfer as dualtransfer
 from research.recursive.evaluate import check, edges, score, solve
 from research.recursive.model import Decoder, transfer
 from research.recursive.tasks import CONTEXT, CROSS, build, crosses, manifest
+
+torch.set_num_threads(1)
+torch.set_num_interop_threads(1)
+torch.use_deterministic_algorithms(True)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,9 +71,6 @@ class Tests(unittest.TestCase):
 
 class Model(unittest.TestCase):
     def setUp(self):
-        torch.set_num_threads(1)
-        torch.set_num_interop_threads(1)
-        torch.use_deterministic_algorithms(True)
         self.payload = torch.load(CHECKPOINT, map_location="cpu", weights_only=True)
         self.base = TinyGPT(self.payload["config"]).cpu().eval()
         self.base.load_state_dict(self.payload["model"])
@@ -139,6 +141,101 @@ class Model(unittest.TestCase):
             model.generate([], 1)
         with self.assertRaises(ValueError):
             transfer(model, {"config": config, "model": {}})
+
+
+class Dual(unittest.TestCase):
+    def setUp(self):
+        self.payload = torch.load(CHECKPOINT, map_location="cpu", weights_only=True)
+        self.config = json.loads((ROOT / "recursive" / "dual.json").read_text())
+        self.base = Decoder({**self.payload["config"], "limit": 8, "steps": 4})
+        transfer(self.base, self.payload)
+        self.model = Refiner(self.config)
+        dualtransfer(self.model, self.base)
+        self.ids = torch.tensor([[0, 32, 65, 66, 255, 7]], dtype=torch.long)
+
+    def test(self):
+        self.assertEqual(self.model.params, 23264)
+        self.assertLessEqual(self.model.params, self.config["budget"])
+        self.assertIs(self.model.head, self.model.token.weight)
+        self.assertEqual(sum(isinstance(item, type(self.model.block))
+                             for item in self.model.modules()), 1)
+        self.assertEqual(tuple(self.model.step.shape), (8, 32))
+        self.assertEqual(tuple(self.model.gate.shape), (8, 4, 32))
+        self.assertEqual(int(torch.count_nonzero(self.model.step)), 0)
+        self.assertEqual(int(torch.count_nonzero(self.model.gate)), 0)
+
+        with torch.inference_mode():
+            want = self.base(self.ids, steps=1)
+            got = self.model(self.ids, steps=1)
+            again = self.model(self.ids, steps=1)
+        torch.testing.assert_close(got, want, rtol=0.0, atol=0.0)
+        torch.testing.assert_close(got, again, rtol=0.0, atol=0.0)
+
+        states = []
+        hook = self.model.block.register_forward_hook(
+            lambda module, inputs, output: states.append(output)
+        )
+        logits, trace = self.model(self.ids, steps=2, trace=True, targets=self.ids)
+        hook.remove()
+        self.assertEqual(len(states), 4)
+        self.assertEqual(states[0].shape, (1, 6, 32))
+        self.assertEqual(states[1].shape, (1, 6, 32))
+        self.assertIsNot(states[0], states[1])
+        self.assertFalse(torch.equal(states[0], states[1]))
+        self.assertIsNot(states[2], states[3])
+        self.assertFalse(torch.equal(states[2], states[3]))
+        self.assertEqual(trace["logits"].shape, (2, 1, 6, 256))
+        self.assertEqual(trace["losses"].shape, (2,))
+        self.assertEqual(trace["deltas"].shape, (2, 2))
+        self.assertTrue(bool(torch.isfinite(logits).all()))
+        self.assertTrue(bool(torch.isfinite(trace["losses"]).all()))
+        self.assertTrue(bool(torch.isfinite(trace["deltas"]).all()))
+        torch.testing.assert_close(logits, trace["logits"][-1])
+        torch.testing.assert_close(
+            logits, torch.nn.functional.linear(self.model.norm(states[-1]), self.model.head)
+        )
+        loss = trace["losses"].sum()
+        loss.backward()
+        self.assertTrue(all(value.grad is None or bool(torch.isfinite(value.grad).all())
+                            for value in self.model.parameters()))
+        self.assertIsNotNone(self.model.gate.grad)
+        self.assertIsNotNone(self.model.step.grad)
+
+        for count in (1, 2, 4, 8):
+            self.assertEqual(self.model.params, 23264)
+            left = self.ids.clone()
+            right = self.ids.clone()
+            right[0, -1] = 1
+            with torch.no_grad():
+                a = self.model(left, steps=count)
+                b = self.model(right, steps=count)
+            self.assertTrue(bool(torch.isfinite(a).all()))
+            torch.testing.assert_close(a[:, :-1], b[:, :-1], rtol=0.0, atol=0.0)
+        one = self.model.generate(ids=[32, 65, 66], max_new_tokens=4, steps=4)
+        self.assertEqual(one, self.model.generate(
+            ids=[32, 65, 66], max_new_tokens=4, steps=4
+        ))
+        self.assertEqual(len(one), 7)
+        with self.assertRaises(ValueError):
+            Refiner({**self.config, "budget": 23263})
+        with self.assertRaises(ValueError):
+            self.model(self.ids, steps=3)
+        with self.assertRaises(ValueError):
+            self.model(self.ids.to(torch.int32))
+        with self.assertRaises(ValueError):
+            self.model(torch.tensor([[256]], dtype=torch.long))
+        with self.assertRaises(ValueError):
+            self.model(self.ids, targets=self.ids)
+        with self.assertRaises(ValueError):
+            self.model(self.ids[:, :0])
+        with self.assertRaises(ValueError):
+            self.model(self.ids[0])
+        with self.assertRaises(ValueError):
+            self.model(self.ids, trace=True, targets=self.ids[:, :-1])
+        with self.assertRaises(ValueError):
+            self.model(self.ids, trace="yes")
+        with self.assertRaises(ValueError):
+            dualtransfer(self.model, object())
 
 
 if __name__ == "__main__":

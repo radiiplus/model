@@ -1,0 +1,13 @@
+{
+  "vocab_size": 256,
+  "context_length": 32,
+  "d_model": 32,
+  "n_heads": 4,
+  "d_ff": 128,
+  "limit": 8,
+  "steps": 4,
+  "budget": 1000000,
+  "dtype": "torch-float32",
+  "device": "cpu",
+  "seed": 43
+}

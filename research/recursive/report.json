@@ -1,0 +1,96 @@
+{
+  "batch": 1,
+  "blocks": 1,
+  "budget": 1000000,
+  "context": 32,
+  "device": "cpu",
+  "dtype": "float32",
+  "hashes": {
+    "baseline": "e317e702f639271bb816f7cafe72c4505b02ac881cacfb2ebb26919fe957acad",
+    "checkpoint": "f8f5a8fb44cc4e067e158ca468d1a248273124c974372176ae6e845b88b2a9b4",
+    "config": "40483b598f537f89a2a9db5850a84408ec6869a51f868222eb21a1b4bd6ae848",
+    "measure": "8940df4b75efec3dcd69b668571e59b220b5a324fe3e4daf34f46803d3a55490",
+    "model": "2f0696954d3f49ccba4c38b7707e982ca21c41f87f2d30d08404b67da6c85a53"
+  },
+  "memory": {
+    "available": 5684297728,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 1818595328,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 1849470976,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 5684297728
+  },
+  "params": 23264,
+  "rows": [
+    {
+      "applications": 2,
+      "latency": {
+        "mean": 0.0007098087000940723,
+        "p50": 0.000619086999904539,
+        "p95": 0.0010596350002742838
+      },
+      "loops": 1,
+      "params": 23264,
+      "runs": 20,
+      "steps": 1
+    },
+    {
+      "applications": 4,
+      "latency": {
+        "mean": 0.0014874132001750696,
+        "p50": 0.0014293815002019983,
+        "p95": 0.0019675560006362502
+      },
+      "loops": 2,
+      "params": 23264,
+      "runs": 20,
+      "steps": 2
+    },
+    {
+      "applications": 8,
+      "latency": {
+        "mean": 0.0024591645998953025,
+        "p50": 0.0021990509994793683,
+        "p95": 0.0033185840002261102
+      },
+      "loops": 4,
+      "params": 23264,
+      "runs": 20,
+      "steps": 4
+    },
+    {
+      "applications": 16,
+      "latency": {
+        "mean": 0.0050627649501166164,
+        "p50": 0.004479652000100032,
+        "p95": 0.006957945999602089
+      },
+      "loops": 8,
+      "params": 23264,
+      "runs": 20,
+      "steps": 8
+    }
+  ],
+  "runtime": {
+    "guard": 2560,
+    "rss": 337297408,
+    "threads": 1,
+    "timeout": 120,
+    "wall": 0.23112956899967685
+  },
+  "seed": 43,
+  "version": 1
+}
