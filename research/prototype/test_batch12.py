@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import torch
 
@@ -12,7 +13,7 @@ from research.prototype.data import load_splits
 from research.prototype.interfaces import ByteTokenizer
 from research.prototype.model import ByteLanguageModel
 from research.prototype.system import OfflineEvidenceSystem, load_fixture
-from research.prototype.trainer import configure_torch, load_config, train_to
+from research.prototype.trainer import available, configure_torch, load_config, parse, snapshot, train_to
 
 
 HERE = Path(__file__).resolve().parent
@@ -52,20 +53,48 @@ class Batch12Tests(unittest.TestCase):
 
     def test_training_sampler_is_seeded(self):
         from research.prototype.data import ByteWindowLoader
+        rows = [[0, 1, 2, 3, 4], [8, 9, 10], [20, 21], [30, 31, 32, 33]]
+        loader = ByteWindowLoader(rows, 3)
+        self.assertEqual(len(loader.windows), 3)
+        self.assertEqual([loader.window(index).tolist() for index in loader.windows],
+                         [[0, 1, 2, 3], [1, 2, 3, 4], [30, 31, 32, 33]])
+        self.assertFalse(any(isinstance(item, torch.Tensor) for item in loader.windows))
+        with self.assertRaises(IndexError):
+            loader.window(3)
+        with self.assertRaisesRegex(ValueError, "no complete context windows"):
+            ByteWindowLoader([[1, 2], [3, 4, 5]], 3)
         loader = ByteWindowLoader(self.encoded["train"], self.config["context_length"])
         a = loader.sample(2, torch.Generator().manual_seed(8))
         b = loader.sample(2, torch.Generator().manual_seed(8))
         self.assertTrue(torch.equal(a, b))
+        self.assertEqual(parse("1000", "400"), (1000, 400, 600))
+        self.assertEqual(parse("max", "400"), (None, 400, None))
+        self.assertEqual(parse("9223372036854771712", "400"), (None, 400, None))
+        self.assertEqual(parse("max", None), (None, None, None))
+        self.assertEqual(available(900, [{"available": 250}]), 250)
+        state = snapshot()
+        self.assertEqual(state["device"], "cpu")
+        self.assertGreater(state["available"], 0)
+        self.assertTrue(all(row["kind"] in {"v1", "v2"} for row in state["groups"]))
+        with self.assertRaises(ValueError):
+            parse("1000", None)
+        with self.assertRaises(RuntimeError):
+            available(None, [])
 
     def test_interruption_resume_matches_uninterrupted_model(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             full, partial = root / "full.pt", root / "partial.pt"
+            with patch("research.prototype.trainer.available_mib", return_value=1):
+                with self.assertRaisesRegex(MemoryError, "effective available memory"):
+                    train_to(self.config, self.encoded["train"], self.encoded["validation"],
+                             seed=79, total_steps=1, checkpoint_path=root / "refused.pt")
             train_to({**self.config, "seed": 79}, self.encoded["train"], self.encoded["validation"],
                      seed=79, total_steps=8, checkpoint_path=full)
             stopped = train_to({**self.config, "seed": 79}, self.encoded["train"], self.encoded["validation"],
                                seed=79, total_steps=8, checkpoint_path=partial, stop_after_step=4)
             self.assertTrue(stopped["interrupted"])
+            self.assertEqual(stopped["device"], "cpu")
             resumed = train_to({**self.config, "seed": 79}, self.encoded["train"], self.encoded["validation"],
                                seed=79, total_steps=8, checkpoint_path=partial, resume_from=partial)
             full_payload = torch.load(full, map_location="cpu", weights_only=True)

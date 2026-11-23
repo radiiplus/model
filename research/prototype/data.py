@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import bisect
 import hashlib
 import json
 from collections import defaultdict
@@ -65,18 +66,27 @@ def load_splits(text_path: Path, split_path: Path, tokenizer: ByteTokenizer) -> 
 class ByteWindowLoader:
     def __init__(self, documents: list[list[int]], context_length: int):
         self.context_length = context_length
-        self.windows: list[torch.Tensor] = []
+        self.docs = documents
+        self.counts: list[int] = []
+        self.offsets = [0]
         for row in documents:
-            for start in range(max(1, len(row) - context_length)):
-                window = row[start : start + context_length + 1]
-                if len(window) == context_length + 1:
-                    self.windows.append(torch.tensor(window, dtype=torch.long))
-        if not self.windows:
+            count = max(0, len(row) - context_length)
+            self.counts.append(count)
+            self.offsets.append(self.offsets[-1] + count)
+        self.windows = range(self.offsets[-1])
+        if not len(self.windows):
             raise ValueError("no complete context windows in training split")
+
+    def window(self, index: int) -> torch.Tensor:
+        if not 0 <= index < len(self.windows):
+            raise IndexError("window index out of range")
+        owner = bisect.bisect_right(self.offsets, index) - 1
+        start = index - self.offsets[owner]
+        return torch.tensor(self.docs[owner][start : start + self.context_length + 1], dtype=torch.long)
 
     def sample(self, batch_size: int, generator: torch.Generator) -> torch.Tensor:
         indices = torch.randint(len(self.windows), (batch_size,), generator=generator)
-        return torch.stack([self.windows[int(i)] for i in indices])
+        return torch.stack([self.window(int(index)) for index in indices])
 
 
 def evaluate_bytes(model: torch.nn.Module, documents: list[list[int]], context_length: int) -> dict[str, float | int]:

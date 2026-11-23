@@ -21,7 +21,14 @@ from research.prototype.data import evaluate_bytes, load_splits
 from research.prototype.interfaces import ByteTokenizer
 from research.prototype.model import ByteLanguageModel
 from research.prototype.system import compare_system_modes, load_fixture
-from research.prototype.trainer import MEMORY_GUARD_MIB, available_mib, configure_torch, load_config, train_to
+from research.prototype.trainer import (
+    MEMORY_GUARD_MIB,
+    available_mib,
+    configure_torch,
+    load_config,
+    snapshot,
+    train_to,
+)
 
 
 HERE = Path(__file__).resolve().parent
@@ -42,9 +49,10 @@ def model_hash(path: Path) -> str:
 
 def run(output: Path, steps: int = 60, seeds: tuple[int, ...] = (11, 23, 37), repeats: int = 5) -> dict[str, Any]:
     run_started = time.perf_counter()
+    state = snapshot()
     start_available = available_mib()
     if start_available < MEMORY_GUARD_MIB:
-        raise MemoryError(f"MemAvailable below {MEMORY_GUARD_MIB} MiB")
+        raise MemoryError(f"effective available memory below {MEMORY_GUARD_MIB} MiB")
     configure_torch()
     tokenizer = ByteTokenizer()
     encoded, audit = load_splits(TEXTS, SPLITS, tokenizer)
@@ -137,6 +145,7 @@ def run(output: Path, steps: int = 60, seeds: tuple[int, ...] = (11, 23, 37), re
             "cuda_available": torch.cuda.is_available(), "torch_threads": torch.get_num_threads(),
             "cpu_affinity": sorted(os.sched_getaffinity(0)), "mem_available_mib_at_start": start_available,
             "memory_guard_mib": MEMORY_GUARD_MIB,
+            "memory": state,
             "thread_caps": {key: os.environ.get(key) for key in
                             ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS")},
         },

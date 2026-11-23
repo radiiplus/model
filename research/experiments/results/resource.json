@@ -1,0 +1,53 @@
+{
+  "batch": [
+    8,
+    33
+  ],
+  "branch": "codex/recurrent-adaptive-model",
+  "context": 32,
+  "device": "cpu",
+  "guard": 2560,
+  "hashes": {
+    "config": "729f760e8ab82e0e891003db15628c7e73743fd8dd74831a2803ba3caf69c16c",
+    "data": "4f3ae9eb13944a2eae23ab6c9047a00a9a106288880d5a03a425fdd1f0c771a2",
+    "runner": "6946d8381e9648da97d849b8cf465c1f5137076dc0b9fd839f123cc0ce15b9c4",
+    "test": "b02ed07e67118b55b1f3183f615925349b8bae7f2cc0e1ed4054fd7398db03c7",
+    "trainer": "8c3882db33519eda51ed121820f34b17a0f76f023769b03c37797069ed051af1"
+  },
+  "head": "49045130d4290db27d4b7d357dfe52cd2232fcd3",
+  "index": "range",
+  "loops": 0,
+  "memory": {
+    "available": 6750887936,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 3119828992,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 3156475904,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 6750887936
+  },
+  "note": "Lazy-sampler stress smoke only; no model training or capability evaluation.",
+  "params": 0,
+  "python": "3.14.2",
+  "rss": 241909760,
+  "schema": 1,
+  "seed": 41,
+  "threads": 1,
+  "timeout": 30,
+  "tokens": 100000,
+  "torch": "2.15.0+cpu",
+  "wall": 0.0006923060000190162,
+  "windows": 99968
+}
