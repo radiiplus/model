@@ -31,6 +31,8 @@ Research a from-scratch language model and inference system for useful capabilit
 
 ## Master Decision Matrix
 
+The [recursive reasoning research anchors](reports/recursive_reasoning_references.md) summarize looped Transformers, dual-state refinement, training-time refinement, external context, learned memory and test-time learning, with transfer limits for the proposed small-model experiments.
+
 | Decision area | Current direction | Evidence strength | Gate before promotion |
 |---|---|---|---|
 | Core model | Fixed causal Transformer baseline; no hybrid | Strong for correctness mechanics, weak for capability | Licensed held-out text/task results; one-factor comparisons at matched parameter and compute budgets |
