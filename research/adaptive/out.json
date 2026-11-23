@@ -1,0 +1,1435 @@
+{
+  "after": "d9afd380ccde8eb47d3d2cdbd156fe0a9c76cc84bc043fd2e90eb936ab7b1341",
+  "candidate": {
+    "avoid": [
+      "unordered dependencies",
+      "ambiguous or unsupported operations"
+    ],
+    "benefit": "More exact answers than a constant responder on unseen ordered-state tasks.",
+    "counterexamples": [],
+    "description": "Parse ordered assignments or stack instructions, update state one operation at a time, and check the final state.",
+    "episodes": [
+      "3392ca59634d91ac881dc2d463fa7d85b7fe67a9ee9f36007f350494f7c1e8e7",
+      "45af50b9a9b08fda4707db7caa84dd06db72fa877c2ca46a28a9d503ee04d40d",
+      "49f40a17371dcfe26b093ab52e37f3d24519ae9818579c454d4ca730bdf91bbb",
+      "6dba6d7bddcac4571e412b7d765bc2a4b62fa4e633744da13d7ff55a1f0baa8c",
+      "778d11dc17c27d7accc659b9573b6247881985d5f1951850d6dffe87043e5a32",
+      "8ddc4517bef2ae68553e873d997cc966cd289dee19a8f2d6b1b882608e561672",
+      "9ad4a0b72a748456961db1188e421da26e9a858cf583d97aab655aa908fffb9d",
+      "a308f80174ad4e83b9f3eaae77a8a78b849ad9c06db535ed484fa102c83c55aa",
+      "a63c74ce1371d53ad346fe7745cdc5469cb0d462b376cd531a9a1d359b0e135e",
+      "da77e5808f9acb0cef79d7e89d59e93497b631fb9660234e20f02fc525018d5c",
+      "efef33e35bf932a84ca6c4010ea4645a62b5453e2c786cac506357f2e09ebfa3",
+      "f6afbf7cc5d6d410dba92d62e6970a704a13a494a94551dc853016db06e0755d"
+    ],
+    "evidence": [],
+    "id": "9d4c08013101b3ca6d6076dbe6f8579829c52db94a9a5ab3ced30ddfe4fffd85",
+    "preconditions": [
+      "ordered assignments or stack operations",
+      "each transition is locally defined"
+    ],
+    "previous": 1,
+    "principle": "Carry explicit state through ordered updates, then check the final invariant.",
+    "procedure": "stepwise",
+    "report": {
+      "budget": {
+        "actions": 128,
+        "iterations": 1,
+        "retrievals": 0
+      },
+      "counterexamples": [],
+      "criterion": {
+        "accuracy": 0.75,
+        "families": [
+          "trace"
+        ],
+        "gain": 0.5,
+        "probe": [
+          "bracket"
+        ],
+        "protected": "addition",
+        "splits": [
+          "interpolation",
+          "extrapolation"
+        ]
+      },
+      "gate": "adaptive-transfer-v1",
+      "heldout": [
+        "bracket-extrapolation-000",
+        "bracket-extrapolation-001",
+        "bracket-extrapolation-002",
+        "bracket-extrapolation-003",
+        "bracket-interpolation-000",
+        "bracket-interpolation-001",
+        "bracket-interpolation-002",
+        "bracket-interpolation-003",
+        "trace-extrapolation-000",
+        "trace-extrapolation-001",
+        "trace-extrapolation-002",
+        "trace-extrapolation-003",
+        "trace-interpolation-000",
+        "trace-interpolation-001",
+        "trace-interpolation-002",
+        "trace-interpolation-003"
+      ],
+      "heldouthash": "8442ce9badeeebd68e1c93da3cdea40536e6cc8a74ede4c0246055ed672ea2f7",
+      "leakage": "candidate extractor received training episodes only",
+      "passed": true,
+      "protected": {
+        "base": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": 3.0065000373724615e-06,
+          "samples": 4,
+          "sampleset": [
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-000"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-001"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-002"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-003"
+            }
+          ]
+        },
+        "passed": true,
+        "regression": 0.0,
+        "strategy": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "errors": {
+            "arithmetic": 4
+          },
+          "latency": 2.3389998204947915e-06,
+          "samples": 4,
+          "sampleset": [
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-000"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-001"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-002"
+            },
+            {
+              "actions": 0,
+              "answer": "0",
+              "budget": {
+                "actions": 128,
+                "iterations": 1,
+                "retrievals": 0
+              },
+              "correct": false,
+              "error": "arithmetic",
+              "id": "addition-extrapolation-003"
+            }
+          ]
+        }
+      },
+      "strategyversion": 2,
+      "tracks": {
+        "bracket": {
+          "extrapolation": {
+            "base": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "errors": {},
+              "latency": 1.9587498627515743e-06,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-000"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-001"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-002"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-003"
+                }
+              ]
+            },
+            "criterion": "no-regression probe",
+            "gain": 0.0,
+            "passed": true,
+            "strategy": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "errors": {},
+              "latency": 1.0207500054093543e-05,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 11,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-000"
+                },
+                {
+                  "actions": 15,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-001"
+                },
+                {
+                  "actions": 25,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-002"
+                },
+                {
+                  "actions": 19,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-extrapolation-003"
+                }
+              ]
+            }
+          },
+          "interpolation": {
+            "base": {
+              "accuracy": 0.75,
+              "correct": 3,
+              "errors": {
+                "balance": 1
+              },
+              "latency": 2.988250116686686e-06,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-000"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-001"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "balance",
+                  "id": "bracket-interpolation-002"
+                },
+                {
+                  "actions": 0,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-003"
+                }
+              ]
+            },
+            "criterion": "no-regression probe",
+            "gain": 0.25,
+            "passed": true,
+            "strategy": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "errors": {},
+              "latency": 1.4351000118040247e-05,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 19,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-000"
+                },
+                {
+                  "actions": 5,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-001"
+                },
+                {
+                  "actions": 13,
+                  "answer": "yes",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-002"
+                },
+                {
+                  "actions": 9,
+                  "answer": "no",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "bracket-interpolation-003"
+                }
+              ]
+            }
+          }
+        },
+        "trace": {
+          "extrapolation": {
+            "base": {
+              "accuracy": 0.0,
+              "correct": 0,
+              "errors": {
+                "arithmetic": 4
+              },
+              "latency": 2.902249889302766e-06,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-extrapolation-000"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-extrapolation-001"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-extrapolation-002"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-extrapolation-003"
+                }
+              ]
+            },
+            "criterion": "transfer-gain",
+            "gain": 1.0,
+            "passed": true,
+            "strategy": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "errors": {},
+              "latency": 2.0645999939006288e-05,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 7,
+                  "answer": "12",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-extrapolation-000"
+                },
+                {
+                  "actions": 7,
+                  "answer": "16",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-extrapolation-001"
+                },
+                {
+                  "actions": 7,
+                  "answer": "17",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-extrapolation-002"
+                },
+                {
+                  "actions": 9,
+                  "answer": "70",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-extrapolation-003"
+                }
+              ]
+            }
+          },
+          "interpolation": {
+            "base": {
+              "accuracy": 0.0,
+              "correct": 0,
+              "errors": {
+                "arithmetic": 4
+              },
+              "latency": 5.712750180464354e-06,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-interpolation-000"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-interpolation-001"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-interpolation-002"
+                },
+                {
+                  "actions": 0,
+                  "answer": "0",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": false,
+                  "error": "arithmetic",
+                  "id": "trace-interpolation-003"
+                }
+              ]
+            },
+            "criterion": "transfer-gain",
+            "gain": 1.0,
+            "passed": true,
+            "strategy": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "errors": {},
+              "latency": 2.1569999944404117e-05,
+              "samples": 4,
+              "sampleset": [
+                {
+                  "actions": 3,
+                  "answer": "1",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-interpolation-000"
+                },
+                {
+                  "actions": 3,
+                  "answer": "10",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-interpolation-001"
+                },
+                {
+                  "actions": 3,
+                  "answer": "15",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-interpolation-002"
+                },
+                {
+                  "actions": 5,
+                  "answer": "3",
+                  "budget": {
+                    "actions": 128,
+                    "iterations": 1,
+                    "retrievals": 0
+                  },
+                  "correct": true,
+                  "error": "",
+                  "id": "trace-interpolation-003"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "trainfamilies": [
+        "chain"
+      ],
+      "validationfamilies": [
+        "trace",
+        "bracket"
+      ]
+    },
+    "status": "validated",
+    "train": [
+      "chain"
+    ],
+    "valid": [
+      "trace"
+    ],
+    "version": 2
+  },
+  "episodes": 12,
+  "failedepisodes": 0,
+  "foundation": "d9afd380ccde8eb47d3d2cdbd156fe0a9c76cc84bc043fd2e90eb936ab7b1341",
+  "generator": 1,
+  "limits": [
+    "Project-generated synthetic tasks only.",
+    "The frozen checkpoint was hashed but not loaded or modified.",
+    "Candidate discovery used chain training episodes only.",
+    "The symbolic procedure calls the authored task reference solver; no model improvement is measured."
+  ],
+  "loops": 0,
+  "mode": "synthetic-symbolic",
+  "parameters": 0,
+  "promotion": {
+    "budget": {
+      "actions": 128,
+      "iterations": 1,
+      "retrievals": 0
+    },
+    "counterexamples": [],
+    "criterion": {
+      "accuracy": 0.75,
+      "families": [
+        "trace"
+      ],
+      "gain": 0.5,
+      "probe": [
+        "bracket"
+      ],
+      "protected": "addition",
+      "splits": [
+        "interpolation",
+        "extrapolation"
+      ]
+    },
+    "gate": "adaptive-transfer-v1",
+    "heldout": [
+      "bracket-extrapolation-000",
+      "bracket-extrapolation-001",
+      "bracket-extrapolation-002",
+      "bracket-extrapolation-003",
+      "bracket-interpolation-000",
+      "bracket-interpolation-001",
+      "bracket-interpolation-002",
+      "bracket-interpolation-003",
+      "trace-extrapolation-000",
+      "trace-extrapolation-001",
+      "trace-extrapolation-002",
+      "trace-extrapolation-003",
+      "trace-interpolation-000",
+      "trace-interpolation-001",
+      "trace-interpolation-002",
+      "trace-interpolation-003"
+    ],
+    "heldouthash": "8442ce9badeeebd68e1c93da3cdea40536e6cc8a74ede4c0246055ed672ea2f7",
+    "leakage": "candidate extractor received training episodes only",
+    "passed": true,
+    "protected": {
+      "base": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "errors": {
+          "arithmetic": 4
+        },
+        "latency": 3.0065000373724615e-06,
+        "samples": 4,
+        "sampleset": [
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-000"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-001"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-002"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-003"
+          }
+        ]
+      },
+      "passed": true,
+      "regression": 0.0,
+      "strategy": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "errors": {
+          "arithmetic": 4
+        },
+        "latency": 2.3389998204947915e-06,
+        "samples": 4,
+        "sampleset": [
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-000"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-001"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-002"
+          },
+          {
+            "actions": 0,
+            "answer": "0",
+            "budget": {
+              "actions": 128,
+              "iterations": 1,
+              "retrievals": 0
+            },
+            "correct": false,
+            "error": "arithmetic",
+            "id": "addition-extrapolation-003"
+          }
+        ]
+      }
+    },
+    "strategyversion": 2,
+    "tracks": {
+      "bracket": {
+        "extrapolation": {
+          "base": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "errors": {},
+            "latency": 1.9587498627515743e-06,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-000"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-001"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-002"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-003"
+              }
+            ]
+          },
+          "criterion": "no-regression probe",
+          "gain": 0.0,
+          "passed": true,
+          "strategy": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "errors": {},
+            "latency": 1.0207500054093543e-05,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 11,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-000"
+              },
+              {
+                "actions": 15,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-001"
+              },
+              {
+                "actions": 25,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-002"
+              },
+              {
+                "actions": 19,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-extrapolation-003"
+              }
+            ]
+          }
+        },
+        "interpolation": {
+          "base": {
+            "accuracy": 0.75,
+            "correct": 3,
+            "errors": {
+              "balance": 1
+            },
+            "latency": 2.988250116686686e-06,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-000"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-001"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "balance",
+                "id": "bracket-interpolation-002"
+              },
+              {
+                "actions": 0,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-003"
+              }
+            ]
+          },
+          "criterion": "no-regression probe",
+          "gain": 0.25,
+          "passed": true,
+          "strategy": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "errors": {},
+            "latency": 1.4351000118040247e-05,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 19,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-000"
+              },
+              {
+                "actions": 5,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-001"
+              },
+              {
+                "actions": 13,
+                "answer": "yes",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-002"
+              },
+              {
+                "actions": 9,
+                "answer": "no",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "bracket-interpolation-003"
+              }
+            ]
+          }
+        }
+      },
+      "trace": {
+        "extrapolation": {
+          "base": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "errors": {
+              "arithmetic": 4
+            },
+            "latency": 2.902249889302766e-06,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-extrapolation-000"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-extrapolation-001"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-extrapolation-002"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-extrapolation-003"
+              }
+            ]
+          },
+          "criterion": "transfer-gain",
+          "gain": 1.0,
+          "passed": true,
+          "strategy": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "errors": {},
+            "latency": 2.0645999939006288e-05,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 7,
+                "answer": "12",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-extrapolation-000"
+              },
+              {
+                "actions": 7,
+                "answer": "16",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-extrapolation-001"
+              },
+              {
+                "actions": 7,
+                "answer": "17",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-extrapolation-002"
+              },
+              {
+                "actions": 9,
+                "answer": "70",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-extrapolation-003"
+              }
+            ]
+          }
+        },
+        "interpolation": {
+          "base": {
+            "accuracy": 0.0,
+            "correct": 0,
+            "errors": {
+              "arithmetic": 4
+            },
+            "latency": 5.712750180464354e-06,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-interpolation-000"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-interpolation-001"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-interpolation-002"
+              },
+              {
+                "actions": 0,
+                "answer": "0",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": false,
+                "error": "arithmetic",
+                "id": "trace-interpolation-003"
+              }
+            ]
+          },
+          "criterion": "transfer-gain",
+          "gain": 1.0,
+          "passed": true,
+          "strategy": {
+            "accuracy": 1.0,
+            "correct": 4,
+            "errors": {},
+            "latency": 2.1569999944404117e-05,
+            "samples": 4,
+            "sampleset": [
+              {
+                "actions": 3,
+                "answer": "1",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-interpolation-000"
+              },
+              {
+                "actions": 3,
+                "answer": "10",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-interpolation-001"
+              },
+              {
+                "actions": 3,
+                "answer": "15",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-interpolation-002"
+              },
+              {
+                "actions": 5,
+                "answer": "3",
+                "budget": {
+                  "actions": 128,
+                  "iterations": 1,
+                  "retrievals": 0
+                },
+                "correct": true,
+                "error": "",
+                "id": "trace-interpolation-003"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "trainfamilies": [
+      "chain"
+    ],
+    "validationfamilies": [
+      "trace",
+      "bracket"
+    ]
+  },
+  "runtime": {
+    "address": 1073741824,
+    "device": "cpu",
+    "model": "not loaded",
+    "rss": 24215552,
+    "threads": 1,
+    "timeout": 110,
+    "wall": 0.00811100400005671
+  },
+  "selected": {
+    "addition": [],
+    "bracket": [],
+    "trace": [
+      "9d4c08013101b3ca6d6076dbe6f8579829c52db94a9a5ab3ced30ddfe4fffd85"
+    ]
+  },
+  "source": {
+    "loop": "f0c881844d3f2ca0cfef3e259571950f3bd346cfa03642b1e4eeb99e1f76521a",
+    "tasks": "39f751e42db8ab24f03e4123593410d8f19b7c1422d8e976290de5b1bc289637"
+  },
+  "splits": {
+    "addition": {
+      "extrapolation": "1c8e8e0db7f833e37a818bdbd353e28710b5460491b5bd785933b888aea263cf",
+      "interpolation": "7ca1cf4135c0dafcc21398d0a764e3605e65db91d892d575a2e717d2ca9d290c",
+      "train": "1c62a92675a63ed337db6c4bc311c6a5fb1d7a2416aee1eda65060c6d41df30d",
+      "validation": "49576d6f323df7fb43af4c28aef0e22c027f1dc697cc0b58aee18a4163c8f7f8"
+    },
+    "bracket": {
+      "extrapolation": "5ec541e61a170cc3d2ca6b9a44906368389dc67c510de579696e9e2c994df3bb",
+      "interpolation": "3faca9614a1a1bcccd94aac5a5cd7c62a53281ed0ceee6f5db653d2cb875501c",
+      "train": "250a5c71cf4488f166e84f3c141593c3651bbbd7c54c5c81eaf92a4270248950",
+      "validation": "6f6a00e220e4ace3d26b424bdbe99fa383f7e1ccead56293a5699446c6576cff"
+    },
+    "chain": {
+      "extrapolation": "3159e02e1040e834dc2bf3f512bd99dff736a680614c2f8b839285523700f808",
+      "interpolation": "b58156431f498cc93e48643ad93e4248c1699e13189553d4643f5e7bd25e6ccf",
+      "train": "59f3777af3df107dedf4dd5a07d19e4280b156a265740ffd92c8893f42f44536",
+      "validation": "2bb1295a5be508e9c96061f62c60658b73cd10dd6d92d50debc009b7944c7dc3"
+    },
+    "graph": {
+      "extrapolation": "a8a97befc8d3572dabd1e5ce68c69477fe4ecdfb41580fa355aacf1045843844",
+      "interpolation": "2f5a33373b447a147fe7e3fc6e4f253bc01ad6e43619fef4abbf7c94d13603b1",
+      "train": "b143f22b26c904e94f920b4c954631acf2bdf9b09368634f16c608a86f2dc20a",
+      "validation": "3daca04478d80181e7151c4cd67da28891871f0f1cd850358817233f7a07f28a"
+    },
+    "trace": {
+      "extrapolation": "6afd9ee78e8c529baebcd7eff20a96a9bb54d812bfbd31dceb55d325ae84ea9f",
+      "interpolation": "ef08eb830d54c5e7ef2ee685da8f7f937ced5a9bd3b961ab28171d253e0984bf",
+      "train": "2103af717553caba3f0c4830958ae208036d18343049b75c8eea40185cb25ed3",
+      "validation": "802f0cf4f48f912eb556562ec6ca23c80eacf6ef606c046d20435ad9f5b7a5c8"
+    }
+  },
+  "version": 1
+}
