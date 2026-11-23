@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "seeds": [11, 23, 37],
+  "updates": 4,
+  "batch": 2,
+  "wall": 120,
+  "family": "graph",
+  "samples": 4,
+  "copy": ["R7: Keep x=03; Delta?", "Byte copy: 0042 / A-Z.", "Do not alter: {k: 9}."],
+  "model": {
+    "vocab_size": 256,
+    "context_length": 512,
+    "d_model": 32,
+    "n_heads": 4,
+    "d_ff": 128,
+    "limit": 8,
+    "steps": 4,
+    "budget": 1000000
+  },
+  "depth": 4,
+  "rate": 0.0003,
+  "decay": 0.01,
+  "clip": 1.0,
+  "weights": [0.1, 0.2, 0.3, 0.4],
+  "go": {
+    "ref": "k1",
+    "extra": 0.05,
+    "transfer": 0.05,
+    "seeds": 2,
+    "bpb": 0.25
+  }
+}

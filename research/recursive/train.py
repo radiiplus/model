@@ -23,11 +23,13 @@ from research.prototype.trainer import (
 )
 from research.recursive.dual import Refiner
 from research.recursive.model import Decoder
+from research.recursive.stack import Stack
+from research.experiments.tiny_gpt import TinyGPT
 from research.recursive.tasks import VERSION, build
 
 
 ROOT = Path(__file__).resolve().parent
-ARCH = ("loop-v1", "dual-v1")
+ARCH = ("plain-v1", "loop-v1", "dual-v1", "stack-v1")
 
 
 def encode(value: Any) -> bytes:
@@ -47,6 +49,8 @@ def check(config: dict[str, Any]) -> tuple[int, list[float]]:
     model = config.get("model")
     if not isinstance(model, dict) or count not in Refiner.choices:
         raise ValueError("model and supported refinement steps are required")
+    if config["architecture"] in {"plain-v1", "stack-v1"} and count != 1:
+        raise ValueError("plain and stack controls use one configured pass")
     if count > int(model.get("limit", 8)):
         raise ValueError("training steps exceed the model limit")
     if int(model.get("steps", count)) != count:
@@ -114,7 +118,7 @@ def pack(rows: list[dict[str, Any]], indices: torch.Tensor,
     return ids, targets, mask
 
 
-def state(model: Refiner) -> str:
+def state(model: torch.nn.Module) -> str:
     rows = [(key, value.detach().cpu().contiguous().view(torch.uint8).tolist())
             for key, value in sorted(model.state_dict().items())]
     return digest(rows)
@@ -179,8 +183,15 @@ def run(config: dict[str, Any], total: int, path: Path, *, docs: list[list[int]]
         "generator": meta["version"],
         "refinement": {"steps": count, "loss": config["loss"], "weights": weights},
     }
-    model = (Refiner(config["model"]) if config["architecture"] == "dual-v1"
-             else Decoder(config["model"]))
+    arch = config["architecture"]
+    if arch == "plain-v1":
+        model = TinyGPT(config["model"])
+    elif arch == "stack-v1":
+        model = Stack(config["model"])
+    elif arch == "dual-v1":
+        model = Refiner(config["model"])
+    else:
+        model = Decoder(config["model"])
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=float(config["rate"]),
         weight_decay=float(config["decay"]),
@@ -231,8 +242,16 @@ def run(config: dict[str, Any], total: int, path: Path, *, docs: list[list[int]]
             ids, targets, mask = pack(
                 rows, choices, int(config["model"]["context_length"])
             )
-        _, trace = model(ids, steps=count, trace=True, targets=targets, mask=mask)
-        stages = trace["losses"]
+        if arch in {"plain-v1", "stack-v1"}:
+            logits = model(ids)
+            values = torch.nn.functional.cross_entropy(
+                logits.reshape(-1, logits.shape[-1]), targets.reshape(-1),
+                reduction="none",
+            ).reshape_as(targets)
+            stages = values.masked_select(mask).mean().reshape(1)
+        else:
+            _, trace = model(ids, steps=count, trace=True, targets=targets, mask=mask)
+            stages = trace["losses"]
         used = weights if config["loss"] == "deep" else [0.0] * (count - 1) + [1.0]
         loss = sum(weight * value for weight, value in zip(used, stages))
         if not bool(torch.isfinite(loss)):
@@ -265,10 +284,12 @@ def run(config: dict[str, Any], total: int, path: Path, *, docs: list[list[int]]
         "interrupted": actual < total,
         "mode": config["mode"],
         "family": meta["family"],
-        "params": model.params,
-        "blocks": 1,
-        "calls": actual * count * (2 if config["architecture"] == "dual-v1" else 1),
+        "params": sum(value.numel() for value in model.parameters()),
+        "blocks": int(config["model"].get("depth", 1)) if arch == "stack-v1" else 1,
+        "calls": actual * (int(config["model"].get("depth", 1)) if arch == "stack-v1"
+                           else count * (2 if arch == "dual-v1" else 1)),
         "count": cursor,
+        "speed": cursor / max(elapsed, 1e-9),
         "stages": history,
         "loss": config["loss"],
         "weights": used,
@@ -279,6 +300,8 @@ def run(config: dict[str, Any], total: int, path: Path, *, docs: list[list[int]]
         "memory": snapshot(),
         "validation": metrics,
         "state": state(model),
+        "checkpoint": path.stat().st_size,
+        "hash": hashlib.sha256(path.read_bytes()).hexdigest(),
         "train": source,
         "valid": target,
         "unit": "tokens" if config["mode"] == "language" else "examples",
@@ -296,7 +319,7 @@ def run(config: dict[str, Any], total: int, path: Path, *, docs: list[list[int]]
     }
 
 
-def evaluate(model: Refiner, config: dict[str, Any], rows: list[dict[str, Any]] | None,
+def evaluate(model: torch.nn.Module, config: dict[str, Any], rows: list[dict[str, Any]] | None,
              docs: list[list[int]] | None, steps: int, mode: str) -> dict[str, float | int]:
     model.eval()
     vocab = model.vocab if isinstance(model, Refiner) else model.vocab_size
@@ -310,7 +333,10 @@ def evaluate(model: Refiner, config: dict[str, Any], rows: list[dict[str, Any]] 
                     torch.arange(min(int(config["batch"]), len(rows) - start)),
                     int(config["model"]["context_length"]),
                 )
-                logits, _ = model(ids, steps=steps, trace=True, targets=targets, mask=mask)
+                if isinstance(model, (TinyGPT, Stack)):
+                    logits = model(ids)
+                else:
+                    logits = model(ids, steps=steps)
                 values = torch.nn.functional.cross_entropy(
                     logits.reshape(-1, vocab), targets.reshape(-1), reduction="none"
                 ).reshape_as(targets)
@@ -324,7 +350,7 @@ def evaluate(model: Refiner, config: dict[str, Any], rows: list[dict[str, Any]] 
                 batch = torch.stack([loader.window(int(index))
                                      for index in picks[start:start + int(config["batch"])]] )
                 ids, targets = batch[:, :-1], batch[:, 1:]
-                logits = model(ids, steps=steps)
+                logits = model(ids) if isinstance(model, (TinyGPT, Stack)) else model(ids, steps=steps)
                 values = torch.nn.functional.cross_entropy(
                     logits.reshape(-1, vocab), targets.reshape(-1), reduction="none"
                 )

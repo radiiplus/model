@@ -24,6 +24,10 @@ All items are proposals; no result is implied. Keep the Batch 4 model/config/che
 
 Experiments 0-3 test the trainable model. H1 and H2 test reliability/system behavior; retrieval index success must not be counted as model intelligence. Experiments 6-7 are post-training/execution interventions, not architecture changes.
 
+## Patch 6 Result
+
+The three-seed generated-task ablation is recorded in [`../recursive/ablation.md`](../recursive/ablation.md), with full metrics and hashes in [`../recursive/out.json`](../recursive/out.json). The predeclared gate returned **no-go**: neither graph extrapolation nor graph-to-chain extrapolation improved by 5 points over the same dual-state checkpoint at K=1 in any seed. Exact match was 0% across the measured task conditions. Keep the plain TinyGPT baseline; do not add recurrent components to rescue this result. The run used only four updates and eight sampled examples per seed, so it rejects promotion under this fixture budget rather than recurrence in general.
+
 ## Hypotheses
 
 ### H1: Selective evidence retrieval improves supported answering per context token

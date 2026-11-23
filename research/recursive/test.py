@@ -1,5 +1,6 @@
 import json
 import tempfile
+import time
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -10,6 +11,8 @@ from research.experiments.tiny_gpt import TinyGPT
 from research.recursive.dual import Refiner, transfer as dualtransfer
 from research.recursive.evaluate import check, edges, score, solve
 from research.recursive.model import Decoder, transfer
+from research.recursive.stack import Stack
+from research.recursive.ablate import guard
 from research.recursive.tasks import CONTEXT, CROSS, build, crosses, manifest
 from research.recursive.train import pack, run
 
@@ -344,6 +347,40 @@ class Loop(unittest.TestCase):
             self.assertEqual(trace["logits"].shape, (8, 1, 3, 256))
             self.assertEqual(trace["losses"].shape, (8,))
             self.assertTrue(bool(torch.isfinite(logits).all()))
+
+
+class Ablate(unittest.TestCase):
+    def test(self):
+        config = setting()
+        config["mode"] = "task"
+        config["model"]["context_length"] = 512
+        config["model"]["steps"] = 1
+        plain = {**config, "architecture": "plain-v1", "steps": 1,
+                 "weights": [1.0]}
+        stack = {**config, "architecture": "stack-v1", "steps": 1,
+                 "weights": [1.0], "model": {**config["model"], "depth": 2}}
+        with tempfile.TemporaryDirectory() as folder:
+            left = run(plain, 1, Path(folder) / "plain.pt")
+            right = run(stack, 1, Path(folder) / "stack.pt")
+        self.assertEqual(left["blocks"], 1)
+        self.assertEqual(left["calls"], 1)
+        self.assertEqual(right["blocks"], 2)
+        self.assertEqual(right["calls"], 2)
+        self.assertGreater(right["params"], left["params"])
+        model = Stack(stack["model"]).eval()
+        self.assertEqual(len(model.layers), 2)
+        ids = torch.tensor([[3, 8, 4, 9]], dtype=torch.long)
+        other = ids.clone()
+        other[0, -1] = 10
+        with torch.inference_mode():
+            a = model(ids)
+            b = model(other)
+        torch.testing.assert_close(a[:, :-1], b[:, :-1], rtol=0.0, atol=0.0)
+        with patch("research.recursive.ablate.available_mib", return_value=1):
+            with self.assertRaises(MemoryError):
+                guard(time.perf_counter() + 30)
+        with self.assertRaises(TimeoutError):
+            guard(time.perf_counter() - 1)
 
 
 class Guard(unittest.TestCase):
