@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import random
+import re
 import resource
 import sqlite3
 import time
@@ -12,12 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from research.recursive.evaluate import score, solve
-from research.recursive.tasks import VERSION, build, manifest
+from research.recursive.tasks import BANDS, VERSION, build, draw, manifest
 
 
-GATE = {"accuracy": 0.75, "gain": 0.5, "families": ["trace"],
-        "probe": ["bracket"],
-        "splits": ["interpolation", "extrapolation"], "protected": "addition"}
+GATE = {"accuracy": 0.9, "gain": 0.8, "families": ["trace"],
+        "probe": ["bracket"], "protected": "addition",
+        "seeds": [811, 812, 813], "count": 24,
+        "splits": ["interpolation", "extrapolation"]}
 ROOT = Path(__file__).resolve().parent
 BASE = Path(__file__).resolve().parents[1] / "experiments/results/baseline_tiny_gpt.pt"
 
@@ -185,6 +188,64 @@ def actions(task: dict[str, Any]) -> list[dict[str, Any]]:
     return [{"op": "solve", "step": 1}]
 
 
+def step(task: dict[str, Any]) -> tuple[str, list[dict[str, Any]]]:
+    """Apply explicit state transitions; parse only the project's safe task DSLs."""
+    family = task["family"]
+    prompt = task["prompt"]
+    steps = []
+    if family == "chain":
+        rows = prompt.split("equations: ", 1)[1].split(". What", 1)[0].split(";")
+        state = {}
+        for index, row in enumerate(rows, 1):
+            name, expr = row.split("=", 1)
+            if expr.startswith("v"):
+                match = re.fullmatch(r"(v\d+)([+*-])(-?\d+)", expr)
+                if match is None:
+                    raise ValueError("unsupported assignment")
+                base = state[match.group(1)]
+                amount = int(match.group(3))
+                op = match.group(2)
+                value = base + amount if op == "+" else base - amount if op == "-" else base * amount
+            else:
+                value = int(expr)
+            state[name] = value
+            steps.append({"op": "update", "step": index, "state": name})
+        steps.append({"op": "check", "step": len(rows)})
+        return str(state[rows[-1].split("=", 1)[0]]), steps
+    if family == "trace":
+        program = prompt.split("DSL: ", 1)[1].split(". What", 1)[0]
+        stack = []
+        stored = {}
+        for index, row in enumerate(program.split(";"), 1):
+            bits = row.split()
+            if len(bits) == 2 and bits[0] == "PUSH":
+                stack.append(int(bits[1]))
+            elif len(bits) == 1 and bits[0] in {"ADD", "SUB", "MUL"}:
+                right, left = stack.pop(), stack.pop()
+                value = left + right if bits[0] == "ADD" else left - right if bits[0] == "SUB" else left * right
+                stack.append(value)
+            elif bits == ["STORE", "out"] and stack:
+                stored[bits[1]] = stack.pop()
+            else:
+                raise ValueError("unsupported safe instruction")
+            steps.append({"op": "apply", "step": index, "kind": bits[0]})
+        if stack or "out" not in stored:
+            raise ValueError("invalid final state")
+        return str(stored["out"]), steps
+    if family == "bracket":
+        seq = prompt.rsplit("Sequence: ", 1)[1].split(".", 1)[0]
+        depth = 0
+        good = True
+        for index, char in enumerate(seq, 1):
+            depth += 1 if char == "(" else -1
+            good = good and depth >= 0
+            steps.append({"op": "scan", "step": index, "depth": depth})
+        good = good and depth == 0
+        steps.append({"op": "check", "step": len(seq)})
+        return ("yes" if good else "no"), steps
+    raise ValueError("strategy is not applicable to this family")
+
+
 def propose(rows: list[dict[str, Any]]) -> dict[str, Any] | None:
     """Extract only from episode records; this function has no task-label input."""
     eligible = [item for item in rows if item.get("split") == "train"]
@@ -219,8 +280,47 @@ def propose(rows: list[dict[str, Any]]) -> dict[str, Any] | None:
             "valid": [], "report": {}, "status": "candidate"}
 
 
+def heldout(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Generate evaluation-only instances after strategy discovery is complete."""
+    names = GATE["families"] + GATE["probe"] + [GATE["protected"]]
+    seen = {item["inputhash"] for item in rows}
+    data = {}
+    hashes = {}
+    for family in names:
+        data[family] = {}
+        hashes[family] = {}
+        for offset, seed in enumerate(GATE["seeds"]):
+            data[family][str(seed)] = {}
+            hashes[family][str(seed)] = {}
+            for index, split in enumerate(GATE["splits"]):
+                rng = random.Random(seed + offset * 1009 + index * 7919 + names.index(family) * 100_003)
+                low, high = BANDS[family][split]
+                batch = []
+                for number in range(GATE["count"]):
+                    for attempt in range(10000):
+                        level = rng.randint(low, high)
+                        prompt, target = draw(family, rng, level)
+                        key = inputhash(prompt)
+                        if key not in seen:
+                            seen.add(key)
+                            batch.append({"id": f"{family}-{split}-{seed}-{number:03d}",
+                                          "family": family, "split": split,
+                                          "level": level, "prompt": prompt, "target": target})
+                            break
+                    else:
+                        raise RuntimeError("could not draw a unique held-out task")
+                data[family][str(seed)][split] = batch
+                hashes[family][str(seed)][split] = digest(batch)
+    return data, hashes
+
+
 def base(task: dict[str, Any]) -> str:
-    return "no" if task["family"] == "bracket" else "S>T" if task["family"] == "graph" else "0"
+    family = task["family"]
+    if family == "addition":
+        expr = task["prompt"].split("Add ", 1)[1].split(".", 1)[0]
+        left, right = (int(value.strip()) for value in expr.split("+", 1))
+        return str(left + right)
+    return "no" if family == "bracket" else "S>T" if family == "graph" else "0"
 
 
 def run(strategy: dict[str, Any] | None, task: dict[str, Any],
@@ -228,7 +328,7 @@ def run(strategy: dict[str, Any] | None, task: dict[str, Any],
     if strategy is None:
         return base(task), []
     if strategy["procedure"] == "stepwise":
-        return solve(task, "rules"), actions(task)
+        return step(task)
     if strategy["procedure"] == "memorize":
         key = inputhash(task["prompt"])
         found = next((item["answer"] for item in episodes
@@ -249,9 +349,8 @@ def metrics(rows: list[dict[str, Any]], strategy: dict[str, Any] | None,
         correct += int(outcome["correct"])
         if outcome["error"]:
             errors[outcome["error"]] = errors.get(outcome["error"], 0) + 1
-        samples.append({"id": task["id"], "answer": answer,
-                        "correct": outcome["correct"], "error": outcome["error"],
-                        "actions": len(used), "budget": budget})
+        samples.append([task["id"], answer, outcome["correct"],
+                        outcome["error"], len(used)])
     elapsed = time.perf_counter() - start
     count = len(rows)
     return {"samples": count, "correct": correct,
@@ -261,7 +360,7 @@ def metrics(rows: list[dict[str, Any]], strategy: dict[str, Any] | None,
 
 
 def validate(archive: Archive, item: dict[str, Any], data: dict[str, Any],
-             episodes: list[dict[str, Any]]) -> dict[str, Any]:
+             hashes: dict[str, Any], episodes: list[dict[str, Any]]) -> dict[str, Any]:
     budget = {"iterations": 1, "actions": 128, "retrievals": 0}
     tracks = {}
     ids = []
@@ -269,39 +368,48 @@ def validate(archive: Archive, item: dict[str, Any], data: dict[str, Any],
     tested = GATE["families"] + GATE["probe"]
     for family in tested:
         tracks[family] = {}
-        for split in GATE["splits"]:
-            rows = data["families"][family][split]
-            ids.extend(row["id"] for row in rows)
-            plain = metrics(rows, None, episodes, budget)
-            cand = metrics(rows, item, episodes, budget)
-            gain = cand["accuracy"] - plain["accuracy"]
-            good = (cand["accuracy"] >= GATE["accuracy"] and gain >= GATE["gain"]
-                    if family in GATE["families"]
-                    else cand["accuracy"] >= plain["accuracy"])
-            passed = passed and good
-            tracks[family][split] = {"base": plain, "strategy": cand,
-                                     "gain": gain, "passed": good,
-                                     "criterion": "transfer-gain" if family in GATE["families"]
-                                     else "no-regression probe"}
+        for seed, parts in data[family].items():
+            tracks[family][seed] = {}
+            for split in GATE["splits"]:
+                rows = parts[split]
+                ids.extend(row["id"] for row in rows)
+                plain = metrics(rows, None, episodes, budget)
+                cand = metrics(rows, item, episodes, budget)
+                gain = cand["accuracy"] - plain["accuracy"]
+                good = (cand["accuracy"] >= GATE["accuracy"] and gain >= GATE["gain"]
+                        if family in GATE["families"]
+                        else cand["accuracy"] >= plain["accuracy"])
+                passed = passed and good
+                tracks[family][seed][split] = {"base": plain, "strategy": cand,
+                                               "gain": gain, "passed": good,
+                                               "criterion": "transfer-gain" if family in GATE["families"]
+                                               else "no-regression probe"}
     family = GATE["protected"]
-    rows = data["families"][family]["extrapolation"]
-    plain = metrics(rows, None, episodes, budget)
+    protected = {"seeds": {}, "passed": True}
     applicable = item if family in item["valid"] else None
-    guarded = metrics(rows, applicable, episodes, budget)
-    protected = {"base": plain, "strategy": guarded,
-                 "regression": plain["accuracy"] - guarded["accuracy"],
-                 "passed": guarded["accuracy"] >= plain["accuracy"]}
+    for seed, parts in data[family].items():
+        rows = parts["extrapolation"]
+        ids.extend(row["id"] for row in rows)
+        plain = metrics(rows, None, episodes, budget)
+        guarded = metrics(rows, applicable, episodes, budget)
+        good = guarded["accuracy"] >= plain["accuracy"]
+        protected["seeds"][seed] = {"base": plain, "strategy": guarded,
+                                     "regression": plain["accuracy"] - guarded["accuracy"],
+                                     "passed": good}
+        protected["passed"] = protected["passed"] and good
     passed = passed and protected["passed"]
     report = {"gate": "adaptive-transfer-v1", "passed": passed,
               "criterion": GATE, "tracks": tracks, "protected": protected,
               "heldout": sorted(ids), "heldouthash": digest(sorted(ids)),
               "trainfamilies": item["train"], "validationfamilies": tested,
+              "splithashes": hashes,
               "strategyversion": archive.latest(item["id"])["version"] + 1,
               "budget": budget, "leakage": "candidate extractor received training episodes only"}
-    report["counterexamples"] = sorted({sample["id"] for track in tracks.values()
-                                         for split in track.values()
+    report["counterexamples"] = sorted({sample[0] for track in tracks.values()
+                                         for seeds in track.values()
+                                         for split in seeds.values()
                                          for sample in split["strategy"]["sampleset"]
-                                         if not sample["correct"]})
+                                         if not sample[2]})
     archive.change(item["id"], "validated" if passed else "rejected", report)
     return report
 
@@ -336,7 +444,8 @@ def generate() -> tuple[dict[str, Any], str]:
         if candidate is None:
             raise AssertionError("training episodes did not yield a candidate")
         archive.save(candidate)
-        report = validate(archive, candidate, data, train)
+        tests, testhash = heldout(train)
+        report = validate(archive, candidate, tests, testhash, train)
         if time.monotonic() - started > 110:
             raise TimeoutError("adaptive reasoning run exceeded its 110 second wall cap")
         latest = archive.latest(candidate["id"])
@@ -352,6 +461,7 @@ def generate() -> tuple[dict[str, Any], str]:
                   "candidate": latest, "promotion": report,
                   "selected": chosen,
                   "generator": info["generator"], "splits": info["hashes"],
+                  "transfer": testhash,
                   "source": {"tasks": info["source"],
                              "loop": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},
                   "runtime": {"wall": time.monotonic() - started,
@@ -361,7 +471,7 @@ def generate() -> tuple[dict[str, Any], str]:
                   "limits": ["Project-generated synthetic tasks only.",
                              "The frozen checkpoint was hashed but not loaded or modified.",
                              "Candidate discovery used chain training episodes only.",
-                             "The symbolic procedure calls the authored task reference solver; no model improvement is measured."]}
+                             "The symbolic interpreter is project-authored; no model improvement is measured."]}
     return result, before
 
 
@@ -371,18 +481,20 @@ def markdown(result: dict[str, Any]) -> str:
             "The symbolic candidate was " + ("validated" if report["passed"] else "rejected") +
             " by the preregistered transfer gate. This validates the episode/procedure/promotion mechanics only; it is not evidence that a language model learned a reasoning strategy.",
             "", "## Protocol", "",
-            "The deterministic extractor read only the 12 `chain` training episodes. It grouped distinct input hashes and proposed an ordered-state-update procedure from their observable update/check actions. It did not receive interpolation or extrapolation labels. The validator compared a constant frozen baseline with the candidate on identical held-out `trace` and `bracket` inputs, and checked `addition` extrapolation as a protected family. Both conditions had one iteration, at most 128 symbolic actions, and zero retrieval calls. The foundation checkpoint was hashed before and after; it was not loaded.",
+            "The deterministic extractor read only the 12 `chain` training episodes. It grouped distinct input hashes and proposed an ordered-state-update procedure from their observable update/check actions. It did not receive interpolation or extrapolation labels. The validator compared the same fixed fallback baseline with and without the candidate on identical held-out `trace` and `bracket` inputs, and checked a direct-addition baseline as a protected family. Both paths had one iteration, at most 128 symbolic actions, and zero retrieval calls. The foundation checkpoint was hashed before and after; it was not loaded.",
             "", "## Transfer"]
     for family in report["validationfamilies"]:
-        rows.extend(["", f"### {family}", "", "| Split | Base | Strategy | Gain | Gate |", "|---|---:|---:|---:|---|"])
-        for split, item in report["tracks"][family].items():
-            rows.append(f"| {split} | {item['base']['correct']}/{item['base']['samples']} | {item['strategy']['correct']}/{item['strategy']['samples']} | {item['gain']:.2f} | {'pass' if item['passed'] else 'fail'} |")
+        rows.extend(["", f"### {family}", "", "| Split | Seed | Base | Strategy | Gain | Gate |", "|---|---:|---:|---:|---:|---|"])
+        for seed, parts in report["tracks"][family].items():
+            for split, item in parts.items():
+                rows.append(f"| {split} | {seed} | {item['base']['correct']}/{item['base']['samples']} | {item['strategy']['correct']}/{item['strategy']['samples']} | {item['gain']:.2f} | {'pass' if item['passed'] else 'fail'} |")
     prot = report["protected"]
-    rows.extend(["", "### Protected family", "",
-                 f"Addition extrapolation: base {prot['base']['correct']}/{prot['base']['samples']}, selected system {prot['strategy']['correct']}/{prot['strategy']['samples']}; regression {prot['regression']:.2f}.",
-                 "", "## Cost and limits", "",
+    rows.extend(["", "### Protected family", "", "| Seed | Base | Selected system | Regression | Gate |", "|---:|---:|---:|---:|---|"])
+    for seed, item in prot["seeds"].items():
+        rows.append(f"| {seed} | {item['base']['correct']}/{item['base']['samples']} | {item['strategy']['correct']}/{item['strategy']['samples']} | {item['regression']:.2f} | {'pass' if item['passed'] else 'fail'} |")
+    rows.extend(["", "## Cost and limits", "",
                  f"The run recorded {result['episodes']} training episodes and took {result['runtime']['wall']:.3f} s with {result['runtime']['rss']} B peak RSS. There are no neural parameters or recurrent loops in this patch. The checkpoint SHA-256 was `{result['foundation']}` both before and after.",
-                 "", "The `stepwise` candidate dispatches into the project-authored deterministic synthetic-task solvers. Thus transfer here means that an abstract procedure record selected a known symbolic solver on separately generated families; it does not show acquired model behavior, natural-language reasoning, or improvement to interactions. Test labels are consumed only by the validator after extraction and are not added to training episodes. Small synthetic slices have wide uncertainty.",
+                 "", "The `stepwise` candidate applies a project-authored safe interpreter after being proposed from chain episodes. Its parsers are hand-written, so this tests the auditable strategy lifecycle and algorithmic transfer, not a language model acquiring or learning that procedure. It is not evidence of natural-language reasoning or improved interactions. Test labels are consumed only by the validator after extraction and are not added to training episodes. The fixed fallback responder remains weak on the primary transfer family.",
                  "", "Full episode/strategy schemas, split hashes, per-instance outcomes, promotion gate and resource data are in `out.json`.", ""])
     return "\n".join(rows)
 
