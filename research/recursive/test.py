@@ -1,6 +1,8 @@
 import json
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import torch
 
@@ -9,9 +11,9 @@ from research.recursive.dual import Refiner, transfer as dualtransfer
 from research.recursive.evaluate import check, edges, score, solve
 from research.recursive.model import Decoder, transfer
 from research.recursive.tasks import CONTEXT, CROSS, build, crosses, manifest
+from research.recursive.train import pack, run
 
 torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
 torch.use_deterministic_algorithms(True)
 
 
@@ -236,6 +238,119 @@ class Dual(unittest.TestCase):
             self.model(self.ids, trace="yes")
         with self.assertRaises(ValueError):
             dualtransfer(self.model, object())
+
+
+def setting():
+    return {
+        "architecture": "dual-v1",
+        "mode": "language",
+        "family": "addition",
+        "seed": 71,
+        "steps": 2,
+        "batch": 2,
+        "rate": 0.0003,
+        "decay": 0.01,
+        "clip": 1.0,
+        "loss": "deep",
+        "weights": [0.4, 0.6],
+        "wall": 30,
+        "model": {
+            "vocab_size": 256,
+            "context_length": 8,
+            "d_model": 8,
+            "n_heads": 2,
+            "d_ff": 16,
+            "limit": 8,
+            "steps": 2,
+            "budget": 1000000,
+        },
+    }
+
+
+class Train(unittest.TestCase):
+    def test(self):
+        docs = [list(range(40)), list(range(40, 80))]
+        hold = [list(range(80, 120))]
+        with tempfile.TemporaryDirectory() as folder:
+            full = Path(folder) / "full.pt"
+            part = Path(folder) / "part.pt"
+            whole = run(setting(), 3, full, docs=docs, hold=hold)
+            paused = run(setting(), 3, part, docs=docs, hold=hold, stop=1)
+            self.assertTrue(paused["interrupted"])
+            payload = torch.load(part, map_location="cpu", weights_only=True)
+            for key in ("model", "optimizer", "torch", "python", "sampler", "cursor",
+                        "signature", "history"):
+                self.assertIn(key, payload)
+            self.assertEqual(payload["signature"]["architecture"], "dual-v1")
+            resumed = run(setting(), 3, part, docs=docs, hold=hold, resume=part)
+            self.assertEqual(whole["state"], resumed["state"])
+            self.assertEqual(whole["stages"], resumed["stages"])
+            self.assertEqual(whole["validation"], resumed["validation"])
+            self.assertEqual(len(resumed["stages"]), 3)
+            self.assertEqual(len(resumed["stages"][0]), 2)
+            self.assertEqual(resumed["blocks"], 1)
+            self.assertEqual(resumed["calls"], 12)
+            self.assertEqual(resumed["params"], Refiner(setting()["model"]).params)
+            with self.assertRaises(ValueError):
+                run({**setting(), "weights": [0.3, 0.7]}, 4, part, docs=docs, hold=hold,
+                    resume=part)
+            with self.assertRaises(ValueError):
+                run({**setting(), "weights": [0.5, 0.6]}, 3, full, docs=docs, hold=hold)
+            with self.assertRaises(ValueError):
+                run(setting(), 3, full, docs=docs, hold=docs)
+
+
+class Task(unittest.TestCase):
+    def test(self):
+        config = setting()
+        config["mode"] = "task"
+        config["model"]["context_length"] = 128
+        row = build()["families"]["addition"]["train"][0]
+        ids, targets, mask = pack([row], torch.tensor([0]), 128)
+        self.assertEqual(int(mask.sum()), len(row["target"].encode("utf-8")))
+        self.assertEqual(int(mask[0, :len(row["prompt"].encode("utf-8")) - 1].sum()), 0)
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "task.pt"
+            result = run(config, 1, path)
+            self.assertEqual(result["loss"], "deep")
+            self.assertEqual(len(result["stages"]), 1)
+            self.assertEqual(len(result["stages"][0]), 2)
+            self.assertGreater(result["validation"]["tokens"], 0)
+            payload = torch.load(path, map_location="cpu", weights_only=True)
+            self.assertEqual(payload["signature"]["generator"], 1)
+        final = {**config, "loss": "final"}
+        with tempfile.TemporaryDirectory() as folder:
+            result = run(final, 1, Path(folder) / "final.pt")
+            self.assertEqual(result["weights"], [0.0, 1.0])
+
+
+class Loop(unittest.TestCase):
+    def test(self):
+        config = setting()
+        config["architecture"] = "loop-v1"
+        config["mode"] = "task"
+        config["model"]["limit"] = 8
+        config["model"]["context_length"] = 128
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "loop.pt"
+            result = run(config, 1, path)
+            self.assertEqual(result["calls"], 2)
+            self.assertEqual(result["steps"], 2)
+            payload = torch.load(path, map_location="cpu", weights_only=True)
+            model = Decoder(config["model"])
+            model.load_state_dict(payload["model"])
+            ids = torch.tensor([[1, 2, 3]], dtype=torch.long)
+            logits, trace = model(ids, steps=8, trace=True, targets=ids)
+            self.assertEqual(trace["logits"].shape, (8, 1, 3, 256))
+            self.assertEqual(trace["losses"].shape, (8,))
+            self.assertTrue(bool(torch.isfinite(logits).all()))
+
+
+class Guard(unittest.TestCase):
+    def test(self):
+        with patch("research.recursive.train.available_mib", return_value=1):
+            with self.assertRaises(MemoryError):
+                run(setting(), 1, Path("unused.pt"), docs=[[1, 2, 3]], hold=[[4, 5, 6]])
 
 
 if __name__ == "__main__":

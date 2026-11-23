@@ -70,6 +70,7 @@ class Refiner(nn.Module):
         steps: int | None = None,
         trace: bool = False,
         targets: torch.Tensor | None = None,
+        mask: torch.Tensor | None = None,
     ) -> torch.Tensor | tuple[torch.Tensor, dict[str, torch.Tensor | None]]:
         count = self.steps if steps is None else steps
         self.check(count)
@@ -92,6 +93,16 @@ class Refiner(nn.Module):
                 raise ValueError("targets must be CPU torch.long values with ids shape")
             if bool(torch.any(targets < 0)) or bool(torch.any(targets >= self.vocab)):
                 raise ValueError("target ID is outside the configured vocabulary")
+            if mask is None:
+                mask = torch.ones_like(targets, dtype=torch.bool)
+            if not isinstance(mask, torch.Tensor) or mask.shape != targets.shape:
+                raise ValueError("mask must match targets")
+            if mask.device.type != "cpu" or mask.dtype != torch.bool:
+                raise ValueError("mask must be a CPU boolean tensor")
+            if not bool(torch.any(mask)):
+                raise ValueError("mask must select at least one target")
+        elif mask is not None:
+            raise ValueError("mask requires targets")
 
         positions = torch.arange(length, device=ids.device)
         source = self.token(ids) + self.position(positions)[None, :, :]
@@ -119,9 +130,10 @@ class Refiner(nn.Module):
                     (answer - oldanswer).detach().abs().mean(),
                 )))
                 if targets is not None:
-                    losses.append(F.cross_entropy(
-                        logits.reshape(-1, self.vocab), targets.reshape(-1)
-                    ))
+                    values = F.cross_entropy(
+                        logits.reshape(-1, self.vocab), targets.reshape(-1), reduction="none"
+                    ).reshape_as(targets)
+                    losses.append(values.masked_select(mask).mean())
         if not trace:
             return logits
         return logits, {

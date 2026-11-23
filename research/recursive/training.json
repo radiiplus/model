@@ -1,0 +1,70 @@
+{
+  "architecture": "dual-v1",
+  "blocks": 1,
+  "calls": 8,
+  "code": "5e163dddab9d063320e3d76e73dfbfcd3f772cc2be731f3b53b2db246866ed5a",
+  "config": "c0f54854f736b6ce5d0d177bcce8b26e06fec0d4b0c587a10faa04641892b401",
+  "count": 128,
+  "device": "cpu",
+  "dtype": "float32",
+  "elapsed": 0.9969347080000261,
+  "family": null,
+  "generator": null,
+  "guard": 2560,
+  "interrupted": false,
+  "loss": "deep",
+  "memory": {
+    "available": 6651838464,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 3305193472,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 3341144064,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 6651838464
+  },
+  "mode": "language",
+  "params": 23264,
+  "perstep": 0.008403961000112758,
+  "rss": 346910720,
+  "seed": 59,
+  "stages": [
+    [
+      5.533920764923096,
+      5.534501075744629
+    ],
+    [
+      5.514340400695801,
+      5.514300346374512
+    ]
+  ],
+  "state": "52f7d8f438b041b75b96a83dc30f837cfd228735304628b36bd5362355d09fd4",
+  "steps": 2,
+  "threads": 1,
+  "time": 0.016807922000225517,
+  "train": "752c4cdde75c4df50ea086a91f1c3a87bd055b2b158a4fc2b749d850601f22ed",
+  "unit": "tokens",
+  "updates": 2,
+  "valid": "7ecc1ac886ca41c4ad053c106df73169fe99809f7897d62db866f406ae0dc3c6",
+  "validation": {
+    "accuracy": 0.00390625,
+    "nll": 5.5378550589084625,
+    "tokens": 1024
+  },
+  "wall": 30,
+  "weights": [
+    0.5,
+    0.5
+  ]
+}

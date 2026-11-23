@@ -56,7 +56,11 @@ class Decoder(nn.Module):
         if steps not in self.choices or steps > self.limit:
             raise ValueError("steps must be one of 1, 2, 4, 8 and no greater than limit")
 
-    def forward(self, token_ids: torch.Tensor, steps: int = 1) -> torch.Tensor:
+    def forward(self, token_ids: torch.Tensor, steps: int = 1, trace: bool = False,
+                targets: torch.Tensor | None = None,
+                mask: torch.Tensor | None = None) -> torch.Tensor | tuple[
+                    torch.Tensor, dict[str, torch.Tensor | None]
+                ]:
         self.check(steps)
         if not isinstance(token_ids, torch.Tensor) or token_ids.ndim != 2:
             raise ValueError("token_ids must have shape [batch, sequence]")
@@ -69,13 +73,51 @@ class Decoder(nn.Module):
             raise ValueError("the reference decoder accepts CPU token IDs only")
         if bool(torch.any(token_ids < 0)) or bool(torch.any(token_ids >= self.vocab_size)):
             raise ValueError("token ID is outside the configured vocabulary")
+        if not isinstance(trace, bool):
+            raise ValueError("trace must be a boolean")
+        if targets is not None:
+            if (not trace or not isinstance(targets, torch.Tensor)
+                    or targets.shape != token_ids.shape or targets.dtype != torch.long):
+                raise ValueError("trace targets must be torch.long values with token_ids shape")
+            if targets.device.type != "cpu" or bool(torch.any(targets < 0)) \
+                    or bool(torch.any(targets >= self.vocab_size)):
+                raise ValueError("target ID is outside the configured vocabulary")
+            if mask is None:
+                mask = torch.ones_like(targets, dtype=torch.bool)
+            if not isinstance(mask, torch.Tensor) or mask.shape != targets.shape \
+                    or mask.dtype != torch.bool or mask.device.type != "cpu" \
+                    or not bool(torch.any(mask)):
+                raise ValueError("mask must be a nonempty CPU boolean tensor matching targets")
+        elif mask is not None:
+            raise ValueError("mask requires targets")
         positions = torch.arange(length, device=token_ids.device)
         source = self.token_embedding(token_ids) + self.position_embedding(positions)[None, :, :]
         state = self.block(source)
+        outputs = [F.linear(self.final_norm(state), self.head)]
+        losses = []
+        if targets is not None:
+            values = F.cross_entropy(
+                outputs[-1].reshape(-1, self.vocab_size), targets.reshape(-1),
+                reduction="none",
+            ).reshape_as(targets)
+            losses.append(values.masked_select(mask).mean())
         for index in range(steps - 1):
             state = self.block(state + self.step[index])
             state = state + torch.tanh(self.gate[index]) * source
-        return F.linear(self.final_norm(state), self.head)
+            outputs.append(F.linear(self.final_norm(state), self.head))
+            if targets is not None:
+                values = F.cross_entropy(
+                    outputs[-1].reshape(-1, self.vocab_size), targets.reshape(-1),
+                    reduction="none",
+                ).reshape_as(targets)
+                losses.append(values.masked_select(mask).mean())
+        logits = outputs[-1]
+        if not trace:
+            return logits
+        return logits, {
+            "logits": torch.stack(outputs),
+            "losses": torch.stack(losses) if targets is not None else None,
+        }
 
     @torch.no_grad()
     def generate(self, token_ids: list[int], max_new_tokens: int,

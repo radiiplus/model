@@ -1,0 +1,24 @@
+{
+  "architecture": "dual-v1",
+  "mode": "language",
+  "family": "addition",
+  "seed": 59,
+  "steps": 2,
+  "batch": 2,
+  "rate": 0.0003,
+  "decay": 0.01,
+  "clip": 1.0,
+  "loss": "deep",
+  "weights": [0.5, 0.5],
+  "wall": 30,
+  "model": {
+    "vocab_size": 256,
+    "context_length": 32,
+    "d_model": 32,
+    "n_heads": 4,
+    "d_ff": 128,
+    "limit": 8,
+    "steps": 2,
+    "budget": 1000000
+  }
+}
