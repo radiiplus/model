@@ -1,0 +1,25 @@
+{
+  "bytes": 108,
+  "cap": 1073741824,
+  "chunks": 3000,
+  "db": 6303744,
+  "deadline": 110,
+  "device": "cpu",
+  "fts": true,
+  "hash": "3b6d069dd25d12695266d5a6a721c0692a9fc5f252eb9ff901ee7af1bcd7cae7",
+  "hits": 1,
+  "limits": [
+    "Project-generated records only.",
+    "SQLite terms/FTS indexes queried on disk; evidence text returned only for budgeted hits.",
+    "RSS measures the memory subsystem process and excludes any model because none was loaded."
+  ],
+  "model": "not loaded",
+  "query": "quasar",
+  "reads": 1,
+  "records": 3000,
+  "rss": 23330816,
+  "scope": "bench",
+  "threads": 1,
+  "tokens": 17,
+  "wall": 4.081424740999864
+}
