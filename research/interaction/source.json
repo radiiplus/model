@@ -1,0 +1,55 @@
+{
+  "items": [
+    {
+      "name": "OpenAssistant/oasst1",
+      "revision": "694bedfd102490866caa5507d1c93b6c66484367",
+      "files": [
+        {
+          "path": "data/oasst1.gz",
+          "source": "2023-04-12_oasst_ready.messages.jsonl.gz",
+          "bytes": 34196309,
+          "sha256": "286a6e9a5a413b3272ae9c0b5a20d327983dea1c24342ae28cb244a6da65185c",
+          "url": "https://huggingface.co/datasets/OpenAssistant/oasst1/resolve/694bedfd102490866caa5507d1c93b6c66484367/2023-04-12_oasst_ready.messages.jsonl.gz"
+        }
+      ],
+      "license": "Apache-2.0",
+      "terms": "https://huggingface.co/datasets/OpenAssistant/oasst1",
+      "card": "https://huggingface.co/datasets/OpenAssistant/oasst1",
+      "about": "Human-generated, human-annotated assistant conversations. The ready export contains 88,838 messages in 10,364 conversation trees and includes review, language, deletion, synthetic, PII, spam and quality fields.",
+      "screen": "Streaming audit counts: 88,838 total; 37,836 satisfy English, nondeleted, reviewed, nonsynthetic, PII score <= 0 and spam score <= 0; 11,948 of those are assistant messages with quality >= 0.75; 5,515 also have rank 0. These are message counts, not dialogue counts or final training rows. Split by conversation tree before training."
+    },
+    {
+      "name": "google-research-datasets/Taskmaster TM-1",
+      "revision": "d92cb6af3005f1dc09c39e75e7daf4a04905e00b",
+      "files": [
+        {
+          "path": "data/taskmaster1-self.json",
+          "source": "TM-1-2019/self-dialogs.json",
+          "bytes": 65748638,
+          "sha256": "1e590ed0ccee279e40c2fb9e083d3b9417477c6bfe35ce5b2277167698dd858d",
+          "url": "https://raw.githubusercontent.com/google-research-datasets/Taskmaster/d92cb6af3005f1dc09c39e75e7daf4a04905e00b/TM-1-2019/self-dialogs.json"
+        },
+        {
+          "path": "data/taskmaster1-woz.json",
+          "source": "TM-1-2019/woz-dialogs.json",
+          "bytes": 37204053,
+          "sha256": "cd3bc4e968487315d412c044d30af2bf0a4b33c3ef8b74c589f1e1fa832bf72f",
+          "url": "https://raw.githubusercontent.com/google-research-datasets/Taskmaster/d92cb6af3005f1dc09c39e75e7daf4a04905e00b/TM-1-2019/woz-dialogs.json"
+        },
+        {
+          "path": "data/taskmaster1-readme.md",
+          "source": "TM-1-2019/README.md",
+          "bytes": 8046,
+          "sha256": "05e1bc05724716ca7905f567a2ec30d99c8d2f5f58e926c2ca7d9da116002446",
+          "url": "https://raw.githubusercontent.com/google-research-datasets/Taskmaster/d92cb6af3005f1dc09c39e75e7daf4a04905e00b/TM-1-2019/README.md"
+        }
+      ],
+      "license": "CC BY 4.0",
+      "terms": "https://creativecommons.org/licenses/by/4.0/",
+      "card": "https://github.com/google-research-datasets/Taskmaster/tree/d92cb6af3005f1dc09c39e75e7daf4a04905e00b/TM-1-2019",
+      "about": "13,215 task-based dialogues across six service domains. Includes crowdsourced user and trained operator Wizard-of-Oz dialogues, plus self-dialogues written by crowdsourced workers. The source readme notes missing required fields in some otherwise retained dialogues and occasional transcription issues.",
+      "screen": "Keep the source data unchanged. Use official self-dialog train/dev/test IDs when constructing splits; keep Wizard-of-Oz examples grouped by conversation ID. Do not treat the written self-dialog split as independently spoken interaction data."
+    }
+  ],
+  "policy": "Raw source files are retained unchanged under the ignored data directory. This manifest and the source documentation record provenance; the archives are not committed. Acquisition and license declarations do not by themselves establish privacy clearance or training suitability."
+}
