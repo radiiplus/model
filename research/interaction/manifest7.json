@@ -1,0 +1,271 @@
+{
+  "audit": {
+    "episodes": 10950,
+    "exactleak": 0,
+    "families": 1022,
+    "nearleak": 0,
+    "normleak": 0,
+    "raw": 10802464,
+    "splits": {
+      "test": 1509,
+      "train": 8017,
+      "validation": 1424
+    },
+    "templates": 1022,
+    "turns": 224441
+  },
+  "created": "2026-11-24T06:49:43.816629+00:00",
+  "curation": {
+    "byte50": 871,
+    "byte90": 1499,
+    "bytemax": 7696,
+    "bytemin": 21,
+    "bytes": 10802464,
+    "bytes:oasst1": 1765056,
+    "bytes:project": 9049,
+    "bytes:taskmaster1-self": 5485708,
+    "bytes:taskmaster1-woz": 3542651,
+    "episodes": 10950,
+    "families": 1022,
+    "near": 13,
+    "nearlinks": 8,
+    "normalized": 3,
+    "oasst1": 986,
+    "oasst_filtered": 23410,
+    "oasst_quality": 10399,
+    "project": 22,
+    "sourcecount": 10946,
+    "taskmaster1-self": 5907,
+    "taskmaster1-woz": 4035,
+    "taskmaster_filtered": 3270,
+    "templates": 1022,
+    "test": 1509,
+    "train": 8017,
+    "turn50": 21,
+    "turn90": 29,
+    "turnmax": 64,
+    "turnmin": 2,
+    "turns": 224441,
+    "validation": 1424
+  },
+  "filters": {
+    "oasst": "English; reviewed; live; nonsynthetic; excludes PII/spam flags and sensitive patterns; assistant rank 0 and quality >= 0.75",
+    "project": "authored seed scenarios; explicitly marked synthetic",
+    "taskmaster": "whole dialogues; e-mail, phone, payment-number, SSN, IP and street-address patterns excluded"
+  },
+  "limits": {
+    "corpusram": "source and corpus records stream; tokenizer sample capped at 1 MiB",
+    "cpu": "CPU only; one Torch intra/inter-op thread",
+    "memorymib": 2560,
+    "wallseconds": 120
+  },
+  "measure": {
+    "bytes": {
+      "test": 1375143,
+      "train": 8169139,
+      "validation": 1258182
+    },
+    "docs": {
+      "test": 1509,
+      "train": 8017,
+      "validation": 1424
+    },
+    "hashes": {
+      "test": "88281e36febda3050460e48637c20755072b2282328afe7b5330622694de9fd3",
+      "train": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+      "validation": "6e01a31db20425d006237654c86fce6f9636ee37eaf507fd096180825d53351c"
+    },
+    "tokens": {
+      "test": 656570,
+      "train": 3877486,
+      "validation": 602638
+    },
+    "used": 3981
+  },
+  "rss": 455811072,
+  "seconds": 86.599,
+  "shards": {
+    "files": [
+      {
+        "bytes": 1999050,
+        "data": "train0.bin",
+        "documents": 1623,
+        "index": "train0.jsonl",
+        "name": "train0",
+        "proof": "5f353b21eadc63a3d3f8b28374492690a8c59d7473f9f2652910797468ae8006",
+        "raw": 2164314,
+        "sha256": "61029bc95edfb26364e51bf2fa8569b9015e9eef5eda0e7f0be44c168a8f233e",
+        "split": "train",
+        "tokens": 999525
+      },
+      {
+        "bytes": 1999918,
+        "data": "train1.bin",
+        "documents": 1988,
+        "index": "train1.jsonl",
+        "name": "train1",
+        "proof": "abfba72492f37feec60ce35f908e6b7dfb01260f4c18f1aabc339048cc550724",
+        "raw": 1871678,
+        "sha256": "7f8f0ea6c0dc47100364ac7ef4353ea4a88c26d2075ad4212059c462ef37b958",
+        "split": "train",
+        "tokens": 999959
+      },
+      {
+        "bytes": 1999102,
+        "data": "train2.bin",
+        "documents": 1995,
+        "index": "train2.jsonl",
+        "name": "train2",
+        "proof": "2b274ab84d2263f86e24d8892907287682b75748ffbfc26928c4cbe6cb408af1",
+        "raw": 1864854,
+        "sha256": "91c2c6468b36d032ab67fb35b9689cd8369f19b280a5e6c162cb41a280116fce",
+        "split": "train",
+        "tokens": 999551
+      },
+      {
+        "bytes": 1998404,
+        "data": "train3.bin",
+        "documents": 1962,
+        "index": "train3.jsonl",
+        "name": "train3",
+        "proof": "cb6781b2aac573754167815b326f443810a2908dc6f9a98efe1a30df19f71ff8",
+        "raw": 1849331,
+        "sha256": "266b37e9b03913fc3eae4c9a75c22c09e0202f41d1e6ecb307efecaefedc8b01",
+        "split": "train",
+        "tokens": 999202
+      },
+      {
+        "bytes": 451558,
+        "data": "train4.bin",
+        "documents": 449,
+        "index": "train4.jsonl",
+        "name": "train4",
+        "proof": "d3d65d67efbd0c094dd05b6f33d12ab19da06e60d8e0152ba43dd400afba81ae",
+        "raw": 418962,
+        "sha256": "e944f7923874f76357b9dfcc72453ef972005d0b0aedd82b21a85f6077042205",
+        "split": "train",
+        "tokens": 225779
+      },
+      {
+        "bytes": 1327968,
+        "data": "valid0.bin",
+        "documents": 1424,
+        "index": "valid0.jsonl",
+        "name": "valid0",
+        "proof": "e3cc365964f9dc77d7df1c8760de29022d40e384af1f4f2b3e2561709960d269",
+        "raw": 1258182,
+        "sha256": "089745f9fc6f2338247b26886cc66262d1c6b47f03893473c5211836b55e6d78",
+        "split": "validation",
+        "tokens": 663984
+      },
+      {
+        "bytes": 1438952,
+        "data": "test0.bin",
+        "documents": 1509,
+        "index": "test0.jsonl",
+        "name": "test0",
+        "proof": "6ff713972853449a0c5429326f8cd2eef71a8c503f9e7a77a427315655138d7e",
+        "raw": 1375143,
+        "sha256": "d505cf428c8e252055f819899504b92143f5520dd46d41f75dac73243e94f4d7",
+        "split": "test",
+        "tokens": 719476
+      }
+    ],
+    "format": "little-endian-uint16",
+    "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "total": {
+      "documents": 10950,
+      "raw": 10802464,
+      "tokens": 5607476
+    },
+    "version": 1,
+    "vocab": 4096
+  },
+  "sources": {
+    "files": [
+      {
+        "bytes": 34196309,
+        "license": "Apache-2.0",
+        "path": "data/oasst1.gz",
+        "revision": "694bedfd102490866caa5507d1c93b6c66484367",
+        "sha256": "286a6e9a5a413b3272ae9c0b5a20d327983dea1c24342ae28cb244a6da65185c",
+        "source": "OpenAssistant/oasst1"
+      },
+      {
+        "bytes": 34145252,
+        "license": "Apache-2.0",
+        "path": "data/oasst1-trees.gz",
+        "revision": "694bedfd102490866caa5507d1c93b6c66484367",
+        "sha256": "2a9a8fd343e9b28e04a895a669d3253f82d93e9c174d440199ae19d5fafbdff7",
+        "source": "OpenAssistant/oasst1"
+      },
+      {
+        "bytes": 65748638,
+        "license": "CC BY 4.0",
+        "path": "data/taskmaster1-self.json",
+        "revision": "d92cb6af3005f1dc09c39e75e7daf4a04905e00b",
+        "sha256": "1e590ed0ccee279e40c2fb9e083d3b9417477c6bfe35ce5b2277167698dd858d",
+        "source": "google-research-datasets/Taskmaster TM-1"
+      },
+      {
+        "bytes": 37204053,
+        "license": "CC BY 4.0",
+        "path": "data/taskmaster1-woz.json",
+        "revision": "d92cb6af3005f1dc09c39e75e7daf4a04905e00b",
+        "sha256": "cd3bc4e968487315d412c044d30af2bf0a4b33c3ef8b74c589f1e1fa832bf72f",
+        "source": "google-research-datasets/Taskmaster TM-1"
+      },
+      {
+        "bytes": 8046,
+        "license": "CC BY 4.0",
+        "path": "data/taskmaster1-readme.md",
+        "revision": "d92cb6af3005f1dc09c39e75e7daf4a04905e00b",
+        "sha256": "05e1bc05724716ca7905f567a2ec30d99c8d2f5f58e926c2ca7d9da116002446",
+        "source": "google-research-datasets/Taskmaster TM-1"
+      },
+      {
+        "bytes": 6045,
+        "license": "project-authored",
+        "path": "seed.jsonl",
+        "revision": "1",
+        "sha256": "13a5ecf386b94fe9cca1dcd1ff0986c89f41167a917b64d415991491850e5963",
+        "source": "Project-authored seed"
+      },
+      {
+        "bytes": 4136,
+        "license": "project-authored",
+        "path": "patterns.jsonl",
+        "revision": "1",
+        "sha256": "22fefabb1c96004cc540945bd99920f56f37dc12f8acfce082d54651424f4a1e",
+        "source": "Project-authored seed"
+      }
+    ],
+    "retrieved": "2026-11-24"
+  },
+  "targets": {
+    "test": 419389,
+    "train": 2481126,
+    "validation": 382928
+  },
+  "tokenizer": {
+    "active": 4096,
+    "bytes": 256,
+    "compression": "content byte/token counts are reported separately",
+    "hash": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "sample": 1048576,
+    "special": 8,
+    "split": "train",
+    "target": 4096,
+    "version": 1
+  },
+  "units": {
+    "bytes": 10802464,
+    "docs": 10950,
+    "epochs": 0,
+    "presented": 0,
+    "sources": 10946,
+    "stored": 5607476,
+    "used": 3981
+  },
+  "version": 1
+}

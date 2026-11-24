@@ -1,4 +1,5 @@
 {
+  "retrieved": "2026-11-24",
   "items": [
     {
       "name": "OpenAssistant/oasst1",
@@ -10,9 +11,17 @@
           "bytes": 34196309,
           "sha256": "286a6e9a5a413b3272ae9c0b5a20d327983dea1c24342ae28cb244a6da65185c",
           "url": "https://huggingface.co/datasets/OpenAssistant/oasst1/resolve/694bedfd102490866caa5507d1c93b6c66484367/2023-04-12_oasst_ready.messages.jsonl.gz"
+        },
+        {
+          "path": "data/oasst1-trees.gz",
+          "source": "2023-04-12_oasst_ready.trees.jsonl.gz",
+          "bytes": 34145252,
+          "sha256": "2a9a8fd343e9b28e04a895a669d3253f82d93e9c174d440199ae19d5fafbdff7",
+          "url": "https://huggingface.co/datasets/OpenAssistant/oasst1/resolve/694bedfd102490866caa5507d1c93b6c66484367/2023-04-12_oasst_ready.trees.jsonl.gz"
         }
       ],
       "license": "Apache-2.0",
+      "credit": "OpenAssistant project and contributors",
       "terms": "https://huggingface.co/datasets/OpenAssistant/oasst1",
       "card": "https://huggingface.co/datasets/OpenAssistant/oasst1",
       "about": "Human-generated, human-annotated assistant conversations. The ready export contains 88,838 messages in 10,364 conversation trees and includes review, language, deletion, synthetic, PII, spam and quality fields.",
@@ -45,10 +54,30 @@
         }
       ],
       "license": "CC BY 4.0",
+      "credit": "Bill Byrne, Karthik Krishnamoorthi, Chinnadhurai Sankar, Arvind Neelakantan, Amit Dubey, Kyu-Young Kim, and Andy Cedilnik",
       "terms": "https://creativecommons.org/licenses/by/4.0/",
       "card": "https://github.com/google-research-datasets/Taskmaster/tree/d92cb6af3005f1dc09c39e75e7daf4a04905e00b/TM-1-2019",
       "about": "13,215 task-based dialogues across six service domains. Includes crowdsourced user and trained operator Wizard-of-Oz dialogues, plus self-dialogues written by crowdsourced workers. The source readme notes missing required fields in some otherwise retained dialogues and occasional transcription issues.",
       "screen": "Keep the source data unchanged. Use official self-dialog train/dev/test IDs when constructing splits; keep Wizard-of-Oz examples grouped by conversation ID. Do not treat the written self-dialog split as independently spoken interaction data."
+    },
+    {
+      "name": "Project-authored seed",
+      "revision": "1",
+      "files": [
+        {
+          "path": "seed.jsonl",
+          "bytes": 6045,
+          "sha256": "13a5ecf386b94fe9cca1dcd1ff0986c89f41167a917b64d415991491850e5963"
+        },
+        {
+          "path": "patterns.jsonl",
+          "bytes": 4136,
+          "sha256": "22fefabb1c96004cc540945bd99920f56f37dc12f8acfce082d54651424f4a1e"
+        }
+      ],
+      "license": "project-authored",
+      "about": "Ten manually authored scenarios plus six deterministic templates with two substitutions each, covering objectives, constraints, missing information, correction, interruption, compaction, evidence, verification, ordinary conversation and short prose.",
+      "screen": "All constructed scenarios are marked synthetic in curated output. Controlled substitutions are deterministic and human-authored; no model-generated answers are admitted."
     }
   ],
   "policy": "Raw source files are retained unchanged under the ignored data directory. This manifest and the source documentation record provenance; the archives are not committed. Acquisition and license declarations do not by themselves establish privacy clearance or training suitability."
