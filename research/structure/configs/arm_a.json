@@ -1,0 +1,30 @@
+{
+  "condition": "language",
+  "restore_optimizer": true,
+  "model": {
+    "vocab_size": 4096,
+    "context_length": 1024,
+    "layers": 4,
+    "d_model": 256,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "position_embedding": "learned_absolute",
+    "normalization": "pre_layernorm",
+    "weight_tying": true,
+    "dtype": "float32"
+  },
+  "train": {
+    "rate": 0.0003,
+    "penalty": 0.1,
+    "clip": 1.0,
+    "warm": 100,
+    "decay": 10000,
+    "floor": 0.1,
+    "batch": 1,
+    "steps": 12,
+    "checkpoint_interval": 1,
+    "eval_examples": 6,
+    "eval_seed": 2026,
+    "seed": 2025
+  }
+}

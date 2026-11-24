@@ -1,0 +1,2881 @@
+{
+  "baseline": {
+    "condition": "frozen_start",
+    "exact_response_accuracy": 0.0,
+    "per_split": {
+      "compositional_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-000:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-000:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-001:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-002:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-003:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-003:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-005:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-007:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-007:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "compositional_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "counterfactual_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 32,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "counterfactual_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "iid_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-001:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-002:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-003:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-004:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-004:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-005:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-005:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-007:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "to to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "iid_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "validation": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-002:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-003:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-005:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-007:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "token_limit",
+            "text": "a to to to to to to to to to to to to to to to to to to to ",
+            "world_id": "validation-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      }
+    },
+    "semantic_accuracy": 0.0
+  },
+  "capture": {
+    "correction_kind_counts": {
+      "expression": 0,
+      "meaning": 24
+    },
+    "draft_samples": [
+      {
+        "correction": "No. Beryl's available output is below Lumen's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-000:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "Yes. Indigo has enough available output to meet Harbor's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-001:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "Yes. Harbor has enough available output to meet Cinder's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-002:cold:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "No. Elm's available output is below Kestrel's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-003:warm:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Fable's available output is below Harbor's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-004:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "Yes. Lumen has enough available output to meet Dovetail's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-005:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "Yes. Fable has enough available output to meet Juniper's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-006:cold:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "No. Dovetail's available output is below Alder's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-007:warm:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Juniper's available output is below Fable's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-008:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Dovetail's available output is below Elm's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-009:warm:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Indigo's available output is below Cinder's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-010:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Beryl's available output is below Dovetail's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-011:warm:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Lumen's available output is below Dovetail's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-012:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "Yes. Beryl has enough available output to meet Fable's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-013:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "No. Harbor's available output is below Dovetail's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-014:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Dovetail's available output is below Alder's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-015:warm:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Lumen's available output is below Garnet's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-016:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "Yes. Garnet has enough available output to meet Juniper's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-017:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "Yes. Harbor has enough available output to meet Fable's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-018:cold:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "Yes. Cinder has enough available output to meet Garnet's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-019:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "No. Harbor's available output is below Juniper's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-020:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "Yes. Kestrel has enough available output to meet Fable's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "to to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-021:warm:none:explicit",
+        "gold_semantic": "yes"
+      },
+      {
+        "correction": "No. Harbor's available output is below Dovetail's demand in cold.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-022:cold:none:explicit",
+        "gold_semantic": "no"
+      },
+      {
+        "correction": "No. Beryl's available output is below Lumen's demand in warm.",
+        "correction_kind": "meaning",
+        "draft": "a to to to to to to to to to to to ",
+        "draft_semantic": "unknown",
+        "example_id": "train-world-023:warm:none:explicit",
+        "gold_semantic": "no"
+      }
+    ],
+    "episode_ids": [
+      "11261acca7e5bef3efc9f4cd21ae833bca52c96be3c13094b36343869fe6806c",
+      "6a9cce2651dda1e18ddf46dd05a079c5266548c2bd0477ddf5625133e0c53f65",
+      "4d3842bda4252d91e97afa65854cf5d5709ef4d2ba5887c46cd74649bd32877f",
+      "954c094b38e11b4e32f58e89a0843ed045bf6d90d2fd5abcb1b3eb131bd1d730",
+      "284e0da367dacf78bebc60b69a53d3b4e1c83dc5266e7fa9ddd34c6ae5ef8f6f",
+      "a64fd4d8806eaa5b4f4f4587d82e8e983d1896b29519182dbda17fc1adc542e5",
+      "39ea3a451822a1e57f3fefc5500ec534043920ca0fa64b98354d412319ec42db",
+      "868bc85423557a47f6eb0e543c1373b5a85a9126aacdb249ea597706f1556abf",
+      "6a58cdf62091e484cb9ca97e33d1f5043243070c9355b9a7d6126fde8ad897db",
+      "8763e8b4bbae0aaaa60b5d9ac1b68d7acf3e68452a1dacd1a1ae0af86b147461",
+      "e0a07ca2a539550940bdec14b41062e7147b02e47a76df278f3d4e1f49baf877",
+      "8e36f63de01846f22acd63459dc9e191cba78f7e3a1fa94159f77c8d4c346eb9",
+      "047a7fc5f6fc25b46ffc9594d7cff27bfefc9aac748227b40b2fb7a78330cf10",
+      "925e5355b4a80dbfcd67f8396033103ed828b83990c9e85311df9c1a5f6109eb",
+      "55fc34ee154d90599e4a325f314ca6489fcf88f57a1255fa3a1c1da901859c89",
+      "9667b215c773f4959225ae4891466b8f811f78e80acc34022de259912d047cde",
+      "4d6a9ca82fd88902385f8910921649f160f5fe8243dac337f18fbb8bdbd2b982",
+      "ee3286fc24ac6642187d3da2b5cd590eb9ff7c21fa57bd9820acae05eb504d2c",
+      "51380a799ab816b46947a8afe8066bbad0b870dd4a8f82117ad6f23ec472fcb4",
+      "ba3f5ba27f5cf3f77ec94001af04b6d3d99bd4fe8c1229b8600d3c59101ce89c",
+      "1a17e19919308449129bd2f0d1c4906dda857bd0d16b2c9b67e3eed77f316fe5",
+      "6f6deb046ceddc5ef9ba35011d873825df771fd4abbc90695c22bdc6e87d8143",
+      "ecc4af24631bdf1a1fb94382e0f44eb1cfae9f3181f836f2e717bcf5e1a167ef",
+      "d11512ca534f57dd0e9ff890b9ea81041d11bc71dbb41ba34ff8056332803198"
+    ],
+    "episodes_captured": 24,
+    "origin": "synthetic_fixture",
+    "persisted_user_data": false
+  },
+  "corrected": {
+    "condition": "supervised_corrections",
+    "exact_response_accuracy": 0.0,
+    "per_split": {
+      "compositional_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-000:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-000:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-001:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-002:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-003:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-003:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-005:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-007:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "compositional_test-world-007:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "compositional_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "counterfactual_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 32,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-000:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-001:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-002:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-003:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-004:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:cold:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-005:warm:insulate:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-006:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:cold:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "counterfactual_test-world-007:warm:insulate:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "counterfactual_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "iid_test": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in in",
+            "world_id": "iid_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in in",
+            "world_id": "iid_test-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-001:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "in in in in in in",
+            "world_id": "iid_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "in in in in in in",
+            "world_id": "iid_test-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-002:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-003:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-004:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-004:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-005:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "in in in in in in",
+            "world_id": "iid_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-005:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "in in in in in in",
+            "world_id": "iid_test-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in in",
+            "world_id": "iid_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "is in in in in",
+            "world_id": "iid_test-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "iid_test-world-007:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "iid_test-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      },
+      "validation": {
+        "accuracy_when_parsed": 0.0,
+        "exact_response_accuracy": 0.0,
+        "examples": 16,
+        "numeric_detail_accuracy": 0.0,
+        "predictions": [
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-000:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-000:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-000"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-001:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-001:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-001"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-002:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-002:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-002"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-003:cold:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-003:warm:none:explicit",
+            "gold": "yes",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-003"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-004:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-004:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-004"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-005:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-005:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-005"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-006:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-006:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-006"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-007:cold:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-007"
+          },
+          {
+            "correct": false,
+            "exact_response_match": false,
+            "example_id": "validation-world-007:warm:none:explicit",
+            "gold": "no",
+            "numeric_details_correct": false,
+            "predicted": "unknown",
+            "stop": "eos",
+            "text": "",
+            "world_id": "validation-world-007"
+          }
+        ],
+        "semantic_accuracy": 0.0,
+        "semantic_coverage": 0.0
+      }
+    },
+    "semantic_accuracy": 0.0
+  },
+  "corrected_checkpoint_sha256": "d4fde198fe3607bb2ea76f68bd74290957d183b7d037d3f2865ee62b3d05ba77",
+  "correction_epochs": 4.0,
+  "dataset_manifest_sha256": "3950735151bebf9802ee0e38fc4deb8664237780f4377212046c9bb1e2c7ac25",
+  "decision": "one-seed bounded pilot; no larger training without independent replication",
+  "examples_seen": 96,
+  "experiment": "correction-driven-response-pilot-v1",
+  "fit_seconds": 5.215453397000147,
+  "identical_starting_weights": true,
+  "initial_checkpoint_sha256": "0f36d1337f370d9edd33879f5e8aa3e44b8f8ef247014ab6b219d50b982d0a53",
+  "objective": "answer semantic label first; corrected natural response as target",
+  "optimizer": {
+    "batch_size": 1,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 5e-05,
+    "name": "AdamW",
+    "state": "reset",
+    "weight_decay": 0.01
+  },
+  "peak_rss_bytes": 482009088,
+  "schema": 1,
+  "starting_weights_sha256": "b3a4893d4ea898a397694bf983790bb02477c603a228728c1e0d01b6c4c0f6a1",
+  "target_tokens_seen": 2912,
+  "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe",
+  "training_losses": [
+    {
+      "example_id": "train-world-012:cold:none:explicit",
+      "gradient_norm": 3.7644829750061035,
+      "learning_rate": 5e-05,
+      "loss": 5.083632469177246,
+      "target_tokens": 30,
+      "update": 1
+    },
+    {
+      "example_id": "train-world-000:cold:none:explicit",
+      "gradient_norm": 3.5159783363342285,
+      "learning_rate": 5e-05,
+      "loss": 4.926147937774658,
+      "target_tokens": 30,
+      "update": 2
+    },
+    {
+      "example_id": "train-world-010:cold:none:explicit",
+      "gradient_norm": 3.7055630683898926,
+      "learning_rate": 5e-05,
+      "loss": 5.024445533752441,
+      "target_tokens": 29,
+      "update": 3
+    },
+    {
+      "example_id": "train-world-008:cold:none:explicit",
+      "gradient_norm": 3.09216570854187,
+      "learning_rate": 5e-05,
+      "loss": 4.884344577789307,
+      "target_tokens": 29,
+      "update": 4
+    },
+    {
+      "example_id": "train-world-014:cold:none:explicit",
+      "gradient_norm": 3.20357084274292,
+      "learning_rate": 5e-05,
+      "loss": 4.988778114318848,
+      "target_tokens": 30,
+      "update": 5
+    },
+    {
+      "example_id": "train-world-019:warm:none:explicit",
+      "gradient_norm": 3.8709309101104736,
+      "learning_rate": 5e-05,
+      "loss": 4.603340148925781,
+      "target_tokens": 32,
+      "update": 6
+    },
+    {
+      "example_id": "train-world-018:cold:none:explicit",
+      "gradient_norm": 3.006343364715576,
+      "learning_rate": 5e-05,
+      "loss": 4.626194477081299,
+      "target_tokens": 31,
+      "update": 7
+    },
+    {
+      "example_id": "train-world-011:warm:none:explicit",
+      "gradient_norm": 2.993621349334717,
+      "learning_rate": 5e-05,
+      "loss": 4.924057960510254,
+      "target_tokens": 30,
+      "update": 8
+    },
+    {
+      "example_id": "train-world-007:warm:none:explicit",
+      "gradient_norm": 2.880312919616699,
+      "learning_rate": 5e-05,
+      "loss": 4.909627914428711,
+      "target_tokens": 29,
+      "update": 9
+    },
+    {
+      "example_id": "train-world-021:warm:none:explicit",
+      "gradient_norm": 2.8512871265411377,
+      "learning_rate": 5e-05,
+      "loss": 4.691202640533447,
+      "target_tokens": 31,
+      "update": 10
+    },
+    {
+      "example_id": "train-world-003:warm:none:explicit",
+      "gradient_norm": 2.9315555095672607,
+      "learning_rate": 5e-05,
+      "loss": 4.767565727233887,
+      "target_tokens": 30,
+      "update": 11
+    },
+    {
+      "example_id": "train-world-002:cold:none:explicit",
+      "gradient_norm": 3.2212018966674805,
+      "learning_rate": 5e-05,
+      "loss": 4.521608352661133,
+      "target_tokens": 31,
+      "update": 12
+    },
+    {
+      "example_id": "train-world-023:warm:none:explicit",
+      "gradient_norm": 3.0786337852478027,
+      "learning_rate": 5e-05,
+      "loss": 4.645096302032471,
+      "target_tokens": 30,
+      "update": 13
+    },
+    {
+      "example_id": "train-world-015:warm:none:explicit",
+      "gradient_norm": 2.9294989109039307,
+      "learning_rate": 5e-05,
+      "loss": 4.809163570404053,
+      "target_tokens": 29,
+      "update": 14
+    },
+    {
+      "example_id": "train-world-016:cold:none:explicit",
+      "gradient_norm": 3.04606556892395,
+      "learning_rate": 5e-05,
+      "loss": 4.540879726409912,
+      "target_tokens": 30,
+      "update": 15
+    },
+    {
+      "example_id": "train-world-013:warm:none:explicit",
+      "gradient_norm": 2.6835994720458984,
+      "learning_rate": 5e-05,
+      "loss": 4.484357833862305,
+      "target_tokens": 31,
+      "update": 16
+    },
+    {
+      "example_id": "train-world-020:cold:none:explicit",
+      "gradient_norm": 2.9275975227355957,
+      "learning_rate": 5e-05,
+      "loss": 4.661328315734863,
+      "target_tokens": 30,
+      "update": 17
+    },
+    {
+      "example_id": "train-world-017:warm:none:explicit",
+      "gradient_norm": 2.7550134658813477,
+      "learning_rate": 5e-05,
+      "loss": 4.532773017883301,
+      "target_tokens": 32,
+      "update": 18
+    },
+    {
+      "example_id": "train-world-005:warm:none:explicit",
+      "gradient_norm": 2.916301727294922,
+      "learning_rate": 5e-05,
+      "loss": 4.523829936981201,
+      "target_tokens": 32,
+      "update": 19
+    },
+    {
+      "example_id": "train-world-006:cold:none:explicit",
+      "gradient_norm": 2.4465014934539795,
+      "learning_rate": 5e-05,
+      "loss": 4.357382774353027,
+      "target_tokens": 31,
+      "update": 20
+    },
+    {
+      "example_id": "train-world-009:warm:none:explicit",
+      "gradient_norm": 3.0751707553863525,
+      "learning_rate": 5e-05,
+      "loss": 4.57819128036499,
+      "target_tokens": 30,
+      "update": 21
+    },
+    {
+      "example_id": "train-world-022:cold:none:explicit",
+      "gradient_norm": 3.1695127487182617,
+      "learning_rate": 5e-05,
+      "loss": 4.637212753295898,
+      "target_tokens": 30,
+      "update": 22
+    },
+    {
+      "example_id": "train-world-004:cold:none:explicit",
+      "gradient_norm": 2.987914562225342,
+      "learning_rate": 5e-05,
+      "loss": 4.411789417266846,
+      "target_tokens": 29,
+      "update": 23
+    },
+    {
+      "example_id": "train-world-001:warm:none:explicit",
+      "gradient_norm": 2.862534284591675,
+      "learning_rate": 5e-05,
+      "loss": 4.484299182891846,
+      "target_tokens": 32,
+      "update": 24
+    },
+    {
+      "example_id": "train-world-009:warm:none:explicit",
+      "gradient_norm": 3.1466727256774902,
+      "learning_rate": 5e-05,
+      "loss": 4.514619827270508,
+      "target_tokens": 30,
+      "update": 25
+    },
+    {
+      "example_id": "train-world-017:warm:none:explicit",
+      "gradient_norm": 2.491213798522949,
+      "learning_rate": 5e-05,
+      "loss": 4.394222736358643,
+      "target_tokens": 32,
+      "update": 26
+    },
+    {
+      "example_id": "train-world-000:cold:none:explicit",
+      "gradient_norm": 3.2130351066589355,
+      "learning_rate": 5e-05,
+      "loss": 4.406281471252441,
+      "target_tokens": 30,
+      "update": 27
+    },
+    {
+      "example_id": "train-world-008:cold:none:explicit",
+      "gradient_norm": 3.0055339336395264,
+      "learning_rate": 5e-05,
+      "loss": 4.428483963012695,
+      "target_tokens": 29,
+      "update": 28
+    },
+    {
+      "example_id": "train-world-015:warm:none:explicit",
+      "gradient_norm": 3.1456472873687744,
+      "learning_rate": 5e-05,
+      "loss": 4.566285610198975,
+      "target_tokens": 29,
+      "update": 29
+    },
+    {
+      "example_id": "train-world-013:warm:none:explicit",
+      "gradient_norm": 2.7387118339538574,
+      "learning_rate": 5e-05,
+      "loss": 4.255349636077881,
+      "target_tokens": 31,
+      "update": 30
+    },
+    {
+      "example_id": "train-world-010:cold:none:explicit",
+      "gradient_norm": 3.0771164894104004,
+      "learning_rate": 5e-05,
+      "loss": 4.487759590148926,
+      "target_tokens": 29,
+      "update": 31
+    },
+    {
+      "example_id": "train-world-006:cold:none:explicit",
+      "gradient_norm": 2.5869252681732178,
+      "learning_rate": 5e-05,
+      "loss": 4.167541980743408,
+      "target_tokens": 31,
+      "update": 32
+    },
+    {
+      "example_id": "train-world-023:warm:none:explicit",
+      "gradient_norm": 3.1681015491485596,
+      "learning_rate": 5e-05,
+      "loss": 4.304227352142334,
+      "target_tokens": 30,
+      "update": 33
+    },
+    {
+      "example_id": "train-world-016:cold:none:explicit",
+      "gradient_norm": 3.081984758377075,
+      "learning_rate": 5e-05,
+      "loss": 4.217945575714111,
+      "target_tokens": 30,
+      "update": 34
+    },
+    {
+      "example_id": "train-world-012:cold:none:explicit",
+      "gradient_norm": 3.1410176753997803,
+      "learning_rate": 5e-05,
+      "loss": 4.359577655792236,
+      "target_tokens": 30,
+      "update": 35
+    },
+    {
+      "example_id": "train-world-014:cold:none:explicit",
+      "gradient_norm": 3.0238265991210938,
+      "learning_rate": 5e-05,
+      "loss": 4.377021312713623,
+      "target_tokens": 30,
+      "update": 36
+    },
+    {
+      "example_id": "train-world-020:cold:none:explicit",
+      "gradient_norm": 2.905195951461792,
+      "learning_rate": 5e-05,
+      "loss": 4.296804428100586,
+      "target_tokens": 30,
+      "update": 37
+    },
+    {
+      "example_id": "train-world-021:warm:none:explicit",
+      "gradient_norm": 2.7863214015960693,
+      "learning_rate": 5e-05,
+      "loss": 4.197038173675537,
+      "target_tokens": 31,
+      "update": 38
+    },
+    {
+      "example_id": "train-world-007:warm:none:explicit",
+      "gradient_norm": 2.786576747894287,
+      "learning_rate": 5e-05,
+      "loss": 4.373785972595215,
+      "target_tokens": 29,
+      "update": 39
+    },
+    {
+      "example_id": "train-world-019:warm:none:explicit",
+      "gradient_norm": 2.6039843559265137,
+      "learning_rate": 5e-05,
+      "loss": 4.016633033752441,
+      "target_tokens": 32,
+      "update": 40
+    },
+    {
+      "example_id": "train-world-001:warm:none:explicit",
+      "gradient_norm": 2.760979175567627,
+      "learning_rate": 5e-05,
+      "loss": 4.230315685272217,
+      "target_tokens": 32,
+      "update": 41
+    },
+    {
+      "example_id": "train-world-002:cold:none:explicit",
+      "gradient_norm": 2.7176506519317627,
+      "learning_rate": 5e-05,
+      "loss": 4.0656867027282715,
+      "target_tokens": 31,
+      "update": 42
+    },
+    {
+      "example_id": "train-world-011:warm:none:explicit",
+      "gradient_norm": 2.924800395965576,
+      "learning_rate": 5e-05,
+      "loss": 4.282044410705566,
+      "target_tokens": 30,
+      "update": 43
+    },
+    {
+      "example_id": "train-world-005:warm:none:explicit",
+      "gradient_norm": 2.741051435470581,
+      "learning_rate": 5e-05,
+      "loss": 4.141549110412598,
+      "target_tokens": 32,
+      "update": 44
+    },
+    {
+      "example_id": "train-world-018:cold:none:explicit",
+      "gradient_norm": 3.9925146102905273,
+      "learning_rate": 5e-05,
+      "loss": 3.9162802696228027,
+      "target_tokens": 31,
+      "update": 45
+    },
+    {
+      "example_id": "train-world-022:cold:none:explicit",
+      "gradient_norm": 3.0886168479919434,
+      "learning_rate": 5e-05,
+      "loss": 4.161332130432129,
+      "target_tokens": 30,
+      "update": 46
+    },
+    {
+      "example_id": "train-world-004:cold:none:explicit",
+      "gradient_norm": 3.2037999629974365,
+      "learning_rate": 5e-05,
+      "loss": 3.970071315765381,
+      "target_tokens": 29,
+      "update": 47
+    },
+    {
+      "example_id": "train-world-003:warm:none:explicit",
+      "gradient_norm": 10.798678398132324,
+      "learning_rate": 5e-05,
+      "loss": 4.104420185089111,
+      "target_tokens": 30,
+      "update": 48
+    },
+    {
+      "example_id": "train-world-008:cold:none:explicit",
+      "gradient_norm": 2.967247247695923,
+      "learning_rate": 5e-05,
+      "loss": 4.067434787750244,
+      "target_tokens": 29,
+      "update": 49
+    },
+    {
+      "example_id": "train-world-021:warm:none:explicit",
+      "gradient_norm": 2.898369312286377,
+      "learning_rate": 5e-05,
+      "loss": 4.2499918937683105,
+      "target_tokens": 31,
+      "update": 50
+    },
+    {
+      "example_id": "train-world-019:warm:none:explicit",
+      "gradient_norm": 3.0059330463409424,
+      "learning_rate": 5e-05,
+      "loss": 3.830270767211914,
+      "target_tokens": 32,
+      "update": 51
+    },
+    {
+      "example_id": "train-world-009:warm:none:explicit",
+      "gradient_norm": 47.00521469116211,
+      "learning_rate": 5e-05,
+      "loss": 4.141032695770264,
+      "target_tokens": 30,
+      "update": 52
+    },
+    {
+      "example_id": "train-world-010:cold:none:explicit",
+      "gradient_norm": 3.1455135345458984,
+      "learning_rate": 5e-05,
+      "loss": 4.098162651062012,
+      "target_tokens": 29,
+      "update": 53
+    },
+    {
+      "example_id": "train-world-000:cold:none:explicit",
+      "gradient_norm": 2.977264165878296,
+      "learning_rate": 5e-05,
+      "loss": 3.9310946464538574,
+      "target_tokens": 30,
+      "update": 54
+    },
+    {
+      "example_id": "train-world-011:warm:none:explicit",
+      "gradient_norm": 48.624942779541016,
+      "learning_rate": 5e-05,
+      "loss": 4.1634745597839355,
+      "target_tokens": 30,
+      "update": 55
+    },
+    {
+      "example_id": "train-world-001:warm:none:explicit",
+      "gradient_norm": 3.251418113708496,
+      "learning_rate": 5e-05,
+      "loss": 3.9876484870910645,
+      "target_tokens": 32,
+      "update": 56
+    },
+    {
+      "example_id": "train-world-013:warm:none:explicit",
+      "gradient_norm": 4.897010326385498,
+      "learning_rate": 5e-05,
+      "loss": 4.087312698364258,
+      "target_tokens": 31,
+      "update": 57
+    },
+    {
+      "example_id": "train-world-005:warm:none:explicit",
+      "gradient_norm": 3.259626626968384,
+      "learning_rate": 5e-05,
+      "loss": 3.9187653064727783,
+      "target_tokens": 32,
+      "update": 58
+    },
+    {
+      "example_id": "train-world-017:warm:none:explicit",
+      "gradient_norm": 3.0529537200927734,
+      "learning_rate": 5e-05,
+      "loss": 3.8868916034698486,
+      "target_tokens": 32,
+      "update": 59
+    },
+    {
+      "example_id": "train-world-022:cold:none:explicit",
+      "gradient_norm": 3.154198408126831,
+      "learning_rate": 5e-05,
+      "loss": 3.9245524406433105,
+      "target_tokens": 30,
+      "update": 60
+    },
+    {
+      "example_id": "train-world-018:cold:none:explicit",
+      "gradient_norm": 7.252518653869629,
+      "learning_rate": 5e-05,
+      "loss": 3.906618356704712,
+      "target_tokens": 31,
+      "update": 61
+    },
+    {
+      "example_id": "train-world-012:cold:none:explicit",
+      "gradient_norm": 3.1639480590820312,
+      "learning_rate": 5e-05,
+      "loss": 3.883580446243286,
+      "target_tokens": 30,
+      "update": 62
+    },
+    {
+      "example_id": "train-world-006:cold:none:explicit",
+      "gradient_norm": 2.7922401428222656,
+      "learning_rate": 5e-05,
+      "loss": 3.6978955268859863,
+      "target_tokens": 31,
+      "update": 63
+    },
+    {
+      "example_id": "train-world-015:warm:none:explicit",
+      "gradient_norm": 2.9944560527801514,
+      "learning_rate": 5e-05,
+      "loss": 3.967374086380005,
+      "target_tokens": 29,
+      "update": 64
+    },
+    {
+      "example_id": "train-world-002:cold:none:explicit",
+      "gradient_norm": 2.85219407081604,
+      "learning_rate": 5e-05,
+      "loss": 3.712475061416626,
+      "target_tokens": 31,
+      "update": 65
+    },
+    {
+      "example_id": "train-world-003:warm:none:explicit",
+      "gradient_norm": 3.128429889678955,
+      "learning_rate": 5e-05,
+      "loss": 3.871155261993408,
+      "target_tokens": 30,
+      "update": 66
+    },
+    {
+      "example_id": "train-world-020:cold:none:explicit",
+      "gradient_norm": 3.1353676319122314,
+      "learning_rate": 5e-05,
+      "loss": 3.7714831829071045,
+      "target_tokens": 30,
+      "update": 67
+    },
+    {
+      "example_id": "train-world-014:cold:none:explicit",
+      "gradient_norm": 3.0142252445220947,
+      "learning_rate": 5e-05,
+      "loss": 3.7872185707092285,
+      "target_tokens": 30,
+      "update": 68
+    },
+    {
+      "example_id": "train-world-016:cold:none:explicit",
+      "gradient_norm": 3.0685479640960693,
+      "learning_rate": 5e-05,
+      "loss": 3.623699188232422,
+      "target_tokens": 30,
+      "update": 69
+    },
+    {
+      "example_id": "train-world-023:warm:none:explicit",
+      "gradient_norm": 3.1675994396209717,
+      "learning_rate": 5e-05,
+      "loss": 3.7089931964874268,
+      "target_tokens": 30,
+      "update": 70
+    },
+    {
+      "example_id": "train-world-004:cold:none:explicit",
+      "gradient_norm": 22.950239181518555,
+      "learning_rate": 5e-05,
+      "loss": 3.687990427017212,
+      "target_tokens": 29,
+      "update": 71
+    },
+    {
+      "example_id": "train-world-007:warm:none:explicit",
+      "gradient_norm": 3.5504209995269775,
+      "learning_rate": 5e-05,
+      "loss": 3.832789897918701,
+      "target_tokens": 29,
+      "update": 72
+    },
+    {
+      "example_id": "train-world-022:cold:none:explicit",
+      "gradient_norm": 4.357895851135254,
+      "learning_rate": 5e-05,
+      "loss": 3.686436891555786,
+      "target_tokens": 30,
+      "update": 73
+    },
+    {
+      "example_id": "train-world-006:cold:none:explicit",
+      "gradient_norm": 2.7974321842193604,
+      "learning_rate": 5e-05,
+      "loss": 3.548985719680786,
+      "target_tokens": 31,
+      "update": 74
+    },
+    {
+      "example_id": "train-world-013:warm:none:explicit",
+      "gradient_norm": 5.166899681091309,
+      "learning_rate": 5e-05,
+      "loss": 3.6646153926849365,
+      "target_tokens": 31,
+      "update": 75
+    },
+    {
+      "example_id": "train-world-011:warm:none:explicit",
+      "gradient_norm": 2.978388786315918,
+      "learning_rate": 5e-05,
+      "loss": 3.723297119140625,
+      "target_tokens": 30,
+      "update": 76
+    },
+    {
+      "example_id": "train-world-023:warm:none:explicit",
+      "gradient_norm": 3.3982818126678467,
+      "learning_rate": 5e-05,
+      "loss": 3.60058331489563,
+      "target_tokens": 30,
+      "update": 77
+    },
+    {
+      "example_id": "train-world-002:cold:none:explicit",
+      "gradient_norm": 3.2970004081726074,
+      "learning_rate": 5e-05,
+      "loss": 3.553906202316284,
+      "target_tokens": 31,
+      "update": 78
+    },
+    {
+      "example_id": "train-world-017:warm:none:explicit",
+      "gradient_norm": 2.8331408500671387,
+      "learning_rate": 5e-05,
+      "loss": 3.61295485496521,
+      "target_tokens": 32,
+      "update": 79
+    },
+    {
+      "example_id": "train-world-003:warm:none:explicit",
+      "gradient_norm": 3.0349957942962646,
+      "learning_rate": 5e-05,
+      "loss": 3.6602251529693604,
+      "target_tokens": 30,
+      "update": 80
+    },
+    {
+      "example_id": "train-world-012:cold:none:explicit",
+      "gradient_norm": 2.9847660064697266,
+      "learning_rate": 5e-05,
+      "loss": 3.5487618446350098,
+      "target_tokens": 30,
+      "update": 81
+    },
+    {
+      "example_id": "train-world-018:cold:none:explicit",
+      "gradient_norm": 3.112114906311035,
+      "learning_rate": 5e-05,
+      "loss": 3.449429750442505,
+      "target_tokens": 31,
+      "update": 82
+    },
+    {
+      "example_id": "train-world-019:warm:none:explicit",
+      "gradient_norm": 2.7321395874023438,
+      "learning_rate": 5e-05,
+      "loss": 3.418205976486206,
+      "target_tokens": 32,
+      "update": 83
+    },
+    {
+      "example_id": "train-world-015:warm:none:explicit",
+      "gradient_norm": 3.2364895343780518,
+      "learning_rate": 5e-05,
+      "loss": 3.6441376209259033,
+      "target_tokens": 29,
+      "update": 84
+    },
+    {
+      "example_id": "train-world-021:warm:none:explicit",
+      "gradient_norm": 2.991236686706543,
+      "learning_rate": 5e-05,
+      "loss": 3.6006252765655518,
+      "target_tokens": 31,
+      "update": 85
+    },
+    {
+      "example_id": "train-world-007:warm:none:explicit",
+      "gradient_norm": 3.1109936237335205,
+      "learning_rate": 5e-05,
+      "loss": 3.6059937477111816,
+      "target_tokens": 29,
+      "update": 86
+    },
+    {
+      "example_id": "train-world-009:warm:none:explicit",
+      "gradient_norm": 2.6688692569732666,
+      "learning_rate": 5e-05,
+      "loss": 3.5001766681671143,
+      "target_tokens": 30,
+      "update": 87
+    },
+    {
+      "example_id": "train-world-001:warm:none:explicit",
+      "gradient_norm": 3.347975254058838,
+      "learning_rate": 5e-05,
+      "loss": 3.5707054138183594,
+      "target_tokens": 32,
+      "update": 88
+    },
+    {
+      "example_id": "train-world-014:cold:none:explicit",
+      "gradient_norm": 2.6640379428863525,
+      "learning_rate": 5e-05,
+      "loss": 3.4010109901428223,
+      "target_tokens": 30,
+      "update": 89
+    },
+    {
+      "example_id": "train-world-010:cold:none:explicit",
+      "gradient_norm": 3.7669713497161865,
+      "learning_rate": 5e-05,
+      "loss": 3.598788261413574,
+      "target_tokens": 29,
+      "update": 90
+    },
+    {
+      "example_id": "train-world-004:cold:none:explicit",
+      "gradient_norm": 3.04729962348938,
+      "learning_rate": 5e-05,
+      "loss": 3.312462329864502,
+      "target_tokens": 29,
+      "update": 91
+    },
+    {
+      "example_id": "train-world-008:cold:none:explicit",
+      "gradient_norm": 3.852595567703247,
+      "learning_rate": 5e-05,
+      "loss": 3.4857711791992188,
+      "target_tokens": 29,
+      "update": 92
+    },
+    {
+      "example_id": "train-world-005:warm:none:explicit",
+      "gradient_norm": 7.6721415519714355,
+      "learning_rate": 5e-05,
+      "loss": 3.444183349609375,
+      "target_tokens": 32,
+      "update": 93
+    },
+    {
+      "example_id": "train-world-020:cold:none:explicit",
+      "gradient_norm": 2.7451791763305664,
+      "learning_rate": 5e-05,
+      "loss": 3.3081066608428955,
+      "target_tokens": 30,
+      "update": 94
+    },
+    {
+      "example_id": "train-world-016:cold:none:explicit",
+      "gradient_norm": 2.535848379135132,
+      "learning_rate": 5e-05,
+      "loss": 3.1962475776672363,
+      "target_tokens": 30,
+      "update": 95
+    },
+    {
+      "example_id": "train-world-000:cold:none:explicit",
+      "gradient_norm": 3.1942358016967773,
+      "learning_rate": 5e-05,
+      "loss": 3.27864933013916,
+      "target_tokens": 30,
+      "update": 96
+    }
+  ],
+  "unique_correction_examples": 24,
+  "updates": 96
+}

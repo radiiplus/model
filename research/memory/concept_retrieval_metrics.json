@@ -1,0 +1,126 @@
+{
+  "abstention_cases": 2,
+  "answerable_accuracy": 1.0,
+  "answerable_cases": 2,
+  "case_accuracy": 1.0,
+  "cases": [
+    {
+      "actual": "no",
+      "actual_status": "verified",
+      "context": "cold",
+      "correct": true,
+      "evidence_complete": true,
+      "evidence_refs": [
+        "03c29bf77db1eec6bd2e1f23cebe3213dad50981d3ba926eff72eacc1348d12a",
+        "07db500bfe14dd3b4fb1e570660fe0740ef6c935cc6000852f66b41ae5ef115f",
+        "fdf4c387a1e2300b3d9d0545d274f042cdc66029f074fbe3e9dcf9d852bd1927"
+      ],
+      "expected": "no",
+      "id": "cold-negative",
+      "status": "verified"
+    },
+    {
+      "actual": "yes",
+      "actual_status": "verified",
+      "context": "warm",
+      "correct": true,
+      "evidence_complete": true,
+      "evidence_refs": [
+        "07db500bfe14dd3b4fb1e570660fe0740ef6c935cc6000852f66b41ae5ef115f",
+        "7087237d05927e1046d783d01db40c5236738dcdfc4df860a94049a53f864236",
+        "fdf4c387a1e2300b3d9d0545d274f042cdc66029f074fbe3e9dcf9d852bd1927"
+      ],
+      "expected": "yes",
+      "id": "warm-positive",
+      "status": "verified"
+    },
+    {
+      "actual": null,
+      "actual_status": "insufficient",
+      "context": "humid",
+      "correct": true,
+      "evidence_complete": true,
+      "evidence_refs": [
+        "07db500bfe14dd3b4fb1e570660fe0740ef6c935cc6000852f66b41ae5ef115f",
+        "fdf4c387a1e2300b3d9d0545d274f042cdc66029f074fbe3e9dcf9d852bd1927"
+      ],
+      "expected": null,
+      "id": "unknown-context",
+      "status": "insufficient"
+    },
+    {
+      "actual": null,
+      "actual_status": "conflict",
+      "correct": true,
+      "evidence_complete": true,
+      "evidence_refs": [
+        "03c29bf77db1eec6bd2e1f23cebe3213dad50981d3ba926eff72eacc1348d12a",
+        "07db500bfe14dd3b4fb1e570660fe0740ef6c935cc6000852f66b41ae5ef115f",
+        "4a92ce63cab9d0b8106e45096ea1efdcca631c6c33c26bf4c83b0418cc65790e",
+        "fdf4c387a1e2300b3d9d0545d274f042cdc66029f074fbe3e9dcf9d852bd1927"
+      ],
+      "expected": null,
+      "id": "conflict-abstention",
+      "status": "conflict"
+    }
+  ],
+  "concept_fact_count": 5,
+  "correct_abstentions": 2,
+  "decision": "deterministic schema mechanics pass; separate Foundation probe failed 0/2",
+  "evaluation": "concept-context-retrieval-v1",
+  "evidence_completeness": 1.0,
+  "manually_labeled_semantic_response_baseline": {
+    "count": 6,
+    "does_not_measure_model_capability": true,
+    "exact_string_accuracy": 0.3333333333333333,
+    "examples": [
+      {
+        "exact_string_match": true,
+        "reference": "no",
+        "semantic_correct": true,
+        "semantic_label": "no",
+        "text": "No."
+      },
+      {
+        "exact_string_match": false,
+        "reference": "no",
+        "semantic_correct": true,
+        "semantic_label": "no",
+        "text": "It will not run the lamp in cold conditions."
+      },
+      {
+        "exact_string_match": false,
+        "reference": "no",
+        "semantic_correct": true,
+        "semantic_label": "no",
+        "text": "Cold leaves the cell without enough power for the lamp."
+      },
+      {
+        "exact_string_match": true,
+        "reference": "yes",
+        "semantic_correct": true,
+        "semantic_label": "yes",
+        "text": "Yes."
+      },
+      {
+        "exact_string_match": false,
+        "reference": "yes",
+        "semantic_correct": true,
+        "semantic_label": "yes",
+        "text": "The warm cell should run the lamp."
+      },
+      {
+        "exact_string_match": false,
+        "reference": "yes",
+        "semantic_correct": true,
+        "semantic_label": "yes",
+        "text": "In warm conditions the cell can supply enough power."
+      }
+    ],
+    "labels_are_manual": true,
+    "semantic_accuracy": 1.0
+  },
+  "model_under_test": "none; deterministic key retrieval and explicit rule composition",
+  "schema": 1,
+  "source_event_count": 5
+}

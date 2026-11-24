@@ -1,0 +1,486 @@
+{
+  "active_objective_tokens_seen": 1604,
+  "answer_target_tokens_seen": 24,
+  "architecture": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "arm": "c",
+  "auxiliary_parameters": 0,
+  "checkpoint": "research/structure/smoke_v2/c.pt",
+  "checkpoint_sha256": "98b38dd38ffaccf03d30477aa2674d3b0be326e5b7086970cda8c9c189c711c5",
+  "code": "65b8aa85b4552a38152be15d3c0d95e271a4880fa0952dcd33cb0ba50430dc9d",
+  "dataset": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+  "examples_consumed": 2,
+  "examples_per_second": 0.652665308017326,
+  "fit_seconds": 3.06435775799946,
+  "initial_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "input_tokens_per_second": 749.5861062578989,
+  "input_tokens_seen": 2297,
+  "interrupted": false,
+  "language_target_tokens_seen": 717,
+  "objective": "combined",
+  "optimizer_state_restored": true,
+  "parameters": 4470272,
+  "peak_rss_bytes": 870768640,
+  "resources": {
+    "available": 5979353088,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 2757582848,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 2775699456,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 5979353088
+  },
+  "resume_update": 0,
+  "scheduler_start_update": 800,
+  "scheduler_state_restored": true,
+  "seconds": 24.784729322999738,
+  "segment_examples_consumed": 2,
+  "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+  "structure_target_tokens_seen": 887,
+  "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "training": [
+    {
+      "active_objective_tokens": 800,
+      "answer_loss": 5.503848552703857,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-001:property:paraphrased:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.332086563110352,
+      "input_tokens": 1145,
+      "language_loss": 6.295445919036865,
+      "language_tokens": 356,
+      "learning_rate_after": 0.00027875757575757576,
+      "learning_rate_used": 0.00027878787878787874,
+      "objective_loss": 6.611103534698486,
+      "step": 1,
+      "structure_loss": 7.718358516693115,
+      "structure_tokens": 444
+    },
+    {
+      "active_objective_tokens": 804,
+      "answer_loss": 5.338631629943848,
+      "answer_tokens": 13,
+      "example_ids": [
+        "train-world-003:property:paraphrased:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.720019817352295,
+      "input_tokens": 1152,
+      "language_loss": 6.238152980804443,
+      "language_tokens": 361,
+      "learning_rate_after": 0.0002787272727272727,
+      "learning_rate_used": 0.00027875757575757576,
+      "objective_loss": 6.48874044418335,
+      "step": 2,
+      "structure_loss": 7.638849258422852,
+      "structure_tokens": 443
+    }
+  ],
+  "training_sequence_sha256": "fa340bc67af5685c1824050119e52ecf76b2dc7041fda1ddbb072d2918c40d73",
+  "training_split": "923b653cac60c2f07fcbf0b95c5398470641dec4b2240b5c9a790f885382890b",
+  "updates": 2,
+  "validation_after": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-009:property:structured:influence",
+          "expected": "Following the stated rules, Yarrow, Larch.",
+          "expected_value": "Yarrow, Larch",
+          "generated": "a the the the the the the the the the the the the the the the ",
+          "semantic_match": false
+        },
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-002:add:natural:relation_after",
+          "expected": "Following the stated rules, yes.",
+          "expected_value": "yes",
+          "generated": "a the the a the the the the the the the the a the the the ",
+          "semantic_match": false
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 4.821120588402999,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 38,
+      "answer_token_accuracy": 0.3157894736842105,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.473938215519896,
+      "language_target_tokens": 917,
+      "selected_examples_sha256": "87248ea613070d3da49222163666d2bee738959aff379a7ed0a536a526ba8081",
+      "structure_nll": 7.50195795737657,
+      "structure_target_tokens": 894,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.13982102908277405,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-002:ownership:structured:influence",
+          "expected": "Under the selected alternative, Slate.",
+          "expected_value": "Slate",
+          "generated": "a the the the the the the the the the the the the the the the ",
+          "semantic_match": false
+        },
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-001:add:natural:relation_after",
+          "expected": "Under the selected alternative, yes.",
+          "expected_value": "yes",
+          "generated": "a the the the the the the the a the the the the the the the ",
+          "semantic_match": false
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 4.638352081693452,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 29,
+      "answer_token_accuracy": 0.3448275862068966,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.550168818549106,
+      "language_target_tokens": 912,
+      "selected_examples_sha256": "101b58a7595f4d8fc39c6204357591f492fc7ce566b36105e614a79f1e7e6b0b",
+      "structure_nll": 7.507364273071289,
+      "structure_target_tokens": 898,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.13808463251670378,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-009:property:structured:influence",
+          "expected": "Result in this state: Kestrel.",
+          "expected_value": "Kestrel",
+          "generated": "a the the the a the the the the the the the the the the the ",
+          "semantic_match": false
+        },
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-002:add:natural:relation_after",
+          "expected": "Result in this state: yes.",
+          "expected_value": "yes",
+          "generated": "a the the the the the the the the a the the the the the the ",
+          "semantic_match": false
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 5.151455688476562,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 30,
+      "answer_token_accuracy": 0.3333333333333333,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.4434289135703775,
+      "language_target_tokens": 874,
+      "selected_examples_sha256": "a0c2372a217b09e4c513bc0acdba96e8998c8c7a5a6efd9484d5d4dfd35fc569",
+      "structure_nll": 7.483119007195841,
+      "structure_target_tokens": 895,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.12960893854748604,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-009:property:structured:influence",
+          "expected": "After applying the graph rules, Morrow, Wren.",
+          "expected_value": "Morrow, Wren",
+          "generated": "a a a the the a the the a a the a a the the the ",
+          "semantic_match": false
+        },
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-002:add:natural:relation_after",
+          "expected": "After applying the graph rules, yes.",
+          "expected_value": "yes",
+          "generated": "a the the the the the the the the the the the the the the the ",
+          "semantic_match": false
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 4.988237205304597,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 38,
+      "answer_token_accuracy": 0.34210526315789475,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.378387159471286,
+      "language_target_tokens": 971,
+      "selected_examples_sha256": "6df81fdc0196623a9f5e801e418896343d5f10762fd10c9cbd9116e5a51d221f",
+      "structure_nll": 7.512462243874203,
+      "structure_target_tokens": 956,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.14435146443514643,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "validation-world-009:property:structured:influence",
+          "expected": "The computed result is Dovetail.",
+          "expected_value": "Dovetail",
+          "generated": "a a a a the the a a the the the the the the the the ",
+          "semantic_match": false
+        },
+        {
+          "exact_match": false,
+          "example_id": "validation-world-002:add:natural:relation_after",
+          "expected": "The computed result is yes.",
+          "expected_value": "yes",
+          "generated": "a the the the the the the the the the the the the the the the ",
+          "semantic_match": false
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 4.618374756404331,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 28,
+      "answer_token_accuracy": 0.32142857142857145,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.418668412898786,
+      "language_target_tokens": 905,
+      "selected_examples_sha256": "e3f20ef1213003f7fae70d96b1a3f50912f2fe9049f842aa5b6f6f57996d5537",
+      "structure_nll": 7.529709512732002,
+      "structure_target_tokens": 890,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.1449438202247191,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    }
+  },
+  "validation_before": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 4.86050884347213,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 38,
+      "answer_token_accuracy": 0.2894736842105263,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.558440653552406,
+      "language_target_tokens": 917,
+      "selected_examples_sha256": "87248ea613070d3da49222163666d2bee738959aff379a7ed0a536a526ba8081",
+      "structure_nll": 7.699398408800164,
+      "structure_target_tokens": 894,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.13870246085011187,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 4.673114973923256,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 29,
+      "answer_token_accuracy": 0.3448275862068966,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.634072074764653,
+      "language_target_tokens": 912,
+      "selected_examples_sha256": "101b58a7595f4d8fc39c6204357591f492fc7ce566b36105e614a79f1e7e6b0b",
+      "structure_nll": 7.706267833709717,
+      "structure_target_tokens": 898,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.1358574610244989,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.190445613861084,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 30,
+      "answer_token_accuracy": 0.26666666666666666,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.529962485114824,
+      "language_target_tokens": 874,
+      "selected_examples_sha256": "a0c2372a217b09e4c513bc0acdba96e8998c8c7a5a6efd9484d5d4dfd35fc569",
+      "structure_nll": 7.682451491648925,
+      "structure_target_tokens": 895,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.12737430167597766,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.00122951206408,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 38,
+      "answer_token_accuracy": 0.34210526315789475,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.462792579226587,
+      "language_target_tokens": 971,
+      "selected_examples_sha256": "6df81fdc0196623a9f5e801e418896343d5f10762fd10c9cbd9116e5a51d221f",
+      "structure_nll": 7.703645802940784,
+      "structure_target_tokens": 956,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.14435146443514643,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 4.6778527327946255,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 28,
+      "answer_token_accuracy": 0.2857142857142857,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 2,
+      "language_nll": 6.50406230905438,
+      "language_target_tokens": 905,
+      "selected_examples_sha256": "e3f20ef1213003f7fae70d96b1a3f50912f2fe9049f842aa5b6f6f57996d5537",
+      "structure_nll": 7.725872311967143,
+      "structure_target_tokens": 890,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.14269662921348314,
+      "surfaces": {
+        "counterfactual": 0,
+        "irrelevant": 0,
+        "natural": 1,
+        "paraphrased": 0,
+        "reordered": 0,
+        "structured": 1
+      }
+    }
+  },
+  "validation_split": "e2b00a2f901d4c9335b7751c112856ddf642d3bcbf8f191b33bf195553b13fac"
+}

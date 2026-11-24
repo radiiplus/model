@@ -1,0 +1,404 @@
+{
+  "allowed_indices_sha256": "0cd856fa4e0ec0a27848ae4a6c0793fa628062a70b091bf137dd2ac512e8aa18",
+  "available_training_world_ids": [
+    "train-world-001",
+    "train-world-002",
+    "train-world-003",
+    "train-world-004",
+    "train-world-005",
+    "train-world-006",
+    "train-world-007",
+    "train-world-008",
+    "train-world-009",
+    "train-world-010",
+    "train-world-011",
+    "train-world-015",
+    "train-world-016",
+    "train-world-017",
+    "train-world-018",
+    "train-world-020",
+    "train-world-021",
+    "train-world-022",
+    "train-world-023",
+    "train-world-024",
+    "train-world-025",
+    "train-world-026",
+    "train-world-027",
+    "train-world-028",
+    "train-world-029",
+    "train-world-030",
+    "train-world-031",
+    "train-world-032",
+    "train-world-033",
+    "train-world-034",
+    "train-world-035",
+    "train-world-036",
+    "train-world-037",
+    "train-world-038",
+    "train-world-039",
+    "train-world-040",
+    "train-world-041",
+    "train-world-042",
+    "train-world-043",
+    "train-world-044",
+    "train-world-045",
+    "train-world-047"
+  ],
+  "budget_tokens_per_update": [
+    1152,
+    1171,
+    1311,
+    1136,
+    1178,
+    1157,
+    1382,
+    1098,
+    1163,
+    1381,
+    1167,
+    1157,
+    1402,
+    1389,
+    1144,
+    1092,
+    1331,
+    1378,
+    1073,
+    1221,
+    1182,
+    1204,
+    1374,
+    1150
+  ],
+  "dataset_manifest_sha256": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+  "holdout_example_count": 720,
+  "holdout_world_ids": [
+    "train-world-000",
+    "train-world-012",
+    "train-world-013",
+    "train-world-014",
+    "train-world-019",
+    "train-world-046"
+  ],
+  "initial_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "input_token_budget_total": 29393,
+  "pool_size": 8,
+  "pools": [
+    {
+      "indices": [
+        4613,
+        4621,
+        2022,
+        1262,
+        1099,
+        2790,
+        4255,
+        5436
+      ],
+      "token_cost": 1152
+    },
+    {
+      "indices": [
+        4542,
+        534,
+        738,
+        3294,
+        2934,
+        2141,
+        5516,
+        3896
+      ],
+      "token_cost": 1171
+    },
+    {
+      "indices": [
+        361,
+        5403,
+        3243,
+        3603,
+        3002,
+        3123,
+        363,
+        483
+      ],
+      "token_cost": 1311
+    },
+    {
+      "indices": [
+        3047,
+        1816,
+        1277,
+        3156,
+        5191,
+        5751,
+        3879,
+        5659
+      ],
+      "token_cost": 1136
+    },
+    {
+      "indices": [
+        3326,
+        2493,
+        196,
+        2242,
+        3212,
+        2685,
+        4067,
+        2147
+      ],
+      "token_cost": 1178
+    },
+    {
+      "indices": [
+        4641,
+        4281,
+        3441,
+        1353,
+        3827,
+        870,
+        1973,
+        2941
+      ],
+      "token_cost": 1157
+    },
+    {
+      "indices": [
+        1251,
+        1153,
+        891,
+        2473,
+        5113,
+        5353,
+        938,
+        1298
+      ],
+      "token_cost": 1382
+    },
+    {
+      "indices": [
+        4103,
+        851,
+        3844,
+        3852,
+        5168,
+        5170,
+        4087,
+        3860
+      ],
+      "token_cost": 1098
+    },
+    {
+      "indices": [
+        5718,
+        1141,
+        4260,
+        349,
+        4252,
+        1063,
+        3444,
+        3299
+      ],
+      "token_cost": 1163
+    },
+    {
+      "indices": [
+        1848,
+        2259,
+        5139,
+        1969,
+        2857,
+        4296,
+        3939,
+        1850
+      ],
+      "token_cost": 1381
+    },
+    {
+      "indices": [
+        977,
+        179,
+        4887,
+        4382,
+        3440,
+        990,
+        3997,
+        1365
+      ],
+      "token_cost": 1167
+    },
+    {
+      "indices": [
+        5149,
+        4725,
+        3959,
+        2933,
+        1981,
+        3944,
+        5500,
+        2628
+      ],
+      "token_cost": 1157
+    },
+    {
+      "indices": [
+        2738,
+        3555,
+        3530,
+        4368,
+        4970,
+        674,
+        2832,
+        1370
+      ],
+      "token_cost": 1402
+    },
+    {
+      "indices": [
+        5138,
+        1248,
+        793,
+        3938,
+        5208,
+        5331,
+        5376,
+        4131
+      ],
+      "token_cost": 1389
+    },
+    {
+      "indices": [
+        2419,
+        5742,
+        4908,
+        4853,
+        585,
+        4861,
+        2791,
+        3468
+      ],
+      "token_cost": 1144
+    },
+    {
+      "indices": [
+        1101,
+        2169,
+        3382,
+        5295,
+        5303,
+        1093,
+        1091,
+        4810
+      ],
+      "token_cost": 1092
+    },
+    {
+      "indices": [
+        5282,
+        961,
+        1082,
+        2400,
+        4587,
+        4082,
+        4080,
+        5185
+      ],
+      "token_cost": 1331
+    },
+    {
+      "indices": [
+        5017,
+        4249,
+        3456,
+        3409,
+        3072,
+        4874,
+        4417,
+        5211
+      ],
+      "token_cost": 1378
+    },
+    {
+      "indices": [
+        4823,
+        4807,
+        4805,
+        4813,
+        4215,
+        3613,
+        3621,
+        4821
+      ],
+      "token_cost": 1073
+    },
+    {
+      "indices": [
+        5035,
+        1985,
+        4866,
+        3184,
+        4054,
+        1003,
+        5083,
+        2992
+      ],
+      "token_cost": 1221
+    },
+    {
+      "indices": [
+        3789,
+        2960,
+        5099,
+        200,
+        3992,
+        4414,
+        5084,
+        559
+      ],
+      "token_cost": 1182
+    },
+    {
+      "indices": [
+        2094,
+        881,
+        670,
+        3472,
+        5754,
+        1388,
+        2698,
+        523
+      ],
+      "token_cost": 1204
+    },
+    {
+      "indices": [
+        5739,
+        3337,
+        939,
+        2953,
+        2019,
+        2593,
+        2619,
+        4611
+      ],
+      "token_cost": 1374
+    },
+    {
+      "indices": [
+        1293,
+        4846,
+        4109,
+        2548,
+        5207,
+        5759,
+        2177,
+        2192
+      ],
+      "token_cost": 1150
+    }
+  ],
+  "schema": 1,
+  "seed": 2026,
+  "train_pool_example_count": 5040,
+  "updates": 24
+}

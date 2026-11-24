@@ -1,0 +1,32 @@
+{
+  "accuracy": 0.0,
+  "cases": [
+    {
+      "answer": "to",
+      "context": "cold",
+      "correct": false,
+      "expected": "no",
+      "stop": "token_limit",
+      "text": "to to to to to to to to to to to to to to to a to to to a to to to to ",
+      "tokens": 48
+    },
+    {
+      "answer": "to",
+      "context": "warm",
+      "correct": false,
+      "expected": "yes",
+      "stop": "token_limit",
+      "text": "to to to to to to to to to to to to to to to a to to to a to to to to ",
+      "tokens": 48
+    }
+  ],
+  "checkpoint": "/home/codespace/model/research/structure/pilot_v5/b.pt",
+  "checkpoint_sha256": "0f36d1337f370d9edd33879f5e8aa3e44b8f8ef247014ab6b219d50b982d0a53",
+  "decode": "greedy, max 48 tokens",
+  "evaluation": "foundation-concept-context-probe-v1",
+  "limitation": "Two synthetic prompts only; no model claim is made from this sample.",
+  "model_parameters": 4470272,
+  "schema": 1,
+  "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "tokenizer_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe"
+}

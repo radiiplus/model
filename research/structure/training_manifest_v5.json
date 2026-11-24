@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "experiment": "foundation-structural-supervision-v5",
+  "status": "bounded_pilot_complete",
+  "source_audit": {
+    "model": "research/foundation/model.py: four-layer causal Transformer; tied token embedding/output head; CPU float32",
+    "block": "research/experiments/tiny_gpt.py: causal self-attention and feed-forward block, no symbolic reasoning module",
+    "tokenizer": "research/interaction/tokenizer.py: byte-level BPE with vocabulary size 4096",
+    "training": "research/structure/train.py: conditional next-token losses; no policy/value objective or auxiliary head",
+    "diagnosis": "research/structure/TRAINING_AUDIT.md"
+  },
+  "initialization": {
+    "checkpoint": "research/foundation/data/learn.pt",
+    "sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+    "update": 800,
+    "parameters": 4470272,
+    "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+    "optimizer_state_restored": true,
+    "scheduler_state_restored": true
+  },
+  "data": {
+    "generator": "research.structure.generator-v5",
+    "manifest": "research/structure/dataset_v5/manifest.json",
+    "manifest_sha256": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+    "training_sha256": "923b653cac60c2f07fcbf0b95c5398470641dec4b2240b5c9a790f885382890b",
+    "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe",
+    "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "worlds": 108,
+    "examples": 12096,
+    "long_context_check": {
+      "largest_character_length_candidates_checked": 120,
+      "maximum_token_length": 987,
+      "context_length": 1024
+    }
+  },
+  "model_conditions": {
+    "architecture_unchanged": true,
+    "auxiliary_parameters": 0,
+    "training_updates": 12,
+    "batch_size": 1,
+    "examples_per_arm": 12,
+    "input_tokens_per_arm": 14643,
+    "training_order_sha256": "c4499ec4081fa407d1256f30471785e7360884db57596a27260c85f39b78d0ba",
+    "learning_rate_first": 0.00027878787878787874,
+    "learning_rate_last": 0.00027845454545454544,
+    "evaluation_examples_per_partition": 6,
+    "free_answer_generation_examples_per_partition": 2,
+    "free_answer_generation_limit": 32,
+    "arms": {
+      "a": {
+        "objective": "answer_language_modeling",
+        "config": "research/structure/configs/arm_a.json",
+        "config_sha256": "a284b9a312157a41e602a2b16d23e3d85e7408d51168a70c77ebf27eeb47c7ee",
+        "report": "research/structure/pilot_v5/arm_a.json",
+        "report_sha256": "e08b73b5fd2695756dd8bbb9cb3dab89836f89ba0b77c7eebc5e8f6529c9e81d",
+        "checkpoint": "research/structure/pilot_v5/a.pt",
+        "checkpoint_sha256": "642805de8e8e728d34a94fcff259808c0264cfc2c4b2affec855b481b9b595f1",
+        "active_objective_tokens": 183,
+        "train_objective_loss_final": 5.507734298706055,
+        "validation_before": {
+          "answer_nll": 5.343847573321798,
+          "structure_nll": 7.729449169347298,
+          "structure_token_accuracy": 0.20731247644176404
+        },
+        "validation_after": {
+          "answer_nll": 4.833389939432559,
+          "structure_nll": 7.641478678347073,
+          "answer_greedy_exact": 0.0,
+          "answer_semantic_accuracy": 0.0,
+          "structure_token_accuracy": 0.19638145495665285,
+          "structure_teacher_forced_json_valid": 0.0
+        }
+      },
+      "b": {
+        "objective": "structural_recovery",
+        "config": "research/structure/configs/arm_b.json",
+        "config_sha256": "38b504ce4ce792222dd350735ad0c2f90fb4b1a60d23768bbf8df485f498659c",
+        "report": "research/structure/pilot_v5/arm_b.json",
+        "report_sha256": "727d1f7c29c7b8a34645725bfeffbbcd9a92160a9062b9dbc701c3c471ab0b26",
+        "checkpoint": "research/structure/pilot_v5/b.pt",
+        "checkpoint_sha256": "0f36d1337f370d9edd33879f5e8aa3e44b8f8ef247014ab6b219d50b982d0a53",
+        "active_objective_tokens": 5212,
+        "train_objective_loss_final": 5.7144856452941895,
+        "validation_before": {
+          "answer_nll": 5.343847573321798,
+          "structure_nll": 7.729449169347298,
+          "structure_token_accuracy": 0.20731247644176404
+        },
+        "validation_after": {
+          "answer_nll": 6.056531839785369,
+          "structure_nll": 5.542915939880325,
+          "answer_greedy_exact": 0.0,
+          "answer_semantic_accuracy": 0.0,
+          "structure_token_accuracy": 0.3788164342254052,
+          "structure_teacher_forced_json_valid": 0.0
+        }
+      },
+      "c": {
+        "objective": "combined_answer_and_structure",
+        "config": "research/structure/configs/arm_c.json",
+        "config_sha256": "b5cd8f316c1550b8fc3c9e67e8fc0a879adfad048f65979deb54e4c5a63228a0",
+        "report": "research/structure/pilot_v5/arm_c.json",
+        "report_sha256": "7733514a6f131f318748b6042ca5cb374c3f020c89e2d66706c4ca62134950a0",
+        "checkpoint": "research/structure/pilot_v5/c.pt",
+        "checkpoint_sha256": "1f39880631c75f1c94da7333cf7aa411ba457037db1d3026a4c053de70089ca1",
+        "active_objective_tokens": 5395,
+        "train_objective_loss_final": 5.84160041809082,
+        "validation_before": {
+          "answer_nll": 5.343847573321798,
+          "structure_nll": 7.729449169347298,
+          "structure_token_accuracy": 0.20731247644176404
+        },
+        "validation_after": {
+          "answer_nll": 5.399173135342806,
+          "structure_nll": 5.843767231920733,
+          "answer_greedy_exact": 0.0,
+          "answer_semantic_accuracy": 0.0,
+          "structure_token_accuracy": 0.20844327176781002,
+          "structure_teacher_forced_json_valid": 0.0
+        }
+      }
+    }
+  },
+  "smoke": {
+    "all_three_arms_passed": true,
+    "reports": [
+      "research/structure/smoke_v2/arm_a.json",
+      "research/structure/smoke_v2/arm_b.json",
+      "research/structure/smoke_v2/arm_c.json"
+    ],
+    "exact_resume": {
+      "interrupted_at_update": 1,
+      "resumed_checkpoint": "research/structure/resume_v5/interrupted.pt",
+      "resumed_checkpoint_sha256": "51bc576d1e49bc134d72ff3be119385f9b950bb15b349a7017dc181d89461db8",
+      "compared_to_uninterrupted": "research/structure/smoke_v2/a.pt",
+      "matching_fields": [
+        "model",
+        "optimizer",
+        "scheduler",
+        "sampler",
+        "history",
+        "step",
+        "python_rng",
+        "torch_rng"
+      ],
+      "all_match": true
+    }
+  },
+  "tests": {
+    "command": "timeout 180s env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/audit-pytorch-venv/bin/python -m unittest -v research.structure.test",
+    "result": "10 passed"
+  },
+  "interpretation": "Corrected prompts make structural fields observable and response-only losses improve answer NLL, but 12 updates produce no exact or semantically correct free-generated answers. Structural-only training improves teacher-forced structure NLL/token accuracy but not valid JSON. No larger run is warranted without a new predeclared experiment."
+}

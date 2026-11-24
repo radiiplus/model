@@ -1,0 +1,239 @@
+{
+  "checkpoint_sha256": "a60d091aeb2fe9175f6a7711efecd480a47900d6becfbdde0fc9f9711a5b9a44",
+  "faithfulness_note": "Uses the published RHO score current structural loss minus an irreducible-loss estimate from a separate model trained on a disjoint training-only holdout. The reference model is only 24 updates and is not claimed to have converged; this is reported as RHO-LOSS-style, not an exact replication.",
+  "holdout_world_ids": [
+    "train-world-000",
+    "train-world-012",
+    "train-world-013",
+    "train-world-014",
+    "train-world-019",
+    "train-world-046"
+  ],
+  "method": "RHO-LOSS-style reducible structural holdout loss",
+  "reference": "same Foundation architecture, initialized from update-800 weights, fine-tuned on reserved training worlds only",
+  "reference_examples_seen": 24,
+  "reference_fit_and_scoring_wall_seconds": 82.164003,
+  "reference_input_tokens_seen": 28793,
+  "reference_losses_sha256": "5481ece33600c6bf4b6dbc8bdf5f51c7611b9360be26ebf0d9e003d09910ca6c",
+  "reference_parameters": 4470272,
+  "reference_updates": 24,
+  "schema": 1,
+  "training_history": [
+    {
+      "example_id": "train-world-000:none:irrelevant:action_effect",
+      "gradient_norm": 7.597766399383545,
+      "input_tokens": 1138,
+      "learning_rate_used": 0.00027878787878787874,
+      "step": 1,
+      "structure_loss": 7.780614852905273,
+      "structure_tokens": 411
+    },
+    {
+      "example_id": "train-world-012:none:structured:invariant",
+      "gradient_norm": 7.426888942718506,
+      "input_tokens": 1336,
+      "learning_rate_used": 0.00027875757575757576,
+      "step": 2,
+      "structure_loss": 7.582620620727539,
+      "structure_tokens": 417
+    },
+    {
+      "example_id": "train-world-014:ownership:reordered:relation_after",
+      "gradient_norm": 6.69426155090332,
+      "input_tokens": 1176,
+      "learning_rate_used": 0.0002787272727272727,
+      "step": 3,
+      "structure_loss": 7.45936918258667,
+      "structure_tokens": 451
+    },
+    {
+      "example_id": "train-world-012:none:counterfactual:invariant",
+      "gradient_norm": 6.062930583953857,
+      "input_tokens": 1106,
+      "learning_rate_used": 0.0002786969696969697,
+      "step": 4,
+      "structure_loss": 7.282962322235107,
+      "structure_tokens": 417
+    },
+    {
+      "example_id": "train-world-019:add:irrelevant:invariant",
+      "gradient_norm": 5.598181247711182,
+      "input_tokens": 1258,
+      "learning_rate_used": 0.00027866666666666665,
+      "step": 5,
+      "structure_loss": 7.0160603523254395,
+      "structure_tokens": 453
+    },
+    {
+      "example_id": "train-world-046:property:structured:relation_after",
+      "gradient_norm": 5.182988166809082,
+      "input_tokens": 1370,
+      "learning_rate_used": 0.0002786363636363636,
+      "step": 6,
+      "structure_loss": 6.848419189453125,
+      "structure_tokens": 443
+    },
+    {
+      "example_id": "train-world-019:remove:natural:relation_after",
+      "gradient_norm": 4.821957111358643,
+      "input_tokens": 1159,
+      "learning_rate_used": 0.00027860606060606057,
+      "step": 7,
+      "structure_loss": 6.6161723136901855,
+      "structure_tokens": 426
+    },
+    {
+      "example_id": "train-world-046:property:structured:influence",
+      "gradient_norm": 4.769682884216309,
+      "input_tokens": 1386,
+      "learning_rate_used": 0.0002785757575757576,
+      "step": 8,
+      "structure_loss": 6.479217529296875,
+      "structure_tokens": 443
+    },
+    {
+      "example_id": "train-world-046:remove:structured:action_effect",
+      "gradient_norm": 4.708065032958984,
+      "input_tokens": 1341,
+      "learning_rate_used": 0.0002785454545454545,
+      "step": 9,
+      "structure_loss": 6.2723002433776855,
+      "structure_tokens": 422
+    },
+    {
+      "example_id": "train-world-014:property:counterfactual:influence",
+      "gradient_norm": 4.550649166107178,
+      "input_tokens": 1180,
+      "learning_rate_used": 0.0002785151515151515,
+      "step": 10,
+      "structure_loss": 6.160597324371338,
+      "structure_tokens": 446
+    },
+    {
+      "example_id": "train-world-019:remove:reordered:action_effect",
+      "gradient_norm": 4.46763801574707,
+      "input_tokens": 1164,
+      "learning_rate_used": 0.0002784848484848485,
+      "step": 11,
+      "structure_loss": 5.914949893951416,
+      "structure_tokens": 426
+    },
+    {
+      "example_id": "train-world-013:ownership:counterfactual:influence",
+      "gradient_norm": 4.414202690124512,
+      "input_tokens": 1196,
+      "learning_rate_used": 0.00027845454545454544,
+      "step": 12,
+      "structure_loss": 5.663003921508789,
+      "structure_tokens": 452
+    },
+    {
+      "example_id": "train-world-019:remove:irrelevant:action_effect",
+      "gradient_norm": 4.1650919914245605,
+      "input_tokens": 1228,
+      "learning_rate_used": 0.0002784242424242424,
+      "step": 13,
+      "structure_loss": 5.523156642913818,
+      "structure_tokens": 426
+    },
+    {
+      "example_id": "train-world-000:property:paraphrased:influence",
+      "gradient_norm": 3.8981268405914307,
+      "input_tokens": 1149,
+      "learning_rate_used": 0.00027839393939393936,
+      "step": 14,
+      "structure_loss": 5.362848281860352,
+      "structure_tokens": 440
+    },
+    {
+      "example_id": "train-world-014:none:paraphrased:relation_after",
+      "gradient_norm": 3.5013387203216553,
+      "input_tokens": 1104,
+      "learning_rate_used": 0.0002783636363636363,
+      "step": 15,
+      "structure_loss": 5.205536365509033,
+      "structure_tokens": 417
+    },
+    {
+      "example_id": "train-world-013:property:natural:action_effect",
+      "gradient_norm": 3.173689365386963,
+      "input_tokens": 1152,
+      "learning_rate_used": 0.00027833333333333334,
+      "step": 16,
+      "structure_loss": 5.000344276428223,
+      "structure_tokens": 447
+    },
+    {
+      "example_id": "train-world-000:property:natural:relation_after",
+      "gradient_norm": 2.834137201309204,
+      "input_tokens": 1133,
+      "learning_rate_used": 0.00027830303030303025,
+      "step": 17,
+      "structure_loss": 4.864112377166748,
+      "structure_tokens": 440
+    },
+    {
+      "example_id": "train-world-012:remove:counterfactual:action_effect",
+      "gradient_norm": 2.4345898628234863,
+      "input_tokens": 1159,
+      "learning_rate_used": 0.00027827272727272727,
+      "step": 18,
+      "structure_loss": 4.677483558654785,
+      "structure_tokens": 425
+    },
+    {
+      "example_id": "train-world-046:property:reordered:action_effect",
+      "gradient_norm": 2.2509660720825195,
+      "input_tokens": 1133,
+      "learning_rate_used": 0.00027824242424242423,
+      "step": 19,
+      "structure_loss": 4.588401794433594,
+      "structure_tokens": 443
+    },
+    {
+      "example_id": "train-world-013:ownership:counterfactual:relation_after",
+      "gradient_norm": 2.2861251831054688,
+      "input_tokens": 1183,
+      "learning_rate_used": 0.0002782121212121212,
+      "step": 20,
+      "structure_loss": 4.409830570220947,
+      "structure_tokens": 452
+    },
+    {
+      "example_id": "train-world-012:none:counterfactual:action_effect",
+      "gradient_norm": 2.2521286010742188,
+      "input_tokens": 1090,
+      "learning_rate_used": 0.00027818181818181815,
+      "step": 21,
+      "structure_loss": 4.364466667175293,
+      "structure_tokens": 417
+    },
+    {
+      "example_id": "train-world-014:ownership:structured:influence",
+      "gradient_norm": 2.018059253692627,
+      "input_tokens": 1399,
+      "learning_rate_used": 0.0002781515151515151,
+      "step": 22,
+      "structure_loss": 4.217366695404053,
+      "structure_tokens": 451
+    },
+    {
+      "example_id": "train-world-019:none:natural:relation_after",
+      "gradient_norm": 1.5088273286819458,
+      "input_tokens": 1109,
+      "learning_rate_used": 0.0002781212121212121,
+      "step": 23,
+      "structure_loss": 4.188540458679199,
+      "structure_tokens": 418
+    },
+    {
+      "example_id": "train-world-000:remove:counterfactual:relation_after",
+      "gradient_norm": 1.0399702787399292,
+      "input_tokens": 1144,
+      "learning_rate_used": 0.0002780909090909091,
+      "step": 24,
+      "structure_loss": 4.063843250274658,
+      "structure_tokens": 419
+    }
+  ]
+}

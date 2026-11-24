@@ -1,0 +1,1595 @@
+{
+  "active_objective_tokens_seen": 10530,
+  "answer_target_tokens_seen": 393,
+  "architecture": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "arm": "b",
+  "auxiliary_parameters": 0,
+  "checkpoint": "/home/codespace/model/research/structure/value_curriculum/learning_progress.pt",
+  "checkpoint_sha256": "45c5e01e383f12edb5fd1e44bd5db595f5e24709b26b57419284a913b2afb6f6",
+  "code": "37495ad851ec04f6069f726beea7bf11a8c7659e10925a86140e6d0e59a24944",
+  "dataset": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+  "examples_consumed": 24,
+  "examples_per_second": 0.24692153422461932,
+  "fit_seconds": 97.19686893799917,
+  "initial_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "input_tokens_per_second": 302.40686064434317,
+  "input_tokens_seen": 29393,
+  "interrupted": false,
+  "language_target_tokens_seen": 9628,
+  "objective": "structural_recovery",
+  "optimizer_state_restored": true,
+  "parameters": 4470272,
+  "peak_rss_bytes": 1316843520,
+  "resources": {
+    "available": 4658913280,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 3068788736,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 3083960320,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 4658913280
+  },
+  "resume_update": 0,
+  "sampling": {
+    "initial_losses": "708ecae73db834d8b0c54b2e09c56ca87e6c75de0a852b849c3c2f64996e7549",
+    "mode": "learning_progress",
+    "plan": "7aef34c882c078ee2388c59b595c4c2152ec517425812d87d7f1d1d2b1be8baa",
+    "reference_losses": null
+  },
+  "scheduler_start_update": 800,
+  "scheduler_state_restored": true,
+  "seconds": 127.06557104399872,
+  "segment_examples_consumed": 24,
+  "selection_plan_token_budget": 29393,
+  "selection_seconds": 62.07849104199704,
+  "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+  "structure_target_tokens_seen": 10530,
+  "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "training": [
+    {
+      "active_objective_tokens": 445,
+      "answer_loss": 5.526644706726074,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-038:add:reordered:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 7.682281494140625,
+      "input_tokens": 1152,
+      "language_loss": 5.886138439178467,
+      "language_tokens": 359,
+      "learning_rate_after": 0.00027875757575757576,
+      "learning_rate_used": 0.00027878787878787874,
+      "objective_loss": 7.752699375152588,
+      "selection": {
+        "candidate_ids": [
+          "train-world-038:add:natural:relation_after",
+          "train-world-038:add:reordered:relation_after",
+          "train-world-016:property:natural:invariant",
+          "train-world-010:add:reordered:invariant",
+          "train-world-009:none:irrelevant:action_effect",
+          "train-world-023:remove:natural:invariant",
+          "train-world-035:add:natural:action_effect",
+          "train-world-045:remove:reordered:influence"
+        ],
+        "candidate_indices": [
+          4613,
+          4621,
+          2022,
+          1262,
+          1099,
+          2790,
+          4255,
+          5436
+        ],
+        "coverage_group": "relation_after|reordered",
+        "mode": "learning_progress",
+        "selected_id": "train-world-038:add:reordered:relation_after",
+        "selected_score": 0.0,
+        "token_cost": 1152
+      },
+      "selection_seconds": 2.312164669001504,
+      "step": 1,
+      "structure_loss": 7.752699375152588,
+      "structure_tokens": 445
+    },
+    {
+      "active_objective_tokens": 448,
+      "answer_loss": 6.62534761428833,
+      "answer_tokens": 19,
+      "example_ids": [
+        "train-world-024:add:natural:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 7.451646327972412,
+      "input_tokens": 1171,
+      "language_loss": 6.03525447845459,
+      "language_tokens": 371,
+      "learning_rate_after": 0.0002787272727272727,
+      "learning_rate_used": 0.00027875757575757576,
+      "objective_loss": 7.672328472137451,
+      "selection": {
+        "candidate_ids": [
+          "train-world-037:property:natural:invariant",
+          "train-world-004:add:natural:invariant",
+          "train-world-006:none:irrelevant:invariant",
+          "train-world-027:add:natural:invariant",
+          "train-world-024:add:natural:invariant",
+          "train-world-017:property:natural:relation_after",
+          "train-world-045:property:counterfactual:influence",
+          "train-world-032:add:paraphrased:influence"
+        ],
+        "candidate_indices": [
+          4542,
+          534,
+          738,
+          3294,
+          2934,
+          2141,
+          5516,
+          3896
+        ],
+        "coverage_group": "invariant|natural",
+        "mode": "learning_progress",
+        "selected_id": "train-world-024:add:natural:invariant",
+        "selected_score": 0.09407234191894531,
+        "token_cost": 1171
+      },
+      "selection_seconds": 2.3649286449999636,
+      "step": 2,
+      "structure_loss": 7.672328472137451,
+      "structure_tokens": 448
+    },
+    {
+      "active_objective_tokens": 409,
+      "answer_loss": 6.435843467712402,
+      "answer_tokens": 18,
+      "example_ids": [
+        "train-world-025:none:structured:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 6.994475841522217,
+      "input_tokens": 1311,
+      "language_loss": 7.182556629180908,
+      "language_tokens": 460,
+      "learning_rate_after": 0.0002786969696969697,
+      "learning_rate_used": 0.0002787272727272727,
+      "objective_loss": 7.486942768096924,
+      "selection": {
+        "candidate_ids": [
+          "train-world-003:none:structured:relation_after",
+          "train-world-045:none:structured:action_effect",
+          "train-world-027:none:structured:action_effect",
+          "train-world-030:none:structured:action_effect",
+          "train-world-025:none:structured:invariant",
+          "train-world-026:none:structured:action_effect",
+          "train-world-003:none:structured:action_effect",
+          "train-world-004:none:structured:action_effect"
+        ],
+        "candidate_indices": [
+          361,
+          5403,
+          3243,
+          3603,
+          3002,
+          3123,
+          363,
+          483
+        ],
+        "coverage_group": "invariant|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-025:none:structured:invariant",
+        "selected_score": 0.24266958236694336,
+        "token_cost": 1311
+      },
+      "selection_seconds": 2.7090204399992217,
+      "step": 3,
+      "structure_loss": 7.486942768096924,
+      "structure_tokens": 409
+    },
+    {
+      "active_objective_tokens": 447,
+      "answer_loss": 5.082834720611572,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-010:ownership:natural:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 6.267239093780518,
+      "input_tokens": 1136,
+      "language_loss": 5.938238143920898,
+      "language_tokens": 350,
+      "learning_rate_after": 0.00027866666666666665,
+      "learning_rate_used": 0.0002786969696969697,
+      "objective_loss": 7.279926776885986,
+      "selection": {
+        "candidate_ids": [
+          "train-world-025:remove:counterfactual:action_effect",
+          "train-world-015:none:irrelevant:influence",
+          "train-world-010:ownership:natural:relation_after",
+          "train-world-026:remove:reordered:influence",
+          "train-world-043:remove:natural:action_effect",
+          "train-world-047:property:reordered:action_effect",
+          "train-world-032:remove:reordered:action_effect",
+          "train-world-047:none:irrelevant:action_effect"
+        ],
+        "candidate_indices": [
+          3047,
+          1816,
+          1277,
+          3156,
+          5191,
+          5751,
+          3879,
+          5659
+        ],
+        "coverage_group": "relation_after|natural",
+        "mode": "learning_progress",
+        "selected_id": "train-world-010:ownership:natural:relation_after",
+        "selected_score": 0.46217775344848633,
+        "token_cost": 1136
+      },
+      "selection_seconds": 2.7158853780001664,
+      "step": 4,
+      "structure_loss": 7.279926776885986,
+      "structure_tokens": 447
+    },
+    {
+      "active_objective_tokens": 447,
+      "answer_loss": 5.750193119049072,
+      "answer_tokens": 23,
+      "example_ids": [
+        "train-world-033:property:paraphrased:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.500579833984375,
+      "input_tokens": 1178,
+      "language_loss": 6.204635143280029,
+      "language_tokens": 377,
+      "learning_rate_after": 0.0002786363636363636,
+      "learning_rate_used": 0.00027866666666666665,
+      "objective_loss": 7.065857887268066,
+      "selection": {
+        "candidate_ids": [
+          "train-world-027:ownership:reordered:invariant",
+          "train-world-020:ownership:counterfactual:relation_after",
+          "train-world-001:ownership:natural:influence",
+          "train-world-018:ownership:paraphrased:invariant",
+          "train-world-026:ownership:counterfactual:influence",
+          "train-world-022:remove:counterfactual:relation_after",
+          "train-world-033:property:paraphrased:action_effect",
+          "train-world-017:property:paraphrased:action_effect"
+        ],
+        "candidate_indices": [
+          3326,
+          2493,
+          196,
+          2242,
+          3212,
+          2685,
+          4067,
+          2147
+        ],
+        "coverage_group": "action_effect|paraphrased",
+        "mode": "learning_progress",
+        "selected_id": "train-world-033:property:paraphrased:action_effect",
+        "selected_score": 0.6790542602539062,
+        "token_cost": 1178
+      },
+      "selection_seconds": 2.4503683259990794,
+      "step": 5,
+      "structure_loss": 7.065857887268066,
+      "structure_tokens": 447
+    },
+    {
+      "active_objective_tokens": 446,
+      "answer_loss": 5.098803997039795,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-028:ownership:paraphrased:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.181277275085449,
+      "input_tokens": 1157,
+      "language_loss": 6.236537933349609,
+      "language_tokens": 361,
+      "learning_rate_after": 0.00027860606060606057,
+      "learning_rate_used": 0.0002786363636363636,
+      "objective_loss": 6.83942985534668,
+      "selection": {
+        "candidate_ids": [
+          "train-world-038:ownership:paraphrased:relation_after",
+          "train-world-035:ownership:paraphrased:relation_after",
+          "train-world-028:ownership:paraphrased:relation_after",
+          "train-world-011:remove:paraphrased:relation_after",
+          "train-world-031:property:paraphrased:action_effect",
+          "train-world-007:remove:natural:invariant",
+          "train-world-016:add:natural:relation_after",
+          "train-world-024:add:reordered:relation_after"
+        ],
+        "candidate_indices": [
+          4641,
+          4281,
+          3441,
+          1353,
+          3827,
+          870,
+          1973,
+          2941
+        ],
+        "coverage_group": "relation_after|paraphrased",
+        "mode": "learning_progress",
+        "selected_id": "train-world-028:ownership:paraphrased:relation_after",
+        "selected_score": 0.8925142288208008,
+        "token_cost": 1157
+      },
+      "selection_seconds": 2.338588841999808,
+      "step": 6,
+      "structure_loss": 6.83942985534668,
+      "structure_tokens": 446
+    },
+    {
+      "active_objective_tokens": 448,
+      "answer_loss": 6.459861755371094,
+      "answer_tokens": 20,
+      "example_ids": [
+        "train-world-007:add:structured:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.999697685241699,
+      "input_tokens": 1382,
+      "language_loss": 6.5844221115112305,
+      "language_tokens": 477,
+      "learning_rate_after": 0.0002785757575757576,
+      "learning_rate_used": 0.00027860606060606057,
+      "objective_loss": 6.684045314788818,
+      "selection": {
+        "candidate_ids": [
+          "train-world-010:add:structured:action_effect",
+          "train-world-009:ownership:structured:relation_after",
+          "train-world-007:add:structured:action_effect",
+          "train-world-020:ownership:structured:relation_after",
+          "train-world-042:ownership:structured:relation_after",
+          "train-world-044:ownership:structured:relation_after",
+          "train-world-007:property:structured:invariant",
+          "train-world-010:property:structured:invariant"
+        ],
+        "candidate_indices": [
+          1251,
+          1153,
+          891,
+          2473,
+          5113,
+          5353,
+          938,
+          1298
+        ],
+        "coverage_group": "action_effect|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-007:add:structured:action_effect",
+        "selected_score": 1.0491828918457031,
+        "token_cost": 1382
+      },
+      "selection_seconds": 2.9636995749988273,
+      "step": 7,
+      "structure_loss": 6.684045314788818,
+      "structure_tokens": 448
+    },
+    {
+      "active_objective_tokens": 412,
+      "answer_loss": 6.4249677658081055,
+      "answer_tokens": 18,
+      "example_ids": [
+        "train-world-043:none:paraphrased:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.767369747161865,
+      "input_tokens": 1098,
+      "language_loss": 6.260838508605957,
+      "language_tokens": 352,
+      "learning_rate_after": 0.0002785454545454545,
+      "learning_rate_used": 0.0002785757575757576,
+      "objective_loss": 6.523597717285156,
+      "selection": {
+        "candidate_ids": [
+          "train-world-034:none:counterfactual:action_effect",
+          "train-world-007:none:paraphrased:action_effect",
+          "train-world-032:none:natural:influence",
+          "train-world-032:none:reordered:influence",
+          "train-world-043:none:paraphrased:influence",
+          "train-world-043:none:paraphrased:invariant",
+          "train-world-034:none:natural:action_effect",
+          "train-world-032:none:counterfactual:influence"
+        ],
+        "candidate_indices": [
+          4103,
+          851,
+          3844,
+          3852,
+          5168,
+          5170,
+          4087,
+          3860
+        ],
+        "coverage_group": "invariant|paraphrased",
+        "mode": "learning_progress",
+        "selected_id": "train-world-043:none:paraphrased:invariant",
+        "selected_score": 1.290311336517334,
+        "token_cost": 1098
+      },
+      "selection_seconds": 2.1330844730000535,
+      "step": 8,
+      "structure_loss": 6.523597717285156,
+      "structure_tokens": 412
+    },
+    {
+      "active_objective_tokens": 447,
+      "answer_loss": 6.0264892578125,
+      "answer_tokens": 12,
+      "example_ids": [
+        "train-world-035:add:reordered:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.742683410644531,
+      "input_tokens": 1163,
+      "language_loss": 6.02781867980957,
+      "language_tokens": 364,
+      "learning_rate_after": 0.0002785151515151515,
+      "learning_rate_used": 0.0002785454545454545,
+      "objective_loss": 6.297408103942871,
+      "selection": {
+        "candidate_ids": [
+          "train-world-047:ownership:natural:invariant",
+          "train-world-009:add:reordered:relation_after",
+          "train-world-035:add:reordered:influence",
+          "train-world-002:property:reordered:relation_after",
+          "train-world-035:add:natural:influence",
+          "train-world-008:property:natural:action_effect",
+          "train-world-028:ownership:reordered:influence",
+          "train-world-027:add:paraphrased:action_effect"
+        ],
+        "candidate_indices": [
+          5718,
+          1141,
+          4260,
+          349,
+          4252,
+          1063,
+          3444,
+          3299
+        ],
+        "coverage_group": "influence|reordered",
+        "mode": "learning_progress",
+        "selected_id": "train-world-035:add:reordered:influence",
+        "selected_score": 1.4398207664489746,
+        "token_cost": 1163
+      },
+      "selection_seconds": 2.3364234820001,
+      "step": 9,
+      "structure_loss": 6.297408103942871,
+      "structure_tokens": 447
+    },
+    {
+      "active_objective_tokens": 444,
+      "answer_loss": 5.975984573364258,
+      "answer_tokens": 13,
+      "example_ids": [
+        "train-world-015:add:structured:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.72553825378418,
+      "input_tokens": 1381,
+      "language_loss": 6.0171990394592285,
+      "language_tokens": 475,
+      "learning_rate_after": 0.0002784848484848485,
+      "learning_rate_used": 0.0002785151515151515,
+      "objective_loss": 6.0680766105651855,
+      "selection": {
+        "candidate_ids": [
+          "train-world-015:add:structured:influence",
+          "train-world-018:property:structured:action_effect",
+          "train-world-042:property:structured:action_effect",
+          "train-world-016:add:structured:relation_after",
+          "train-world-023:property:structured:relation_after",
+          "train-world-035:property:structured:influence",
+          "train-world-032:property:structured:action_effect",
+          "train-world-015:add:structured:invariant"
+        ],
+        "candidate_indices": [
+          1848,
+          2259,
+          5139,
+          1969,
+          2857,
+          4296,
+          3939,
+          1850
+        ],
+        "coverage_group": "influence|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-015:add:structured:influence",
+        "selected_score": 1.5806312561035156,
+        "token_cost": 1381
+      },
+      "selection_seconds": 3.097468834999745,
+      "step": 10,
+      "structure_loss": 6.0680766105651855,
+      "structure_tokens": 444
+    },
+    {
+      "active_objective_tokens": 444,
+      "answer_loss": 6.736393928527832,
+      "answer_tokens": 35,
+      "example_ids": [
+        "train-world-040:ownership:reordered:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.60846471786499,
+      "input_tokens": 1167,
+      "language_loss": 6.057705879211426,
+      "language_tokens": 379,
+      "learning_rate_after": 0.00027845454545454544,
+      "learning_rate_used": 0.0002784848484848485,
+      "objective_loss": 5.917815685272217,
+      "selection": {
+        "candidate_ids": [
+          "train-world-008:none:irrelevant:relation_after",
+          "train-world-001:add:paraphrased:action_effect",
+          "train-world-040:ownership:reordered:action_effect",
+          "train-world-036:add:reordered:invariant",
+          "train-world-028:ownership:paraphrased:influence",
+          "train-world-008:remove:natural:invariant",
+          "train-world-033:remove:reordered:relation_after",
+          "train-world-011:remove:counterfactual:relation_after"
+        ],
+        "candidate_indices": [
+          977,
+          179,
+          4887,
+          4382,
+          3440,
+          990,
+          3997,
+          1365
+        ],
+        "coverage_group": "action_effect|reordered",
+        "mode": "learning_progress",
+        "selected_id": "train-world-040:ownership:reordered:action_effect",
+        "selected_score": 1.835890769958496,
+        "token_cost": 1167
+      },
+      "selection_seconds": 3.0075759510000353,
+      "step": 11,
+      "structure_loss": 5.917815685272217,
+      "structure_tokens": 444
+    },
+    {
+      "active_objective_tokens": 443,
+      "answer_loss": 5.867211818695068,
+      "answer_tokens": 12,
+      "example_ids": [
+        "train-world-045:property:natural:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.386460304260254,
+      "input_tokens": 1157,
+      "language_loss": 6.111867427825928,
+      "language_tokens": 363,
+      "learning_rate_after": 0.0002784242424242424,
+      "learning_rate_used": 0.00027845454545454544,
+      "objective_loss": 5.7746195793151855,
+      "selection": {
+        "candidate_ids": [
+          "train-world-042:property:reordered:relation_after",
+          "train-world-039:remove:counterfactual:relation_after",
+          "train-world-032:property:counterfactual:action_effect",
+          "train-world-024:add:natural:relation_after",
+          "train-world-016:add:reordered:relation_after",
+          "train-world-032:property:paraphrased:influence",
+          "train-world-045:property:natural:influence",
+          "train-world-021:property:reordered:influence"
+        ],
+        "candidate_indices": [
+          5149,
+          4725,
+          3959,
+          2933,
+          1981,
+          3944,
+          5500,
+          2628
+        ],
+        "coverage_group": "influence|natural",
+        "mode": "learning_progress",
+        "selected_id": "train-world-045:property:natural:influence",
+        "selected_score": 1.990288257598877,
+        "token_cost": 1157
+      },
+      "selection_seconds": 2.397715731000062,
+      "step": 12,
+      "structure_loss": 5.7746195793151855,
+      "structure_tokens": 443
+    },
+    {
+      "active_objective_tokens": 451,
+      "answer_loss": 6.693256855010986,
+      "answer_tokens": 19,
+      "example_ids": [
+        "train-world-011:add:structured:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.280113220214844,
+      "input_tokens": 1402,
+      "language_loss": 5.576916694641113,
+      "language_tokens": 485,
+      "learning_rate_after": 0.00027839393939393936,
+      "learning_rate_used": 0.0002784242424242424,
+      "objective_loss": 5.508430480957031,
+      "selection": {
+        "candidate_ids": [
+          "train-world-022:property:structured:invariant",
+          "train-world-029:ownership:structured:action_effect",
+          "train-world-029:add:structured:invariant",
+          "train-world-036:add:structured:influence",
+          "train-world-041:add:structured:invariant",
+          "train-world-005:ownership:structured:invariant",
+          "train-world-023:ownership:structured:influence",
+          "train-world-011:add:structured:invariant"
+        ],
+        "candidate_indices": [
+          2738,
+          3555,
+          3530,
+          4368,
+          4970,
+          674,
+          2832,
+          1370
+        ],
+        "coverage_group": "invariant|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-011:add:structured:invariant",
+        "selected_score": 2.140322685241699,
+        "token_cost": 1402
+      },
+      "selection_seconds": 3.076137841999298,
+      "step": 13,
+      "structure_loss": 5.508430480957031,
+      "structure_tokens": 451
+    },
+    {
+      "active_objective_tokens": 452,
+      "answer_loss": 5.933050155639648,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-006:ownership:structured:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 3.9865376949310303,
+      "input_tokens": 1389,
+      "language_loss": 5.399997234344482,
+      "language_tokens": 474,
+      "learning_rate_after": 0.0002783636363636363,
+      "learning_rate_used": 0.00027839393939393936,
+      "objective_loss": 5.324337482452393,
+      "selection": {
+        "candidate_ids": [
+          "train-world-042:property:structured:invariant",
+          "train-world-010:add:structured:influence",
+          "train-world-006:ownership:structured:relation_after",
+          "train-world-032:property:structured:invariant",
+          "train-world-043:add:structured:influence",
+          "train-world-044:add:structured:action_effect",
+          "train-world-044:property:structured:influence",
+          "train-world-034:add:structured:action_effect"
+        ],
+        "candidate_indices": [
+          5138,
+          1248,
+          793,
+          3938,
+          5208,
+          5331,
+          5376,
+          4131
+        ],
+        "coverage_group": "relation_after|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-006:ownership:structured:relation_after",
+        "selected_score": 2.2909626960754395,
+        "token_cost": 1389
+      },
+      "selection_seconds": 2.956138714998815,
+      "step": 14,
+      "structure_loss": 5.324337482452393,
+      "structure_tokens": 452
+    },
+    {
+      "active_objective_tokens": 425,
+      "answer_loss": 6.540676593780518,
+      "answer_tokens": 23,
+      "example_ids": [
+        "train-world-023:remove:natural:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 3.881324529647827,
+      "input_tokens": 1144,
+      "language_loss": 6.197391986846924,
+      "language_tokens": 371,
+      "learning_rate_after": 0.00027833333333333334,
+      "learning_rate_used": 0.0002783636363636363,
+      "objective_loss": 5.180642127990723,
+      "selection": {
+        "candidate_ids": [
+          "train-world-020:none:irrelevant:action_effect",
+          "train-world-047:property:natural:invariant",
+          "train-world-040:property:reordered:influence",
+          "train-world-040:add:natural:relation_after",
+          "train-world-004:property:paraphrased:relation_after",
+          "train-world-040:add:reordered:relation_after",
+          "train-world-023:remove:natural:action_effect",
+          "train-world-028:property:reordered:influence"
+        ],
+        "candidate_indices": [
+          2419,
+          5742,
+          4908,
+          4853,
+          585,
+          4861,
+          2791,
+          3468
+        ],
+        "coverage_group": "action_effect|natural",
+        "mode": "learning_progress",
+        "selected_id": "train-world-023:remove:natural:action_effect",
+        "selected_score": 2.543036460876465,
+        "token_cost": 1144
+      },
+      "selection_seconds": 2.374352529999669,
+      "step": 15,
+      "structure_loss": 5.180642127990723,
+      "structure_tokens": 425
+    },
+    {
+      "active_objective_tokens": 415,
+      "answer_loss": 6.020867824554443,
+      "answer_tokens": 15,
+      "example_ids": [
+        "train-world-044:none:counterfactual:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 3.1556882858276367,
+      "input_tokens": 1092,
+      "language_loss": 6.1261091232299805,
+      "language_tokens": 346,
+      "learning_rate_after": 0.00027830303030303025,
+      "learning_rate_used": 0.00027833333333333334,
+      "objective_loss": 5.038820743560791,
+      "selection": {
+        "candidate_ids": [
+          "train-world-009:none:counterfactual:relation_after",
+          "train-world-018:none:paraphrased:relation_after",
+          "train-world-028:none:counterfactual:invariant",
+          "train-world-044:none:reordered:action_effect",
+          "train-world-044:none:counterfactual:action_effect",
+          "train-world-009:none:reordered:relation_after",
+          "train-world-009:none:paraphrased:action_effect",
+          "train-world-040:none:paraphrased:invariant"
+        ],
+        "candidate_indices": [
+          1101,
+          2169,
+          3382,
+          5295,
+          5303,
+          1093,
+          1091,
+          4810
+        ],
+        "coverage_group": "action_effect|counterfactual",
+        "mode": "learning_progress",
+        "selected_id": "train-world-044:none:counterfactual:action_effect",
+        "selected_score": 2.739623546600342,
+        "token_cost": 1092
+      },
+      "selection_seconds": 2.110999594000532,
+      "step": 16,
+      "structure_loss": 5.038820743560791,
+      "structure_tokens": 415
+    },
+    {
+      "active_objective_tokens": 415,
+      "answer_loss": 6.006642818450928,
+      "answer_tokens": 12,
+      "example_ids": [
+        "train-world-034:none:structured:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 2.765439510345459,
+      "input_tokens": 1331,
+      "language_loss": 5.060283660888672,
+      "language_tokens": 464,
+      "learning_rate_after": 0.00027827272727272727,
+      "learning_rate_used": 0.00027830303030303025,
+      "objective_loss": 4.890580654144287,
+      "selection": {
+        "candidate_ids": [
+          "train-world-044:none:structured:invariant",
+          "train-world-008:none:structured:relation_after",
+          "train-world-009:none:structured:invariant",
+          "train-world-020:none:structured:influence",
+          "train-world-038:remove:structured:action_effect",
+          "train-world-034:none:structured:invariant",
+          "train-world-034:none:structured:influence",
+          "train-world-043:remove:structured:relation_after"
+        ],
+        "candidate_indices": [
+          5282,
+          961,
+          1082,
+          2400,
+          4587,
+          4082,
+          4080,
+          5185
+        ],
+        "coverage_group": "influence|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-034:none:structured:influence",
+        "selected_score": 2.8236536979675293,
+        "token_cost": 1331
+      },
+      "selection_seconds": 2.822633992000192,
+      "step": 17,
+      "structure_loss": 4.890580654144287,
+      "structure_tokens": 415
+    },
+    {
+      "active_objective_tokens": 445,
+      "answer_loss": 6.219727039337158,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-041:property:structured:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 2.409355640411377,
+      "input_tokens": 1378,
+      "language_loss": 4.88851261138916,
+      "language_tokens": 472,
+      "learning_rate_after": 0.00027824242424242423,
+      "learning_rate_used": 0.00027827272727272727,
+      "objective_loss": 4.752434253692627,
+      "selection": {
+        "candidate_ids": [
+          "train-world-041:property:structured:relation_after",
+          "train-world-035:add:structured:relation_after",
+          "train-world-028:property:structured:influence",
+          "train-world-028:add:structured:relation_after",
+          "train-world-025:ownership:structured:influence",
+          "train-world-040:ownership:structured:invariant",
+          "train-world-036:property:structured:relation_after",
+          "train-world-043:add:structured:action_effect"
+        ],
+        "candidate_indices": [
+          5017,
+          4249,
+          3456,
+          3409,
+          3072,
+          4874,
+          4417,
+          5211
+        ],
+        "coverage_group": "relation_after|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-041:property:structured:relation_after",
+        "selected_score": 2.9399900436401367,
+        "token_cost": 1378
+      },
+      "selection_seconds": 2.9736139670003467,
+      "step": 18,
+      "structure_loss": 4.752434253692627,
+      "structure_tokens": 445
+    },
+    {
+      "active_objective_tokens": 414,
+      "answer_loss": 6.3768815994262695,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-030:none:counterfactual:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 2.2745022773742676,
+      "input_tokens": 1073,
+      "language_loss": 6.293825626373291,
+      "language_tokens": 335,
+      "learning_rate_after": 0.0002782121212121212,
+      "learning_rate_used": 0.00027824242424242423,
+      "objective_loss": 4.591188430786133,
+      "selection": {
+        "candidate_ids": [
+          "train-world-040:none:counterfactual:action_effect",
+          "train-world-040:none:natural:action_effect",
+          "train-world-040:none:natural:relation_after",
+          "train-world-040:none:reordered:relation_after",
+          "train-world-035:none:reordered:action_effect",
+          "train-world-030:none:reordered:relation_after",
+          "train-world-030:none:counterfactual:relation_after",
+          "train-world-040:none:counterfactual:relation_after"
+        ],
+        "candidate_indices": [
+          4823,
+          4807,
+          4805,
+          4813,
+          4215,
+          3613,
+          3621,
+          4821
+        ],
+        "coverage_group": "relation_after|counterfactual",
+        "mode": "learning_progress",
+        "selected_id": "train-world-030:none:counterfactual:relation_after",
+        "selected_score": 3.12925386428833,
+        "token_cost": 1073
+      },
+      "selection_seconds": 2.0269039499999053,
+      "step": 19,
+      "structure_loss": 4.591188430786133,
+      "structure_tokens": 414
+    },
+    {
+      "active_objective_tokens": 448,
+      "answer_loss": 6.527688980102539,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-016:add:irrelevant:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 2.320871114730835,
+      "input_tokens": 1221,
+      "language_loss": 6.374931335449219,
+      "language_tokens": 392,
+      "learning_rate_after": 0.00027818181818181815,
+      "learning_rate_used": 0.0002782121212121212,
+      "objective_loss": 4.456275939941406,
+      "selection": {
+        "candidate_ids": [
+          "train-world-041:property:irrelevant:action_effect",
+          "train-world-016:add:irrelevant:relation_after",
+          "train-world-040:add:irrelevant:invariant",
+          "train-world-026:add:irrelevant:influence",
+          "train-world-033:ownership:counterfactual:invariant",
+          "train-world-008:remove:irrelevant:action_effect",
+          "train-world-042:remove:irrelevant:action_effect",
+          "train-world-024:property:irrelevant:influence"
+        ],
+        "candidate_indices": [
+          5035,
+          1985,
+          4866,
+          3184,
+          4054,
+          1003,
+          5083,
+          2992
+        ],
+        "coverage_group": "relation_after|irrelevant",
+        "mode": "learning_progress",
+        "selected_id": "train-world-016:add:irrelevant:relation_after",
+        "selected_score": 3.308581829071045,
+        "token_cost": 1221
+      },
+      "selection_seconds": 2.5223612019999564,
+      "step": 20,
+      "structure_loss": 4.456275939941406,
+      "structure_tokens": 448
+    },
+    {
+      "active_objective_tokens": 449,
+      "answer_loss": 6.366373062133789,
+      "answer_tokens": 13,
+      "example_ids": [
+        "train-world-001:ownership:paraphrased:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 2.214233875274658,
+      "input_tokens": 1182,
+      "language_loss": 6.627178192138672,
+      "language_tokens": 373,
+      "learning_rate_after": 0.0002781515151515151,
+      "learning_rate_used": 0.00027818181818181815,
+      "objective_loss": 4.3069963455200195,
+      "selection": {
+        "candidate_ids": [
+          "train-world-031:add:counterfactual:relation_after",
+          "train-world-024:ownership:paraphrased:influence",
+          "train-world-042:add:paraphrased:action_effect",
+          "train-world-001:ownership:paraphrased:influence",
+          "train-world-033:remove:paraphrased:influence",
+          "train-world-036:ownership:counterfactual:invariant",
+          "train-world-042:remove:counterfactual:influence",
+          "train-world-004:ownership:natural:action_effect"
+        ],
+        "candidate_indices": [
+          3789,
+          2960,
+          5099,
+          200,
+          3992,
+          4414,
+          5084,
+          559
+        ],
+        "coverage_group": "influence|paraphrased",
+        "mode": "learning_progress",
+        "selected_id": "train-world-001:ownership:paraphrased:influence",
+        "selected_score": 3.3695068359375,
+        "token_cost": 1182
+      },
+      "selection_seconds": 2.797279903999879,
+      "step": 21,
+      "structure_loss": 4.3069963455200195,
+      "structure_tokens": 449
+    },
+    {
+      "active_objective_tokens": 452,
+      "answer_loss": 7.041052341461182,
+      "answer_tokens": 20,
+      "example_ids": [
+        "train-world-005:add:counterfactual:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 1.9785430431365967,
+      "input_tokens": 1204,
+      "language_loss": 6.655959129333496,
+      "language_tokens": 386,
+      "learning_rate_after": 0.0002781212121212121,
+      "learning_rate_used": 0.0002781515151515151,
+      "objective_loss": 4.237635612487793,
+      "selection": {
+        "candidate_ids": [
+          "train-world-017:add:natural:invariant",
+          "train-world-007:remove:irrelevant:relation_after",
+          "train-world-005:add:counterfactual:invariant",
+          "train-world-028:property:irrelevant:influence",
+          "train-world-047:property:irrelevant:invariant",
+          "train-world-011:add:counterfactual:influence",
+          "train-world-022:add:paraphrased:invariant",
+          "train-world-004:remove:irrelevant:action_effect"
+        ],
+        "candidate_indices": [
+          2094,
+          881,
+          670,
+          3472,
+          5754,
+          1388,
+          2698,
+          523
+        ],
+        "coverage_group": "invariant|counterfactual",
+        "mode": "learning_progress",
+        "selected_id": "train-world-005:add:counterfactual:invariant",
+        "selected_score": 3.496340274810791,
+        "token_cost": 1204
+      },
+      "selection_seconds": 2.2955972509989806,
+      "step": 22,
+      "structure_loss": 4.237635612487793,
+      "structure_tokens": 452
+    },
+    {
+      "active_objective_tokens": 442,
+      "answer_loss": 6.688802719116211,
+      "answer_tokens": 22,
+      "example_ids": [
+        "train-world-021:property:structured:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 1.4565564393997192,
+      "input_tokens": 1374,
+      "language_loss": 4.50793981552124,
+      "language_tokens": 477,
+      "learning_rate_after": 0.0002780909090909091,
+      "learning_rate_used": 0.0002781212121212121,
+      "objective_loss": 4.186773777008057,
+      "selection": {
+        "candidate_ids": [
+          "train-world-047:property:structured:action_effect",
+          "train-world-027:property:structured:relation_after",
+          "train-world-007:property:structured:action_effect",
+          "train-world-024:ownership:structured:relation_after",
+          "train-world-016:property:structured:action_effect",
+          "train-world-021:ownership:structured:relation_after",
+          "train-world-021:property:structured:action_effect",
+          "train-world-038:add:structured:action_effect"
+        ],
+        "candidate_indices": [
+          5739,
+          3337,
+          939,
+          2953,
+          2019,
+          2593,
+          2619,
+          4611
+        ],
+        "coverage_group": "action_effect|structured",
+        "mode": "learning_progress",
+        "selected_id": "train-world-021:property:structured:action_effect",
+        "selected_score": 3.5170722007751465,
+        "token_cost": 1374
+      },
+      "selection_seconds": 2.994509909000044,
+      "step": 23,
+      "structure_loss": 4.186773777008057,
+      "structure_tokens": 442
+    },
+    {
+      "active_objective_tokens": 442,
+      "answer_loss": 6.911970615386963,
+      "answer_tokens": 22,
+      "example_ids": [
+        "train-world-047:property:counterfactual:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 1.0109632015228271,
+      "input_tokens": 1150,
+      "language_loss": 6.787769794464111,
+      "language_tokens": 365,
+      "learning_rate_after": 0.000278060606060606,
+      "learning_rate_used": 0.0002780909090909091,
+      "objective_loss": 4.100484371185303,
+      "selection": {
+        "candidate_ids": [
+          "train-world-010:ownership:counterfactual:relation_after",
+          "train-world-040:remove:counterfactual:invariant",
+          "train-world-034:remove:natural:relation_after",
+          "train-world-021:remove:natural:influence",
+          "train-world-043:remove:counterfactual:action_effect",
+          "train-world-047:property:counterfactual:action_effect",
+          "train-world-018:none:irrelevant:relation_after",
+          "train-world-018:remove:paraphrased:influence"
+        ],
+        "candidate_indices": [
+          1293,
+          4846,
+          4109,
+          2548,
+          5207,
+          5759,
+          2177,
+          2192
+        ],
+        "coverage_group": "action_effect|counterfactual",
+        "mode": "learning_progress",
+        "selected_id": "train-world-047:property:counterfactual:action_effect",
+        "selected_score": 3.6461362838745117,
+        "token_cost": 1150
+      },
+      "selection_seconds": 2.3010378390008555,
+      "step": 24,
+      "structure_loss": 4.100484371185303,
+      "structure_tokens": 442
+    }
+  ],
+  "training_sequence_sha256": "a700aee83f0b0ed4f0b9379a726496bd5dfe5cbf4f3e74395d72880d60208c2d",
+  "training_split": "923b653cac60c2f07fcbf0b95c5398470641dec4b2240b5c9a790f885382890b",
+  "updates": 24,
+  "validation_after": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-009:property:structured:influence",
+          "expected": "Following the stated rules, Yarrow, Larch.",
+          "expected_value": "Yarrow, Larch",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-002:add:natural:relation_after",
+          "expected": "Following the stated rules, yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 7.097225796734845,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 135,
+      "answer_token_accuracy": 0.0,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.312842837372583,
+      "language_target_tokens": 2623,
+      "selected_examples_sha256": "d9f2ae0d122cd5c3ab947931e636c63b41b8ceb0e91acd56036068889dc19c1b",
+      "structure_nll": 4.013582819045467,
+      "structure_target_tokens": 2649,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.294073235183088,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-002:ownership:structured:influence",
+          "expected": "Under the selected alternative, Slate.",
+          "expected_value": "Slate",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-001:add:natural:relation_after",
+          "expected": "Under the selected alternative, yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 7.030647927238828,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 105,
+      "answer_token_accuracy": 0.009523809523809525,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.401846229781613,
+      "language_target_tokens": 2639,
+      "selected_examples_sha256": "b45acf4e6c7b4d4178677a5b6b87cb72f4424af905a292c723a244f5cdf1c688",
+      "structure_nll": 3.9954350119583317,
+      "structure_target_tokens": 2691,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.2950575994054255,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-009:property:structured:influence",
+          "expected": "Result in this state: Kestrel.",
+          "expected_value": "Kestrel",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-002:add:natural:relation_after",
+          "expected": "Result in this state: yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 7.230169098551681,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 123,
+      "answer_token_accuracy": 0.0,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.336598880153527,
+      "language_target_tokens": 2515,
+      "selected_examples_sha256": "66eb54e69bed93ac92643b3650438559599b50e89120640923054f9f80083a1f",
+      "structure_nll": 4.021488705167892,
+      "structure_target_tokens": 2666,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.30045011252813203,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-009:property:structured:influence",
+          "expected": "After applying the graph rules, Morrow, Wren.",
+          "expected_value": "Morrow, Wren",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-002:add:natural:relation_after",
+          "expected": "After applying the graph rules, yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 7.228218500562709,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 139,
+      "answer_token_accuracy": 0.0,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.26517918694344,
+      "language_target_tokens": 2827,
+      "selected_examples_sha256": "a509d950e6fd342786fe58a1ea21c1de0548e97e60006b5ce20e0082b5d08e97",
+      "structure_nll": 3.96302824400256,
+      "structure_target_tokens": 2862,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.30712788259958074,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "validation-world-009:property:structured:influence",
+          "expected": "The computed result is Dovetail.",
+          "expected_value": "Dovetail",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "validation-world-002:add:natural:relation_after",
+          "expected": "The computed result is yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 6.989646385027014,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 115,
+      "answer_token_accuracy": 0.0,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.212201735691319,
+      "language_target_tokens": 2629,
+      "selected_examples_sha256": "bd066be21b2284f66499ec9e5de17b7f4af6fef23e7021adc1112586e7439d63",
+      "structure_nll": 4.018383676674157,
+      "structure_target_tokens": 2653,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.3030531473803242,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    }
+  },
+  "validation_before": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.498074856510868,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 135,
+      "answer_token_accuracy": 0.2518518518518518,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.083499665938395,
+      "language_target_tokens": 2623,
+      "selected_examples_sha256": "d9f2ae0d122cd5c3ab947931e636c63b41b8ceb0e91acd56036068889dc19c1b",
+      "structure_nll": 7.727735571611058,
+      "structure_target_tokens": 2649,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.19818799546998866,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.1669039544605075,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 105,
+      "answer_token_accuracy": 0.3047619047619048,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.168366314019611,
+      "language_target_tokens": 2639,
+      "selected_examples_sha256": "b45acf4e6c7b4d4178677a5b6b87cb72f4424af905a292c723a244f5cdf1c688",
+      "structure_nll": 7.734952393272737,
+      "structure_target_tokens": 2691,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.19546636937941286,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.784971857458595,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 123,
+      "answer_token_accuracy": 0.21951219512195122,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.047540593194677,
+      "language_target_tokens": 2515,
+      "selected_examples_sha256": "66eb54e69bed93ac92643b3650438559599b50e89120640923054f9f80083a1f",
+      "structure_nll": 7.693992840823426,
+      "structure_target_tokens": 2666,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.18717179294823705,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.609657376790218,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 139,
+      "answer_token_accuracy": 0.2949640287769784,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.972957653758127,
+      "language_target_tokens": 2827,
+      "selected_examples_sha256": "a509d950e6fd342786fe58a1ea21c1de0548e97e60006b5ce20e0082b5d08e97",
+      "structure_nll": 7.697268725941016,
+      "structure_target_tokens": 2862,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.2113906359189378,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.343847573321798,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 115,
+      "answer_token_accuracy": 0.23478260869565218,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.977568735047954,
+      "language_target_tokens": 2629,
+      "selected_examples_sha256": "bd066be21b2284f66499ec9e5de17b7f4af6fef23e7021adc1112586e7439d63",
+      "structure_nll": 7.729449169347298,
+      "structure_target_tokens": 2653,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.20731247644176404,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    }
+  },
+  "validation_split": "e2b00a2f901d4c9335b7751c112856ddf642d3bcbf8f191b33bf195553b13fac",
+  "wall_seconds_including_selection": 138.5755695179996
+}

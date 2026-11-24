@@ -1,0 +1,36 @@
+{
+  "condition": "structure",
+  "model": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "restore_optimizer": true,
+  "sampling": {
+    "initial_losses_path": "/home/codespace/model/research/structure/value_curriculum/initial_losses.json",
+    "mode": "uniform",
+    "plan_path": "/home/codespace/model/research/structure/value_curriculum/candidate_plan.json",
+    "reference_losses_path": null
+  },
+  "train": {
+    "batch": 1,
+    "checkpoint_interval": 1,
+    "clip": 1.0,
+    "decay": 10000,
+    "eval_examples": 6,
+    "eval_seed": 2026,
+    "floor": 0.1,
+    "penalty": 0.1,
+    "rate": 0.0003,
+    "seed": 2025,
+    "steps": 24,
+    "warm": 100
+  }
+}

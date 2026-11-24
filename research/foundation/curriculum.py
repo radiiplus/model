@@ -97,6 +97,8 @@ def run(name: str, tokens: int, initial: Path, output: Path,
         current = result["steps"]
         if current <= step:
             raise RuntimeError("training segment made no progress")
+        if not result["before"]["complete"] or not result["validation"]["complete"]:
+            raise RuntimeError("segment evaluation was incomplete; refusing to report partial metrics")
         stage["segments"].append({"start": step, "end": current,
                                   "tokens": result["tokens"],
                                   "fit": result["fit"],

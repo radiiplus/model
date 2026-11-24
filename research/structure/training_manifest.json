@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "status": "superseded_exploratory_run",
+  "superseded_by": "research/structure/training_manifest_v5.json",
+  "interpretation": "Retained for provenance; its language surfaces omitted structural fields and its exact-answer metric was teacher-forced rather than free generation.",
+  "experiment": "foundation-structural-supervision-pilot-v1",
+  "status": "bounded_pilot_complete",
+  "architecture": {
+    "parameters": 4470272,
+    "auxiliary_parameters": 0,
+    "config": "research/structure/configs/arm_a.json"
+  },
+  "initialization": {
+    "checkpoint": "research/foundation/data/learn.pt",
+    "checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+    "checkpoint_update": 800,
+    "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+    "optimizer_and_scheduler_restored": true
+  },
+  "data": {
+    "manifest": "research/structure/dataset/manifest.json",
+    "manifest_sha256": "e3b568a531cf8cd83a51adfd6cfd4ec7b50d173ce29ece18d14f25b12c65c4db",
+    "train_sha256": "6e007b87094e08beb5f62a64cd009e30073adc9afc59f51d52ec830ed8277c44",
+    "tokenizer": "research/interaction/data/ready7/tokenizer.json",
+    "tokenizer_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe"
+  },
+  "smoke": {
+    "updates_per_arm": 2,
+    "examples_per_arm": 2,
+    "all_passed": true,
+    "resume_check": {
+      "interrupted_after_update": 1,
+      "resumed_checkpoint": "research/structure/resume_smoke/interrupted.pt",
+      "partial_report": "research/structure/resume_smoke/partial.json",
+      "resumed_report": "research/structure/resume_smoke/resumed.json",
+      "compared_with": "research/structure/smoke/a.pt",
+      "exact_match_fields": [
+        "model",
+        "optimizer",
+        "scheduler",
+        "sampler",
+        "history",
+        "step",
+        "python_rng",
+        "torch_rng"
+      ],
+      "all_match": true
+    },
+    "reports": {
+      "a": "research/structure/smoke/arm_a.json",
+      "b": "research/structure/smoke/arm_b.json",
+      "c": "research/structure/smoke/arm_c.json"
+    }
+  },
+  "pilot": {
+    "updates_per_arm": 12,
+    "batch_size": 1,
+    "examples_per_arm": 12,
+    "input_tokens_per_arm": 12283,
+    "language_target_tokens": 3627,
+    "answer_target_tokens": 183,
+    "structure_target_tokens": 5212,
+    "starting_weights_match": true,
+    "training_order_sha256": "c4499ec4081fa407d1256f30471785e7360884db57596a27260c85f39b78d0ba",
+    "learning_rate": {
+      "schedule": "restored from learn.pt, actual per-update values are in each report's training array",
+      "first": 0.00027878787878787874,
+      "last": 0.00027845454545454544
+    },
+    "evaluation": {
+      "procedure": "seeded teacher-forced next-token scoring",
+      "examples_per_partition": 6,
+      "partitions": [
+        "validation",
+        "iid_test",
+        "compositional_test",
+        "pattern_test",
+        "counterfactual_test"
+      ],
+      "answer_exact_and_json_valid_all_zero": true
+    },
+    "arms": {
+      "a": {
+        "objective": "language",
+        "config": "research/structure/configs/arm_a.json",
+        "config_sha256": "a284b9a312157a41e602a2b16d23e3d85e7408d51168a70c77ebf27eeb47c7ee",
+        "report": "research/structure/pilot/arm_a.json",
+        "report_sha256": "f035da1ed7f01defdc873a9d507f85d9bbaff3ff6c9d9122785235b2af3248a0",
+        "checkpoint": "research/structure/pilot/a.pt",
+        "checkpoint_sha256": "6690306b5f8e286731927d11ba6ac45932fc995b8472f69d5bdc318f4aa9ee55",
+        "final_training_objective_loss": 6.297047138214111,
+        "validation_after": {
+          "language_nll": 5.139800105509753,
+          "answer_nll": 5.039554533751114,
+          "structure_nll": 6.550832758298515,
+          "answer_token_accuracy": 0.28695652173913044,
+          "structure_token_accuracy": 0.19751225028269884
+        }
+      },
+      "b": {
+        "objective": "structure",
+        "config": "research/structure/configs/arm_b.json",
+        "config_sha256": "38b504ce4ce792222dd350735ad0c2f90fb4b1a60d23768bbf8df485f498659c",
+        "report": "research/structure/pilot/arm_b.json",
+        "report_sha256": "de377e1df54536e33550941c84cf0e9398684880319f6cdc60955f0f1ceb4081",
+        "checkpoint": "research/structure/pilot/b.pt",
+        "checkpoint_sha256": "eb8fd2c34e0f47f7b0c29446b857cd5619f8cf7f63bfd4a71a6bec47a88e6f62",
+        "final_training_objective_loss": 5.737997531890869,
+        "validation_after": {
+          "language_nll": 5.3069838545306105,
+          "answer_nll": 5.854109905077063,
+          "structure_nll": 5.567545459803392,
+          "answer_token_accuracy": 0.12173913043478261,
+          "structure_token_accuracy": 0.4312099509988692
+        }
+      },
+      "c": {
+        "objective": "combined",
+        "config": "research/structure/configs/arm_c.json",
+        "config_sha256": "b5cd8f316c1550b8fc3c9e67e8fc0a879adfad048f65979deb54e4c5a63228a0",
+        "report": "research/structure/pilot/arm_c.json",
+        "report_sha256": "2cc91e6d78eaeb9f00633ad92a0a2f553e4d88f749306b54a5b7763f3832164a",
+        "checkpoint": "research/structure/pilot/c.pt",
+        "checkpoint_sha256": "7655a8039faf59e2e1d82bd929e2ba4ef18c19792ef84fde4fd7ccd0f89c3d56",
+        "final_training_objective_loss": 5.761001110076904,
+        "validation_after": {
+          "language_nll": 5.150380677142102,
+          "answer_nll": 5.621670876378598,
+          "structure_nll": 5.6274150531336,
+          "answer_token_accuracy": 0.19130434782608696,
+          "structure_token_accuracy": 0.3482849604221636
+        }
+      }
+    }
+  },
+  "tests": {
+    "command": "env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /tmp/audit-pytorch-venv/bin/python -m unittest -v research.structure.test",
+    "result": "7 passed"
+  },
+  "interpretation": "Structural-only and combined objectives improve structural-token prediction over the shared starting checkpoint in this short pilot; neither yields valid JSON or exact structural sequences. This is not evidence of solved structural reasoning."
+}

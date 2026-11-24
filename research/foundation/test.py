@@ -68,12 +68,27 @@ class Resume(unittest.TestCase):
             self.assertEqual(one["sampler"], two["sampler"])
             self.assertTrue(same(one["scheduler"], two["scheduler"]))
             self.assertTrue(same(one["optimizer"], two["optimizer"]))
+            self.assertTrue(same(one["python"], two["python"]))
+            self.assertTrue(torch.equal(one["torch"], two["torch"]))
             for key in one["model"]:
                 self.assertTrue(torch.equal(one["model"][key], two["model"][key]), key)
             wrong = copy.deepcopy(config)
             wrong["train"]["sft"] = 0.5
             with self.assertRaisesRegex(ValueError, "hash mismatch"):
                 trainer.run(wrong, root, partial, resume=partial)
+
+    def test_episode_sampler_replay(self):
+        first = trainer.Sampler(trainer.DATA, "train", 7103)
+        second = trainer.Sampler(trainer.DATA, "train", 7103)
+        sequential = list(range(len(first.documents)))
+        self.assertNotEqual(first.order, sequential)
+        self.assertEqual(first.order, second.order)
+        first.take(257)
+        state = first.state()
+        expected = first.take(383)
+        resumed = trainer.Sampler(trainer.DATA, "train", 7103, state)
+        self.assertEqual(expected, resumed.take(383))
+        self.assertEqual(first.state(), resumed.state())
 
 
 class Recur(unittest.TestCase):

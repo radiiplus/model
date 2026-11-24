@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "audit_date": "2026-11-24",
+  "repository": {
+    "branch": "adaptive",
+    "head": "453b5e5d7e311d5638f885216b2f42ae9dfe78dd",
+    "tracking_branch": "origin/adaptive",
+    "starting_worktree_clean": true,
+    "recent_commits": [
+      "453b5e5 Add staged curriculum pilot runner",
+      "ad928b6 Implement compaction learning lifecycle",
+      "b3dcf50 Add persistent problem manager and bounded context",
+      "b2eb515 Record held-out response learning evidence",
+      "15eae45 Add multi-layer recurrent training arm",
+      "5f3c717 Add four-block neural language foundation"
+    ]
+  },
+  "latest_training_report": {
+    "report": "research/foundation/a1.json",
+    "summary": "research/foundation/curriculum.md",
+    "stage": "a",
+    "updates": 8000,
+    "positions": 1000000,
+    "validation_language_nll_before": 4.296,
+    "validation_language_nll_after": 4.551,
+    "response_probe_nll_before": 4.550,
+    "response_probe_nll_after": 4.609,
+    "optimizer_reset": true,
+    "scheduler_reset": true,
+    "sampling": "sequential source-ordered stream"
+  },
+  "pilot_training_config": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0,
+    "warmup_updates": 100,
+    "decay_updates": 10000,
+    "minimum_learning_rate_ratio": 0.1,
+    "batch_size": 1,
+    "gradient_accumulation": 1,
+    "sequence_length": 125,
+    "updates": 8000,
+    "target_positions": 1000000,
+    "language_loss_weight": 1.0,
+    "assistant_loss_weight": 0.0,
+    "seed": 2025
+  },
+  "architecture": {
+    "architecture_version": 1,
+    "parameters": 4470272,
+    "vocab_size": 4096,
+    "context_length": 1024,
+    "layers": 4,
+    "d_model": 256,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "position_embedding": "learned_absolute",
+    "normalization": "pre_layernorm",
+    "weight_tying": true,
+    "dtype": "float32"
+  },
+  "data": {
+    "dataset_hash": "9016272c1ffb57a3a9bd8dd3e86ef47c3789f5ffbde62a86b451f46a371d5078",
+    "train_split_hash": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+    "validation_split_hash": "6e01a31db20425d006237654c86fce6f9636ee37eaf507fd096180825d53351c",
+    "test_split_hash": "88281e36febda3050460e48637c20755072b2282328afe7b5330622694de9fd3",
+    "tokenizer_hash": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "stream_tokens": 4224016,
+    "train_documents": 8017,
+    "sources": ["OpenAssistant Apache-2.0", "Taskmaster TM-1 CC BY 4.0", "project-authored"]
+  },
+  "checkpoints": [
+    {
+      "path": "research/foundation/data/learn.pt",
+      "exists_locally": true,
+      "sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+      "reported_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+      "updates": 800,
+      "optimizer_state": true,
+      "scheduler_state": true,
+      "sampler_state": true
+    },
+    {
+      "path": "research/foundation/data/a1.pt",
+      "exists_locally": true,
+      "sha256": "46d0f379d86500be14e6a9812aa254c515d7ce704bb7b17a920acd24ec2529be",
+      "reported_sha256": "46d0f379d86500be14e6a9812aa254c515d7ce704bb7b17a920acd24ec2529be",
+      "updates": 8000,
+      "optimizer_state": true,
+      "scheduler_state": true,
+      "sampler_state": true,
+      "interpretation": "pilot end state; pilot-start optimizer was reset"
+    }
+  ],
+  "baseline_test_record": "research/structure/TEST_RESULTS.md"
+}

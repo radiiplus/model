@@ -1,0 +1,138 @@
+{
+  "arm": "A",
+  "condition": "restore optimizer and scheduler state",
+  "examples_consumed": 16,
+  "final_weights_sha256": "84e73ee46baa336d37b239b3e4ac1ecb248966564e8584509ea0a09055323863",
+  "generation_after": {
+    "prompt": "Hi",
+    "text": "<user> S a a a a ",
+    "token_ids": [
+      260,
+      32,
+      83,
+      32,
+      97,
+      32,
+      97,
+      32,
+      97,
+      32,
+      97,
+      32
+    ]
+  },
+  "initial_position_update": 800,
+  "learning_rates": [
+    {
+      "after": 0.00027875757575757576,
+      "used": 0.00027878787878787874
+    },
+    {
+      "after": 0.0002787272727272727,
+      "used": 0.00027875757575757576
+    },
+    {
+      "after": 0.0002786969696969697,
+      "used": 0.0002787272727272727
+    },
+    {
+      "after": 0.00027866666666666665,
+      "used": 0.0002786969696969697
+    },
+    {
+      "after": 0.0002786363636363636,
+      "used": 0.00027866666666666665
+    },
+    {
+      "after": 0.00027860606060606057,
+      "used": 0.0002786363636363636
+    },
+    {
+      "after": 0.0002785757575757576,
+      "used": 0.00027860606060606057
+    },
+    {
+      "after": 0.0002785454545454545,
+      "used": 0.0002785757575757576
+    },
+    {
+      "after": 0.0002785151515151515,
+      "used": 0.0002785454545454545
+    },
+    {
+      "after": 0.0002784848484848485,
+      "used": 0.0002785151515151515
+    },
+    {
+      "after": 0.00027845454545454544,
+      "used": 0.0002784848484848485
+    },
+    {
+      "after": 0.0002784242424242424,
+      "used": 0.00027845454545454544
+    },
+    {
+      "after": 0.00027839393939393936,
+      "used": 0.0002784242424242424
+    },
+    {
+      "after": 0.0002783636363636363,
+      "used": 0.00027839393939393936
+    },
+    {
+      "after": 0.00027833333333333334,
+      "used": 0.0002783636363636363
+    },
+    {
+      "after": 0.00027830303030303025,
+      "used": 0.00027833333333333334
+    }
+  ],
+  "optimizer_restored": true,
+  "optimizer_start_state_entries": 52,
+  "positions_trained": 2000,
+  "scheduler_restored": true,
+  "scheduler_start_update": 816,
+  "seconds_fit": 1.0858642660000442,
+  "shared_training_sequence_sha256": "8852766e65074767f765dac54329ac478ce74bd9a9fb8ef4976b724731649035",
+  "source_optimizer_state_available": true,
+  "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+  "training_batch_sha256": [
+    "f452bed140a1f751ca0cc6844bc25f463aa6a5a7f76595a50832e339fdceb401",
+    "962294171a1d609d9b79d5a99a7c60793c2149acc0170f1462bcec9a038ddddd",
+    "06c8a49c77f9107c45a1d151ece727d42667cbcec75a379d069e8800697f7f3c",
+    "ff088c74ef3aaf25220068dde46857cbfdcc8f5a743d85dce7a2d5831a5e9ce8",
+    "2667a46ef47a81533fd093cd6ab55239dc5575f25201fd9933c88feef5b29cb9",
+    "d36e9853bd166f3293ad53e874addbcdd35d04f95cb4d358f0d28935d235eafa",
+    "eae9a5fef9533cd2590ff014328e9cd052d73937c2d59a0e16c6468f57675470",
+    "ecdcc7fb717724cfceab6e02921c794173eef720ac3a18c6114c30cb7c40acc7",
+    "5c0d2e2cefeda57ddf347e68ce19aa1534fccf5041b3c0c1d9bbbf9650d8646a",
+    "6f58399cb386ba8a69e44576ee56c026acdc062144177ed132bf7eee47d57011",
+    "2438d2ecdb3c6338bf17b18b7531ef4bd24bfdba21d77c5148ece5dc544cb87a",
+    "bed9701918c052b8387b0fbd26a97a37175c3a6d353bb3ea1791795713b45ef7",
+    "34e55f20e612d6e7d7282f430281e96622aa575a6c7ce4df79dd8f49f995fece",
+    "9978cea35249970dbe758bf84554f4a98fc40e9054e44fad6a9c4325fcf4e070",
+    "2811f6df834e821a061e6089dc6dbaa10433adbe86c0b583ecd0892e09b88d46",
+    "ab46ad177ef86b81823f05351ebd7faf9ed42af7ee96b8afe28c9f738690a3d9"
+  ],
+  "training_sequence_sha256": "8852766e65074767f765dac54329ac478ce74bd9a9fb8ef4976b724731649035",
+  "updates": 16,
+  "validation_after": {
+    "answers": 371,
+    "complete": true,
+    "interaction": 4.583637833916595,
+    "language": 4.6570428848266605,
+    "requested": 512,
+    "tokens": 625.0
+  },
+  "validation_before": {
+    "answers": 371,
+    "complete": true,
+    "interaction": 4.6054713893129495,
+    "language": 4.714762401580811,
+    "requested": 512,
+    "tokens": 625.0
+  },
+  "validation_sampler": "episode-shuffle-v1",
+  "validation_seed": 2027
+}

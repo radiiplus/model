@@ -8,6 +8,7 @@ import os
 import random
 import resource
 import signal
+import struct
 import time
 from pathlib import Path
 from typing import Any
@@ -48,7 +49,9 @@ def code() -> str:
     return digest({str(path): file(path) for path in paths})
 
 
-class Sampler:
+class SequentialSampler:
+    """Compatibility sampler for checkpoints written before episode shuffling."""
+
     def __init__(self, root: Path, split: str, seed: int, state: dict | None = None):
         self.root = root
         self.split = split
@@ -83,6 +86,86 @@ class Sampler:
             self.cursor = row["cursor"]
         if len(self.ids) < count:
             raise ValueError("requested more tokens than remain in the shard")
+        ids = self.ids[:count]
+        mask = self.mask[:count]
+        del self.ids[:count]
+        del self.mask[:count]
+        return ids, mask
+
+
+class Sampler:
+    """Shuffle whole episodes each epoch while preserving exact resumability."""
+
+    MODE = "episode-shuffle-v1"
+
+    def __init__(self, root: Path, split: str, seed: int, state: dict | None = None):
+        self.root = root
+        self.split = split
+        self.rng = random.Random(seed)
+        self.epoch = 0
+        self.position = 0
+        self.ids: list[int] = []
+        self.mask: list[bool] = []
+        self.documents: list[dict[str, Any]] = []
+        data = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+        files = [row for row in data["files"] if row["split"] == split]
+        for file_index, row in enumerate(files):
+            with (root / row["index"]).open("r", encoding="utf-8") as stream:
+                for line in stream:
+                    doc = json.loads(line)
+                    self.documents.append({"file": row["data"], "start": doc["start"],
+                                           "tokens": doc["tokens"],
+                                           "targets": doc["targets"],
+                                           "file_index": file_index})
+        if not self.documents:
+            raise ValueError("sampler split contains no episodes")
+        self.order = list(range(len(self.documents)))
+        self.rng.shuffle(self.order)
+        if state is not None:
+            if state.get("mode") != self.MODE or state.get("split") != split:
+                raise ValueError("sampler state mode or split mismatch")
+            self.epoch = int(state["epoch"])
+            self.position = int(state["position"])
+            self.order = list(state["order"])
+            self.ids = list(state["ids"])
+            self.mask = list(state["mask"])
+            self.rng.setstate(state["rng"])
+            if (sorted(self.order) != list(range(len(self.documents)))
+                    or not 0 <= self.position <= len(self.order)
+                    or any(not 0 <= value < len(self.documents) for value in self.order)):
+                raise ValueError("sampler episode order or position is invalid")
+
+    def state(self) -> dict:
+        return {"mode": self.MODE, "split": self.split, "epoch": self.epoch,
+                "position": self.position, "order": list(self.order),
+                "ids": list(self.ids), "mask": list(self.mask),
+                "rng": self.rng.getstate()}
+
+    def _next_document(self) -> tuple[list[int], list[bool]]:
+        if self.position == len(self.order):
+            self.epoch += 1
+            self.position = 0
+            self.order = list(range(len(self.documents)))
+            self.rng.shuffle(self.order)
+        row = self.documents[self.order[self.position]]
+        self.position += 1
+        with (self.root / row["file"]).open("rb") as file:
+            file.seek(int(row["start"]) * 2)
+            raw = file.read(int(row["tokens"]) * 2)
+        if len(raw) != int(row["tokens"]) * 2:
+            raise ValueError("token shard ended inside a shuffled episode")
+        values = list(struct.unpack("<" + "H" * int(row["tokens"]), raw))
+        mask = [False] * len(values)
+        for left, right in row["targets"]:
+            mask[int(left) - int(row["start"]):int(right) + 1 - int(row["start"])] = \
+                [True] * (int(right) + 1 - int(left))
+        return values, mask
+
+    def take(self, count: int) -> tuple[list[int], list[bool]]:
+        while len(self.ids) < count:
+            values, mask = self._next_document()
+            self.ids.extend(values)
+            self.mask.extend(mask)
         ids = self.ids[:count]
         mask = self.mask[:count]
         del self.ids[:count]
@@ -165,7 +248,8 @@ def evaluate(model: Foundation, root: Path, seed: int, train: dict,
             seen += length
     return {"language": language / total if total else None,
             "interaction": interaction / answers if answers else None,
-            "tokens": total, "answers": int(answers)}
+            "tokens": total, "answers": int(answers), "complete": seen >= count,
+            "requested": count}
 
 
 def checkpoint(model: Foundation, opt: torch.optim.Optimizer, schedule: Any,
@@ -240,7 +324,9 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
         model.load_state_dict(payload["model"])
         opt.load_state_dict(payload["optimizer"])
         schedule.load_state_dict(payload["scheduler"])
-        sampler = Sampler(root, "train", seed + 1, payload["sampler"])
+        sampler_state = payload["sampler"]
+        sampler_type = Sampler if sampler_state.get("mode") == Sampler.MODE else SequentialSampler
+        sampler = sampler_type(root, "train", seed + 1, sampler_state)
         random.setstate(payload["python"])
         torch.set_rng_state(payload["torch"])
         start = int(payload["step"])
@@ -250,8 +336,10 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
     if resume is None and path.exists():
         raise FileExistsError(path)
     started = time.monotonic()
-    before = evaluate(model, root, seed + 2, train, started + int(train["time"]))
+    eval_budget = max(30, int(train["time"]))
+    before = evaluate(model, root, seed + 2, train, time.monotonic() + eval_budget)
     stamp = time.monotonic()
+    fit_deadline = stamp + int(train["time"])
     swap = guard.swap_counters()
     report = []
     interrupted = False
@@ -267,8 +355,7 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
     end = steps if stop is None else stop
     try:
         for index in range(start, end):
-            elapsed = time.monotonic() - started
-            if elapsed >= int(train["time"]):
+            if time.monotonic() >= fit_deadline:
                 interrupted = True
                 if index > start:
                     save(path, checkpoint(model, opt, schedule, sampler, meta,
@@ -318,7 +405,7 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
     spent = time.monotonic() - stamp
     model.eval()
     duration = time.monotonic() - started
-    valid = evaluate(model, root, seed + 2, train, started + int(train["time"]))
+    valid = evaluate(model, root, seed + 2, train, time.monotonic() + eval_budget)
     return {"architecture": config["model"], "training": train, "parameters": model.params,
             "blocks": len(model.blocks), "unique": sum(
                 value.numel() for value in model.blocks.parameters()),

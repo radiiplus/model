@@ -1,0 +1,310 @@
+{
+  "architecture": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "arms": {
+    "A": {
+      "optimizer_restored": true,
+      "positions_trained": 2000,
+      "rates": [
+        {
+          "after": 0.00027875757575757576,
+          "used": 0.00027878787878787874
+        },
+        {
+          "after": 0.0002787272727272727,
+          "used": 0.00027875757575757576
+        },
+        {
+          "after": 0.0002786969696969697,
+          "used": 0.0002787272727272727
+        },
+        {
+          "after": 0.00027866666666666665,
+          "used": 0.0002786969696969697
+        },
+        {
+          "after": 0.0002786363636363636,
+          "used": 0.00027866666666666665
+        },
+        {
+          "after": 0.00027860606060606057,
+          "used": 0.0002786363636363636
+        },
+        {
+          "after": 0.0002785757575757576,
+          "used": 0.00027860606060606057
+        },
+        {
+          "after": 0.0002785454545454545,
+          "used": 0.0002785757575757576
+        },
+        {
+          "after": 0.0002785151515151515,
+          "used": 0.0002785454545454545
+        },
+        {
+          "after": 0.0002784848484848485,
+          "used": 0.0002785151515151515
+        },
+        {
+          "after": 0.00027845454545454544,
+          "used": 0.0002784848484848485
+        },
+        {
+          "after": 0.0002784242424242424,
+          "used": 0.00027845454545454544
+        },
+        {
+          "after": 0.00027839393939393936,
+          "used": 0.0002784242424242424
+        },
+        {
+          "after": 0.0002783636363636363,
+          "used": 0.00027839393939393936
+        },
+        {
+          "after": 0.00027833333333333334,
+          "used": 0.0002783636363636363
+        },
+        {
+          "after": 0.00027830303030303025,
+          "used": 0.00027833333333333334
+        }
+      ],
+      "scheduler_restored": true,
+      "validation_after": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.583637833916595,
+        "language": 4.6570428848266605,
+        "requested": 512,
+        "tokens": 625.0
+      },
+      "validation_before": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.6054713893129495,
+        "language": 4.714762401580811,
+        "requested": 512,
+        "tokens": 625.0
+      }
+    },
+    "B": {
+      "optimizer_restored": false,
+      "positions_trained": 2000,
+      "rates": [
+        {
+          "after": 0.00027875757575757576,
+          "used": 0.00027878787878787874
+        },
+        {
+          "after": 0.0002787272727272727,
+          "used": 0.00027875757575757576
+        },
+        {
+          "after": 0.0002786969696969697,
+          "used": 0.0002787272727272727
+        },
+        {
+          "after": 0.00027866666666666665,
+          "used": 0.0002786969696969697
+        },
+        {
+          "after": 0.0002786363636363636,
+          "used": 0.00027866666666666665
+        },
+        {
+          "after": 0.00027860606060606057,
+          "used": 0.0002786363636363636
+        },
+        {
+          "after": 0.0002785757575757576,
+          "used": 0.00027860606060606057
+        },
+        {
+          "after": 0.0002785454545454545,
+          "used": 0.0002785757575757576
+        },
+        {
+          "after": 0.0002785151515151515,
+          "used": 0.0002785454545454545
+        },
+        {
+          "after": 0.0002784848484848485,
+          "used": 0.0002785151515151515
+        },
+        {
+          "after": 0.00027845454545454544,
+          "used": 0.0002784848484848485
+        },
+        {
+          "after": 0.0002784242424242424,
+          "used": 0.00027845454545454544
+        },
+        {
+          "after": 0.00027839393939393936,
+          "used": 0.0002784242424242424
+        },
+        {
+          "after": 0.0002783636363636363,
+          "used": 0.00027839393939393936
+        },
+        {
+          "after": 0.00027833333333333334,
+          "used": 0.0002783636363636363
+        },
+        {
+          "after": 0.00027830303030303025,
+          "used": 0.00027833333333333334
+        }
+      ],
+      "scheduler_restored": true,
+      "validation_after": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.599064825037419,
+        "language": 4.680023288726806,
+        "requested": 512,
+        "tokens": 625.0
+      },
+      "validation_before": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.6054713893129495,
+        "language": 4.714762401580811,
+        "requested": 512,
+        "tokens": 625.0
+      }
+    },
+    "C": {
+      "optimizer_restored": false,
+      "positions_trained": 2000,
+      "rates": [
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 2.9999999999999997e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 3.2999999999999996e-05,
+          "used": 2.9999999999999997e-05
+        },
+        {
+          "after": 3.5999999999999994e-05,
+          "used": 3.2999999999999996e-05
+        },
+        {
+          "after": 3.9e-05,
+          "used": 3.5999999999999994e-05
+        },
+        {
+          "after": 4.2e-05,
+          "used": 3.9e-05
+        },
+        {
+          "after": 4.4999999999999996e-05,
+          "used": 4.2e-05
+        },
+        {
+          "after": 4.7999999999999994e-05,
+          "used": 4.4999999999999996e-05
+        },
+        {
+          "after": 5.1e-05,
+          "used": 4.7999999999999994e-05
+        }
+      ],
+      "scheduler_restored": false,
+      "validation_after": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.605133582960884,
+        "language": 4.70169620513916,
+        "requested": 512,
+        "tokens": 625.0
+      },
+      "validation_before": {
+        "answers": 371,
+        "complete": true,
+        "interaction": 4.6054713893129495,
+        "language": 4.714762401580811,
+        "requested": 512,
+        "tokens": 625.0
+      }
+    }
+  },
+  "dataset": "9016272c1ffb57a3a9bd8dd3e86ef47c3789f5ffbde62a86b451f46a371d5078",
+  "evaluation": "same deterministic validation sampler, seed, and 512-token budget for every arm",
+  "interpretation": "Controlled schedule restart contrast on identical post-800-update examples; not a full reproduction of the historical pilot's data reset.",
+  "learning_rate_trajectory_matches": {
+    "A_vs_B": true
+  },
+  "positions_per_arm": 2000,
+  "restart_contribution": "supported",
+  "resume_cursor_after": {
+    "buffered_tokens": 1280,
+    "cursor": {
+      "shard": 0,
+      "token": 106496
+    },
+    "state_sha256": "93cc175a896d060291e7f9ff07bde4bb26de59ff332e080a376a87475456ff05"
+  },
+  "schema": 1,
+  "shared_training_sequence_sha256": "8852766e65074767f765dac54329ac478ce74bd9a9fb8ef4976b724731649035",
+  "source_checkpoint": "/home/codespace/model/research/foundation/data/learn.pt",
+  "source_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "source_sampler_position": {
+    "buffered_tokens": 3296,
+    "cursor": {
+      "shard": 0,
+      "token": 106496
+    },
+    "mode": "legacy-sequential"
+  },
+  "source_update": 800,
+  "split": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+  "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "training_sequence_matches": true,
+  "updates_per_arm": 16
+}

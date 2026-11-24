@@ -1,0 +1,686 @@
+{
+  "active_objective_tokens_seen": 5212,
+  "answer_target_tokens_seen": 183,
+  "architecture": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "arm": "b",
+  "auxiliary_parameters": 0,
+  "checkpoint": "research/structure/pilot_v5/b.pt",
+  "checkpoint_sha256": "0f36d1337f370d9edd33879f5e8aa3e44b8f8ef247014ab6b219d50b982d0a53",
+  "code": "632662531749c130bc503a1abbcc0ce3bda305221d274d0666b20a9783b2780a",
+  "dataset": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+  "examples_consumed": 12,
+  "examples_per_second": 0.6737084920961288,
+  "fit_seconds": 17.811858007999945,
+  "initial_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "input_tokens_per_second": 822.0927874803012,
+  "input_tokens_seen": 14643,
+  "interrupted": false,
+  "language_target_tokens_seen": 4807,
+  "objective": "structural_recovery",
+  "optimizer_state_restored": true,
+  "parameters": 4470272,
+  "peak_rss_bytes": 960688128,
+  "resources": {
+    "available": 5986615296,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 2965749760,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 2983866368,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 5986615296
+  },
+  "resume_update": 0,
+  "scheduler_start_update": 800,
+  "scheduler_state_restored": true,
+  "seconds": 47.46112907999941,
+  "segment_examples_consumed": 12,
+  "starting_weights_sha256": "aa1784f9c229040cfc79aab5c3256f166152c05b677fd7a2989c1ead7d17d5ac",
+  "structure_target_tokens_seen": 5212,
+  "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "training": [
+    {
+      "active_objective_tokens": 444,
+      "answer_loss": 5.503848552703857,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-001:property:paraphrased:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 7.591160297393799,
+      "input_tokens": 1145,
+      "language_loss": 6.295445919036865,
+      "language_tokens": 356,
+      "learning_rate_after": 0.00027875757575757576,
+      "learning_rate_used": 0.00027878787878787874,
+      "objective_loss": 7.718358516693115,
+      "step": 1,
+      "structure_loss": 7.718358516693115,
+      "structure_tokens": 444
+    },
+    {
+      "active_objective_tokens": 443,
+      "answer_loss": 5.368102550506592,
+      "answer_tokens": 13,
+      "example_ids": [
+        "train-world-003:property:paraphrased:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 7.302464008331299,
+      "input_tokens": 1152,
+      "language_loss": 6.238276958465576,
+      "language_tokens": 361,
+      "learning_rate_after": 0.0002787272727272727,
+      "learning_rate_used": 0.00027875757575757576,
+      "objective_loss": 7.621729850769043,
+      "step": 2,
+      "structure_loss": 7.621729850769043,
+      "structure_tokens": 443
+    },
+    {
+      "active_objective_tokens": 451,
+      "answer_loss": 6.4195237159729,
+      "answer_tokens": 18,
+      "example_ids": [
+        "train-world-012:ownership:irrelevant:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 6.722079753875732,
+      "input_tokens": 1245,
+      "language_loss": 5.778283596038818,
+      "language_tokens": 406,
+      "learning_rate_after": 0.0002786969696969697,
+      "learning_rate_used": 0.0002787272727272727,
+      "objective_loss": 7.4374189376831055,
+      "step": 3,
+      "structure_loss": 7.4374189376831055,
+      "structure_tokens": 451
+    },
+    {
+      "active_objective_tokens": 453,
+      "answer_loss": 6.465272426605225,
+      "answer_tokens": 20,
+      "example_ids": [
+        "train-world-039:add:reordered:action_effect"
+      ],
+      "examples": 1,
+      "gradient_norm": 6.128467559814453,
+      "input_tokens": 1175,
+      "language_loss": 5.910211086273193,
+      "language_tokens": 371,
+      "learning_rate_after": 0.00027866666666666665,
+      "learning_rate_used": 0.0002786969696969697,
+      "objective_loss": 7.240759372711182,
+      "step": 4,
+      "structure_loss": 7.240759372711182,
+      "structure_tokens": 453
+    },
+    {
+      "active_objective_tokens": 444,
+      "answer_loss": 6.255558967590332,
+      "answer_tokens": 19,
+      "example_ids": [
+        "train-world-038:ownership:irrelevant:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.6640849113464355,
+      "input_tokens": 1225,
+      "language_loss": 5.714005947113037,
+      "language_tokens": 400,
+      "learning_rate_after": 0.0002786363636363636,
+      "learning_rate_used": 0.00027866666666666665,
+      "objective_loss": 7.070468425750732,
+      "step": 5,
+      "structure_loss": 7.070468425750732,
+      "structure_tokens": 444
+    },
+    {
+      "active_objective_tokens": 420,
+      "answer_loss": 5.476939678192139,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-028:remove:irrelevant:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.331235408782959,
+      "input_tokens": 1185,
+      "language_loss": 5.777637004852295,
+      "language_tokens": 388,
+      "learning_rate_after": 0.00027860606060606057,
+      "learning_rate_used": 0.0002786363636363636,
+      "objective_loss": 6.886768817901611,
+      "step": 6,
+      "structure_loss": 6.886768817901611,
+      "structure_tokens": 420
+    },
+    {
+      "active_objective_tokens": 419,
+      "answer_loss": 6.319402694702148,
+      "answer_tokens": 20,
+      "example_ids": [
+        "train-world-022:none:reordered:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 5.0451765060424805,
+      "input_tokens": 1127,
+      "language_loss": 5.9653167724609375,
+      "language_tokens": 364,
+      "learning_rate_after": 0.0002785757575757576,
+      "learning_rate_used": 0.00027860606060606057,
+      "objective_loss": 6.6754536628723145,
+      "step": 7,
+      "structure_loss": 6.6754536628723145,
+      "structure_tokens": 419
+    },
+    {
+      "active_objective_tokens": 428,
+      "answer_loss": 5.675503253936768,
+      "answer_tokens": 12,
+      "example_ids": [
+        "train-world-008:remove:structured:influence"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.760563373565674,
+      "input_tokens": 1370,
+      "language_loss": 6.326168060302734,
+      "language_tokens": 477,
+      "learning_rate_after": 0.0002785454545454545,
+      "learning_rate_used": 0.0002785757575757576,
+      "objective_loss": 6.450599670410156,
+      "step": 8,
+      "structure_loss": 6.450599670410156,
+      "structure_tokens": 428
+    },
+    {
+      "active_objective_tokens": 423,
+      "answer_loss": 5.900106430053711,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-009:remove:structured:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.668228626251221,
+      "input_tokens": 1342,
+      "language_loss": 6.156350135803223,
+      "language_tokens": 465,
+      "learning_rate_after": 0.0002785151515151515,
+      "learning_rate_used": 0.0002785454545454545,
+      "objective_loss": 6.244726657867432,
+      "step": 9,
+      "structure_loss": 6.244726657867432,
+      "structure_tokens": 423
+    },
+    {
+      "active_objective_tokens": 409,
+      "answer_loss": 6.355520248413086,
+      "answer_tokens": 18,
+      "example_ids": [
+        "train-world-025:none:counterfactual:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.537425994873047,
+      "input_tokens": 1081,
+      "language_loss": 6.088706016540527,
+      "language_tokens": 345,
+      "learning_rate_after": 0.0002784848484848485,
+      "learning_rate_used": 0.0002785151515151515,
+      "objective_loss": 6.163000583648682,
+      "step": 10,
+      "structure_loss": 6.163000583648682,
+      "structure_tokens": 409
+    },
+    {
+      "active_objective_tokens": 450,
+      "answer_loss": 5.950562953948975,
+      "answer_tokens": 11,
+      "example_ids": [
+        "train-world-009:add:irrelevant:relation_after"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.5457000732421875,
+      "input_tokens": 1227,
+      "language_loss": 5.967036247253418,
+      "language_tokens": 394,
+      "learning_rate_after": 0.00027845454545454544,
+      "learning_rate_used": 0.0002784848484848485,
+      "objective_loss": 5.914013862609863,
+      "step": 11,
+      "structure_loss": 5.914013862609863,
+      "structure_tokens": 450
+    },
+    {
+      "active_objective_tokens": 428,
+      "answer_loss": 6.582962989807129,
+      "answer_tokens": 19,
+      "example_ids": [
+        "train-world-008:remove:structured:invariant"
+      ],
+      "examples": 1,
+      "gradient_norm": 4.363341331481934,
+      "input_tokens": 1369,
+      "language_loss": 5.737748622894287,
+      "language_tokens": 480,
+      "learning_rate_after": 0.0002784242424242424,
+      "learning_rate_used": 0.00027845454545454544,
+      "objective_loss": 5.7144856452941895,
+      "step": 12,
+      "structure_loss": 5.7144856452941895,
+      "structure_tokens": 428
+    }
+  ],
+  "training_sequence_sha256": "c4499ec4081fa407d1256f30471785e7360884db57596a27260c85f39b78d0ba",
+  "training_split": "923b653cac60c2f07fcbf0b95c5398470641dec4b2240b5c9a790f885382890b",
+  "updates": 12,
+  "validation_after": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-009:property:structured:influence",
+          "expected": "Following the stated rules, Yarrow, Larch.",
+          "expected_value": "Yarrow, Larch",
+          "generated": "a\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "compositional_test-world-002:add:natural:relation_after",
+          "expected": "Following the stated rules, yes.",
+          "expected_value": "yes",
+          "generated": "a to\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 6.542603256084301,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 135,
+      "answer_token_accuracy": 0.02962962962962963,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.9705665590560395,
+      "language_target_tokens": 2623,
+      "selected_examples_sha256": "d9f2ae0d122cd5c3ab947931e636c63b41b8ceb0e91acd56036068889dc19c1b",
+      "structure_nll": 5.541152580048103,
+      "structure_target_tokens": 2649,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.3563608909022273,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-002:ownership:structured:influence",
+          "expected": "Under the selected alternative, Slate.",
+          "expected_value": "Slate",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "counterfactual_test-world-001:add:natural:relation_after",
+          "expected": "Under the selected alternative, yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 5.979939692361015,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 105,
+      "answer_token_accuracy": 0.11428571428571428,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.020595974974579,
+      "language_target_tokens": 2639,
+      "selected_examples_sha256": "b45acf4e6c7b4d4178677a5b6b87cb72f4424af905a292c723a244f5cdf1c688",
+      "structure_nll": 5.537327526848097,
+      "structure_target_tokens": 2691,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.3641768859160163,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-009:property:structured:influence",
+          "expected": "Result in this state: Kestrel.",
+          "expected_value": "Kestrel",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "iid_test-world-002:add:natural:relation_after",
+          "expected": "Result in this state: yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 6.45548038172528,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 123,
+      "answer_token_accuracy": 0.008130081300813009,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.906583639641642,
+      "language_target_tokens": 2515,
+      "selected_examples_sha256": "66eb54e69bed93ac92643b3650438559599b50e89120640923054f9f80083a1f",
+      "structure_nll": 5.526144883906314,
+      "structure_target_tokens": 2666,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.35408852213053266,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-009:property:structured:influence",
+          "expected": "After applying the graph rules, Morrow, Wren.",
+          "expected_value": "Morrow, Wren",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "pattern_test-world-002:add:natural:relation_after",
+          "expected": "After applying the graph rules, yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 6.440195670230783,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 139,
+      "answer_token_accuracy": 0.050359712230215826,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.930234374534464,
+      "language_target_tokens": 2827,
+      "selected_examples_sha256": "a509d950e6fd342786fe58a1ea21c1de0548e97e60006b5ce20e0082b5d08e97",
+      "structure_nll": 5.511906787451125,
+      "structure_target_tokens": 2862,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.36792452830188677,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [
+        {
+          "exact_match": false,
+          "example_id": "validation-world-009:property:structured:influence",
+          "expected": "The computed result is Dovetail.",
+          "expected_value": "Dovetail",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        },
+        {
+          "exact_match": false,
+          "example_id": "validation-world-002:add:natural:relation_after",
+          "expected": "The computed result is yes.",
+          "expected_value": "yes",
+          "generated": "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"",
+          "semantic_match": false,
+          "stop_reason": "token_limit"
+        }
+      ],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 2,
+      "answer_nll": 6.056531839785369,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 115,
+      "answer_token_accuracy": 0.05217391304347826,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.807494429772959,
+      "language_target_tokens": 2629,
+      "selected_examples_sha256": "bd066be21b2284f66499ec9e5de17b7f4af6fef23e7021adc1112586e7439d63",
+      "structure_nll": 5.542915939880325,
+      "structure_target_tokens": 2653,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.3788164342254052,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    }
+  },
+  "validation_before": {
+    "compositional_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.498074856510868,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 135,
+      "answer_token_accuracy": 0.2518518518518518,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.083499665938395,
+      "language_target_tokens": 2623,
+      "selected_examples_sha256": "d9f2ae0d122cd5c3ab947931e636c63b41b8ceb0e91acd56036068889dc19c1b",
+      "structure_nll": 7.727735571611058,
+      "structure_target_tokens": 2649,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.19818799546998866,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "counterfactual_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.1669039544605075,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 105,
+      "answer_token_accuracy": 0.3047619047619048,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.168366314019611,
+      "language_target_tokens": 2639,
+      "selected_examples_sha256": "b45acf4e6c7b4d4178677a5b6b87cb72f4424af905a292c723a244f5cdf1c688",
+      "structure_nll": 7.734952393272737,
+      "structure_target_tokens": 2691,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.19546636937941286,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "iid_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.784971857458595,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 123,
+      "answer_token_accuracy": 0.21951219512195122,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 6.047540593194677,
+      "language_target_tokens": 2515,
+      "selected_examples_sha256": "66eb54e69bed93ac92643b3650438559599b50e89120640923054f9f80083a1f",
+      "structure_nll": 7.693992840823426,
+      "structure_target_tokens": 2666,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.18717179294823705,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "pattern_test": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.609657376790218,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 139,
+      "answer_token_accuracy": 0.2949640287769784,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.972957653758127,
+      "language_target_tokens": 2827,
+      "selected_examples_sha256": "a509d950e6fd342786fe58a1ea21c1de0548e97e60006b5ce20e0082b5d08e97",
+      "structure_nll": 7.697268725941016,
+      "structure_target_tokens": 2862,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.2113906359189378,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    },
+    "validation": {
+      "answer_exact": 0.0,
+      "answer_generation_samples": [],
+      "answer_greedy_exact": 0.0,
+      "answer_greedy_examples": 0,
+      "answer_nll": 5.343847573321798,
+      "answer_semantic_accuracy": 0.0,
+      "answer_target_tokens": 115,
+      "answer_token_accuracy": 0.23478260869565218,
+      "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation",
+      "examples": 6,
+      "language_nll": 5.977568735047954,
+      "language_target_tokens": 2629,
+      "selected_examples_sha256": "bd066be21b2284f66499ec9e5de17b7f4af6fef23e7021adc1112586e7439d63",
+      "structure_nll": 7.729449169347298,
+      "structure_target_tokens": 2653,
+      "structure_teacher_forced_exact": 0.0,
+      "structure_teacher_forced_json_valid": 0.0,
+      "structure_teacher_forced_semantic_accuracy": 0.0,
+      "structure_token_accuracy": 0.20731247644176404,
+      "surfaces": {
+        "counterfactual": 1,
+        "irrelevant": 1,
+        "natural": 1,
+        "paraphrased": 1,
+        "reordered": 1,
+        "structured": 1
+      }
+    }
+  },
+  "validation_split": "e2b00a2f901d4c9335b7751c112856ddf642d3bcbf8f191b33bf195553b13fac"
+}

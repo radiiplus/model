@@ -1,0 +1,72 @@
+{
+  "answer_labels": "deterministic capacity, context, relation-path oracle",
+  "examples": 384,
+  "files": [
+    {
+      "examples": 144,
+      "path": "train.jsonl",
+      "sha256": "c75b130b869c454a4b9122c69064dada77ade9cbde430e8922829da2305d78e0",
+      "split": "train",
+      "worlds": 24
+    },
+    {
+      "examples": 48,
+      "path": "validation.jsonl",
+      "sha256": "1fc3dcacb161f01aa0e9182bb4c30e05adf6be78562fae8a896886296480911d",
+      "split": "validation",
+      "worlds": 8
+    },
+    {
+      "examples": 48,
+      "path": "iid_test.jsonl",
+      "sha256": "0aa0dc567e32dd01f8090b5ac04f31e254c434548b1be671683bed28f1322f77",
+      "split": "iid_test",
+      "worlds": 8
+    },
+    {
+      "examples": 48,
+      "path": "compositional_test.jsonl",
+      "sha256": "81cf89b6fcdea2d23ab1aecee4d017e630fdbfdd0aa69bcad2af771f091de7db",
+      "split": "compositional_test",
+      "worlds": 8
+    },
+    {
+      "examples": 96,
+      "path": "counterfactual_test.jsonl",
+      "sha256": "dc04cd8c72ae13d04c602fddbc4d2543636c6749bafa9c5ba5167f3e6dd60192",
+      "split": "counterfactual_test",
+      "worlds": 8
+    }
+  ],
+  "generator": "semantic-correction-benchmark-v1",
+  "manifest_sha256": "3950735151bebf9802ee0e38fc4deb8664237780f4377212046c9bb1e2c7ac25",
+  "schema": 1,
+  "seed_ranges": {
+    "compositional_test": {
+      "count": 8,
+      "start": 43000
+    },
+    "counterfactual_test": {
+      "count": 8,
+      "start": 53000
+    },
+    "iid_test": {
+      "count": 8,
+      "start": 33000
+    },
+    "train": {
+      "count": 24,
+      "start": 13000
+    },
+    "validation": {
+      "count": 8,
+      "start": 23000
+    }
+  },
+  "surfaces": [
+    "explicit",
+    "narrative",
+    "reordered"
+  ],
+  "worlds": 56
+}
