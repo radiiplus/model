@@ -1,0 +1,91 @@
+{
+  "after": {
+    "all": {
+      "accuracy": 0.3800884140725732,
+      "exact": 0.0,
+      "nll": 4.481444747216532,
+      "tokens": 10858,
+      "turns": 96
+    },
+    "oasst1": {
+      "accuracy": 0.38386633866338665,
+      "exact": 0.0,
+      "nll": 4.494777016289755,
+      "tokens": 9756,
+      "turns": 32
+    },
+    "seconds": 3.7194376540010126,
+    "taskmaster1-self": {
+      "accuracy": 0.3463768115942029,
+      "exact": 0.0,
+      "nll": 4.4366509755452475,
+      "tokens": 690,
+      "turns": 32
+    },
+    "taskmaster1-woz": {
+      "accuracy": 0.3470873786407767,
+      "exact": 0.0,
+      "nll": 4.240760488417542,
+      "tokens": 412,
+      "turns": 32
+    }
+  },
+  "before": {
+    "all": {
+      "accuracy": 0.0005525879535826119,
+      "exact": 0.0,
+      "nll": 8.319354348561232,
+      "tokens": 10858,
+      "turns": 96
+    },
+    "oasst1": {
+      "accuracy": 0.0005125051250512505,
+      "exact": 0.0,
+      "nll": 8.311737830055302,
+      "tokens": 9756,
+      "turns": 32
+    },
+    "seconds": 3.772381454000424,
+    "taskmaster1-self": {
+      "accuracy": 0.0014492753623188406,
+      "exact": 0.0,
+      "nll": 8.356270251066789,
+      "tokens": 690,
+      "turns": 32
+    },
+    "taskmaster1-woz": {
+      "accuracy": 0.0,
+      "exact": 0.0,
+      "nll": 8.43788537238408,
+      "tokens": 412,
+      "turns": 32
+    }
+  },
+  "checkpoint": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "code": "3bb4a67c9bb304cbda7c26115c9814d56f7e5b499a81f0e12b06b3587119887a",
+  "count": 96,
+  "dataset": "36cc7a2d28ce9e02a149ef78e017c4e616a4f82abd543fe7287e29d4b3bd6beb",
+  "families": {
+    "oasst1": 32,
+    "taskmaster1-self": 2,
+    "taskmaster1-woz": 1
+  },
+  "limits": "Teacher-forced next-token prediction over held-out assistant spans; exact turn match is not free generation or human-rated quality.",
+  "part": "test",
+  "seed": 2041,
+  "selection": "c5253708d91aac3de32c2045a9264f1deacf49e49478493a402bc7daa2056e5f",
+  "sources": [
+    "oasst1",
+    "taskmaster1-self",
+    "taskmaster1-woz"
+  ],
+  "split": "88281e36febda3050460e48637c20755072b2282328afe7b5330622694de9fd3",
+  "timing": {
+    "device": "cpu",
+    "rss": 512471040,
+    "threads": 1,
+    "wall": 7.849575379999806
+  },
+  "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+  "updates": 800
+}

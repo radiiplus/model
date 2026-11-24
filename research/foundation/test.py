@@ -12,6 +12,7 @@ import torch
 
 from research.foundation import compare, trainer
 from research.foundation.model import Foundation
+from research.foundation import probe
 from research.foundation.recur import Refiner, transfer
 
 
@@ -148,6 +149,20 @@ class Recur(unittest.TestCase):
             self.assertTrue(same(one["optimizer"], two["optimizer"]))
             for key in one["model"]:
                 self.assertTrue(torch.equal(one["model"][key], two["model"][key]), key)
+
+
+class Probe(unittest.TestCase):
+    def test(self):
+        first = probe.sample(trainer.DATA, 96, 2041, 1024)
+        second = probe.sample(trainer.DATA, 96, 2041, 1024)
+        third = probe.sample(trainer.DATA, 96, 2041, 1024, "test")
+        self.assertEqual(first, second)
+        self.assertEqual(len(first), 96)
+        self.assertEqual(len({row["doc"] for row in first}), 96)
+        self.assertEqual(len(third), 96)
+        self.assertFalse({row["doc"] for row in first} & {row["doc"] for row in third})
+        for source in probe.SOURCES:
+            self.assertEqual(sum(row["source"] == source for row in first), 32)
 
 
 def same(one, two):
