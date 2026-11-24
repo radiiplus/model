@@ -1,3 +1,10 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# Regenerate structural datasets from the checked-in generator and manifests.
+research/structure/dataset*/*.jsonl
+
+# Keep generated structural and correction-pilot checkpoints out of Git history.
+research/structure/**/*.pt
+research/interaction/correction_pilot*/corrected.pt

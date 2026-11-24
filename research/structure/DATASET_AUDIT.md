@@ -23,6 +23,16 @@ used to create labels.
 Exact byte counts, hashes, template IDs, generator version, seed ranges, and
 the aggregate counts are in [`dataset_v5/manifest.json`](dataset_v5/manifest.json).
 The manifest is generated with the data and its hashes were checked locally.
+To recreate the dataset in a fresh checkout, write it outside the manifest
+directory (which exists in Git):
+
+```sh
+python -m research.structure.generator --output /tmp/structure-dataset-v5
+```
+
+The generated manifest and split hashes should match the checked-in v5
+manifest. Pass `/tmp/structure-dataset-v5` to `train.py --data` when running a
+training command.
 
 ## World And Oracle
 
