@@ -177,7 +177,7 @@ class Cursor(unittest.TestCase):
             self.assertTrue(any(any(row["mask"]) for row in whole))
             self.assertTrue(all(len(row["ids"]) == len(row["mask"]) for row in whole))
             self.assertEqual(sum(sum(row["mask"]) for row in whole),
-                             sum(len(token.encode("answer now")) for _ in rows))
+                             sum(len(token.encode("answer now")) + 1 for _ in rows))
             with self.assertRaises(FileExistsError):
                 shard.write(source, token, packed, limit=32)
             with self.assertRaises(ValueError):

@@ -150,7 +150,7 @@ def stream(root: Path, split: str, cursor: dict | None = None,
                 for doc in index:
                     for left, right in doc["targets"]:
                         first = max(left, offset)
-                        last = min(right, end)
+                        last = min(right + 1, end)
                         if first < last:
                             mask[first - offset:last - offset] = [True] * (last - first)
                 after = {"shard": pos, "token": end}

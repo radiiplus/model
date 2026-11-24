@@ -1,0 +1,132 @@
+{
+  "architecture": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "before": {
+    "answers": 1334,
+    "interaction": 8.348712561548739,
+    "language": 8.358367025852203,
+    "tokens": 2048.0
+  },
+  "blocks": 4,
+  "bytes": 53730653,
+  "checkpoint": "research/foundation/data/seed4.pt",
+  "device": "cpu",
+  "dtype": "float32",
+  "hashes": {
+    "code": "ac2961dbe384077ea923467d22edddec12b532997d6629a055974f9a403ae183",
+    "config": "a7347a4c61b90971f98b667d32326595f0221110871afd4de29ef6a25b57e091",
+    "dataset": "9016272c1ffb57a3a9bd8dd3e86ef47c3789f5ffbde62a86b451f46a371d5078",
+    "model": "896efb1991d3f9e898c47092965f0aca93dc57dd1287f6d1bafa55cd99cfb7d3",
+    "run": "cb416b42dffd9dd83cbeb6098d67755729ef7ddefe886f9a0261d0fd13771fe3",
+    "split": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+    "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "tokens": 4224016
+  },
+  "interrupted": false,
+  "memory": {
+    "available": 6208925696,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 2702663680,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 2720653312,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 6208925696
+  },
+  "parameters": 4470272,
+  "peakrss": 439316480,
+  "perstep": 0.3458153145002143,
+  "resume": 0,
+  "seconds": 1.3832612580008572,
+  "steps": 4,
+  "threads": 1,
+  "tokens": 256.0,
+  "train": [
+    {
+      "answers": 21.0,
+      "combined": 16.604543685913086,
+      "grad": 52.92985153198242,
+      "interaction": 8.273137092590332,
+      "language": 8.331406593322754,
+      "rate": 2.9999999999999997e-05,
+      "step": 1,
+      "tokens": 64.0
+    },
+    {
+      "answers": 64.0,
+      "combined": 16.176773071289062,
+      "grad": 30.98796272277832,
+      "interaction": 8.088386535644531,
+      "language": 8.088386535644531,
+      "rate": 2.9999999999999997e-05,
+      "step": 2,
+      "tokens": 64.0
+    },
+    {
+      "answers": 64.0,
+      "combined": 15.84103012084961,
+      "grad": 29.14223289489746,
+      "interaction": 7.920515060424805,
+      "language": 7.920515060424805,
+      "rate": 2.9999999999999997e-05,
+      "step": 3,
+      "tokens": 64.0
+    },
+    {
+      "answers": 64.0,
+      "combined": 14.956111907958984,
+      "grad": 29.48000717163086,
+      "interaction": 7.478055953979492,
+      "language": 7.478055953979492,
+      "rate": 2.9999999999999997e-05,
+      "step": 4,
+      "tokens": 64.0
+    }
+  ],
+  "training": {
+    "accum": 1,
+    "batch": 1,
+    "clip": 1.0,
+    "decay": 10000,
+    "eval": 2048,
+    "floor": 0.1,
+    "interval": 100,
+    "lang": 1.0,
+    "penalty": 0.1,
+    "rate": 0.0003,
+    "seed": 2025,
+    "sequence": 64,
+    "sft": 1.0,
+    "steps": 4,
+    "time": 100,
+    "warm": 100
+  },
+  "unique": 3159040,
+  "validation": {
+    "answers": 1334,
+    "interaction": 7.384704164121819,
+    "language": 7.3898187428712845,
+    "tokens": 2048.0
+  }
+}
