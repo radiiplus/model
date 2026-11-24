@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import torch
 
-from research.foundation import compare, trainer
+from research.foundation import compare, trainer, fit
 from research.foundation.model import Foundation
 from research.foundation import probe
 from research.foundation.recur import Refiner, transfer
@@ -163,6 +163,56 @@ class Probe(unittest.TestCase):
         self.assertFalse({row["doc"] for row in first} & {row["doc"] for row in third})
         for source in probe.SOURCES:
             self.assertEqual(sum(row["source"] == source for row in first), 32)
+
+
+class Fitting(unittest.TestCase):
+    def test(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            config = copy.deepcopy(trainer.load())
+            config["model"].update({"context_length": 1024, "layers": 1,
+                                    "d_model": 16, "n_heads": 4, "d_ff": 32})
+            model = Foundation(config["model"])
+            base = root / "base.pt"
+            trainer.save(base, {"config": config, "model": model.state_dict()})
+            origin = fit.seal(base)
+            data = {"status": "approved", "train": [{"episode": "train-one",
+                                "messages": [{"role": "user", "text": "Remember this."}],
+                                "target": "The answer is seven."}],
+                    "validation": {"report": {"gate": "independent-transfer-v1",
+                                                "passed": True, "safe": True}}}
+            mark = __import__("hashlib").sha256(fit.encode(data)).hexdigest()
+            source = root / "approved.json"
+            source.write_text(fit.encode({"schema": 1, "hash": mark, **data}).decode(),
+                              encoding="utf-8")
+            shaped, rows = fit.rows(source)
+            ids, mask = rows[0]
+            prefix = len(shaped["token"].chat(data["train"][0]["messages"], bos=True,
+                                               eos=False)) + 1
+            self.assertTrue(any(mask))
+            self.assertFalse(any(mask[:prefix]))
+            self.assertTrue(all(mask[prefix:]))
+            full = root / "whole.pt"
+            part = root / "part.pt"
+            with patch.object(fit.guard, "available_mib", return_value=4096), \
+                    patch.object(fit.guard, "swap_counters", return_value=None):
+                fit.run(base, source, full, steps=2, seed=91, wall=100)
+                first = fit.run(base, source, part, steps=2, seed=91, wall=100, stop=1)
+                self.assertTrue(first["interrupted"])
+                resumed = fit.run(base, source, part, steps=2, seed=91, wall=100,
+                                  resume=part)
+            self.assertEqual(resumed["step"], 2)
+            self.assertEqual(fit.seal(base), origin)
+            one = torch.load(full, map_location="cpu", weights_only=True)
+            two = torch.load(part, map_location="cpu", weights_only=True)
+            self.assertTrue(same(one["optimizer"], two["optimizer"]))
+            self.assertTrue(torch.equal(one["torch"], two["torch"]))
+            self.assertEqual(one["cursor"], two["cursor"])
+            for key in one["model"]:
+                self.assertTrue(torch.equal(one["model"][key], two["model"][key]), key)
+            with patch.object(fit.guard, "available_mib", return_value=1):
+                with self.assertRaisesRegex(MemoryError, "2560 MiB"):
+                    fit.run(base, source, root / "refused.pt", steps=1)
 
 
 def same(one, two):

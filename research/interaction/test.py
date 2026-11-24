@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 import gzip
+import hashlib
 import json
 import tempfile
 import unittest
 from pathlib import Path
 
+import torch
+
 from research.interaction import corpus, shard
 from research.interaction.tokenizer import SPECIAL, Tokenizer
+from research.interaction.compact import Compact, Learn
+from research.memory.store import Memory
 
 
 class Round(unittest.TestCase):
@@ -189,6 +194,168 @@ class Cursor(unittest.TestCase):
                 file.write(b"x")
             with self.assertRaisesRegex(ValueError, "size mismatch"):
                 shard.check(packed)
+
+
+class Archive(unittest.TestCase):
+    def test(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            memory = Memory(root / "memory.db")
+            policy = {"persist": True, "scope": "team", "owner": "one",
+                      "private": True}
+            event = memory.evidence("The review is due on Friday.", scope="team",
+                                    owner="one", source="project", uri="local:note",
+                                    version="1", licence="internal", policy=policy)
+            value = {"objective": "Finish review", "constraints": ["Friday deadline"],
+                     "numbers": ["3 open items"], "decisions": [{"decision": "Review first",
+                     "reason": "Deadline"}], "facts": [{"claim": "Due Friday", "source": event}],
+                     "unresolved": ["Who owns item three?"], "failures": ["Old plan missed date"],
+                     "dependencies": [{"from": "Review", "to": "Close items"}],
+                     "sources": [event]}
+            compact = Compact(memory)
+            token = Tokenizer.train(["Finish review Friday deadline"], target=300)
+            self.assertFalse(compact.due(value, 4096, token))
+            self.assertTrue(compact.due(value, 1, token))
+            saved = compact.trigger("week", value, 1, scope="team", owner="one",
+                                    policy=policy, expected=None, token=token)
+            self.assertEqual(saved["version"], 1)
+            self.assertTrue(saved["fidelity"]["passed"])
+            source = compact.original("week", 1, scope="team", owner="one")
+            self.assertEqual(source[0]["event"], event)
+            self.assertEqual(source[0]["text"], "The review is due on Friday.")
+            self.assertEqual(compact.latest("week", scope="team", owner="one")["data"], value)
+            changed = dict(value, objective="Revised review objective")
+            compact.compact("week", changed, scope="team", owner="one",
+                            policy=policy, expected=1)
+            restored = compact.rollback("week", 1, scope="team", owner="one",
+                                         policy=policy, expected=2)
+            self.assertEqual(restored["version"], 3)
+            self.assertEqual(restored["rollback"], 1)
+            self.assertEqual(restored["data"], value)
+            with self.assertRaises(ValueError):
+                compact.compact("week", value, scope="team", owner="one",
+                                 policy=policy, expected=1)
+            memory.close()
+
+
+class Experience(unittest.TestCase):
+    def test(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            memory = Memory(root / "memory.db")
+            policy = {"persist": True, "scope": "team", "owner": "one",
+                      "private": True}
+            event = memory.evidence("A project source record.", scope="team", owner="one",
+                                    source="project", uri="local:record", version="1",
+                                    licence="internal", policy=policy)
+            ledger = Learn(Compact(memory))
+
+            class Feed:
+                def episodes(self, scope, owner, limit):
+                    return [{"family": "planning", "instance": "train-1",
+                             "inputhash": hashlib.sha256(b"train-1").hexdigest(),
+                             "actions": [{"op": "compare"}], "answer": "done",
+                             "result": {"status": "pass"}, "cost": {"steps": 1},
+                             "model": "foundation", "adapter": "none",
+                             "strategies": [], "strategyversion": [],
+                             "dataset": "seed", "evidence": [event]}]
+
+            train = ledger.collect(Feed(), scope="team", owner="one", policy=policy)[0]
+
+            def episode(family, instance, mark=None):
+                return ledger.episode({"family": family, "instance": instance,
+                                       "input": mark or hashlib.sha256(instance.encode()).hexdigest(),
+                                       "actions": ["compare"], "answer": "done",
+                                       "result": {"status": "pass"},
+                                       "cost": {"steps": 1}, "model": "foundation",
+                                       "adapter": "none", "strategy": {"ids": []},
+                                       "dataset": "seed",
+                                       "version": "base-1", "sources": [event]},
+                                      scope="team", owner="one", policy=policy)
+
+            same1 = episode("planning", "same-1")
+            same2 = episode("planning", "same-2")
+            hold1 = episode("retrieval", "hold-1")
+            hold2 = episode("retrieval", "hold-2")
+            dup = episode("retrieval", "hold-dup",
+                          hashlib.sha256(b"hold-1").hexdigest())
+            item = ledger.trial("procedure", "Compare constraints before acting.", [train],
+                                [{"episode": train,
+                                  "messages": [{"role": "user", "text": "Compare."}],
+                                  "target": "Check constraints."}], scope="team", owner="one",
+                                policy=policy, model="foundation")
+            other = {"persist": True, "scope": "other", "owner": "one",
+                     "private": True}
+            event2 = memory.evidence("A separate scope record.", scope="other", owner="one",
+                                     source="project", uri="local:other", version="1",
+                                     licence="internal", policy=other)
+            episode2 = ledger.episode({"family": "planning", "instance": "other-1",
+                                      "input": hashlib.sha256(b"other-1").hexdigest(),
+                                      "actions": [], "answer": "done",
+                                      "result": {"status": "pass"}, "cost": {},
+                                      "model": "foundation", "adapter": "none",
+                                      "strategy": {"ids": []}, "dataset": "seed",
+                                      "version": "base-1", "sources": [event2]},
+                                     scope="other", owner="one", policy=other)
+            trial2 = ledger.trial("procedure", "Separate scope procedure.", [episode2],
+                                  [{"episode": episode2,
+                                    "messages": [{"role": "user", "text": "Compare."}],
+                                    "target": "Check constraints."}], scope="other",
+                                  owner="one", policy=other, model="foundation")
+            self.assertEqual(item["version"], trial2["version"])
+            with self.assertRaisesRegex(ValueError, "two or more"):
+                ledger.review("procedure", 1, "external", "deterministic", [hold1, hold1],
+                              {"independent": True, "passed": True, "count": 2,
+                               "families": ["retrieval"], "scores": []},
+                              scope="team", owner="one", policy=policy)
+            with self.assertRaisesRegex(ValueError, "inputs must be unique"):
+                ledger.review("procedure", 1, "external", "deterministic", [hold1, dup],
+                              {"independent": True, "passed": True, "count": 2,
+                               "families": ["retrieval"], "scores": []},
+                              scope="team", owner="one", policy=policy)
+            with self.assertRaisesRegex(ValueError, "family absent"):
+                ledger.review("procedure", 1, "external", "deterministic", [same1, same2],
+                              {"independent": True, "passed": True, "count": 2,
+                               "families": ["planning"], "scores": []},
+                              scope="team", owner="one", policy=policy)
+            review = ledger.review("procedure", 1, "external", "deterministic", [hold1, hold2],
+                                   {"independent": True, "passed": True, "count": 2,
+                                    "families": ["retrieval"],
+                                    "scores": [{"family": "retrieval", "base": 0.25,
+                                                "candidate": 0.75}]},
+                                   scope="team", owner="one", policy=policy)
+            approved = ledger.approve("procedure", 1, review["id"], scope="team",
+                                      owner="one", policy=policy)
+            out = root / "approved.json"
+            export = ledger.export("procedure", 1, out, scope="team", owner="one")
+            self.assertEqual(export["hash"], approved["hash"])
+            base = "a" * 64
+            candidate = root / "candidate.pt"
+            torch.save({"meta": {"base": base, "data": approved["hash"]},
+                        "step": 2, "model": {}}, candidate)
+            report = {"dataset": approved["hash"], "base": base,
+                      "gate": "model-transfer-v1", "independent": True,
+                      "passed": True,
+                      "scores": [{"family": "retrieval", "base": 0.25,
+                                  "candidate": 0.75}]}
+            weak = dict(report, scores=[{"family": "retrieval", "base": 0.75,
+                                         "candidate": 0.25}])
+            with self.assertRaisesRegex(ValueError, "improve on transfer"):
+                ledger.register("foundation", "procedure", 1, candidate,
+                                base, weak, scope="team", owner="one", policy=policy)
+            first = ledger.register("foundation", "procedure", 1, candidate,
+                                    base, report, scope="team", owner="one", policy=policy)
+            secondpath = root / "candidate-two.pt"
+            torch.save({"meta": {"base": base, "data": approved["hash"]},
+                        "step": 3, "model": {}}, secondpath)
+            ledger.register("foundation", "procedure", 1, secondpath,
+                            base, report, scope="team", owner="one", policy=policy)
+            revert = ledger.rollback("foundation", 1, scope="team", owner="one",
+                                     policy=policy)
+            self.assertEqual(revert["rollback"], 1)
+            self.assertEqual(revert["hash"], first["hash"])
+            self.assertEqual(ledger.fetch(train, "team", "one")["family"], "planning")
+            memory.close()
 
 
 if __name__ == "__main__":
