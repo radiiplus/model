@@ -220,6 +220,18 @@ class Memory:
             previous TEXT
         );
         CREATE INDEX IF NOT EXISTS s1 ON skills(scope, owner, name, version);
+        CREATE TABLE IF NOT EXISTS problems(
+            scope TEXT NOT NULL,
+            owner TEXT NOT NULL,
+            ident TEXT NOT NULL,
+            version INTEGER NOT NULL,
+            payload TEXT NOT NULL,
+            hash TEXT NOT NULL,
+            previous TEXT,
+            created TEXT NOT NULL,
+            PRIMARY KEY(scope, owner, ident, version)
+        );
+        CREATE INDEX IF NOT EXISTS p1 ON problems(scope, owner, ident, version);
         CREATE TRIGGER IF NOT EXISTS ti1 BEFORE UPDATE ON events BEGIN SELECT RAISE(ABORT, 'immutable'); END;
         CREATE TRIGGER IF NOT EXISTS ti2 BEFORE DELETE ON events BEGIN SELECT RAISE(ABORT, 'immutable'); END;
         CREATE TRIGGER IF NOT EXISTS ti3 BEFORE UPDATE ON chunks BEGIN SELECT RAISE(ABORT, 'immutable'); END;
@@ -236,6 +248,8 @@ class Memory:
         CREATE TRIGGER IF NOT EXISTS ti14 BEFORE DELETE ON frefs BEGIN SELECT RAISE(ABORT, 'immutable'); END;
         CREATE TRIGGER IF NOT EXISTS ti15 BEFORE UPDATE ON skills BEGIN SELECT RAISE(ABORT, 'immutable'); END;
         CREATE TRIGGER IF NOT EXISTS ti16 BEFORE DELETE ON skills BEGIN SELECT RAISE(ABORT, 'immutable'); END;
+        CREATE TRIGGER IF NOT EXISTS ti17 BEFORE UPDATE ON problems BEGIN SELECT RAISE(ABORT, 'immutable'); END;
+        CREATE TRIGGER IF NOT EXISTS ti18 BEFORE DELETE ON problems BEGIN SELECT RAISE(ABORT, 'immutable'); END;
         """)
         self.sql.commit()
 
@@ -569,6 +583,57 @@ class Memory:
             item["current"] = not item["superseded"]
         return rows
 
+    def save(self, ident: str, payload: dict[str, Any], *, scope: str,
+                    owner: str, expected: int | None,
+                    policy: dict[str, Any] | None = None,
+                    private: bool = False) -> dict[str, Any]:
+        allowed(policy, scope, owner, private)
+        bounded(ident, "problem ID", 256)
+        if not isinstance(payload, dict):
+            raise ValueError("problem state must be an object")
+        encoded = encode(payload)
+        if len(encoded.encode("utf-8")) > 65_536:
+            raise ValueError("problem state exceeds 65536 bytes")
+        if expected is not None and (not isinstance(expected, int) or isinstance(expected, bool)
+                                     or expected < 1):
+            raise ValueError("expected problem version must be a positive integer")
+        mark = digest(encoded)
+        when = stamp()
+        self.sql.execute("BEGIN IMMEDIATE")
+        try:
+            current = self.sql.execute(
+                "SELECT version,hash FROM problems WHERE scope=? AND owner=? AND ident=? "
+                "ORDER BY version DESC LIMIT 1", (scope, owner, ident),
+            ).fetchone()
+            actual = int(current["version"]) if current else None
+            if actual != expected:
+                raise ValueError("problem state version conflict")
+            number = (actual or 0) + 1
+            previous = current["hash"] if current else None
+            self.sql.execute(
+                "INSERT INTO problems VALUES(?,?,?,?,?,?,?,?)",
+                (scope, owner, ident, number, encoded, mark, previous, when),
+            )
+            self.sql.commit()
+        except Exception:
+            self.sql.rollback()
+            raise
+        return {"id": ident, "version": number, "hash": mark,
+                "previous": previous, "created": when, "state": payload}
+
+    def state(self, ident: str, *, scope: str, owner: str) -> dict[str, Any] | None:
+        row = self.sql.execute(
+            "SELECT * FROM problems WHERE scope=? AND owner=? AND ident=? "
+            "ORDER BY version DESC LIMIT 1", (scope, owner, ident),
+        ).fetchone()
+        if row is None:
+            return None
+        if digest(row["payload"]) != row["hash"]:
+            raise ValueError("stored problem state failed its hash check")
+        return {"id": row["ident"], "version": row["version"],
+                "hash": row["hash"], "previous": row["previous"],
+                "created": row["created"], "state": json.loads(row["payload"])}
+
     def request(self, scope: str, owner: str, *, calls: int = 2,
                 bytes: int = 8192, chunks: int = 4,
                 tokens: int = 2048, wall: float = 0.1) -> "Request":
@@ -687,6 +752,50 @@ class Request:
             self.used["bytes"] += row["size"]
             self.used["tokens"] += row["tokens"]
             self.used["chunks"] += 1
+        self.used["wall"] = time.monotonic() - self.started
+        return output
+
+    def reference(self, events: list[str], k: int = 4) -> list[dict[str, Any]]:
+        """Read explicitly referenced historical chunks under this request's budgets."""
+        if self.used["calls"] >= self.budget["calls"]:
+            raise Budget("request retrieval-call budget exhausted")
+        if not isinstance(events, list) or len(events) > CAPS["chunks"]:
+            raise ValueError("historical event references must be a bounded list")
+        if not isinstance(k, int) or isinstance(k, bool) or not 0 <= k <= CAPS["chunks"]:
+            raise ValueError("historical chunk limit must be in 0..128")
+        self.check()
+        self.used["calls"] += 1
+        output = []
+        for event in dict.fromkeys(events):
+            self.check()
+            if not isinstance(event, str) or not event:
+                raise ValueError("historical evidence references must be nonempty IDs")
+            if len(output) >= min(k, self.budget["chunks"] - self.used["chunks"]):
+                break
+            rows = self.memory.sql.execute(
+                "SELECT c.key,c.event,c.part,c.start,c.end,c.size,c.tokens,c.hash AS mark,"
+                "c.text,e.source,e.uri,e.version,e.acquired,e.licence,e.hash,e.meta,"
+                "EXISTS(SELECT 1 FROM events z WHERE z.scope=e.scope AND z.owner=e.owner "
+                "AND z.target=e.id AND z.kind IN ('invalidate','supersede')) AS stale "
+                "FROM chunks c JOIN events e ON e.id=c.event "
+                "WHERE c.scope=? AND c.owner=? AND c.event=? ORDER BY c.part LIMIT ?",
+                (self.scope, self.owner, event, min(k, CAPS["chunks"])),
+            )
+            for row in rows:
+                self.check()
+                if (row["size"] > self.budget["bytes"] - self.used["bytes"]
+                        or row["tokens"] > self.budget["tokens"] - self.used["tokens"]
+                        or len(output) >= k):
+                    continue
+                item = dict(row)
+                item["meta"] = json.loads(item["meta"])
+                item["stale"] = bool(item["stale"])
+                item["trusted"] = False
+                item["trust"] = "untrusted"
+                output.append(item)
+                self.used["bytes"] += row["size"]
+                self.used["tokens"] += row["tokens"]
+                self.used["chunks"] += 1
         self.used["wall"] = time.monotonic() - self.started
         return output
 

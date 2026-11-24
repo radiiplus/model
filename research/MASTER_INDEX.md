@@ -28,6 +28,7 @@ Research a from-scratch language model and inference system for useful capabilit
 | 17: Refinement training | Loop and dual-state trainers with target-only task loss, deep supervision, final-only ablation and exact resume; smoke only | [Trainer](recursive/train.py), [settings](recursive/train.json), [tests](recursive/test.py), [smoke record](recursive/training.json). |
 | 18: Strategy adapters | Frozen Batch 12 byte model with a rank-4 adapter trained from Patch 8 episodes; no-go after zero exact-match gain | [Adapter experiment](adaptive/adapter.py), [checks](adaptive/check.py), [metrics](adaptive/neural.json), [report](adaptive/neural.md). |
 | 19: Offline orchestration | Bounded retrieve-reason-refine-verify flow passes mechanics controls; neural capability remains unproven | [Orchestrator](orchestrator/flow.py), [tests](orchestrator/test.py), [measurement](orchestrator/result.json), [report](orchestrator/report.md). |
+| 20: Problem manager and long context | Scoped immutable task snapshots and priority-budgeted serialized prompts pass mechanics tests; long-context capability remains unproven | [Manager and context record](orchestrator/manager.md), [implementation](orchestrator/flow.py), [SQLite state](memory/store.py), [tests](orchestrator/test.py), [memory tests](memory/test.py). |
 
 ## Master Decision Matrix
 

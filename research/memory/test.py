@@ -198,6 +198,40 @@ class Skills(unittest.TestCase):
             memory.close()
 
 
+class Problems(unittest.TestCase):
+    def test(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "memory.db"
+            memory = Memory(path)
+            state = {"objective": "finish task", "current_state": "start",
+                     "subgoals": [], "established_facts": [], "assumptions": [],
+                     "failed_attempts": [], "completed_work": [], "pending_work": [],
+                     "progress": "", "completion_criteria": [],
+                     "evidence_references": []}
+            with self.assertRaises(PermissionError):
+                memory.save("task", state, scope="work", owner="alice",
+                                   expected=None)
+            first = memory.save("task", state, scope="work", owner="alice",
+                                       expected=None, policy=permit(private=True), private=True)
+            state["progress"] = "halfway"
+            second = memory.save("task", state, scope="work", owner="alice",
+                                        expected=1, policy=permit(private=True), private=True)
+            self.assertEqual(second["version"], 2)
+            self.assertEqual(second["previous"], first["hash"])
+            with self.assertRaises(ValueError):
+                memory.save("task", state, scope="work", owner="alice",
+                                   expected=1, policy=permit(private=True), private=True)
+            self.assertIsNone(memory.state("task", scope="work", owner="bob"))
+            with self.assertRaises(sqlite3.IntegrityError):
+                memory.sql.execute("DELETE FROM problems WHERE ident='task'")
+            memory.close()
+            memory = Memory(path)
+            loaded = memory.state("task", scope="work", owner="alice")
+            self.assertEqual(loaded["state"]["progress"], "halfway")
+            self.assertEqual(memory.integrity(), "ok")
+            memory.close()
+
+
 class Large(unittest.TestCase):
     def test(self):
         with tempfile.TemporaryDirectory() as folder:

@@ -211,6 +211,13 @@
 - **Resume:** the recurrent fit helper uses atomic segment checkpoints with model, optimizer, sampler, Python/Torch RNG, and run identity; an interrupted/resumed K=2 unit run exactly matched uninterrupted model and optimizer states.
 - **Gate and limits:** no three-seed run. The 512-token validation slice had zero assistant-answer targets, and the two-update run does not show that the baseline learned intended interaction behaviors. No capability or recurrent superiority claim. The pilot verifies shared-weight accounting, exact K=1 transfer, data-presentation matching, and bounded training mechanics only.
 
+## Batch 4: Problem manager and long-horizon context
+
+- **Decision:** extend the existing SQLite memory with scope/owner-isolated immutable problem snapshots and extend the existing orchestrator with typed state updates and byte-token-budgeted prompt serialization. The required system instructions and untrusted-evidence rule are included in the serialized model input. No new database, model, dependency or execution tool was added.
+- **Verification:** 20 orchestrator tests and 7 memory tests passed. The wider interaction and model regression selection passed 76/76. Coverage includes objective retention across turns, restart recovery, old referenced evidence, conflicting evidence, context-budget enforcement, serialized injection boundaries, version conflicts, immutable snapshots, evidence-linked facts, and rejecting shell-shaped model proposals.
+- **Measurement:** orchestration tests used 3.441 s process wall and 318,776 KiB peak RSS; memory tests used 0.916 s and 26,368 KiB peak RSS. Both ran with a 120-second timeout; model tests used CPU PyTorch 2.15.0+cpu with one Torch thread. Details are in [`manager.md`](orchestrator/manager.md).
+- **Limits:** these are mechanics tests, not evidence of long-context understanding or objective maintenance by a trained model. The existing 32-token byte checkpoint cannot fit the required serialized system and user fields and now fails closed with context overflow. Lower-priority fields are omitted whole; oversized problem state is projected partially and marked. No learned or generated compaction was tested.
+
 ### Batch 3 learning follow-up
 
 - **Fixed plain run:** seed 2025, 800 updates, sequence 128, 102,400 target positions (2.4% of the 4,224,016 stored train tokens), 4,470,272 parameters, AdamW 3e-4 and 100-update warmup. CPU FP32, one Torch thread, 68.04 s including fixed validation, 446,746,624 B peak RSS, and the existing 2,560 MiB guard. On the fixed 2,048-token validation slice, language loss fell 8.320 to 4.303 nats/token and assistant-only loss fell 8.308 to 4.252.
