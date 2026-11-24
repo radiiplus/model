@@ -1,0 +1,211 @@
+{
+  "files": [
+    {
+      "bytes": 21840104,
+      "examples": 5760,
+      "path": "train.jsonl",
+      "sha256": "99ddc9344475dc239d855f070532047860416e8cbbbfc48526db95e6dcddc9d6",
+      "split": "train"
+    },
+    {
+      "bytes": 5643294,
+      "examples": 1440,
+      "path": "validation.jsonl",
+      "sha256": "4e96a54c1d6624d5624b1ffbfdc902190b9b90f432c2e046600c99cf5c12504b",
+      "split": "validation"
+    },
+    {
+      "bytes": 5577432,
+      "examples": 1440,
+      "path": "iid_test.jsonl",
+      "sha256": "a1b361a5becb6bee951a92e0196c0844d975829c1d39400bdeb5d2c9552e151e",
+      "split": "iid_test"
+    },
+    {
+      "bytes": 5804980,
+      "examples": 1440,
+      "path": "compositional_test.jsonl",
+      "sha256": "6907d528e2f462944525eb1dc3bd3e71b396c260bab98f77c83042fc2c0ae974",
+      "split": "compositional_test"
+    },
+    {
+      "bytes": 6150074,
+      "examples": 1440,
+      "path": "pattern_test.jsonl",
+      "sha256": "ae7977437c1235238183c2076d16ba09e2b9732ccf0a5b1533a41409bfe60946",
+      "split": "pattern_test"
+    },
+    {
+      "bytes": 2381334,
+      "examples": 576,
+      "path": "counterfactual_test.jsonl",
+      "sha256": "5ddf2c3e9b686de7558689eac61e9fe6c5d217ee8fa55aa97ffbe1271e76e3f6",
+      "split": "counterfactual_test"
+    }
+  ],
+  "generator": "research.structure.generator-v2",
+  "oracle": "Deterministic graph/state rules in generator.py; no neural model generates targets.",
+  "query_types": [
+    "influence",
+    "relation_after",
+    "invariant",
+    "action_effect"
+  ],
+  "records": {
+    "examples": 12096,
+    "examples_by_split": {
+      "compositional_test": 1440,
+      "counterfactual_test": 576,
+      "iid_test": 1440,
+      "pattern_test": 1440,
+      "train": 5760,
+      "validation": 1440
+    },
+    "templates_by_split": {
+      "compositional_test": [
+        "compositional_test:answer-action_effect-v1",
+        "compositional_test:answer-influence-v1",
+        "compositional_test:answer-invariant-v1",
+        "compositional_test:answer-relation_after-v1",
+        "compositional_test:counterfactual-v1",
+        "compositional_test:irrelevant-v1",
+        "compositional_test:natural-v1",
+        "compositional_test:paraphrased-v1",
+        "compositional_test:reordered-v1",
+        "compositional_test:structured-v1"
+      ],
+      "counterfactual_test": [
+        "counterfactual_test:answer-action_effect-v1",
+        "counterfactual_test:answer-influence-v1",
+        "counterfactual_test:answer-invariant-v1",
+        "counterfactual_test:answer-relation_after-v1",
+        "counterfactual_test:counterfactual-v1",
+        "counterfactual_test:irrelevant-v1",
+        "counterfactual_test:natural-v1",
+        "counterfactual_test:paraphrased-v1",
+        "counterfactual_test:reordered-v1",
+        "counterfactual_test:structured-v1"
+      ],
+      "iid_test": [
+        "iid_test:answer-action_effect-v1",
+        "iid_test:answer-influence-v1",
+        "iid_test:answer-invariant-v1",
+        "iid_test:answer-relation_after-v1",
+        "iid_test:counterfactual-v1",
+        "iid_test:irrelevant-v1",
+        "iid_test:natural-v1",
+        "iid_test:paraphrased-v1",
+        "iid_test:reordered-v1",
+        "iid_test:structured-v1"
+      ],
+      "pattern_test": [
+        "pattern_test:answer-action_effect-v1",
+        "pattern_test:answer-influence-v1",
+        "pattern_test:answer-invariant-v1",
+        "pattern_test:answer-relation_after-v1",
+        "pattern_test:counterfactual-v1",
+        "pattern_test:irrelevant-v1",
+        "pattern_test:natural-v1",
+        "pattern_test:paraphrased-v1",
+        "pattern_test:reordered-v1",
+        "pattern_test:structured-v1"
+      ],
+      "train": [
+        "train:answer-action_effect-v1",
+        "train:answer-influence-v1",
+        "train:answer-invariant-v1",
+        "train:answer-relation_after-v1",
+        "train:counterfactual-v1",
+        "train:irrelevant-v1",
+        "train:natural-v1",
+        "train:paraphrased-v1",
+        "train:reordered-v1",
+        "train:structured-v1"
+      ],
+      "validation": [
+        "validation:answer-action_effect-v1",
+        "validation:answer-influence-v1",
+        "validation:answer-invariant-v1",
+        "validation:answer-relation_after-v1",
+        "validation:counterfactual-v1",
+        "validation:irrelevant-v1",
+        "validation:natural-v1",
+        "validation:paraphrased-v1",
+        "validation:reordered-v1",
+        "validation:structured-v1"
+      ]
+    },
+    "worlds": 108,
+    "worlds_by_split": {
+      "compositional_test": 12,
+      "counterfactual_test": 12,
+      "iid_test": 12,
+      "pattern_test": 12,
+      "train": 48,
+      "validation": 12
+    }
+  },
+  "relationship_types": [
+    "ownership",
+    "control",
+    "dependency",
+    "containment",
+    "supply",
+    "transfer"
+  ],
+  "schema": 1,
+  "seed_policy": {
+    "compositional_test": {
+      "count": 12,
+      "patterns": [
+        "mixed_chain"
+      ],
+      "seed_start": 41000
+    },
+    "counterfactual_test": {
+      "count": 12,
+      "patterns": [
+        "mixed_chain"
+      ],
+      "seed_start": 61000
+    },
+    "iid_test": {
+      "count": 12,
+      "patterns": [
+        "staggered"
+      ],
+      "seed_start": 31000
+    },
+    "pattern_test": {
+      "count": 12,
+      "patterns": [
+        "diamond",
+        "gated_cycle"
+      ],
+      "seed_start": 51000
+    },
+    "train": {
+      "count": 48,
+      "patterns": [
+        "staggered"
+      ],
+      "seed_start": 11000
+    },
+    "validation": {
+      "count": 12,
+      "patterns": [
+        "staggered"
+      ],
+      "seed_start": 21000
+    }
+  },
+  "surface_ids": [
+    "structured",
+    "natural",
+    "paraphrased",
+    "reordered",
+    "irrelevant",
+    "counterfactual"
+  ],
+  "template_policy": "Manually authored split-specific input, query, and answer templates; no template IDs cross splits."
+}
