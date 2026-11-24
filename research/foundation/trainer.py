@@ -177,7 +177,8 @@ def checkpoint(model: Foundation, opt: torch.optim.Optimizer, schedule: Any,
 
 
 def run(config: dict, root: Path = DATA, output: Path | None = None,
-        resume: Path | None = None, stop: int | None = None) -> dict:
+        resume: Path | None = None, stop: int | None = None,
+        init: Path | None = None) -> dict:
     model = config["model"]
     train = config["train"]
     seed = int(train["seed"])
@@ -203,8 +204,29 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
     torch.manual_seed(seed)
     random.seed(seed)
     meta = pack(root, config)
+    if init is not None:
+        init = Path(init)
+        if not init.is_file():
+            raise FileNotFoundError(init)
+        meta["initial"] = file(init)
+    else:
+        meta["initial"] = None
     sampler = Sampler(root, "train", seed + 1)
     model = Foundation(model)
+    if init is not None:
+        source = torch.load(init, map_location="cpu", weights_only=True)
+        shape = source.get("config")
+        shape = shape.get("model") if isinstance(shape, dict) else None
+        origin = source.get("meta")
+        origin = origin if isinstance(origin, dict) else {}
+        if (shape != config["model"] or "model" not in source
+                or origin.get("dataset") != meta["dataset"]
+                or origin.get("split") != meta["split"]
+                or origin.get("tokenizer") != meta["tokenizer"]):
+            raise ValueError("initial checkpoint architecture or approved data hashes differ")
+        if init.resolve() == (output.resolve() if output is not None else (HERE / "data" / "foundation.pt").resolve()):
+            raise ValueError("initial checkpoint and new output must be separate files")
+        model.load_state_dict(source["model"])
     opt = torch.optim.AdamW(model.parameters(), lr=float(train["rate"]),
                             weight_decay=float(train["penalty"]))
     schedule = torch.optim.lr_scheduler.LambdaLR(opt, lambda step: rate(step, train))
@@ -229,6 +251,7 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
         raise FileExistsError(path)
     started = time.monotonic()
     before = evaluate(model, root, seed + 2, train, started + int(train["time"]))
+    stamp = time.monotonic()
     swap = guard.swap_counters()
     report = []
     interrupted = False
@@ -292,6 +315,7 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
     finally:
         signal.signal(signal.SIGINT, oldint)
         signal.signal(signal.SIGTERM, oldterm)
+    spent = time.monotonic() - stamp
     model.eval()
     duration = time.monotonic() - started
     valid = evaluate(model, root, seed + 2, train, started + int(train["time"]))
@@ -302,6 +326,7 @@ def run(config: dict, root: Path = DATA, output: Path | None = None,
             "interrupted": interrupted or (stop is not None and end < steps),
             "device": "cpu", "dtype": "float32", "threads": torch.get_num_threads(),
             "train": report, "before": before, "validation": valid, "seconds": duration,
+            "fit": spent,
             "perstep": duration / max(1, len(report)),
             "tokens": sum(row["tokens"] for row in report),
             "peakrss": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024,

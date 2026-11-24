@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import torch
 
-from research.foundation import compare, trainer, fit
+from research.foundation import compare, trainer, fit, curriculum
 from research.foundation.model import Foundation
 from research.foundation import probe
 from research.foundation.recur import Refiner, transfer
@@ -213,6 +213,52 @@ class Fitting(unittest.TestCase):
             with patch.object(fit.guard, "available_mib", return_value=1):
                 with self.assertRaisesRegex(MemoryError, "2560 MiB"):
                     fit.run(base, source, root / "refused.pt", steps=1)
+
+
+class Curriculum(unittest.TestCase):
+    def test(self):
+        one = curriculum.plan("a", 250)
+        two = curriculum.plan("b", 250)
+        self.assertEqual(one["config"]["train"]["steps"], 2)
+        self.assertEqual(one["config"]["train"]["lang"], 1.0)
+        self.assertEqual(one["config"]["train"]["sft"], 0.0)
+        self.assertEqual(two["config"]["train"]["lang"], 0.0)
+        self.assertEqual(two["config"]["train"]["sft"], 1.0)
+        with self.assertRaisesRegex(ValueError, "reviewed complete-episode"):
+            curriculum.plan("c", 250)
+        config = trainer.load()
+        config["train"].update({"steps": 3, "sequence": 8, "batch": 1,
+                                "accum": 1, "warm": 0, "decay": 3,
+                                "eval": 32, "interval": 20, "time": 100,
+                                "seed": 33})
+        meta = trainer.pack(trainer.DATA, config)
+        torch.manual_seed(81)
+        model = Foundation(config["model"])
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            initial = root / "initial.pt"
+            trainer.save(initial, {"config": config, "model": model.state_dict(),
+                                   "meta": {key: meta[key] for key in
+                                            ("dataset", "split", "tokenizer")}})
+            mark = trainer.file(initial)
+            full = root / "full.pt"
+            part = root / "part.pt"
+            with patch.object(trainer.guard, "available_mib", return_value=4096), \
+                    patch.object(trainer.guard, "swap_counters", return_value=None):
+                trainer.run(copy.deepcopy(config), output=full, init=initial)
+                first = trainer.run(copy.deepcopy(config), output=part,
+                                    init=initial, stop=1)
+                self.assertTrue(first["interrupted"])
+                resumed = trainer.run(copy.deepcopy(config), output=part,
+                                      resume=part, init=initial)
+            self.assertEqual(resumed["tokens"], 16)
+            self.assertEqual(trainer.file(initial), mark)
+            one = torch.load(full, map_location="cpu", weights_only=True)
+            two = torch.load(part, map_location="cpu", weights_only=True)
+            self.assertEqual(one["meta"]["initial"], mark)
+            self.assertTrue(same(one["optimizer"], two["optimizer"]))
+            for key in one["model"]:
+                self.assertTrue(torch.equal(one["model"][key], two["model"][key]), key)
 
 
 def same(one, two):

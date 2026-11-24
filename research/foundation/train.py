@@ -15,6 +15,7 @@ def main() -> None:
     parser.add_argument("--sequence", type=int)
     parser.add_argument("--stop", type=int)
     parser.add_argument("--resume", type=Path)
+    parser.add_argument("--init", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
@@ -23,7 +24,8 @@ def main() -> None:
         config["train"]["steps"] = args.steps
     if args.sequence is not None:
         config["train"]["sequence"] = args.sequence
-    result = trainer.run(config, output=args.output, resume=args.resume, stop=args.stop)
+    result = trainer.run(config, output=args.output, resume=args.resume,
+                         stop=args.stop, init=args.init)
     raw = json.dumps(result, sort_keys=True, indent=2)
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
