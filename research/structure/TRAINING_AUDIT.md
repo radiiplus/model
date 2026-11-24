@@ -58,6 +58,14 @@ machine summary and artifact hashes are in `training_manifest_v5.json`.
 
 ## Reproduction
 
+Regenerate the ignored dataset files from the checked-in generator and
+manifest before training:
+
+```sh
+/tmp/audit-pytorch-venv/bin/python -m research.structure.generator \
+  --output /tmp/structure-dataset-v5
+```
+
 Run the targeted regression suite:
 
 ```sh
@@ -72,7 +80,7 @@ them because existing reports are intentionally not overwritten.
 env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 \
   PYTHONDONTWRITEBYTECODE=1 /tmp/audit-pytorch-venv/bin/python -m research.structure.train \
   --config research/structure/configs/smoke.json --arm a \
-  --initial research/foundation/data/learn.pt --data research/structure/dataset_v5 \
+  --initial research/foundation/data/learn.pt --data /tmp/structure-dataset-v5 \
   --output research/structure/smoke_v2/a.pt --report research/structure/smoke_v2/arm_a.json
 ```
 
@@ -83,7 +91,7 @@ report paths. This is the bounded pilot command for A:
 env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 \
   PYTHONDONTWRITEBYTECODE=1 /tmp/audit-pytorch-venv/bin/python -m research.structure.train \
   --config research/structure/configs/arm_a.json --arm a \
-  --initial research/foundation/data/learn.pt --data research/structure/dataset_v5 \
+  --initial research/foundation/data/learn.pt --data /tmp/structure-dataset-v5 \
   --output research/structure/pilot_v5/a.pt \
   --report research/structure/pilot_v5/arm_a.json
 ```

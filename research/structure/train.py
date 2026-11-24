@@ -193,8 +193,10 @@ class Order:
                 "order": list(self.order), "rng": self.rng.getstate()}
 
 
-def evaluate(model: Foundation, rows: list[dict[str, Any]], token: Tokenizer,
-             limit: int, seed: int, generate_answers: bool = True) -> dict[str, Any]:
+def select_evaluation_rows(rows: list[dict[str, Any]], limit: int,
+                           seed: int) -> list[dict[str, Any]]:
+    if not rows or limit < 1:
+        raise ValueError("evaluation rows and limit must be nonempty")
     surfaces = ("structured", "natural", "paraphrased", "reordered", "irrelevant",
                 "counterfactual")
     questions = ("influence", "relation_after", "invariant", "action_effect")
@@ -215,8 +217,15 @@ def evaluate(model: Foundation, rows: list[dict[str, Any]], token: Tokenizer,
             selected.append(values[(index // len(surfaces)) % len(values)])
         else:
             selected.append(rows[index % len(rows)])
-    if len(selected) < limit:
-        raise ValueError("evaluation partition is empty")
+    return selected
+
+
+def evaluate(model: Foundation, rows: list[dict[str, Any]], token: Tokenizer,
+             limit: int, seed: int, generate_answers: bool = True,
+             generate_structures: bool = False) -> dict[str, Any]:
+    surfaces = ("structured", "natural", "paraphrased", "reordered", "irrelevant",
+                "counterfactual")
+    selected = select_evaluation_rows(rows, limit, seed)
     language_loss = answer_loss = structure_loss = 0.0
     language_tokens = answer_tokens = structure_tokens = structure_correct = 0
     answer_correct = 0
@@ -305,6 +314,45 @@ def evaluate(model: Foundation, rows: list[dict[str, Any]], token: Tokenizer,
                 "stop_reason": stop_reason,
                 "exact_match": generated_text.strip() == row["answer_target"].strip(),
                 "semantic_match": bool(expected_value) and semantic_value == expected_value})
+    structure_generation_samples = []
+    if generate_answers and generate_structures:
+        for row in selected[:1]:
+            prefix = token.chat([{"role": "user", "text": row["input"]}],
+                                bos=True, eos=False) + [SPECIAL["ASSISTANT"]]
+            generated = list(prefix)
+            body = []
+            stop_reason = "token_limit"
+            invalid_special = None
+            for _ in range(min(480, model.context - len(prefix))):
+                next_id = int(model(torch.tensor([generated], dtype=torch.long))
+                              [0, -1].argmax())
+                if next_id in (SPECIAL["END"], SPECIAL["EOS"]):
+                    stop_reason = "end_token" if next_id == SPECIAL["END"] else "eos_token"
+                    break
+                if next_id not in token.parts:
+                    invalid_special = next_id
+                    stop_reason = "unexpected_special_token"
+                    break
+                body.append(next_id)
+                generated.append(next_id)
+            try:
+                generated_text = (f"<special:{invalid_special}>" if invalid_special is not None
+                                  else token.decode(body))
+                parsed = json.loads(generated_text)
+                expected = json.loads(row["structure_target"])
+                json_valid_generated = True
+                exact_generated = parsed == expected
+            except (ValueError, json.JSONDecodeError, UnicodeDecodeError):
+                generated_text = "" if invalid_special is None else f"<special:{invalid_special}>"
+                json_valid_generated = False
+                exact_generated = False
+            structure_generation_samples.append({
+                "example_id": row["example_id"],
+                "generated": generated_text,
+                "stop_reason": stop_reason,
+                "json_valid": json_valid_generated,
+                "exact_structure": exact_generated,
+                "expected": row["structure_target"]})
     return {"examples": len(selected),
             "language_nll": language_loss / max(1, language_tokens),
             "answer_nll": answer_loss / max(1, answer_tokens),
@@ -322,13 +370,21 @@ def evaluate(model: Foundation, rows: list[dict[str, Any]], token: Tokenizer,
             "structure_teacher_forced_semantic_accuracy":
             structure_semantic_exact / len(selected),
             "structure_teacher_forced_json_valid": json_valid / len(selected),
+            "structure_greedy_examples": len(structure_generation_samples),
+            "structure_greedy_json_valid": sum(row["json_valid"] for row in
+                structure_generation_samples) / max(1, len(structure_generation_samples)),
+            "structure_greedy_exact": sum(row["exact_structure"] for row in
+                structure_generation_samples) / max(1, len(structure_generation_samples)),
+            "structure_generation_samples": structure_generation_samples,
             "language_target_tokens": language_tokens,
             "answer_target_tokens": answer_tokens,
             "structure_target_tokens": structure_tokens,
             "selected_examples_sha256": digest([row["example_id"] for row in selected]),
             "surfaces": {surface: sum(row["surface_id"] == surface for row in selected)
                          for surface in surfaces},
-            "evaluation_mode": "teacher-forced next-token scoring; exact sequence comparison, not free generation"}
+            "evaluation_mode": ("teacher-forced token scoring plus bounded greedy generation"
+                                if generate_structures else
+                                "teacher-forced token scoring plus bounded greedy answer generation")}
 
 
 def checkpoint(path: Path, arm: str, config: dict, model: Foundation,
@@ -519,7 +575,8 @@ def run(config: dict, arm: str, initial: Path, output: Path,
             checkpoint(output, arm, config, model, optimizer, scheduler, order,
                        current, meta, seed, history)
     fit_end = time.monotonic()
-    after = {split: evaluate(model, rows, token, eval_limit, eval_seed)
+    after = {split: evaluate(model, rows, token, eval_limit, eval_seed,
+                             generate_structures=bool(train.get("generate_structures", False)))
              for split, rows in evaluation_rows.items()}
     spent = fit_end - started
     return {"arm": arm, "objective": OBJECTIVES[arm], "architecture": model_config,

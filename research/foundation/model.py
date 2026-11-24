@@ -52,7 +52,7 @@ class Foundation(nn.Module):
     def head(self) -> torch.Tensor:
         return self.token.weight
 
-    def forward(self, tokens: torch.Tensor) -> torch.Tensor:
+    def hidden(self, tokens: torch.Tensor) -> torch.Tensor:
         if not isinstance(tokens, torch.Tensor) or tokens.ndim != 2:
             raise ValueError("tokens must have shape [batch, sequence]")
         batch, length = tokens.shape
@@ -66,7 +66,10 @@ class Foundation(nn.Module):
         state = self.token(tokens) + self.position(positions)[None, :, :]
         for block in self.blocks:
             state = block(state)
-        return F.linear(self.norm(state), self.head)
+        return self.norm(state)
+
+    def forward(self, tokens: torch.Tensor) -> torch.Tensor:
+        return F.linear(self.hidden(tokens), self.head)
 
     def losses(self, tokens: torch.Tensor, mask: torch.Tensor) -> dict[str, torch.Tensor]:
         if tokens.ndim != 2 or tokens.shape[1] < 2:

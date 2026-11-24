@@ -1,0 +1,428 @@
+{
+  "arms": {
+    "json": {
+      "free_generated_exact_structure": 0.0,
+      "free_generated_json_valid": 0.0,
+      "teacher_forced_json_valid": 0.0,
+      "validation_answer_nll": 5.962318236517799,
+      "validation_structure_nll": 5.521901420877241
+    },
+    "slot_combined": {
+      "answer_nll": 4.761700699682193,
+      "answer_semantic_accuracy": 0.0,
+      "validation": {
+        "action_type_accuracy": 0.25,
+        "constraint_violations_per_example": 0.3333333333333333,
+        "entity_identification_accuracy": 0.013888888888888888,
+        "exact_structure": 0.0,
+        "exact_transition": 0.0,
+        "examples": 12,
+        "initial_state_exact": 0.0,
+        "property_accuracy": 0.2361111111111111,
+        "relationship_source_accuracy": 0.9473684210526315,
+        "relationship_target_accuracy": 0.9473684210526315,
+        "relationship_type_accuracy": 0.9473684210526315,
+        "result_state_exact": 0.5833333333333334,
+        "selected_examples_sha256": "8beb53f6ea4461c7331f3343bd3e096bd5c30dc987102c3a9bbe8426a197ff6f"
+      }
+    },
+    "slot_structure": {
+      "answer_nll": 5.227860519169692,
+      "answer_semantic_accuracy": 0.0,
+      "validation": {
+        "action_type_accuracy": 0.16666666666666666,
+        "constraint_violations_per_example": 0.3333333333333333,
+        "entity_identification_accuracy": 0.013888888888888888,
+        "exact_structure": 0.0,
+        "exact_transition": 0.0,
+        "examples": 12,
+        "initial_state_exact": 0.0,
+        "property_accuracy": 0.25462962962962965,
+        "relationship_source_accuracy": 0.9473684210526315,
+        "relationship_target_accuracy": 0.9473684210526315,
+        "relationship_type_accuracy": 0.9473684210526315,
+        "result_state_exact": 0.4166666666666667,
+        "selected_examples_sha256": "8beb53f6ea4461c7331f3343bd3e096bd5c30dc987102c3a9bbe8426a197ff6f"
+      }
+    }
+  },
+  "conclusion": "The explicit head did not achieve exact structure or transition recovery in this 12-update, one-seed pilot. JSON free generation produced no valid structure. The bounded result does not support scaling either objective.",
+  "controls": {
+    "active_supervision": {
+      "json_structure_tokens": 5212,
+      "slot_combined_elements_plus_answer_tokens": {
+        "answer_tokens": 183,
+        "slot_elements": 896
+      },
+      "slot_structure_elements": 896
+    },
+    "dataset_manifest_hashes": {
+      "json": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+      "slot_combined": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880",
+      "slot_structure": "a0aa954d5ef297b4b93b508427216e5aac02c0ee62aff1a1a0ec8ebf28d87880"
+    },
+    "examples_per_arm": {
+      "combined": 12,
+      "json": 12,
+      "slots": 12
+    },
+    "learning_rates": {
+      "combined": [
+        0.00027878787878787874,
+        0.00027875999999999997,
+        0.0002787321212121212,
+        0.00027870424242424236,
+        0.0002786763636363636,
+        0.0002786484848484848,
+        0.000278620606060606,
+        0.0002785927272727272,
+        0.00027856484848484843,
+        0.00027853696969696966,
+        0.0002785090909090909,
+        0.00027848121212121205
+      ],
+      "json": [
+        0.00027878787878787874,
+        0.00027875999999999997,
+        0.0002787321212121212,
+        0.00027870424242424236,
+        0.0002786763636363636,
+        0.0002786484848484848,
+        0.000278620606060606,
+        0.0002785927272727272,
+        0.00027856484848484843,
+        0.00027853696969696966,
+        0.0002785090909090909,
+        0.00027848121212121205
+      ],
+      "slots": [
+        0.00027878787878787874,
+        0.00027875999999999997,
+        0.0002787321212121212,
+        0.00027870424242424236,
+        0.0002786763636363636,
+        0.0002786484848484848,
+        0.000278620606060606,
+        0.0002785927272727272,
+        0.00027856484848484843,
+        0.00027853696969696966,
+        0.0002785090909090909,
+        0.00027848121212121205
+      ]
+    },
+    "optimizer_state_restored": false,
+    "prompt_tokens": {
+      "json": 4624,
+      "slot_combined": 4624,
+      "slot_structure": 4624
+    },
+    "same_dataset_manifest": true,
+    "same_full_evaluation_examples": true,
+    "same_learning_rate_trajectory": true,
+    "same_paired_evaluation_examples": true,
+    "same_prompt_token_budget": true,
+    "same_starting_weights": true,
+    "same_tokenizer": true,
+    "same_training_order": true,
+    "tokenizer_hashes": {
+      "json": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+      "slot_combined": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+      "slot_structure": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8"
+    },
+    "updates_per_arm": {
+      "combined": 12,
+      "json": 12,
+      "slots": 12
+    }
+  },
+  "decision": "NO-GO for further training at this scale",
+  "experiment": "foundation-explicit-structural-head-pilot",
+  "paired_free_generation_examples": {
+    "compositional_test": {
+      "entity_and_edge_metrics_12_examples": {
+        "combined": {
+          "action_type_accuracy": 0.25,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.06944444444444445,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.16666666666666666,
+          "property_accuracy": 0.2337962962962963,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.3157894736842105,
+          "result_state_exact": 0.5833333333333334,
+          "selected_examples_sha256": "70b9a5b5c65c67ba601ccd1dbf91aa09ab6bdf9534b909485274972286b3df0d"
+        },
+        "slots": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.027777777777777776,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.24305555555555555,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.3157894736842105,
+          "result_state_exact": 0.3333333333333333,
+          "selected_examples_sha256": "70b9a5b5c65c67ba601ccd1dbf91aa09ab6bdf9534b909485274972286b3df0d"
+        }
+      },
+      "json_generation": {
+        "exact_structure": false,
+        "example_id": "compositional_test-world-009:property:structured:influence",
+        "expected": "{\"a\":[\"prop\",\"e0\",\"status\",\"restricted\"],\"c\":[\"no-self\",\"single-owner\",\"single-container\",\"dag-dependency\"],\"e\":[[\"e0\",\"Yarrow\",[\"red\",4,\"limited\"]],[\"e1\",\"Larch\",[\"red\",4,\"idle\"]],[\"e2\",\"Kestrel\",[\"silver\",4,\"idle\"]],[\"e3\",\"Indigo\",[\"silver\",7,\"ready\"]],[\"e4\",\"Harbor\",[\"red\",2,\"ready\"]],[\"e5\",\"Dovetail\",[\"green\",7,\"idle\"]]],\"i\":{\"p\":{},\"r\":\"111111\"},\"p\":[\"color\",\"capacity\",\"status\"],\"r\":[[\"r0\",\"o\",\"e0\",\"e1\"],[\"r1\",\"c\",\"e1\",\"e2\"],[\"r2\",\"d\",\"e2\",\"e3\"],[\"r3\",\"s\",\"e3\",\"e4\"],[\"r4\",\"n\",\"e4\",\"e5\"],[\"r5\",\"t\",\"e0\",\"e5\"]],\"s\":{\"p\":{\"e0\":{\"status\":\"restricted\"}},\"r\":\"111111\"},\"t\":[[\"o\",\"ownership\"],[\"c\",\"control\"],[\"d\",\"dependency\"],[\"n\",\"containment\"],[\"s\",\"supply\"],[\"t\",\"transfer\"]],\"u\":[\"inf-owner-control\",\"same-type-path\",\"apply-action\"],\"v\":1}",
+        "generated": "",
+        "json_valid": false,
+        "stop_reason": "token_limit"
+      },
+      "slot_heads": {
+        "combined": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        },
+        "slots": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        }
+      }
+    },
+    "counterfactual_test": {
+      "entity_and_edge_metrics_12_examples": {
+        "combined": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 0.8333333333333334,
+          "entity_identification_accuracy": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.08333333333333333,
+          "property_accuracy": 0.25,
+          "relationship_source_accuracy": 0.8780487804878049,
+          "relationship_target_accuracy": 0.8780487804878049,
+          "relationship_type_accuracy": 0.2926829268292683,
+          "result_state_exact": 0.5833333333333334,
+          "selected_examples_sha256": "1ac36059598c65905fd3c82a694887f3a1f53ecd2d3e44292aa7520ca1122e77"
+        },
+        "slots": {
+          "action_type_accuracy": 0.0,
+          "constraint_violations_per_example": 0.8333333333333334,
+          "entity_identification_accuracy": 0.013888888888888888,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.25462962962962965,
+          "relationship_source_accuracy": 0.8780487804878049,
+          "relationship_target_accuracy": 0.8780487804878049,
+          "relationship_type_accuracy": 0.2926829268292683,
+          "result_state_exact": 0.25,
+          "selected_examples_sha256": "1ac36059598c65905fd3c82a694887f3a1f53ecd2d3e44292aa7520ca1122e77"
+        }
+      },
+      "json_generation": {
+        "exact_structure": false,
+        "example_id": "counterfactual_test-world-002:ownership:structured:influence",
+        "expected": "{\"a\":[\"own\",\"e0\",\"e2\",\"e1\"],\"c\":[\"no-self\",\"single-owner\",\"single-container\",\"dag-dependency\"],\"e\":[[\"e0\",\"Mica\",[\"blue\",7,\"limited\"]],[\"e1\",\"Slate\",[\"blue\",2,\"limited\"]],[\"e2\",\"Upland\",[\"green\",7,\"limited\"]],[\"e3\",\"Zephyr\",[\"green\",7,\"limited\"]],[\"e4\",\"Juniper\",[\"silver\",16,\"idle\"]],[\"e5\",\"Umber\",[\"silver\",11,\"ready\"]]],\"i\":{\"p\":{},\"r\":\"1111110\"},\"p\":[\"color\",\"capacity\",\"status\"],\"r\":[[\"r0\",\"o\",\"e0\",\"e1\"],[\"r1\",\"c\",\"e1\",\"e2\"],[\"r2\",\"d\",\"e2\",\"e3\"],[\"r3\",\"s\",\"e3\",\"e4\"],[\"r4\",\"n\",\"e4\",\"e5\"],[\"r5\",\"t\",\"e0\",\"e5\"],[\"x0\",\"o\",\"e2\",\"e1\"]],\"s\":{\"p\":{},\"r\":\"0111111\"},\"t\":[[\"o\",\"ownership\"],[\"c\",\"control\"],[\"d\",\"dependency\"],[\"n\",\"containment\"],[\"s\",\"supply\"],[\"t\",\"transfer\"]],\"u\":[\"inf-owner-control\",\"same-type-path\",\"apply-action\"],\"v\":1}",
+        "generated": "",
+        "json_valid": false,
+        "stop_reason": "token_limit"
+      },
+      "slot_heads": {
+        "combined": {
+          "constraint_violations_per_example": 1.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        },
+        "slots": {
+          "constraint_violations_per_example": 1.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        }
+      }
+    },
+    "iid_test": {
+      "entity_and_edge_metrics_12_examples": {
+        "combined": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.06944444444444445,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.2777777777777778,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.9473684210526315,
+          "result_state_exact": 0.5833333333333334,
+          "selected_examples_sha256": "98f59afecd38c245b8ecbe7cd016badf026dcf1aadfab19294a53b6ddc2b9472"
+        },
+        "slots": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.013888888888888888,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.2777777777777778,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.9473684210526315,
+          "result_state_exact": 0.25,
+          "selected_examples_sha256": "98f59afecd38c245b8ecbe7cd016badf026dcf1aadfab19294a53b6ddc2b9472"
+        }
+      },
+      "json_generation": {
+        "exact_structure": false,
+        "example_id": "iid_test-world-009:property:structured:influence",
+        "expected": "{\"a\":[\"prop\",\"e0\",\"status\",\"restricted\"],\"c\":[\"no-self\",\"single-owner\",\"single-container\",\"dag-dependency\"],\"e\":[[\"e0\",\"Yonder\",[\"blue\",2,\"idle\"]],[\"e1\",\"Alder\",[\"green\",4,\"idle\"]],[\"e2\",\"Kestrel\",[\"blue\",16,\"limited\"]],[\"e3\",\"Opal\",[\"green\",2,\"ready\"]],[\"e4\",\"Reed\",[\"blue\",7,\"idle\"]],[\"e5\",\"Tarn\",[\"blue\",16,\"limited\"]]],\"i\":{\"p\":{},\"r\":\"111111\"},\"p\":[\"color\",\"capacity\",\"status\"],\"r\":[[\"r0\",\"o\",\"e0\",\"e1\"],[\"r1\",\"s\",\"e1\",\"e2\"],[\"r2\",\"c\",\"e2\",\"e3\"],[\"r3\",\"n\",\"e3\",\"e4\"],[\"r4\",\"d\",\"e4\",\"e5\"],[\"r5\",\"t\",\"e0\",\"e5\"]],\"s\":{\"p\":{\"e0\":{\"status\":\"restricted\"}},\"r\":\"111111\"},\"t\":[[\"o\",\"ownership\"],[\"c\",\"control\"],[\"d\",\"dependency\"],[\"n\",\"containment\"],[\"s\",\"supply\"],[\"t\",\"transfer\"]],\"u\":[\"inf-owner-control\",\"same-type-path\",\"apply-action\"],\"v\":1}",
+        "generated": "",
+        "json_valid": false,
+        "stop_reason": "token_limit"
+      },
+      "slot_heads": {
+        "combined": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        },
+        "slots": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        }
+      }
+    },
+    "pattern_test": {
+      "entity_and_edge_metrics_12_examples": {
+        "combined": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 1.8333333333333333,
+          "entity_identification_accuracy": 0.05555555555555555,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.2523148148148148,
+          "relationship_source_accuracy": 0.39,
+          "relationship_target_accuracy": 0.39,
+          "relationship_type_accuracy": 0.19,
+          "result_state_exact": 0.3333333333333333,
+          "selected_examples_sha256": "dd82d4d571cc94bf71254ef4eff3f2eb474f99676589dc9c982e4900e8791158"
+        },
+        "slots": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 1.0,
+          "entity_identification_accuracy": 0.027777777777777776,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.2824074074074074,
+          "relationship_source_accuracy": 0.39,
+          "relationship_target_accuracy": 0.39,
+          "relationship_type_accuracy": 0.19,
+          "result_state_exact": 0.0,
+          "selected_examples_sha256": "dd82d4d571cc94bf71254ef4eff3f2eb474f99676589dc9c982e4900e8791158"
+        }
+      },
+      "json_generation": {
+        "exact_structure": false,
+        "example_id": "pattern_test-world-009:property:structured:influence",
+        "expected": "{\"a\":[\"prop\",\"e0\",\"status\",\"restricted\"],\"c\":[\"no-self\",\"single-owner\",\"single-container\",\"dag-dependency\"],\"e\":[[\"e0\",\"Morrow\",[\"silver\",2,\"limited\"]],[\"e1\",\"Wren\",[\"red\",7,\"ready\"]],[\"e2\",\"Vale\",[\"blue\",16,\"idle\"]],[\"e3\",\"Opal\",[\"green\",7,\"limited\"]],[\"e4\",\"Elm\",[\"green\",2,\"ready\"]],[\"e5\",\"North\",[\"blue\",7,\"ready\"]]],\"i\":{\"p\":{},\"r\":\"11111111\"},\"p\":[\"color\",\"capacity\",\"status\"],\"r\":[[\"r0\",\"c\",\"e0\",\"e1\"],[\"r1\",\"c\",\"e1\",\"e2\"],[\"r2\",\"c\",\"e2\",\"e0\"],[\"r3\",\"o\",\"e3\",\"e4\"],[\"r4\",\"n\",\"e4\",\"e5\"],[\"r5\",\"s\",\"e3\",\"e5\"],[\"r6\",\"d\",\"e0\",\"e4\"],[\"r7\",\"t\",\"e2\",\"e5\"]],\"s\":{\"p\":{\"e0\":{\"status\":\"restricted\"}},\"r\":\"11111111\"},\"t\":[[\"o\",\"ownership\"],[\"c\",\"control\"],[\"d\",\"dependency\"],[\"n\",\"containment\"],[\"s\",\"supply\"],[\"t\",\"transfer\"]],\"u\":[\"inf-owner-control\",\"same-type-path\",\"apply-action\"],\"v\":1}",
+        "generated": "",
+        "json_valid": false,
+        "stop_reason": "token_limit"
+      },
+      "slot_heads": {
+        "combined": {
+          "constraint_violations_per_example": 2.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        },
+        "slots": {
+          "constraint_violations_per_example": 1.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        }
+      }
+    },
+    "validation": {
+      "entity_and_edge_metrics_12_examples": {
+        "combined": {
+          "action_type_accuracy": 0.25,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.013888888888888888,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.2361111111111111,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.9473684210526315,
+          "result_state_exact": 0.5833333333333334,
+          "selected_examples_sha256": "8beb53f6ea4461c7331f3343bd3e096bd5c30dc987102c3a9bbe8426a197ff6f"
+        },
+        "slots": {
+          "action_type_accuracy": 0.16666666666666666,
+          "constraint_violations_per_example": 0.3333333333333333,
+          "entity_identification_accuracy": 0.013888888888888888,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "examples": 12,
+          "initial_state_exact": 0.0,
+          "property_accuracy": 0.25462962962962965,
+          "relationship_source_accuracy": 0.9473684210526315,
+          "relationship_target_accuracy": 0.9473684210526315,
+          "relationship_type_accuracy": 0.9473684210526315,
+          "result_state_exact": 0.4166666666666667,
+          "selected_examples_sha256": "8beb53f6ea4461c7331f3343bd3e096bd5c30dc987102c3a9bbe8426a197ff6f"
+        }
+      },
+      "json_generation": {
+        "exact_structure": false,
+        "example_id": "validation-world-009:property:structured:influence",
+        "expected": "{\"a\":[\"prop\",\"e0\",\"status\",\"restricted\"],\"c\":[\"no-self\",\"single-owner\",\"single-container\",\"dag-dependency\"],\"e\":[[\"e0\",\"Umber\",[\"red\",16,\"ready\"]],[\"e1\",\"Tarn\",[\"silver\",16,\"ready\"]],[\"e2\",\"Dovetail\",[\"red\",16,\"idle\"]],[\"e3\",\"Esker\",[\"red\",7,\"limited\"]],[\"e4\",\"Wren\",[\"silver\",4,\"idle\"]],[\"e5\",\"Pollen\",[\"blue\",7,\"ready\"]]],\"i\":{\"p\":{},\"r\":\"111111\"},\"p\":[\"color\",\"capacity\",\"status\"],\"r\":[[\"r0\",\"o\",\"e0\",\"e1\"],[\"r1\",\"s\",\"e1\",\"e2\"],[\"r2\",\"c\",\"e2\",\"e3\"],[\"r3\",\"n\",\"e3\",\"e4\"],[\"r4\",\"d\",\"e4\",\"e5\"],[\"r5\",\"t\",\"e0\",\"e5\"]],\"s\":{\"p\":{\"e0\":{\"status\":\"restricted\"}},\"r\":\"111111\"},\"t\":[[\"o\",\"ownership\"],[\"c\",\"control\"],[\"d\",\"dependency\"],[\"n\",\"containment\"],[\"s\",\"supply\"],[\"t\",\"transfer\"]],\"u\":[\"inf-owner-control\",\"same-type-path\",\"apply-action\"],\"v\":1}",
+        "generated": "",
+        "json_valid": false,
+        "stop_reason": "token_limit"
+      },
+      "slot_heads": {
+        "combined": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        },
+        "slots": {
+          "constraint_violations_per_example": 0.0,
+          "exact_structure": 0.0,
+          "exact_transition": 0.0,
+          "selected_same_example_as_json": true
+        }
+      }
+    }
+  },
+  "parameters": {
+    "explicit_head": 237468,
+    "foundation": 4470272,
+    "slot_total": 4707740
+  },
+  "schema": 1
+}
