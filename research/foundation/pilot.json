@@ -1,0 +1,457 @@
+{
+  "code": "efddc489f4b4af4bed05373643015e943033b01dabdd45e045b51ede5aa844af",
+  "cost": {
+    "equal": true,
+    "loop": {
+      "blockrate": 5155.242111472436,
+      "blocks": 4,
+      "calls": 16,
+      "feed": [
+        "1ad9ef79ab0c380f09b802d72c25bd5a8ad8c03c9bfd594f10b84b00ee8b6515",
+        "05bd97319c4e2d7d6bb7071d8b4639aec28b5e21b60c767f0cf9ec4f4c7cab40"
+      ],
+      "identity": "881f7441083defcf396c8e9f49dd178c5be676eb90a44e230c3839d0e30bb1eb",
+      "interrupted": false,
+      "name": "recur-token",
+      "parameters": 4474368,
+      "positions": 1024,
+      "prefix": "58f7ea273c9b0b152586f2258b96448d2f944017635870820057f4518b213bec",
+      "resume": 0,
+      "seconds": 0.19863276599971869,
+      "speed": 644.4052639340545,
+      "steps": 2,
+      "tokens": 128,
+      "train": [
+        {
+          "calls": 8,
+          "grad": 52.936004638671875,
+          "positions": 512,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              },
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              }
+            ]
+          ],
+          "step": 1,
+          "tokens": 64
+        },
+        {
+          "calls": 8,
+          "grad": 30.99091148376465,
+          "positions": 512,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 8.08837604522705,
+                "language": 8.08837604522705
+              },
+              {
+                "answers": 64,
+                "interaction": 8.088242530822754,
+                "language": 8.088242530822754
+              }
+            ]
+          ],
+          "step": 2,
+          "tokens": 64
+        }
+      ],
+      "updates": 2
+    },
+    "plain": {
+      "blockrate": 4102.416343263836,
+      "blocks": 4,
+      "calls": 16,
+      "feed": [
+        "1ad9ef79ab0c380f09b802d72c25bd5a8ad8c03c9bfd594f10b84b00ee8b6515",
+        "05bd97319c4e2d7d6bb7071d8b4639aec28b5e21b60c767f0cf9ec4f4c7cab40",
+        "a011ee5e4e6aa015ac6dce43d6e6c3ea1e303e33228b47344784565e36e2888d",
+        "082136342f36c43f9ab031b978c000da2f8535d80d72cd61096a1ebcf14bb5ba"
+      ],
+      "identity": "655c879b57a11f93b046ef6b81d6e329589de7066800272c8390cea5c25e976c",
+      "interrupted": false,
+      "name": "plain-compute",
+      "parameters": 4470272,
+      "positions": 1024,
+      "prefix": "baf97d949b2efcbd361cbaf89ac4c4018307c4f2404569ed1cdbc59fea344049",
+      "resume": 0,
+      "seconds": 0.249608989999615,
+      "speed": 1025.604085815959,
+      "steps": 1,
+      "tokens": 256,
+      "train": [
+        {
+          "calls": 4,
+          "grad": 52.92985153198242,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              }
+            ]
+          ],
+          "step": 1,
+          "tokens": 64
+        },
+        {
+          "calls": 4,
+          "grad": 30.98796272277832,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 8.088386535644531,
+                "language": 8.088386535644531
+              }
+            ]
+          ],
+          "step": 2,
+          "tokens": 64
+        },
+        {
+          "calls": 4,
+          "grad": 29.14223289489746,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 7.920515060424805,
+                "language": 7.920515060424805
+              }
+            ]
+          ],
+          "step": 3,
+          "tokens": 64
+        },
+        {
+          "calls": 4,
+          "grad": 29.48000717163086,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 7.478055953979492,
+                "language": 7.478055953979492
+              }
+            ]
+          ],
+          "step": 4,
+          "tokens": 64
+        }
+      ],
+      "updates": 4
+    },
+    "ratio": 2.0
+  },
+  "data": {
+    "hashes": {
+      "code": "ac2961dbe384077ea923467d22edddec12b532997d6629a055974f9a403ae183",
+      "config": "a7347a4c61b90971f98b667d32326595f0221110871afd4de29ef6a25b57e091",
+      "dataset": "9016272c1ffb57a3a9bd8dd3e86ef47c3789f5ffbde62a86b451f46a371d5078",
+      "model": "896efb1991d3f9e898c47092965f0aca93dc57dd1287f6d1bafa55cd99cfb7d3",
+      "run": "160ea47cde363fadf5769e651a811c2c1c31152fa142e5cd5c09874329853ec2",
+      "split": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+      "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+      "tokens": 4224016
+    },
+    "prefix": [
+      "1ad9ef79ab0c380f09b802d72c25bd5a8ad8c03c9bfd594f10b84b00ee8b6515",
+      "05bd97319c4e2d7d6bb7071d8b4639aec28b5e21b60c767f0cf9ec4f4c7cab40"
+    ],
+    "unit": 64,
+    "validation": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436"
+  },
+  "hashes": {
+    "code": "efddc489f4b4af4bed05373643015e943033b01dabdd45e045b51ede5aa844af",
+    "config": "8cb2dd9c706ac4f04b70cef92624abb2aeddf1bfd5c706712b533319020888f0",
+    "data": "9016272c1ffb57a3a9bd8dd3e86ef47c3789f5ffbde62a86b451f46a371d5078",
+    "settings": "86e35abd64dfc98499d09e9243d0d6c7b259eab0ad6a240444d11f0a05872664",
+    "split": "e622c83f287fe699dbd717620208604a36b01b0d7e673d6bac6490753494cbdd",
+    "tokenizer": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8"
+  },
+  "limitation": "One seed and a short pilot; no capability or superiority claim.",
+  "match": {
+    "equal": true,
+    "identical": true,
+    "loop": {
+      "blockrate": 5155.242111472436,
+      "blocks": 4,
+      "calls": 16,
+      "feed": [
+        "1ad9ef79ab0c380f09b802d72c25bd5a8ad8c03c9bfd594f10b84b00ee8b6515",
+        "05bd97319c4e2d7d6bb7071d8b4639aec28b5e21b60c767f0cf9ec4f4c7cab40"
+      ],
+      "identity": "881f7441083defcf396c8e9f49dd178c5be676eb90a44e230c3839d0e30bb1eb",
+      "interrupted": false,
+      "name": "recur-token",
+      "parameters": 4474368,
+      "positions": 1024,
+      "prefix": "58f7ea273c9b0b152586f2258b96448d2f944017635870820057f4518b213bec",
+      "resume": 0,
+      "seconds": 0.19863276599971869,
+      "speed": 644.4052639340545,
+      "steps": 2,
+      "tokens": 128,
+      "train": [
+        {
+          "calls": 8,
+          "grad": 52.936004638671875,
+          "positions": 512,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              },
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              }
+            ]
+          ],
+          "step": 1,
+          "tokens": 64
+        },
+        {
+          "calls": 8,
+          "grad": 30.99091148376465,
+          "positions": 512,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 8.08837604522705,
+                "language": 8.08837604522705
+              },
+              {
+                "answers": 64,
+                "interaction": 8.088242530822754,
+                "language": 8.088242530822754
+              }
+            ]
+          ],
+          "step": 2,
+          "tokens": 64
+        }
+      ],
+      "updates": 2
+    },
+    "plain": {
+      "blockrate": 3439.6336204502154,
+      "blocks": 4,
+      "calls": 8,
+      "feed": [
+        "1ad9ef79ab0c380f09b802d72c25bd5a8ad8c03c9bfd594f10b84b00ee8b6515",
+        "05bd97319c4e2d7d6bb7071d8b4639aec28b5e21b60c767f0cf9ec4f4c7cab40"
+      ],
+      "identity": "175b5fd9dfd40dd98909e0190468e936f05cf921393e75c9ea93117b26ea0454",
+      "interrupted": false,
+      "name": "plain-token",
+      "parameters": 4470272,
+      "positions": 512,
+      "prefix": "58f7ea273c9b0b152586f2258b96448d2f944017635870820057f4518b213bec",
+      "resume": 0,
+      "seconds": 0.14885306299947842,
+      "speed": 859.9084051125539,
+      "steps": 1,
+      "tokens": 128,
+      "train": [
+        {
+          "calls": 4,
+          "grad": 52.92985153198242,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 21,
+                "interaction": 8.273137092590332,
+                "language": 8.331406593322754
+              }
+            ]
+          ],
+          "step": 1,
+          "tokens": 64
+        },
+        {
+          "calls": 4,
+          "grad": 30.98796272277832,
+          "positions": 256,
+          "rate": 3e-05,
+          "stages": [
+            [
+              {
+                "answers": 64,
+                "interaction": 8.088386535644531,
+                "language": 8.088386535644531
+              }
+            ]
+          ],
+          "step": 2,
+          "tokens": 64
+        }
+      ],
+      "updates": 2
+    }
+  },
+  "model": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "parameters": {
+    "gates": 4096,
+    "plain": 4470272,
+    "recur": 4474368,
+    "shared": 3159040
+  },
+  "recur": {
+    "accum": 1,
+    "batch": 1,
+    "clip": 1.0,
+    "deep": [
+      0.5,
+      0.5
+    ],
+    "eval": 512,
+    "lang": 1.0,
+    "limit": 4,
+    "penalty": 0.1,
+    "rate": 3e-05,
+    "seed": 2025,
+    "sequence": 64,
+    "sft": 1.0,
+    "steps": 2,
+    "time": 100,
+    "updates": 2
+  },
+  "seed": 2025,
+  "timing": {
+    "device": "cpu",
+    "eval": 0.44888197499858506,
+    "rss": 549072896,
+    "threads": 1,
+    "wall": 1.4449359419995744
+  },
+  "transfer": {
+    "answer": [
+      1,
+      4,
+      256
+    ],
+    "exact": true,
+    "latent": [
+      1,
+      4,
+      256
+    ],
+    "limit": 4
+  },
+  "validation": {
+    "after": {
+      "plain-compute": {
+        "feed": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436",
+        "name": "plain-compute",
+        "stages": [
+          {
+            "answers": 0,
+            "interaction": null,
+            "language": 7.378675997257233,
+            "tokens": 512
+          }
+        ],
+        "steps": 1
+      },
+      "plain-token": {
+        "feed": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436",
+        "name": "plain-token",
+        "stages": [
+          {
+            "answers": 0,
+            "interaction": null,
+            "language": 7.76292097568512,
+            "tokens": 512
+          }
+        ],
+        "steps": 1
+      },
+      "recur-k1-after-k2": {
+        "feed": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436",
+        "name": "recur-k1-after-k2",
+        "stages": [
+          {
+            "answers": 0,
+            "interaction": null,
+            "language": 7.76289290189743,
+            "tokens": 512
+          }
+        ],
+        "steps": 1
+      },
+      "recur-k2": {
+        "feed": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436",
+        "name": "recur-k2",
+        "stages": [
+          {
+            "answers": 0,
+            "interaction": null,
+            "language": 7.76289290189743,
+            "tokens": 512
+          },
+          {
+            "answers": 0,
+            "interaction": null,
+            "language": 7.7625152468681335,
+            "tokens": 512
+          }
+        ],
+        "steps": 2
+      }
+    },
+    "before": {
+      "feed": "8bb023e023b76a672aa27b4dfd432df455f8a089492c59987bc17ae31fe24436",
+      "name": "plain",
+      "stages": [
+        {
+          "answers": 0,
+          "interaction": null,
+          "language": 8.386938571929932,
+          "tokens": 512
+        }
+      ],
+      "steps": 1
+    }
+  }
+}
