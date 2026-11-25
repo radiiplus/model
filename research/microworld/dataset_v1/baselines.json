@@ -1,0 +1,180 @@
+{
+  "evaluation": "exact oracle output equality; no neural model involved",
+  "partitions": {
+    "compositional_test": {
+      "examples": 1008,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 1008,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 0,
+          "covered": 0,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 1008,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.4523809523809524
+        },
+        "template_system": {
+          "answer_text_examples": 1008,
+          "covered": 1008,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    },
+    "counterfactual_test": {
+      "examples": 1200,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 1200,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 0,
+          "covered": 0,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 1200,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.535
+        },
+        "template_system": {
+          "answer_text_examples": 1200,
+          "covered": 1200,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    },
+    "grammar_test": {
+      "examples": 168,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 168,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 0,
+          "covered": 0,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 168,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.5238095238095238
+        },
+        "template_system": {
+          "answer_text_examples": 168,
+          "covered": 168,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    },
+    "iid_test": {
+      "examples": 2520,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 2520,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 0,
+          "covered": 0,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 2520,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.5023809523809524
+        },
+        "template_system": {
+          "answer_text_examples": 2520,
+          "covered": 2520,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    },
+    "train": {
+      "examples": 17640,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 17640,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 17640,
+          "covered": 17640,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 17640,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.5197278911564626
+        },
+        "template_system": {
+          "answer_text_examples": 17640,
+          "covered": 17640,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    },
+    "validation": {
+      "examples": 2520,
+      "methods": {
+        "direct_oracle": {
+          "answer_text_examples": 0,
+          "covered": 2520,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 1.0
+        },
+        "exact_retrieval": {
+          "answer_text_examples": 0,
+          "covered": 0,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.0
+        },
+        "majority_answer": {
+          "answer_text_examples": 0,
+          "covered": 2520,
+          "exact_answer_text_accuracy": null,
+          "exact_structural_accuracy": 0.5166666666666667
+        },
+        "template_system": {
+          "answer_text_examples": 2520,
+          "covered": 2520,
+          "exact_answer_text_accuracy": 1.0,
+          "exact_structural_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "training_rows": 17640
+}

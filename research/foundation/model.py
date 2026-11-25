@@ -9,7 +9,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from research.experiments.tiny_gpt import DecoderBlock, TinyGPT
+from research.experiments.tiny_gpt import DecoderBlock, FoundationKVCache, TinyGPT
 
 
 class Foundation(nn.Module):
@@ -70,6 +70,35 @@ class Foundation(nn.Module):
 
     def forward(self, tokens: torch.Tensor) -> torch.Tensor:
         return F.linear(self.hidden(tokens), self.head)
+
+    def new_kv_cache(self, batch: int = 1,
+                     backing_directory: Path | None = None) -> FoundationKVCache:
+        return FoundationKVCache(
+            batch=batch, layers=self.layers, heads=int(self.config["n_heads"]),
+            context=self.context, head_dim=int(self.config["d_model"]) //
+            int(self.config["n_heads"]), backing_directory=backing_directory)
+
+    def forward_cached(self, tokens: torch.Tensor,
+                       cache: FoundationKVCache) -> torch.Tensor:
+        if tokens.ndim != 2 or tokens.dtype != torch.long or tokens.device.type != "cpu":
+            raise ValueError("cached tokens must be CPU torch.long with shape [batch, sequence]")
+        batch, length = tokens.shape
+        if (batch != cache.batch or length < 1 or cache.length + length > self.context
+                or cache.layers != self.layers or cache.context != self.context
+                or cache.heads != int(self.config["n_heads"])
+                or cache.head_dim != int(self.config["d_model"]) //
+                int(self.config["n_heads"])):
+            raise ValueError("cached input shape exceeds or differs from its cache")
+        if bool(torch.any(tokens < 0)) or bool(torch.any(tokens >= self.vocab)):
+            raise ValueError("token ID is outside the configured vocabulary")
+        start = cache.length
+        positions = torch.arange(start, start + length, device=tokens.device)
+        state = self.token(tokens) + self.position(positions)[None, :, :]
+        for index, block in enumerate(self.blocks):
+            state = block.forward_cached(
+                state, cache.keys[index], cache.values[index], start)
+        cache.length += length
+        return F.linear(self.norm(state), self.head)
 
     def losses(self, tokens: torch.Tensor, mask: torch.Tensor) -> dict[str, torch.Tensor]:
         if tokens.ndim != 2 or tokens.shape[1] < 2:

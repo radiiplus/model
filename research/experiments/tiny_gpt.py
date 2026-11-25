@@ -32,6 +32,27 @@ class CausalSelfAttention(nn.Module):
         attended = (weights @ v).transpose(1, 2).contiguous().view(batch, length, width)
         return self.proj(attended)
 
+    def forward_cached(self, x: torch.Tensor, key_cache: torch.Tensor,
+                       value_cache: torch.Tensor, past_length: int) -> torch.Tensor:
+        batch, length, width = x.shape
+        qkv = self.qkv(x).view(batch, length, 3, self.n_heads, self.head_dim)
+        q, key, value = qkv.permute(2, 0, 3, 1, 4).unbind(0)
+        end = past_length + length
+        key_cache[:, :, past_length:end].copy_(key)
+        value_cache[:, :, past_length:end].copy_(value)
+        keys = key_cache[:, :, :end]
+        values = value_cache[:, :, :end]
+        scores = (q @ keys.transpose(-2, -1)) / math.sqrt(self.head_dim)
+        if length > 1:
+            query_positions = past_length + torch.arange(length, device=x.device)
+            key_positions = torch.arange(end, device=x.device)
+            future = key_positions[None, :] > query_positions[:, None]
+            scores = scores.masked_fill(
+                future[None, None, :, :], torch.finfo(scores.dtype).min)
+        weights = F.softmax(scores, dim=-1)
+        attended = (weights @ values).transpose(1, 2).contiguous().view(batch, length, width)
+        return self.proj(attended)
+
 
 class MLP(nn.Module):
     def __init__(self, d_model: int, d_ff: int):
@@ -54,6 +75,58 @@ class DecoderBlock(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = x + self.attn(self.ln_attn(x))
         return x + self.mlp(self.ln_mlp(x))
+
+    def forward_cached(self, x: torch.Tensor, key_cache: torch.Tensor,
+                       value_cache: torch.Tensor, past_length: int) -> torch.Tensor:
+        x = x + self.attn.forward_cached(
+            self.ln_attn(x), key_cache, value_cache, past_length)
+        return x + self.mlp(self.ln_mlp(x))
+
+
+class FoundationKVCache:
+    """Preallocated CPU keys/values; optional mmap backing lets the OS page cold cache data."""
+
+    def __init__(self, *, batch: int, layers: int, heads: int, context: int,
+                 head_dim: int, backing_directory: Path | None = None):
+        if min(batch, layers, heads, context, head_dim) < 1:
+            raise ValueError("KV cache dimensions must be positive")
+        self.batch = batch
+        self.layers = layers
+        self.heads = heads
+        self.context = context
+        self.head_dim = head_dim
+        self.length = 0
+        self.backing_directory = backing_directory
+        if backing_directory is not None:
+            backing_directory.mkdir(parents=True, exist_ok=True)
+        shape = (batch, heads, context, head_dim)
+        size = math.prod(shape)
+        self.keys = []
+        self.values = []
+        self._files = []
+        for layer in range(layers):
+            self.keys.append(self._allocate(shape, size, f"layer-{layer:02d}-key"))
+            self.values.append(self._allocate(shape, size, f"layer-{layer:02d}-value"))
+
+    def _allocate(self, shape: tuple[int, ...], size: int, name: str) -> torch.Tensor:
+        if self.backing_directory is None:
+            return torch.empty(shape, dtype=torch.float32, device="cpu")
+        path = self.backing_directory / f"{name}.bin"
+        with path.open("xb") as stream:
+            stream.truncate(size * torch.tensor([], dtype=torch.float32).element_size())
+        self._files.append(path)
+        return torch.from_file(str(path), shared=True, size=size, dtype=torch.float32).view(shape)
+
+    @property
+    def bytes(self) -> int:
+        return sum(item.numel() * item.element_size() for item in self.keys + self.values)
+
+    @property
+    def backing(self) -> str:
+        return "mmap" if self.backing_directory is not None else "ram"
+
+    def reset(self) -> None:
+        self.length = 0
 
 
 class TinyGPT(nn.Module):

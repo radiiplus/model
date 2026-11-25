@@ -1,0 +1,400 @@
+{
+  "baselines": {
+    "evaluation": "exact oracle output equality; no neural model involved",
+    "partitions": {
+      "compositional_test": {
+        "examples": 1008,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 1008,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 0,
+            "covered": 0,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 1008,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.4523809523809524
+          },
+          "template_system": {
+            "answer_text_examples": 1008,
+            "covered": 1008,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      },
+      "counterfactual_test": {
+        "examples": 1200,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 1200,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 0,
+            "covered": 0,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 1200,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.535
+          },
+          "template_system": {
+            "answer_text_examples": 1200,
+            "covered": 1200,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      },
+      "grammar_test": {
+        "examples": 168,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 168,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 0,
+            "covered": 0,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 168,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.5238095238095238
+          },
+          "template_system": {
+            "answer_text_examples": 168,
+            "covered": 168,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      },
+      "iid_test": {
+        "examples": 2520,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 2520,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 0,
+            "covered": 0,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 2520,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.5023809523809524
+          },
+          "template_system": {
+            "answer_text_examples": 2520,
+            "covered": 2520,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      },
+      "train": {
+        "examples": 17640,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 17640,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 17640,
+            "covered": 17640,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 17640,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.5197278911564626
+          },
+          "template_system": {
+            "answer_text_examples": 17640,
+            "covered": 17640,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      },
+      "validation": {
+        "examples": 2520,
+        "methods": {
+          "direct_oracle": {
+            "answer_text_examples": 0,
+            "covered": 2520,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 1.0
+          },
+          "exact_retrieval": {
+            "answer_text_examples": 0,
+            "covered": 0,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.0
+          },
+          "majority_answer": {
+            "answer_text_examples": 0,
+            "covered": 2520,
+            "exact_answer_text_accuracy": null,
+            "exact_structural_accuracy": 0.5166666666666667
+          },
+          "template_system": {
+            "answer_text_examples": 2520,
+            "covered": 2520,
+            "exact_answer_text_accuracy": 1.0,
+            "exact_structural_accuracy": 1.0
+          }
+        }
+      }
+    },
+    "training_rows": 17640
+  },
+  "files": [
+    {
+      "bytes": 11854,
+      "kind": "worlds",
+      "path": "worlds_train.jsonl.gz",
+      "records": 70,
+      "sha256": "6c6426566fa81f11434f2b0c81024ca55dfc991f3e821d9b84e2540735332a54",
+      "split": "train"
+    },
+    {
+      "bytes": 5098907,
+      "kind": "examples",
+      "path": "examples_train.jsonl.gz",
+      "records": 17640,
+      "sha256": "03de4b9410c698a3708e6d01b7c0ffbfc1e96f830629c34daab9359b93781a6f",
+      "split": "train"
+    },
+    {
+      "bytes": 2522,
+      "kind": "worlds",
+      "path": "worlds_validation.jsonl.gz",
+      "records": 10,
+      "sha256": "edbb9773dd2c948c187c06c3944b4a9de1d51effe0d87955d9437f079968476b",
+      "split": "validation"
+    },
+    {
+      "bytes": 733600,
+      "kind": "examples",
+      "path": "examples_validation.jsonl.gz",
+      "records": 2520,
+      "sha256": "4935a9a7309ccd51e59b0689e1309d66d82cd33aa11c878c3b74b8f2a9e6a8b7",
+      "split": "validation"
+    },
+    {
+      "bytes": 2550,
+      "kind": "worlds",
+      "path": "worlds_iid_test.jsonl.gz",
+      "records": 10,
+      "sha256": "85eccdca82212f4d6dfc71168914da8a9a562534b1c113979d9379d9db0c6425",
+      "split": "iid_test"
+    },
+    {
+      "bytes": 732454,
+      "kind": "examples",
+      "path": "examples_iid_test.jsonl.gz",
+      "records": 2520,
+      "sha256": "23cbe0ce4afb12cda4cf70d2111653d344c2cf8bd1ba5b6f9fdc9a25b61f5643",
+      "split": "iid_test"
+    },
+    {
+      "bytes": 1633,
+      "kind": "worlds",
+      "path": "worlds_compositional_test.jsonl.gz",
+      "records": 4,
+      "sha256": "dfff2dd239255e81fffb625ea7d41f840fabb4b153d7a949e803d9ea808b3053",
+      "split": "compositional_test"
+    },
+    {
+      "bytes": 291339,
+      "kind": "examples",
+      "path": "examples_compositional_test.jsonl.gz",
+      "records": 1008,
+      "sha256": "9c345949a4c4158c4a7a6cfec2986e1385790f725b53676aca2acd55e234e57f",
+      "split": "compositional_test"
+    },
+    {
+      "bytes": 1609,
+      "kind": "worlds",
+      "path": "worlds_counterfactual_test.jsonl.gz",
+      "records": 4,
+      "sha256": "76918243cd863ee4c89bf7cfd0fb93929754423492b9ed014f87291341ca7f60",
+      "split": "counterfactual_test"
+    },
+    {
+      "bytes": 350659,
+      "kind": "examples",
+      "path": "examples_counterfactual_test.jsonl.gz",
+      "records": 1200,
+      "sha256": "9cf0fdbeccf195761266ba99d839847d06e7855cea9cdbb2dad913d5b91991d9",
+      "split": "counterfactual_test"
+    },
+    {
+      "bytes": 1277,
+      "kind": "worlds",
+      "path": "worlds_grammar_test.jsonl.gz",
+      "records": 2,
+      "sha256": "7adb60aedb0e97b372145d70bbd6d906dee5feb1792c9315b3d68fb6452b679f",
+      "split": "grammar_test"
+    },
+    {
+      "bytes": 54779,
+      "kind": "examples",
+      "path": "examples_grammar_test.jsonl.gz",
+      "records": 168,
+      "sha256": "41800a6d8841408d3b6b8e90614286660bc4ce91c3ad0861c7f3db57fc1c210c",
+      "split": "grammar_test"
+    },
+    {
+      "bytes": 5297,
+      "kind": "baselines",
+      "path": "baselines.json",
+      "records": 6,
+      "sha256": "c2feb20342a955b06b4ffeb97d53125cfd6ac56da584da941b000d7ca560c07c",
+      "split": "all"
+    }
+  ],
+  "generator": "microworld-v1",
+  "manifest_sha256": "753a38eea03a2d92c89634a2262f461e287da4707c2372e38c0d526ef1179309",
+  "maximum_supported_worlds": 200000,
+  "schema": 1,
+  "seed": 920000,
+  "split_ratios": {
+    "compositional_test": 0.04,
+    "counterfactual_test": 0.04,
+    "grammar_test": 0.02,
+    "iid_test": 0.1,
+    "train": 0.7,
+    "validation": 0.1
+  },
+  "statistics": {
+    "compositions_by_split": {
+      "compositional_test": {
+        "nested_container_chain": 4
+      },
+      "counterfactual_test": {
+        "flat_placement": 4
+      },
+      "grammar_test": {
+        "flat_placement": 2
+      },
+      "iid_test": {
+        "flat_placement": 7,
+        "single_container_nesting": 3
+      },
+      "train": {
+        "flat_placement": 44,
+        "single_container_nesting": 26
+      },
+      "validation": {
+        "flat_placement": 7,
+        "single_container_nesting": 3
+      }
+    },
+    "counterfactual_pairs_checked": 4,
+    "episodes_by_split": {
+      "compositional_test": 24,
+      "counterfactual_test": 28,
+      "grammar_test": 12,
+      "iid_test": 60,
+      "train": 420,
+      "validation": 60
+    },
+    "examples": 25056,
+    "examples_by_split": {
+      "compositional_test": 1008,
+      "counterfactual_test": 1200,
+      "grammar_test": 168,
+      "iid_test": 2520,
+      "train": 17640,
+      "validation": 2520
+    },
+    "heldout_grammar_answer_templates": [
+      "heldout_answer:action_validity",
+      "heldout_answer:constraints",
+      "heldout_answer:entities",
+      "heldout_answer:location",
+      "heldout_answer:properties",
+      "heldout_answer:relationships",
+      "heldout_answer:transition"
+    ],
+    "heldout_grammar_templates": [
+      "heldout:inverted_order|action_validity",
+      "heldout:inverted_order|constraints",
+      "heldout:inverted_order|entities",
+      "heldout:inverted_order|location",
+      "heldout:inverted_order|properties",
+      "heldout:inverted_order|relationships",
+      "heldout:inverted_order|transition",
+      "heldout:negated_question|action_validity",
+      "heldout:negated_question|constraints",
+      "heldout:negated_question|entities",
+      "heldout:negated_question|location",
+      "heldout:negated_question|properties",
+      "heldout:negated_question|relationships",
+      "heldout:negated_question|transition"
+    ],
+    "tokens_by_split": {
+      "compositional_test": 304312,
+      "counterfactual_test": 364456,
+      "grammar_test": 52534,
+      "iid_test": 764620,
+      "train": 5352340,
+      "validation": 764620
+    },
+    "total_tokens_whitespace": 7602882,
+    "total_training_presentations": 17640,
+    "training_tokens_whitespace": 5352340,
+    "unique_answer_templates": 15,
+    "unique_grammar_constructions": 8,
+    "unique_prompts": 25056,
+    "unique_sentences": 11995,
+    "unique_state_transitions": 600,
+    "unique_templates": 62,
+    "unique_transitions": 600,
+    "unique_worlds": 100,
+    "world_partition_hash": "50903bca81a5c17979e1cdab2c94a553a6c05bdd1f22f62e97e003a6b1b83bdd",
+    "worlds": 100,
+    "worlds_by_split": {
+      "compositional_test": 4,
+      "counterfactual_test": 4,
+      "grammar_test": 2,
+      "iid_test": 10,
+      "train": 70,
+      "validation": 10
+    }
+  },
+  "token_count_method": "whitespace word count over prompt plus natural-language target",
+  "world_count_requested": 100
+}

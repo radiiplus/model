@@ -1,0 +1,101 @@
+{
+  "arms": {
+    "A": {
+      "backward_pass": true,
+      "gradient_norm": 3.183330535888672,
+      "initial_loss": 6.231764793395996,
+      "parameters": 4470272
+    },
+    "B": {
+      "backward_pass": true,
+      "gradient_norm": 0.8890044689178467,
+      "initial_loss": 1.8425462245941162,
+      "parameters": 4585665
+    },
+    "C": {
+      "backward_pass": true,
+      "gradient_norm": 3.312767267227173,
+      "initial_loss": 8.074311256408691,
+      "parameters": 4585665
+    },
+    "checkpoint_resume": {
+      "exact_model": true,
+      "exact_optimizer": true,
+      "exact_scheduler": true,
+      "split_updates": [
+        1,
+        2
+      ],
+      "uninterrupted_updates": 2
+    }
+  },
+  "checkpoint_files_saved_in_temp_directory": true,
+  "device": "cpu",
+  "evaluation_check": {
+    "A": {
+      "examples": 2,
+      "objective_loss": 6.27203893661499
+    },
+    "B": {
+      "examples": 2,
+      "objective_loss": 1.8697326183319092
+    },
+    "C": {
+      "examples": 2,
+      "objective_loss": 8.14177131652832
+    }
+  },
+  "free_generation_evaluator": {
+    "evaluator_returned": true,
+    "smoke_output": "the the "
+  },
+  "kind": "micro-world-smoke",
+  "memory_after": {
+    "available": 4946534400,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 3084066816,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 3102871552,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 4946534400
+  },
+  "memory_before": {
+    "available": 4946489344,
+    "device": "cpu",
+    "groups": [
+      {
+        "available": null,
+        "current": 3084054528,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup/init"
+      },
+      {
+        "available": null,
+        "current": 3102859264,
+        "kind": "v2",
+        "limit": null,
+        "path": "/sys/fs/cgroup"
+      }
+    ],
+    "host": 4946489344
+  },
+  "memory_guard_mib": 2560,
+  "note": "Forward/backward/evaluation/resource checks only; smoke values are not learning evidence.",
+  "passed": true,
+  "schema": 1,
+  "threads": 1,
+  "training_interpretation": false
+}

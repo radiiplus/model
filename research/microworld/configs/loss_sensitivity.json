@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "base_arm": "C",
+  "method": "one-factor-at-a-time structural-group weight sensitivity; no training run executed",
+  "base_weights": {
+    "entity": 1.0,
+    "property": 1.0,
+    "relationship": 1.0,
+    "negation": 1.0,
+    "temporal": 1.0,
+    "action": 1.0,
+    "precondition": 1.0,
+    "state_transition": 1.0,
+    "invalid_action": 1.0
+  },
+  "multipliers": [0.5, 1.0, 2.0],
+  "factor_groups": ["entity", "property", "relationship", "negation", "temporal", "action", "precondition", "state_transition", "invalid_action"],
+  "validation_selection_only": true,
+  "heldout_test_tuning": false
+}

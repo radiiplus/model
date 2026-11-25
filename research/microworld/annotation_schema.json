@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "span_convention": "half-open offsets; char offsets count Unicode code points; byte offsets count UTF-8 bytes; token offsets index frozen BPE tokens",
+  "required_fields": [
+    "type",
+    "label",
+    "text",
+    "char_start",
+    "char_end",
+    "byte_start",
+    "byte_end",
+    "token_start",
+    "token_end",
+    "token_indices"
+  ],
+  "annotation_types": {
+    "entity_mention": "Mention span with entity_id.",
+    "entity_identity": "Entity surface binding with entity_id.",
+    "entity_type": "Entity name or type word with entity_id.",
+    "property_mention": "Property key and value phrase with entity_id.",
+    "property_key": "Property key span with entity_id.",
+    "property_value": "Property value span and typed value with entity_id.",
+    "relationship_phrase": "Relation phrase with source_id and target_id.",
+    "relationship_type": "Relation type span with source_id and target_id.",
+    "relationship_source": "Source endpoint span with entity_id.",
+    "relationship_target": "Target endpoint span with entity_id.",
+    "negation": "Explicit negation token span.",
+    "temporal_reference": "Explicit temporal reference span.",
+    "action_mention": "Action phrase with structured action payload.",
+    "action_type": "Action phrase classified by action type.",
+    "action_validity": "Action phrase labeled valid or invalid from oracle result.",
+    "precondition": "Rendered rule phrase linked to an action type.",
+    "state_change": "Rendered state-change sentence grounded in before/after state.",
+    "state_change_entity": "Mention of an entity changed between states.",
+    "invalid_action": "Invalid action outcome labeled with oracle reason code.",
+    "violated_constraint": "Constraint name or explanation grounded in oracle result."
+  },
+  "overlap_policy": "Distinct annotations may overlap in character, byte, or token space. Preserve each sidecar annotation; token objective channels reject conflicting labels within one task."
+}

@@ -1,0 +1,419 @@
+{
+  "arms": [
+    "A",
+    "B",
+    "C"
+  ],
+  "configs": {
+    "A": {
+      "arm": "A",
+      "budget": {
+        "available_training_examples": 17640,
+        "available_training_structural_annotation_spans": 4973192,
+        "effective_batch_size": 1,
+        "examples_per_update": 1,
+        "gradient_accumulation": 1,
+        "language_target_tokens": 54184,
+        "max_sequence_tokens": 1024,
+        "structural_token_label_targets": 0,
+        "training_examples": 64,
+        "training_input_tokens": 54248,
+        "updates": 64
+      },
+      "comparison_note": "Same presentations and backbone budget; only next-token targets contribute gradients.",
+      "data": {
+        "dataset": "research/microworld/dataset_v4",
+        "example_presentation_order": "same 64 distinct uniformly sampled train rows and order from objective_manifest.json",
+        "test_splits": [
+          "iid_test",
+          "compositional_test",
+          "counterfactual_test",
+          "grammar_test"
+        ],
+        "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+        "training_split": "train",
+        "validation_split": "validation"
+      },
+      "dataset_manifest_sha256": "3df845563dd5f84a29ebd60d858e1798f6f7193f13fb1eebc2e1f4cb14525d19",
+      "evaluation": {
+        "decoder": "greedy",
+        "free_generation_samples_per_partition": 32,
+        "free_generation_seed": 20261127,
+        "max_new_tokens": 128,
+        "updates": [
+          0,
+          16,
+          32,
+          48,
+          64
+        ],
+        "validation_sample_size": 32,
+        "validation_seed": 20261126
+      },
+      "loss": {
+        "language": 1.0,
+        "structural_groups": {
+          "action": 0.0,
+          "entity": 0.0,
+          "invalid_action": 0.0,
+          "negation": 0.0,
+          "precondition": 0.0,
+          "property": 0.0,
+          "relationship": 0.0,
+          "state_transition": 0.0,
+          "temporal": 0.0
+        }
+      },
+      "model": {
+        "context_length": 1024,
+        "d_ff": 1024,
+        "d_model": 256,
+        "dtype": "float32",
+        "layers": 4,
+        "n_heads": 4,
+        "normalization": "pre_layernorm",
+        "position_embedding": "learned_absolute",
+        "vocab_size": 4096,
+        "weight_tying": true
+      },
+      "model_heads": {
+        "auxiliary_head": false,
+        "auxiliary_parameters": 0,
+        "backbone_parameters": 4470272
+      },
+      "name": "language_only",
+      "objective_manifest_sha256": "aa4e43cd4f707a668b719e9a24ebcde0cbe91a47b89c7961f661657a3880f261",
+      "optimizer": {
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 5e-05,
+        "name": "AdamW",
+        "seed": 20261125,
+        "weight_decay": 0.1
+      },
+      "scheduler": {
+        "decay_updates": 0,
+        "kind": "constant",
+        "learning_rate_multiplier": 1.0,
+        "warmup_updates": 0
+      },
+      "schema": 1,
+      "starting_checkpoint": "research/foundation/data/learn.pt",
+      "starting_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+      "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe"
+    },
+    "B": {
+      "arm": "B",
+      "budget": {
+        "available_training_examples": 17640,
+        "available_training_structural_annotation_spans": 4973192,
+        "effective_batch_size": 1,
+        "examples_per_update": 1,
+        "gradient_accumulation": 1,
+        "language_target_tokens": 0,
+        "max_sequence_tokens": 1024,
+        "structural_token_label_targets": 667116,
+        "training_examples": 64,
+        "training_input_tokens": 54248,
+        "updates": 64
+      },
+      "comparison_note": "Language-token target count is intentionally zero, so total optimized labels cannot be matched to Arm A; report both quantities.",
+      "data": {
+        "dataset": "research/microworld/dataset_v4",
+        "example_presentation_order": "same 64 distinct uniformly sampled train rows and order from objective_manifest.json",
+        "label_vocabulary_source": "training annotations only",
+        "test_splits": [
+          "iid_test",
+          "compositional_test",
+          "counterfactual_test",
+          "grammar_test"
+        ],
+        "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+        "training_split": "train",
+        "validation_split": "validation"
+      },
+      "dataset_manifest_sha256": "3df845563dd5f84a29ebd60d858e1798f6f7193f13fb1eebc2e1f4cb14525d19",
+      "evaluation": {
+        "decoder": "greedy",
+        "free_generation_samples_per_partition": 32,
+        "free_generation_seed": 20261127,
+        "max_new_tokens": 128,
+        "updates": [
+          0,
+          16,
+          32,
+          48,
+          64
+        ],
+        "validation_sample_size": 32,
+        "validation_seed": 20261126
+      },
+      "loss": {
+        "language": 0.0,
+        "normalization": "macro-average active classes within each task, tasks within group, then equally weighted groups",
+        "structural_groups": {
+          "action": 1.0,
+          "entity": 1.0,
+          "invalid_action": 1.0,
+          "negation": 1.0,
+          "precondition": 1.0,
+          "property": 1.0,
+          "relationship": 1.0,
+          "state_transition": 1.0,
+          "temporal": 1.0
+        }
+      },
+      "model": {
+        "context_length": 1024,
+        "d_ff": 1024,
+        "d_model": 256,
+        "dtype": "float32",
+        "layers": 4,
+        "n_heads": 4,
+        "normalization": "pre_layernorm",
+        "position_embedding": "learned_absolute",
+        "vocab_size": 4096,
+        "weight_tying": true
+      },
+      "model_heads": {
+        "auxiliary_head": true,
+        "auxiliary_parameters": 115393,
+        "backbone_parameters": 4470272,
+        "total_parameters": 4585665
+      },
+      "name": "dense_structure_only",
+      "objective_manifest_sha256": "aa4e43cd4f707a668b719e9a24ebcde0cbe91a47b89c7961f661657a3880f261",
+      "optimizer": {
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 5e-05,
+        "name": "AdamW",
+        "seed": 20261125,
+        "weight_decay": 0.1
+      },
+      "scheduler": {
+        "decay_updates": 0,
+        "kind": "constant",
+        "learning_rate_multiplier": 1.0,
+        "warmup_updates": 0
+      },
+      "schema": 1,
+      "starting_checkpoint": "research/foundation/data/learn.pt",
+      "starting_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+      "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe"
+    },
+    "C": {
+      "arm": "C",
+      "budget": {
+        "available_training_examples": 17640,
+        "available_training_structural_annotation_spans": 4973192,
+        "effective_batch_size": 1,
+        "examples_per_update": 1,
+        "gradient_accumulation": 1,
+        "language_target_tokens": 54184,
+        "max_sequence_tokens": 1024,
+        "structural_token_label_targets": 667116,
+        "training_examples": 64,
+        "training_input_tokens": 54248,
+        "updates": 64
+      },
+      "comparison_note": "Has more auxiliary parameters and both label families; report compute, parameter, language-token, and structural-label budgets separately.",
+      "data": {
+        "dataset": "research/microworld/dataset_v4",
+        "example_presentation_order": "same 64 distinct uniformly sampled train rows and order from objective_manifest.json",
+        "label_vocabulary_source": "training annotations only",
+        "test_splits": [
+          "iid_test",
+          "compositional_test",
+          "counterfactual_test",
+          "grammar_test"
+        ],
+        "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+        "training_split": "train",
+        "validation_split": "validation"
+      },
+      "dataset_manifest_sha256": "3df845563dd5f84a29ebd60d858e1798f6f7193f13fb1eebc2e1f4cb14525d19",
+      "evaluation": {
+        "decoder": "greedy",
+        "free_generation_samples_per_partition": 32,
+        "free_generation_seed": 20261127,
+        "max_new_tokens": 128,
+        "updates": [
+          0,
+          16,
+          32,
+          48,
+          64
+        ],
+        "validation_sample_size": 32,
+        "validation_seed": 20261126
+      },
+      "loss": {
+        "language": 1.0,
+        "normalization": "macro-average active classes within each task, tasks within group, then equally weighted groups",
+        "structural_groups": {
+          "action": 1.0,
+          "entity": 1.0,
+          "invalid_action": 1.0,
+          "negation": 1.0,
+          "precondition": 1.0,
+          "property": 1.0,
+          "relationship": 1.0,
+          "state_transition": 1.0,
+          "temporal": 1.0
+        }
+      },
+      "model": {
+        "context_length": 1024,
+        "d_ff": 1024,
+        "d_model": 256,
+        "dtype": "float32",
+        "layers": 4,
+        "n_heads": 4,
+        "normalization": "pre_layernorm",
+        "position_embedding": "learned_absolute",
+        "vocab_size": 4096,
+        "weight_tying": true
+      },
+      "model_heads": {
+        "auxiliary_head": true,
+        "auxiliary_parameters": 115393,
+        "backbone_parameters": 4470272,
+        "total_parameters": 4585665
+      },
+      "name": "language_plus_dense_structure",
+      "objective_manifest_sha256": "aa4e43cd4f707a668b719e9a24ebcde0cbe91a47b89c7961f661657a3880f261",
+      "optimizer": {
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 5e-05,
+        "name": "AdamW",
+        "seed": 20261125,
+        "weight_decay": 0.1
+      },
+      "scheduler": {
+        "decay_updates": 0,
+        "kind": "constant",
+        "learning_rate_multiplier": 1.0,
+        "warmup_updates": 0
+      },
+      "schema": 1,
+      "starting_checkpoint": "research/foundation/data/learn.pt",
+      "starting_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+      "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe"
+    }
+  },
+  "dataset_manifest_sha256": "3df845563dd5f84a29ebd60d858e1798f6f7193f13fb1eebc2e1f4cb14525d19",
+  "device": "cpu",
+  "effective_batch_size": 1,
+  "evaluation_updates": [
+    0,
+    16,
+    32,
+    48,
+    64
+  ],
+  "free_generation_sample_size_per_partition": 32,
+  "input_token_budget": 54248,
+  "kind": "microworld-controlled-pilot",
+  "language_target_tokens": 54184,
+  "memory_guard_mib": 2560,
+  "model": {
+    "context_length": 1024,
+    "d_ff": 1024,
+    "d_model": 256,
+    "dtype": "float32",
+    "layers": 4,
+    "n_heads": 4,
+    "normalization": "pre_layernorm",
+    "position_embedding": "learned_absolute",
+    "vocab_size": 4096,
+    "weight_tying": true
+  },
+  "objective_manifest_sha256": "aa4e43cd4f707a668b719e9a24ebcde0cbe91a47b89c7961f661657a3880f261",
+  "optimizer": {
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 5e-05,
+    "name": "AdamW",
+    "seed": 20261125,
+    "weight_decay": 0.1
+  },
+  "scheduler": {
+    "kind": "constant",
+    "lr_multiplier": 1.0
+  },
+  "schema": 1,
+  "seed": 20261125,
+  "starting_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "structural_token_label_targets": 667116,
+  "threads": 1,
+  "tokenizer_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe",
+  "training_examples": [
+    "world-00920001:pickup:relationships:common:compound_clause",
+    "world-00920058:invalid:transition:common:pronoun_reference",
+    "world-00920083:invalid:properties:common:declarative_svo",
+    "world-00920043:invalid:entities:common:temporal_sequence",
+    "world-00920005:give:transition:common:compound_clause",
+    "world-00920094:give:action_validity:common:declarative_svo",
+    "world-00920072:travel:location:common:pronoun_reference",
+    "world-00920031:travel:action_validity:common:pronoun_reference",
+    "world-00920089:store:relationships:common:inverse_relation",
+    "world-00920021:noop:relationships:common:declarative_svo",
+    "world-00920053:travel:constraints:common:temporal_sequence",
+    "world-00920083:invalid:entities:common:compact_ledger",
+    "world-00920008:noop:properties:common:inverse_relation",
+    "world-00920058:store:transition:common:compact_ledger",
+    "world-00920006:travel:constraints:common:inverse_relation",
+    "world-00920004:pickup:action_validity:common:temporal_sequence",
+    "world-00920052:noop:properties:common:temporal_sequence",
+    "world-00920030:invalid:constraints:common:temporal_sequence",
+    "world-00920013:give:relationships:common:inverse_relation",
+    "world-00920043:store:location:common:declarative_svo",
+    "world-00920049:invalid:transition:common:temporal_sequence",
+    "world-00920080:travel:location:common:pronoun_reference",
+    "world-00920060:store:transition:common:pronoun_reference",
+    "world-00920043:store:action_validity:common:compact_ledger",
+    "world-00920068:pickup:relationships:common:inverse_relation",
+    "world-00920068:pickup:transition:common:compound_clause",
+    "world-00920048:give:constraints:common:pronoun_reference",
+    "world-00920060:travel:relationships:common:inverse_relation",
+    "world-00920003:travel:properties:common:inverse_relation",
+    "world-00920060:pickup:properties:common:compound_clause",
+    "world-00920081:pickup:constraints:common:declarative_svo",
+    "world-00920070:invalid:location:common:temporal_sequence",
+    "world-00920085:pickup:entities:common:compact_ledger",
+    "world-00920019:give:entities:common:pronoun_reference",
+    "world-00920081:give:transition:common:temporal_sequence",
+    "world-00920025:travel:location:common:compact_ledger",
+    "world-00920041:travel:properties:common:temporal_sequence",
+    "world-00920076:invalid:entities:common:compact_ledger",
+    "world-00920081:noop:properties:common:declarative_svo",
+    "world-00920033:give:transition:common:temporal_sequence",
+    "world-00920080:invalid:action_validity:common:declarative_svo",
+    "world-00920007:store:action_validity:common:inverse_relation",
+    "world-00920033:invalid:relationships:common:declarative_svo",
+    "world-00920054:store:transition:common:pronoun_reference",
+    "world-00920090:travel:relationships:common:compact_ledger",
+    "world-00920010:store:relationships:common:pronoun_reference",
+    "world-00920021:pickup:properties:common:compact_ledger",
+    "world-00920019:travel:relationships:common:compound_clause",
+    "world-00920073:store:transition:common:declarative_svo",
+    "world-00920032:pickup:properties:common:inverse_relation",
+    "world-00920058:invalid:transition:common:compound_clause",
+    "world-00920081:store:transition:common:declarative_svo",
+    "world-00920033:give:transition:common:compound_clause",
+    "world-00920085:travel:action_validity:common:pronoun_reference",
+    "world-00920052:noop:entities:common:compact_ledger",
+    "world-00920004:invalid:relationships:common:inverse_relation",
+    "world-00920003:store:constraints:common:temporal_sequence",
+    "world-00920031:pickup:relationships:common:compound_clause",
+    "world-00920010:travel:action_validity:common:declarative_svo",
+    "world-00920058:give:properties:common:temporal_sequence",
+    "world-00920018:invalid:action_validity:common:compact_ledger",
+    "world-00920045:give:properties:common:inverse_relation",
+    "world-00920093:invalid:properties:common:compact_ledger",
+    "world-00920067:travel:transition:common:pronoun_reference"
+  ],
+  "training_started": false,
+  "phase": "aborted-before-training",
+  "abort_reason": "Initial free-generation baseline was too slow without incremental KV caching; no model updates or checkpoints were produced.",
+  "updates": 64,
+  "validation_sample_size": 32
+}

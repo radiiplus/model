@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "arm": "C",
+  "name": "language_plus_dense_structure",
+  "starting_checkpoint": "research/foundation/data/learn.pt",
+  "starting_checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "dataset_manifest_sha256": "3df845563dd5f84a29ebd60d858e1798f6f7193f13fb1eebc2e1f4cb14525d19",
+  "objective_manifest_sha256": "aa4e43cd4f707a668b719e9a24ebcde0cbe91a47b89c7961f661657a3880f261",
+  "tokenizer_file_sha256": "956cefc54a7f4e54761c477124d210a1068b0fdb8b0850ab7c77a275849b93fe",
+  "model": {
+    "vocab_size": 4096,
+    "context_length": 1024,
+    "layers": 4,
+    "d_model": 256,
+    "n_heads": 4,
+    "d_ff": 1024,
+    "position_embedding": "learned_absolute",
+    "normalization": "pre_layernorm",
+    "weight_tying": true,
+    "dtype": "float32"
+  },
+  "data": {
+    "dataset": "research/microworld/dataset_v4",
+    "training_split": "train",
+    "validation_split": "validation",
+    "test_splits": ["iid_test", "compositional_test", "counterfactual_test", "grammar_test"],
+    "example_presentation_order": "same 64 distinct uniformly sampled train rows and order from objective_manifest.json",
+    "tokenizer_digest": "28d45ae290e761e90c42f95dbe0ae68befb32c1ba44006f01e4dd46fa9dfcff8",
+    "label_vocabulary_source": "training annotations only"
+  },
+  "budget": {
+    "updates": 64,
+    "effective_batch_size": 1,
+    "gradient_accumulation": 1,
+    "examples_per_update": 1,
+    "max_sequence_tokens": 1024,
+    "training_examples": 64,
+    "training_input_tokens": 54248,
+    "language_target_tokens": 54184,
+    "structural_token_label_targets": 667116,
+    "available_training_examples": 17640,
+    "available_training_structural_annotation_spans": 4973192
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "learning_rate": 0.00005,
+    "weight_decay": 0.1,
+    "gradient_clip_norm": 1.0,
+    "seed": 20261125
+  },
+  "scheduler": {
+    "kind": "constant",
+    "learning_rate_multiplier": 1.0,
+    "warmup_updates": 0,
+    "decay_updates": 0
+  },
+  "evaluation": {
+    "updates": [0, 16, 32, 48, 64],
+    "validation_sample_size": 32,
+    "validation_seed": 20261126,
+    "free_generation_samples_per_partition": 32,
+    "free_generation_seed": 20261127,
+    "decoder": "greedy",
+    "max_new_tokens": 128
+  },
+  "model_heads": {
+    "auxiliary_head": true,
+    "backbone_parameters": 4470272,
+    "auxiliary_parameters": 115393,
+    "total_parameters": 4585665
+  },
+  "loss": {
+    "language": 1.0,
+    "structural_groups": {
+      "entity": 1.0,
+      "property": 1.0,
+      "relationship": 1.0,
+      "negation": 1.0,
+      "temporal": 1.0,
+      "action": 1.0,
+      "precondition": 1.0,
+      "state_transition": 1.0,
+      "invalid_action": 1.0
+    },
+    "normalization": "macro-average active classes within each task, tasks within group, then equally weighted groups"
+  },
+  "comparison_note": "Has more auxiliary parameters and both label families; report compute, parameter, language-token, and structural-label budgets separately."
+}

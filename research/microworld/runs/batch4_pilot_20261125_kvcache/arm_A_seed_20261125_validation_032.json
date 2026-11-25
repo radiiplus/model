@@ -1,0 +1,12 @@
+{
+  "arm": "A",
+  "examples": 32,
+  "input_tokens": 27430,
+  "language_next_token_nll": 5.536424068686652,
+  "objective_loss_per_example": 5.540814861655235,
+  "seed": 20261125,
+  "structural_group_losses": {},
+  "structural_objective_loss": null,
+  "teacher_forced_structural_accuracy": null,
+  "update": 32
+}

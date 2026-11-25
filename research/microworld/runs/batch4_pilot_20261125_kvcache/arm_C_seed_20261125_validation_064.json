@@ -1,0 +1,138 @@
+{
+  "arm": "C",
+  "examples": 32,
+  "input_tokens": 27430,
+  "language_next_token_nll": 4.98237927927399,
+  "objective_loss_per_example": 6.5731430649757385,
+  "seed": 20261125,
+  "structural_group_losses": {
+    "action": 2.016540542244911,
+    "entity": 2.2857478857040405,
+    "invalid_action": 0.4550221133977175,
+    "negation": 0.6341006821021438,
+    "precondition": 2.257165227085352,
+    "property": 2.9793196693062782,
+    "relationship": 2.0554556623101234,
+    "state_transition": 0.8391657983884215,
+    "temporal": 0.75611512362957
+  },
+  "structural_objective_loss": 1.5865147560834885,
+  "teacher_forced_structural_accuracy": {
+    "action_span": {
+      "accuracy": 0.8493554730172602,
+      "correct": 23325,
+      "total": 27462
+    },
+    "action_type": {
+      "accuracy": 0.3470115967885816,
+      "correct": 389,
+      "total": 1121
+    },
+    "action_validity": {
+      "accuracy": 0.6440677966101694,
+      "correct": 38,
+      "total": 59
+    },
+    "entity_binding": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 1354
+    },
+    "entity_identity": {
+      "accuracy": 0.10097757331799885,
+      "correct": 878,
+      "total": 8695
+    },
+    "entity_span": {
+      "accuracy": 0.009467627995047702,
+      "correct": 260,
+      "total": 27462
+    },
+    "entity_type": {
+      "accuracy": 0.25254292901673414,
+      "correct": 2309,
+      "total": 9143
+    },
+    "invalid_action": {
+      "accuracy": 0.9999271720923458,
+      "correct": 27460,
+      "total": 27462
+    },
+    "negation": {
+      "accuracy": 0.9988347534775326,
+      "correct": 27430,
+      "total": 27462
+    },
+    "precondition": {
+      "accuracy": 0.8251401937222343,
+      "correct": 22660,
+      "total": 27462
+    },
+    "property_key": {
+      "accuracy": 0.234375,
+      "correct": 390,
+      "total": 1664
+    },
+    "property_span": {
+      "accuracy": 0.006700167504187605,
+      "correct": 184,
+      "total": 27462
+    },
+    "property_value": {
+      "accuracy": 0.09817201951787925,
+      "correct": 2696,
+      "total": 27462
+    },
+    "relation": {
+      "accuracy": 0.01127554615926709,
+      "correct": 16,
+      "total": 1419
+    },
+    "relationship_source": {
+      "accuracy": 0.11685962373371925,
+      "correct": 323,
+      "total": 2764
+    },
+    "relationship_span": {
+      "accuracy": 0.044789163207341054,
+      "correct": 1230,
+      "total": 27462
+    },
+    "relationship_target": {
+      "accuracy": 0.1634980988593156,
+      "correct": 430,
+      "total": 2630
+    },
+    "relationship_type": {
+      "accuracy": 0.21469477275496526,
+      "correct": 1762,
+      "total": 8207
+    },
+    "state_change_entity": {
+      "accuracy": 0.3914191419141914,
+      "correct": 593,
+      "total": 1515
+    },
+    "state_change_span": {
+      "accuracy": 0.9815017114558299,
+      "correct": 26954,
+      "total": 27462
+    },
+    "state_transition": {
+      "accuracy": 0.04700854700854701,
+      "correct": 11,
+      "total": 234
+    },
+    "temporal_reference": {
+      "accuracy": 0.7007865414026655,
+      "correct": 19245,
+      "total": 27462
+    },
+    "violated_constraint": {
+      "accuracy": 0.9994173767387663,
+      "correct": 27446,
+      "total": 27462
+    }
+  },
+  "update": 64
+}

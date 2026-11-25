@@ -45,6 +45,7 @@ class Tokenizer:
         self.size = max(START, START + len(self.ranks))
         if self.size > target:
             raise ValueError("tokenizer vocabulary exceeds target")
+        self._digest_cache: str | None = None
 
     @classmethod
     def train(cls, texts: Iterable[str], target: int = 4096,
@@ -139,8 +140,10 @@ class Tokenizer:
 
     @property
     def digest(self) -> str:
-        raw = json.dumps(self._data(), sort_keys=True, separators=(",", ":")).encode()
-        return hashlib.sha256(raw).hexdigest()
+        if self._digest_cache is None:
+            raw = json.dumps(self._data(), sort_keys=True, separators=(",", ":")).encode()
+            self._digest_cache = hashlib.sha256(raw).hexdigest()
+        return self._digest_cache
 
     def _data(self) -> dict:
         return {"version": 1, "target": self.target, "seen": self.seen,
@@ -176,6 +179,61 @@ class Tokenizer:
         if eos:
             out.append(SPECIAL["EOS"])
         return out
+
+    def encode_with_offsets(self, text: str) -> dict[str, list]:
+        """Encode text and return exact UTF-8 byte and overlapping character spans.
+
+        Byte offsets are half-open offsets into text.encode('utf-8'). Character
+        offsets are half-open Unicode-code-point spans. A BPE token containing
+        only part of a multibyte code point maps to that full code point.
+        """
+        if not isinstance(text, str):
+            raise TypeError("text must be str")
+        raw = text.encode("utf-8")
+        ids: list[int] = []
+        byte_spans: list[tuple[int, int]] = []
+        cursor = 0
+        for match in PART.finditer(raw):
+            word = list(match.group())
+            spans = [(cursor + pos, cursor + pos + 1) for pos in range(len(word))]
+            while len(word) > 1:
+                best = None
+                for pos in range(len(word) - 1):
+                    rank = self.ranks.get((word[pos], word[pos + 1]))
+                    if rank is not None and (best is None or rank < best[0]):
+                        best = (rank, pos)
+                if best is None:
+                    break
+                pair = (word[best[1]], word[best[1] + 1])
+                code = self.codes[pair]
+                merged_tokens = []
+                merged_spans = []
+                pos = 0
+                while pos < len(word):
+                    if pos + 1 < len(word) and (word[pos], word[pos + 1]) == pair:
+                        merged_tokens.append(code)
+                        merged_spans.append((spans[pos][0], spans[pos + 1][1]))
+                        pos += 2
+                    else:
+                        merged_tokens.append(word[pos])
+                        merged_spans.append(spans[pos])
+                        pos += 1
+                word, spans = merged_tokens, merged_spans
+            ids.extend(word)
+            byte_spans.extend(spans)
+            cursor = match.end()
+
+        byte_to_char = [0] * len(raw)
+        byte_cursor = 0
+        for char_index, character in enumerate(text):
+            encoded_length = len(character.encode("utf-8"))
+            byte_to_char[byte_cursor:byte_cursor + encoded_length] = [char_index] * encoded_length
+            byte_cursor += encoded_length
+        char_spans = [(byte_to_char[start], byte_to_char[end - 1] + 1)
+                      for start, end in byte_spans]
+        if self.decode(ids) != text:
+            raise AssertionError("offset encoding failed to preserve the source text")
+        return {"ids": ids, "byte_offsets": byte_spans, "char_offsets": char_spans}
 
     def decode(self, ids: Iterable[int]) -> str:
         raw = bytearray()

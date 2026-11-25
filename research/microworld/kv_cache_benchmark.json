@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "foundation-cpu-kv-cache-benchmark",
+  "checkpoint_sha256": "76b60e84c3b203ef1a30bd93f0fd7e8c8fbe619d08799e57e7f434a6c237a5fe",
+  "model_parameters_changed": false,
+  "device": "cpu",
+  "torch_threads": 1,
+  "prompt_tokens": 756,
+  "generated_tokens": 24,
+  "cache_bytes": 8388608,
+  "greedy_token_sequences_identical": true,
+  "modes": {
+    "full_prefix_recompute": {
+      "seconds": 3.7984586479997233
+    },
+    "ram_backed_incremental_kv": {
+      "seconds": 0.19967450599961012,
+      "speedup_vs_full_recompute": 19.018
+    },
+    "mmap_backed_incremental_kv": {
+      "seconds": 0.1942404510000415,
+      "speedup_vs_full_recompute": 19.552
+    }
+  },
+  "generated_text": "the the the the the the the the the the the the ",
+  "note": "One local CPU timing sample. mmap benefits from OS page caching here and does not establish a sustained disk-spill advantage."
+}
