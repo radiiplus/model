@@ -9,4 +9,3 @@ research/microworld/dataset*/*.jsonl*
 # Keep generated structural and correction-pilot checkpoints out of Git history.
 research/structure/**/*.pt
 research/interaction/correction_pilot*/corrected.pt
-research/microworld/runs/**/*.pt
